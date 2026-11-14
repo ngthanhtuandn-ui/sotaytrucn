@@ -21,7 +21,7 @@
       user-select: none !important;
       -webkit-touch-callout: none !important;
     }
-    input, textarea, .day-note-input {
+    input, textarea {
       -webkit-user-select: text !important;
       -moz-user-select: text !important;
       -ms-user-select: text !important;
@@ -98,10 +98,9 @@
       margin-bottom: 6px; letter-spacing: 0.8px;
     }
     
-    /* HIỆU ỨNG CHỮ & TRÁI TIM ĐẬP NHỊP SIÊU LÃNG MẠN */
     .romantic-display-box {
-      font-size: 1.35rem; font-weight: 900; font-family: "Times New Roman", Times, serif; font-style: italic;
-      min-height: 44px; margin-bottom: 8px; display: flex; align-items: center; justify-content: center; gap: 6px;
+      font-size: 1.25rem; font-weight: 900; font-family: "Times New Roman", Times, serif; font-style: italic;
+      min-height: 40px; margin-bottom: 8px; display: flex; align-items: center; justify-content: center; gap: 6px;
       background: linear-gradient(45deg, #ff1493, #ff69b4, #ff1493, #c71585);
       background-size: 300% 300%;
       -webkit-background-clip: text;
@@ -116,37 +115,37 @@
       30% { transform: scale(0.96); }
     }
 
-    /* MODAL HIỆN ẢNH SIÊU LÃNG MẠN (MÃ 1314 + 🌸) */
+    /* MODAL HIỂN THỊ ẢNH TO RÕ, LÃNG MẠN (MÃ 1314 + 🌸) */
     #romanticPhotoModal {
       display: none; position: fixed; inset: 0; z-index: 100000;
-      background: rgba(76, 5, 25, 0.85); backdrop-filter: blur(8px);
-      align-items: center; justify-content: center; padding: 16px;
+      background: rgba(76, 5, 25, 0.88); backdrop-filter: blur(10px);
+      align-items: center; justify-content: center; padding: 20px;
     }
     .romantic-modal-card {
       background: linear-gradient(135deg, #ffffff 0%, #fff1f2 100%);
-      border: 2.5px solid #f43f5e; border-radius: 26px; padding: 22px;
-      max-width: 320px; width: 100%; text-align: center;
-      box-shadow: 0 16px 50px rgba(244, 63, 94, 0.4);
-      animation: modalPop 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+      border: 3px solid #f43f5e; border-radius: 30px; padding: 28px 20px;
+      max-width: 350px; width: 100%; text-align: center;
+      box-shadow: 0 20px 60px rgba(244, 63, 94, 0.5);
+      animation: modalPop 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
     @keyframes modalPop {
-      0% { transform: scale(0.8); opacity: 0; }
+      0% { transform: scale(0.75); opacity: 0; }
       100% { transform: scale(1); opacity: 1; }
     }
     .romantic-modal-img {
-      width: 160px; height: 160px; border-radius: 50%; object-fit: cover;
-      border: 4px solid #f43f5e; box-shadow: 0 8px 24px rgba(236, 72, 153, 0.4);
-      margin: 0 auto 14px auto; display: block;
+      width: 200px; height: 200px; border-radius: 50%; object-fit: cover;
+      border: 5px solid #f43f5e; box-shadow: 0 10px 30px rgba(236, 72, 153, 0.45);
+      margin: 0 auto 16px auto; display: block;
       animation: heartbeatText 2s ease-in-out infinite;
     }
     .romantic-modal-title {
-      font-size: 1.35rem; font-weight: 900; color: #be185d; margin-bottom: 14px;
+      font-size: 1.5rem; font-weight: 900; color: #be185d; margin-bottom: 16px;
       font-family: "Times New Roman", Times, serif; font-style: italic;
     }
     .romantic-modal-btn {
       background: linear-gradient(135deg, #f43f5e, #be185d); color: white; border: none;
-      padding: 10px 24px; border-radius: 14px; font-weight: 800; font-size: 0.88rem; cursor: pointer;
-      box-shadow: 0 4px 14px rgba(244, 63, 94, 0.3);
+      padding: 12px 28px; border-radius: 16px; font-weight: 800; font-size: 0.95rem; cursor: pointer;
+      box-shadow: 0 6px 16px rgba(244, 63, 94, 0.35);
     }
 
     .passcode-dots { display: flex; justify-content: center; gap: 12px; margin-bottom: 16px; }
@@ -404,10 +403,10 @@
     .week-select-menu { width: 100%; background: #fff1f2; border: 1.5px solid var(--primary); color: var(--primary-dark); font-weight: 700; font-size: 0.75rem; padding: 6px 8px; border-radius: 8px; }
     .btn-copy-month { background: #fdf2f8; border: 1.5px solid #fbcfe8; color: #be185d; font-size: 0.68rem; font-weight: 700; padding: 6px 8px; border-radius: 8px; cursor: pointer; }
 
-    .week-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px; text-align: center; margin-bottom: 8px; }
+    .week-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 3px; text-align: center; margin-bottom: 8px; }
     .day-col {
-      border: 1px solid var(--border); border-radius: 6px; padding: 4px 1px; background: #fafafa;
-      display: flex; flex-direction: column; align-items: center; justify-content: space-between; min-width: 0;
+      border: 1px solid var(--border); border-radius: 8px; padding: 6px 2px; background: #fafafa;
+      display: flex; flex-direction: column; align-items: center; justify-content: space-between; min-width: 0; min-height: 72px;
     }
     .day-col.today { border-color: var(--primary); outline: 1.5px solid #fbcfe8; }
 
@@ -431,22 +430,14 @@
     .day-col.is-hch .calendar-date { color: #3b0764 !important; font-weight: 900; }
     .day-col.is-hch .day-shift-select { border-color: #9333ea !important; color: #3b0764 !important; font-weight: 900; background: #e9d5ff !important; }
 
-    .day-name { font-size: 0.68rem; font-weight: 900; line-height: 1.1; }
-    .calendar-date { display: block; font-size: .60rem; margin: 1px 0 3px; font-weight: 900; }
+    .day-name { font-size: 0.72rem; font-weight: 900; line-height: 1.1; }
+    .calendar-date { display: block; font-size: .64rem; margin: 2px 0 4px; font-weight: 900; }
     
     .day-shift-select {
-      width: 98%; border: 1px solid var(--border); border-radius: 4px; font-size: 0.58rem;
-      padding: 3px 0; font-weight: 900; text-align: center; text-align-last: center; background: #fff;
+      width: 98%; border: 1px solid var(--border); border-radius: 6px; font-size: 0.65rem;
+      padding: 4px 0; font-weight: 900; text-align: center; text-align-last: center; background: #fff;
       -webkit-appearance: none; -moz-appearance: none; appearance: none; outline: none; cursor: pointer;
-      margin-bottom: 3px;
     }
-
-    .day-note-input {
-      width: 98%; border: 1px solid var(--border); border-radius: 4px; font-size: 0.55rem;
-      padding: 3px 2px; text-align: center; background: #ffffff; color: var(--text); outline: none;
-      resize: none; height: 26px; line-height: 1.1;
-    }
-    .day-note-input:focus { border-color: var(--primary); background: #fff; }
 
     .sync-calendar-panel { background: #fdf2f8; border: 1px solid #fbcfe8; border-radius: 10px; padding: 8px; margin-top: 8px; }
     .sync-row { display: flex; gap: 6px; align-items: center; }
@@ -473,29 +464,30 @@
       white-space: nowrap; box-shadow: 0 2px 8px rgba(244, 63, 94, 0.25);
     }
 
+    /* TINH CHỈNH KHU VỰC CÀI ĐẶT BÁO GIỜ CÂN ĐỐI, ĐỀU ĐẶN */
     .shift-settings-box { background: #fdf2f8; border: 1px solid var(--border); border-radius: 12px; padding: 10px; margin-top: 8px; }
     .shift-settings-title { font-size: 0.78rem; font-weight: 700; color: var(--primary-dark); margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center; }
     .shift-config-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
     
-    .shift-config-card { background: white; padding: 8px 6px; border-radius: 10px; border: 1.5px solid var(--border); display: flex; flex-direction: column; gap: 6px; }
+    .shift-config-card { background: white; padding: 8px 4px; border-radius: 10px; border: 1.5px solid var(--border); display: flex; flex-direction: column; gap: 6px; align-items: center; }
     .shift-config-card.card-c1 { background: #bae6fd !important; border-color: #0284c7 !important; }
     .shift-config-card.card-c2 { background: #fef08a !important; border-color: #ca8a04 !important; }
     .shift-config-card.card-hch { background: #e9d5ff !important; border-color: #9333ea !important; }
 
-    .shift-config-card h4 { font-size: 0.7rem; margin-bottom: 2px; text-align: center; font-weight: 900; }
+    .shift-config-card h4 { font-size: 0.68rem; margin-bottom: 2px; text-align: center; font-weight: 900; width: 100%; white-space: nowrap; }
     .card-c1 h4 { color: #0c4a6e !important; }
     .card-c2 h4 { color: #713f12 !important; }
     .card-hch h4 { color: #581c87 !important; }
 
-    .time-input-row { display: flex; flex-direction: column; gap: 2px; font-size: 0.65rem; font-weight: 800; }
+    .time-input-row { display: flex; align-items: center; justify-content: space-between; width: 100%; font-size: 0.65rem; font-weight: 800; gap: 2px; padding: 0 2px; }
     .card-c1 .time-input-row { color: #082f49 !important; }
     .card-c2 .time-input-row { color: #422006 !important; }
     .card-hch .time-input-row { color: #3b0764 !important; }
 
-    .time-input-wrap { position: relative; width: 100%; }
+    .time-input-wrap { width: 62px; }
     .time-input-wrap input {
-      width: 100%; padding: 5px 6px; font-size: 0.72rem; border-radius: 6px; text-align: center; font-weight: 800; background: #ffffff !important; border: 1.5px solid var(--border);
-      -webkit-appearance: none; appearance: none;
+      width: 100%; padding: 4px 1px; font-size: 0.68rem; border-radius: 6px; text-align: center; font-weight: 800; background: #ffffff !important; border: 1.5px solid var(--border);
+      -webkit-appearance: none; appearance: none; outline: none;
     }
     .time-input-wrap input::-webkit-calendar-picker-indicator { display: none; -webkit-appearance: none; }
 
@@ -512,18 +504,18 @@
     @media(max-width:560px) {
       header h1 { font-size:.88rem; }
       .header-btns button { padding:6px 7px; font-size:.68rem; }
-      .day-shift-select { font-size: 0.55rem; padding: 2px 0; }
+      .day-shift-select { font-size: 0.6rem; padding: 3px 0; }
     }
   </style>
 </head>
 <body>
 
-  <!-- MODAL HIỆN ẢNH SIÊU LÃNG MẠN (MÃ 1314 + 🌸) -->
+  <!-- MODAL HIỆN ẢNH NHÂN VẬT NAM TO RÕ KÈM LỜI NHẮN KHI NHẬP 1314 + 🌸 -->
   <div id="romanticPhotoModal">
     <div class="romantic-modal-card">
-      <img src="t2.jpg" alt="Ái Nhuy" class="romantic-modal-img">
-      <div class="romantic-modal-title">Anh Nhớ Em Nhiều Lắm 💕</div>
-      <button class="romantic-modal-btn" onclick="closeRomanticModal()">💖 Đóng lại 💖</button>
+      <img src="t2.jpg" alt="Nhân vật nam" class="romantic-modal-img">
+      <div class="romantic-modal-title">Anh Nhớ Em 💕</div>
+      <button class="romantic-modal-btn" onclick="closeRomanticModal()">💖 Đóng Lại 💖</button>
     </div>
   </div>
 
@@ -664,7 +656,7 @@
               </div>
             </div>
             <div class="shift-config-card card-hch">
-              <h4>Hành Chính</h4>
+              <h4>H.Chính</h4>
               <div class="time-input-row">
                 <span>Vào:</span>
                 <div class="time-input-wrap"><input type="time" id="cfg_hch_in" onchange="updateShiftTimeConfig()"></div>
@@ -751,7 +743,7 @@
           <label>Nội dung chi tiết</label>
           <textarea id="issueContent" placeholder="Mô tả..."></textarea>
         </div>
-        <button class="btn-submit btn-submit-purple" onclick="saveIssue()">+ Việc Cần Xử Lý</button>
+        <button class="btn-submit btn-submit-purple" onclick="saveIssue()">+ Lưu Việc Cần Xử Lý</button>
       </div>
       <div id="issuesList"></div>
     </div>
@@ -787,27 +779,18 @@
         if (romEl) romEl.innerText = "";
         updatePinDots();
       } else if (val === 'FLOWER') {
-        // MÃ BÍ MẬT 1314 + 🌸
         if (enteredPin === "1314") {
           const modal = document.getElementById('romanticPhotoModal');
           if (modal) modal.style.display = 'flex';
-          if (romEl) romEl.innerHTML = "💖 <b>Ái Nhuy Xinh Đẹp</b> 💖";
+          if (romEl) romEl.innerHTML = "💖 <b>Anh Nhớ Em</b> 💖";
           return;
-        } 
-        // MÃ 11111 + 🌸 -> Anh (Thiết kế cực kỳ lãng mạn)
-        else if (enteredPin === "11111") {
+        } else if (enteredPin === "11111") {
           if (romEl) romEl.innerHTML = "✨ 💖 <b>Anh</b> 💖 ✨";
-        } 
-        // MÃ 22222 + 🌸 -> nhớ (Thiết kế tim đập nhịp bay bổng)
-        else if (enteredPin === "22222") {
+        } else if (enteredPin === "22222") {
           if (romEl) romEl.innerHTML = "🌸 💓 <i>nhớ</i> 💓 🌸";
-        } 
-        // MÃ 33333 + 🌸 -> em (Thiết kế cực ngọt ngào)
-        else if (enteredPin === "33333") {
+        } else if (enteredPin === "33333") {
           if (romEl) romEl.innerHTML = "💕 ✨ <b>em</b> ✨ 💕";
-        } 
-        // CÁC MÃ TỪ 44444 ĐẾN 88888 + 🌸 (Icon lãng mạn, trái tim đập nhịp, nụ hôn, lá vàng rơi, Ái Nhuy xinh đẹp)
-        else if (enteredPin === "44444") {
+        } else if (enteredPin === "44444") {
           if (romEl) romEl.innerHTML = "💖 💋 🍁 <b>Ái Nhuy Xinh Đẹp Của Anh</b> 🍁 💋 💖";
         } else if (enteredPin === "55555") {
           if (romEl) romEl.innerHTML = "🍂 💓 💋 <b>Mãi Yêu Ái Nhuy Xinh Đẹp Nhất!</b> 💋 💓 🍂";
@@ -817,12 +800,9 @@
           if (romEl) romEl.innerHTML = "💖 🍂 💓 <b>Trái Tim Anh Chỉ Có Ái Nhuy Thôi!</b> 💓 🍂 💖";
         } else if (enteredPin === "88888") {
           if (romEl) romEl.innerHTML = "🍁 ✨ 💋 <b>Ái Nhuy Là Nữ Hoàng Của Trái Tim Anh!</b> 💋 ✨ 🍁";
-        } 
-        // MÃ 99999 + 🌸 -> Chúc em ngủ ngon thiết kế cực kì lãng mạn, yêu thương
-        else if (enteredPin === "99999") {
+        } else if (enteredPin === "99999") {
           if (romEl) romEl.innerHTML = "🌙 💖 ✨ <b>Chúc Em Ngủ Ngon & Mơ Thật Đẹp Nha!</b> ✨ 💖 🌙";
-        } 
-        else {
+        } else {
           if (romEl) romEl.innerHTML = "🌸 ❤️ <b>Ái Nhuy Xinh Đẹp Nhất Trời Nam!</b> ❤️ 🌸";
         }
         setTimeout(() => {
@@ -886,7 +866,6 @@
       sessionStorage.clear();
     });
 
-    // LÁ MÙA THU & TRÁI TIM RƠI KHẮP MÀN HÌNH
     function createFallingLeaves() {
       const leafChars = ['🍁', '🍂', '🍃', '🌿', '💖', '❤️', '💋', '🌸'];
       setInterval(() => {
@@ -1012,7 +991,7 @@
     let alarmAudioBlobUrl = null;
     let warningAudioBlobUrl = null;
 
-    // HƠN 100 CÂU CHÚC TỪ MÃ INDEX ĐƯỢC TÍCH HỢP ĐẦY ĐỦ
+    /* HƠN 100 CÂU CHÚC ĐẦY ĐỦ CHO CÁC BUỔI TRONG NGÀY */
     const wishesByTime = {
       morning: [
         { title: "Chào buổi sáng tình yêu! ☀️", quote: "Chào buổi sáng tình yêu của anh! Chúc em một ngày mới ngập tràn năng lượng, làm việc hiệu quả và gặp nhiều may mắn nhé. 💕" },
@@ -1068,7 +1047,7 @@
         { title: "Tự hào về em lắm! 🌟", quote: "Anh luôn cảm thấy vô cùng tự hào vì có một người yêu vừa giỏi giang lại vừa chu đáo như em." },
         { title: "Bình yên giữa bộn bề! 🍃", quote: "Giữa bộn bề công việc, mong rằng nghĩ về anh sẽ giúp em cảm thấy bình yên và nhẹ nhàng hơn." },
         { title: "Nhanh đến giờ về! ⏰", quote: "Đếm ngược thời gian chờ đến giờ tan ca để chúng ta lại được nhắn tin trò chuyện ngọt ngào nhé." },
-        { title: "Sự nghiệp thăng tiến! 📈", quote: "Chúc công việc chiều nay của em hanh thông, được cấp sự tin tưởng và đồng nghiệp yêu mến." },
+        { title: "Sự nghiệp thăng tiến! 📈", quote: "Chúc công việc chiều nay của em hanh thông, được sự tin tưởng từ cấp trên và yêu mến từ đồng nghiệp." },
         { title: "Tình cảm vững bền! 🏰", quote: "Tình yêu chúng ta giống như tòa lâu đài kiên cố, không gì có thể lay chuyển được." },
         { title: "Nụ hôn chiều tà! 💋", quote: "Gửi ngàn cái hôn dịu dàng vượt khoảng cách đến với cô gái ca chiều của anh." },
         { title: "Luôn mỉm cười nhé! 😁", quote: "Dù có chuyện gì xảy ra, hãy cứ giữ tinh thần lạc quan và nụ cười rạng rỡ trên môi em nhé." },
@@ -1083,14 +1062,44 @@
         { title: "Xả hơi thôi nào! 🛋️", quote: "Đã hoàn thành xuất sắc nhiệm vụ rồi, hãy gác lại mọi lo toan công việc để tận hưởng buổi tối bình yên nha." },
         { title: "Tự hào về em! 🌟", quote: "Hôm nay em đã làm việc rất chăm chỉ và vất vả rồi. Nghỉ ngơi thật tốt nhé cô gái ngoan." },
         { title: "Thành quả ngọt ngào! 🍇", quote: "Những nỗ lực trong ngày hôm nay của em hoàn toàn xứng đáng với kết quả tuyệt vời nhận được." },
-        { title: "Bình yên cuối ngày! 🌆", quote: "Hoàng hôn buông xuống, chúc em có những phút giây thư giãn nhẹ nhàng bên gia đình và người thân." }
+        { title: "Bình yên cuối ngày! 🌆", quote: "Hoàng hôn buông xuống, chúc em có những phút giây thư giãn nhẹ nhàng bên gia đình và người thân." },
+        { title: "Buổi tối ấm áp nhé! 🍲", quote: "Chúc bữa tối của em thật ngon miệng bên những người thân yêu và có khoảng thời gian thư thái." },
+        { title: "Thả lỏng cơ thể! 🌌", quote: "Sau một ngày dài bận rộn, giờ là lúc em thả lỏng cơ thể và tận hưởng sự yên bình của màn đêm." },
+        { title: "Xua tan căng thẳng! 🌠", quote: "Mong rằng buổi tối của em sẽ trôi qua thật nhẹ nhàng, xua tan đi mọi căng thẳng ngoài kia." },
+        { title: "Nạp lại năng lượng! ⚡", quote: "Tối nay nhớ ăn uống đầy đủ chất dinh dưỡng để nạp lại năng lượng cho ngày mai nhé em." },
+        { title: "Khoảnh khắc thư thái! 🎈", quote: "Khép lại một ngày dài, chúc em có buổi tối tràn ngập tiếng cười và những phút giây thoải mái." },
+        { title: "Dạo phố thư giãn! 🌆", quote: "Ánh đèn thành phố lên rồi, chúc em có những giờ phút dạo phố hoặc nghỉ ngơi thật thư thái." },
+        { title: "Yêu thương đong đầy! 💌", quote: "Gửi ngàn lời chúc tốt đẹp nhất đến em vào buổi tối yên bình này." },
+        { title: "Giấc ngủ chuẩn bị! 🌙", quote: "Chúc em có một buổi tối thật dịu ngọt, chuẩn bị tinh thần cho một giấc ngủ sâu trọn vẹn." },
+        { title: "Buổi tối an lành! 🕊️", quote: "Buổi tối an lành nhé cô gái nhỏ, mọi lo toan hãy để lại phía sau." },
+        { title: "Em rất tuyệt vời! 💖", quote: "Cảm ơn vì em đã luôn mạnh mẽ và tuyệt vời suốt cả ngày dài hôm nay." },
+        { title: "Thế giới giải trí! 🍿", quote: "Chúc em buổi tối xem phim, đọc sách hay thư giãn thật vui vẻ nha." },
+        { title: "Trăng sáng nhớ nhau! 🌟", quote: "Tối nay trời đẹp lắm, ngước lên nhìn trăng và biết rằng anh đang nhớ về em nhé." },
+        { title: "Ấm áp gió mùa! 🧣", quote: "Chúc tình yêu của anh có một buổi tối ấm áp, xua tan đi cái lạnh của gió mùa." },
+        { title: "Vòng tay yêu thương! 🤗", quote: "Mong rằng những điều ngọt ngào nhất sẽ ôm lấy em trong buổi tối hôm nay." },
+        { title: "Nghỉ ngơi sớm nha! 🛏️", quote: "Nghỉ ngơi thật sớm nha em, một buổi tối bình yên đang chờ đón em." }
       ],
       night: [
         { title: "Ngủ ngon nhé tình yêu! 🌙", quote: "Đã đến giờ đi ngủ rồi, chúc tình yêu của anh ngủ thật ngon và có những giấc mơ thật đẹp nhé. 💕" },
         { title: "Chúc mơ thấy anh! 💭", quote: "Đắp chăn ấm áp và ngủ thật sâu em nha, trong giấc mơ đêm nay nhớ ghé sang thăm anh đấy." },
         { title: "Giấc ngủ bình yên! 🌌", quote: "Chúc em có một đêm ngon giấc, xua tan mọi mỏi mệt để sáng mai thức dậy thật tươi trẻ." },
         { title: "Ôm em vào mộng! 🤗", quote: "Gửi ngàn cái ôm ngọt ngào qua màn hình, chúc Ái Nhuy ngủ ngon và có giấc mộng thật đẹp." },
-        { title: "Đêm nay thật êm đềm! 🌠", quote: "Ánh trăng ngoài kia đang dịu dàng ôm lấy giấc ngủ của em. Ngủ ngon nha công chúa của anh." }
+        { title: "Đêm nay thật êm đềm! 🌠", quote: "Ánh trăng ngoài kia đang dịu dàng ôm lấy giấc ngủ của em. Ngủ ngon nha công chúa của anh." },
+        { title: "Hơi ấm tình yêu! 💖", quote: "Chúc em chìm vào giấc ngủ trong sự bình yên và hơi ấm tình yêu của anh." },
+        { title: "Khởi đầu ngày mai! 🌅", quote: "Ngủ thật ngon giấc nhé em yêu, ngày mai lại là một khởi đầu tuyệt vời mới." },
+        { title: "Thế giới trong mơ! ✨", quote: "Chúc em mơ thấy những điều hạnh phúc nhất, thế giới trong mơ sẽ dịu dàng với em." },
+        { title: "Đắp chăn kỹ nhé! 🛌", quote: "Đêm nay lạnh rồi, em nhớ đắp chăn thật kỹ trước khi chìm vào giấc ngủ nha." },
+        { title: "Giấc ngủ sâu! 💤", quote: "Chúc em một giấc ngủ sâu không mộng mị, để sáng mai bừng sáng rạng ngời." },
+        { title: "Thả lỏng cơ thể! 🍃", quote: "Nhắm mắt lại và thả lỏng cơ thể thôi nào, cả ngày vất vả rồi, ngủ ngon em nhé." },
+        { title: "Người con gái trong tim! 💌", quote: "Gửi lời chúc ngủ ngon ngọt ngào nhất đến người con gái ngự trị trong tim anh." },
+        { title: "Tâm trạng phơi phới! 🌻", quote: "Chúc em ngủ ngon, mai thức dậy với một tâm trạng thật phơi phới và yêu đời." },
+        { title: "Anh luôn ở đây! 🛡️", quote: "Ngủ ngoan nhé em, có anh luôn dõi theo và bảo vệ giấc mơ của em từ xa." },
+        { title: "Giai điệu êm dịu! 🎶", quote: "Đêm đã khuya, chúc em có một giấc ngủ thật sâu và êm đềm bên những giai điệu êm dịu." },
+        { title: "Hoàn toàn thư giãn! 🌸", quote: "Chúc giấc ngủ của em không bị quấy rầy bởi bất cứ điều gì, hoàn toàn thư giãn." },
+        { title: "Hẹn gặp trong mơ! 💭", quote: "Hẹn gặp em trong những giấc mơ đẹp nhất đêm nay nhé, tình yêu của anh." },
+        { title: "Tuyệt diệu nhất! ⭐", quote: "Chúc cô gái của anh ngủ ngon, mơ thấy những điều tuyệt diệu nhất trên đời." },
+        { title: "Ánh trăng dịu dàng! 🌙", quote: "Đêm nay trăng rất sáng, giống như nụ cười dịu dàng của em đang thắp sáng tâm hồn anh. Ng ngủ ngon nha!" },
+        { title: "Bình yên trọn vẹn! 🕊️", quote: "Chúc em có một đêm trọn vẹn bình yên, giấc ngủ ngon sẽ mang lại cho em nguồn năng lượng mới vào ngày mai." }
       ]
     };
 
@@ -1416,13 +1425,6 @@
       }));
     }
 
-    function getWeekNotesData(wIdx) {
-      const key = getWeekStorageKey(wIdx) + '_notes';
-      const saved = localStorage.getItem(key);
-      if (saved) return JSON.parse(saved);
-      return {};
-    }
-
     function initMonthWeeksDropdown() {
       buildMonthWeeksList();
       const select = document.getElementById('weekDropdownSelect');
@@ -1460,7 +1462,6 @@
       if (!currentWeekObj) return;
 
       const shiftsData = getShiftsForWeekIndex(currentWeekIndex);
-      const notesData = getWeekNotesData(currentWeekIndex);
 
       dayLabels.forEach((d, idx) => {
         const dayDate = new Date(currentWeekObj.monday);
@@ -1471,7 +1472,6 @@
                          dayDate.getFullYear() === now.getFullYear());
 
         const savedShift = shiftsData[d.key] || 'off';
-        const savedNote = notesData[d.key] || '';
         const dateLabel = `${String(dayDate.getDate()).padStart(2,'0')}/${String(dayDate.getMonth()+1).padStart(2,'0')}`;
 
         let shiftClass = 'is-off';
@@ -1491,7 +1491,6 @@
             <option value="hch" ${savedShift === 'hch' ? 'selected' : ''}>H.Chính</option>
             <option value="off" ${savedShift === 'off' ? 'selected' : ''}>🔴 Off</option>
           </select>
-          <textarea class="day-note-input" placeholder="Ghi chú..." oninput="updateDayNote(${d.key}, this.value)">${escapeHtml(savedNote)}</textarea>
         `;
         container.appendChild(col);
       });
@@ -1515,20 +1514,11 @@
       showToast('Đã lưu lịch ca!');
     }
 
-    function updateDayNote(dayKey, val) {
-      const key = getWeekStorageKey(currentWeekIndex) + '_notes';
-      const notesData = getWeekNotesData(currentWeekIndex);
-      notesData[dayKey] = val;
-      localStorage.setItem(key, JSON.stringify(notesData));
-    }
-
     function copyCurrentWeekToAll() {
       const curData = getShiftsForWeekIndex(currentWeekIndex);
-      const curNotes = getWeekNotesData(currentWeekIndex);
-      if (confirm(`Áp dụng lịch và ghi chú tuần này cho cả tháng?`)) {
+      if (confirm(`Áp dụng lịch tuần này cho cả tháng?`)) {
         monthWeeksList.forEach(w => {
           localStorage.setItem(getWeekStorageKey(w.index), JSON.stringify(curData));
-          localStorage.setItem(getWeekStorageKey(w.index) + '_notes', JSON.stringify(curNotes));
         });
         localStorage.setItem('ainhuy_weekly_shifts', JSON.stringify(curData));
         renderWeekGrid();
@@ -1629,12 +1619,10 @@
         const wObj = monthWeeksList[wIdx];
         if (!wObj) return;
         const shiftsData = getShiftsForWeekIndex(wIdx);
-        const notesData = getWeekNotesData(wIdx);
 
         for (let i = 0; i < 7; i++) {
           const dayKey = i === 6 ? 8 : i + 2;
           const shift = shiftsData[dayKey] || 'off';
-          const dayNote = notesData[dayKey] ? `\nGhi chú: ${notesData[dayKey]}` : '';
 
           const dayDate = new Date(wObj.monday);
           dayDate.setDate(wObj.monday.getDate() + i);
@@ -1657,7 +1645,7 @@
               `DTSTART;VALUE=DATE:${dateStr}`,
               `DTEND;VALUE=DATE:${nextDateStr}`,
               `SUMMARY:🔴 Off`,
-              `DESCRIPTION:Hôm nay Ái Nhuy Off nghỉ ngơi nhé!${dayNote}`,
+              `DESCRIPTION:Hôm nay Ái Nhuy Off nghỉ ngơi nhé!`,
               `STATUS:CONFIRMED`,
               'END:VEVENT'
             ].join('\r\n'));
@@ -1693,7 +1681,7 @@
             `DTSTART:${inTimeUTC}`,
             `DTEND:${inTimeUTC}`,
             `SUMMARY:🔔 Vào ${shiftLabel} (${rawIn})`,
-            `DESCRIPTION:Đã đến giờ vào làm việc ${shiftLabel}.${dayNote}`,
+            `DESCRIPTION:Đã đến giờ vào làm việc ${shiftLabel}.`,
             `STATUS:CONFIRMED`,
             'BEGIN:VALARM',
             'TRIGGER:-PT0M',
@@ -1711,7 +1699,7 @@
             `DTSTART:${outTimeUTC}`,
             `DTEND:${outTimeUTC}`,
             `SUMMARY:🏁 Tan ${shiftLabel} (${rawOut})`,
-            `DESCRIPTION:Đã hết giờ làm việc ${shiftLabel}.${dayNote}`,
+            `DESCRIPTION:Đã hết giờ làm việc ${shiftLabel}.`,
             `STATUS:CONFIRMED`,
             'BEGIN:VALARM',
             'TRIGGER:-PT0M',
@@ -1729,7 +1717,7 @@
             `DTSTART:${inTimeUTC}`,
             `DTEND:${outTimeUTC}`,
             `SUMMARY:${summaryTitle}`,
-            `DESCRIPTION:Ca trực ${shiftLabel} từ ${rawIn} đến ${rawOut}.${dayNote}`,
+            `DESCRIPTION:Ca trực ${shiftLabel} từ ${rawIn} đến ${rawOut}.`,
             `STATUS:CONFIRMED`,
             'END:VEVENT'
           ].join('\r\n'));

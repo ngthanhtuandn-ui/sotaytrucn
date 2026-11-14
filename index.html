@@ -6,12 +6,11 @@
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
-  <title>Ái Nhuy 💕</title>
+  <title>Sổ Tay Tình Yêu & Lịch Ca Của Ái Nhuy 💕</title>
   <meta name="theme-color" content="#ec4899">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
-  <link rel="apple-touch-icon" href="https://cdn-icons-png.flaticon.com/512/2921/2921222.png">
 
   <!-- CHỐNG SAO CHÉP VÀ BÔI ĐEN TOÀN DIỆN -->
   <style>
@@ -22,7 +21,7 @@
       user-select: none !important;
       -webkit-touch-callout: none !important;
     }
-    input, textarea {
+    input, textarea, .day-note-input {
       -webkit-user-select: text !important;
       -moz-user-select: text !important;
       -ms-user-select: text !important;
@@ -99,7 +98,7 @@
       margin-bottom: 6px; letter-spacing: 0.8px;
     }
     .romantic-display-box {
-      font-size: 1.15rem; font-weight: 900; font-family: "Times New Roman", Times, serif; font-style: italic;
+      font-size: 1.25rem; font-weight: 900; font-family: "Times New Roman", Times, serif; font-style: italic;
       min-height: 32px; margin-bottom: 8px; display: flex; align-items: center; justify-content: center;
       background: linear-gradient(45deg, #ec4899, #9333ea, #f43f5e, #db2777);
       background-size: 300% 300%;
@@ -107,7 +106,7 @@
       -webkit-text-fill-color: transparent;
       animation: gradientShift 4s ease infinite;
       filter: drop-shadow(0 2px 6px rgba(236,72,153,0.3));
-      letter-spacing: 0.5px;
+      letter-spacing: 1px;
     }
 
     .passcode-dots { display: flex; justify-content: center; gap: 12px; margin-bottom: 16px; }
@@ -127,61 +126,6 @@
     }
     .flower-icon-spin { display: inline-block; animation: flowerSpin 6s linear infinite; font-size: 1.1rem; }
 
-    /* HIỆU ỨNG KHUNG ẢNH THƠ MỘNG CHO MÃ 1314 */
-    .romantic-photo-overlay {
-      position: fixed; inset: 0; z-index: 100002; background: rgba(76, 5, 25, 0.85);
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      padding: 20px; animation: fadeInModal 0.4s ease-out forwards;
-    }
-    @keyframes fadeInModal { from { opacity: 0; } to { opacity: 1; } }
-    
-    .romantic-photo-card {
-      background: linear-gradient(135deg, #fff1f2 0%, #ffffff 100%);
-      border: 3px solid #f43f5e; border-radius: 24px; padding: 16px; max-width: 320px; width: 100%;
-      box-shadow: 0 16px 50px rgba(244, 63, 94, 0.5); text-align: center; position: relative;
-      animation: popPhotoCard 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
-    }
-    @keyframes popPhotoCard {
-      0% { transform: scale(0.3) rotate(-10deg); opacity: 0; }
-      100% { transform: scale(1) rotate(0deg); opacity: 1; }
-    }
-    .romantic-photo-frame {
-      width: 100%; height: 320px; border-radius: 16px; overflow: hidden; border: 2px solid #fda4af;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.15); margin-bottom: 12px; position: relative;
-    }
-    .romantic-photo-frame img { width: 100%; height: 100%; object-fit: cover; }
-    .romantic-photo-title {
-      font-size: 1.15rem; font-weight: 900; font-family: "Times New Roman", Times, serif; font-style: italic;
-      background: linear-gradient(45deg, #be185d, #ec4899, #f43f5e, #7c3aed);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 10px;
-    }
-    .btn-close-photo {
-      background: linear-gradient(135deg, #f43f5e, #be185d); color: white; border: none;
-      padding: 8px 20px; border-radius: 12px; font-weight: 800; font-size: 0.85rem; cursor: pointer;
-      box-shadow: 0 4px 12px rgba(244,63,94,0.3);
-    }
-
-    .center-sticker-pop {
-      position: fixed; top: 40%; left: 50%; transform: translate(-50%, -50%);
-      font-size: 4.5rem; z-index: 100001; pointer-events: none;
-      animation: stickerPop 2.2s ease-out forwards;
-    }
-    @keyframes stickerPop {
-      0% { transform: translate(-50%, -50%) scale(0.2); opacity: 0; }
-      25% { transform: translate(-50%, -50%) scale(1.25); opacity: 1; }
-      45% { transform: translate(-50%, -50%) scale(0.95); opacity: 1; }
-      65% { transform: translate(-50%, -50%) scale(1.1); opacity: 1; }
-      100% { transform: translate(-50%, -50%) scale(1.4); opacity: 0; }
-    }
-    .floating-particle {
-      position: fixed; bottom: -50px; z-index: 100000; pointer-events: none;
-      animation: floatUpEffect 2.5s ease-out forwards;
-    }
-    @keyframes floatUpEffect {
-      0% { transform: translateY(0) scale(0.6) rotate(0deg); opacity: 1; }
-      100% { transform: translateY(-90vh) scale(1.3) rotate(360deg); opacity: 0; }
-    }
-
     .falling-leaf {
       position: fixed; top: -10vh; z-index: 999; pointer-events: none;
       animation: fallLeaf linear infinite;
@@ -197,6 +141,7 @@
       color: white; padding: 12px 16px; position: sticky; top: 0; z-index: 100;
       box-shadow: 0 6px 22px rgba(219,39,119,.25); display: flex; justify-content: space-between; align-items: center; gap: 6px;
     }
+    
     .header-title-name {
       font-size: 1.45rem; font-weight: 900; font-family: "Times New Roman", Times, serif; font-style: italic;
       background: linear-gradient(45deg, #ffffff, #fde047, #fbcfe8, #ffffff, #fed7aa);
@@ -205,6 +150,7 @@
       -webkit-text-fill-color: transparent;
       animation: gradientShift 5s ease infinite;
       letter-spacing: 0.8px;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15));
     }
     @keyframes gradientShift {
       0% { background-position: 0% 50%; }
@@ -231,8 +177,8 @@
       box-shadow: 0 8px 24px rgba(244,63,94,.08); display: flex; align-items: center; justify-content: space-between; gap: 12px;
     }
     .greeting-info { display: flex; flex-direction: column; gap: 4px; flex: 1; cursor: pointer; min-width: 0; }
-    .greeting-title { font-size: 1.02rem; font-weight: 800; color: #be185d; }
-    .greeting-quote { font-size: 0.84rem; font-weight: 700; color: #e11d48; }
+    .greeting-title { font-size: 1.02rem; font-weight: 800; color: #be185d; line-height: 1.25; }
+    .greeting-quote { font-size: 0.84rem; font-weight: 700; color: #e11d48; line-height: 1.35; }
     .greeting-text-sub { font-size: 0.76rem; font-weight: 600; color: #64748b; margin-top: 2px; }
     .weather-status-text { font-size: 0.74rem; color: #64748b; font-weight: 600; }
 
@@ -240,6 +186,7 @@
       position: relative; width: 86px; height: 68px; display: flex; align-items: center; justify-content: center;
       cursor: pointer; flex-shrink: 0;
     }
+
     .sunny-animated-box { position: relative; width: 68px; height: 68px; display: flex; align-items: center; justify-content: center; }
     .sun-core {
       width: 32px; height: 32px; border-radius: 50%;
@@ -256,6 +203,7 @@
     .sun-beam:nth-child(2) { transform: rotate(45deg); }
     .sun-beam:nth-child(3) { transform: rotate(90deg); }
     .sun-beam:nth-child(4) { transform: rotate(135deg); }
+
     @keyframes sunSpin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
     @keyframes sunPulse {
       0% { transform: scale(0.92); box-shadow: 0 0 12px rgba(245, 158, 11, 0.5); }
@@ -294,6 +242,7 @@
     .night-sparkle.st-mid-left-low { bottom: 8px; left: 10px; font-size: 14px; color: #fde047; }
     .night-sparkle.st-near-left { bottom: 16px; left: 42px; font-size: 10px; color: #93c5fd; }
     .night-sparkle.st-near-moon { top: 4px; left: 34px; font-size: 12px; color: #ffffff; }
+
     @keyframes moonGlow {
       0% { filter: drop-shadow(0 0 6px rgba(250, 204, 21, 0.5)); transform: rotate(-18deg) scale(0.97); }
       100% { filter: drop-shadow(0 0 18px rgba(250, 204, 21, 1)); transform: rotate(-18deg) scale(1.05); }
@@ -335,33 +284,31 @@
       font-weight: 800; cursor: pointer; white-space: nowrap; box-shadow: 0 2px 6px rgba(0,0,0,0.15);
     }
 
-    /* TINH CHỈNH CÁC TAB NHỎ GỌN, ĐẸP MẮT, LÃNG MẠN HỢP VỚI NỮ */
-    .nav-tabs {
-      display: flex; gap: 8px; margin-bottom: 14px; background: rgba(255, 255, 255, 0.7);
-      padding: 6px; border-radius: 16px; border: 1.5px solid #fbcfe8;
-      box-shadow: 0 4px 16px rgba(236, 72, 153, 0.08); backdrop-filter: blur(8px);
-    }
+    .nav-tabs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; margin-bottom: 12px; }
     .nav-tab-btn {
-      flex: 1; padding: 8px 6px; border-radius: 12px; border: 1px solid transparent; background: transparent;
-      font-size: 0.76rem; font-weight: 700; color: #9f1239; cursor: pointer; text-align: center;
-      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px;
+      padding: 10px 4px; border-radius: 12px; border: 1px solid var(--border); background: white;
+      font-size: 0.78rem; font-weight: 700; color: var(--muted); cursor: pointer; text-align: center;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     }
-    .nav-tab-btn:hover { background: #ffe4e6; }
     .nav-tab-btn.active {
-      background: linear-gradient(135deg, #ec4899 0%, #db2777 100%); color: white; border-color: #f43f5e;
-      box-shadow: 0 4px 14px rgba(236, 72, 153, 0.35); transform: translateY(-1px);
+      background: var(--primary); color: white; border-color: var(--primary);
+      box-shadow: 0 4px 12px rgba(236, 72, 153, 0.25);
     }
-    .nav-tab-btn.active-journal {
-      background: linear-gradient(135deg, #f43f5e 0%, #be185d 100%) !important; color: white !important; border-color: #fda4af !important;
-      box-shadow: 0 4px 14px rgba(244, 63, 94, 0.35);
+    .nav-tab-btn-two-lines {
+      display: flex; flex-direction: column; align-items: center; justify-content: center; line-height: 1.2;
     }
+    .nav-tab-btn.active-journal { background: #ffe4e6 !important; color: #be185d !important; border-color: #f43f5e !important; }
 
     .card-box {
       background: var(--card); border-radius: 18px; padding: 14px; margin-bottom: 12px;
       border: 1px solid var(--border); box-shadow: 0 4px 16px rgba(244,63,94,.04);
     }
     .card-journal { background: var(--journal-bg); border: 1.5px solid var(--journal-border); }
-    .journal-heading { font-size: 0.75rem; font-weight: 800; color: var(--journal-text); margin-bottom: 10px; text-align: center; }
+    
+    .journal-heading { 
+      font-size: 0.75rem; font-weight: 800; color: var(--journal-text); margin-bottom: 10px; 
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis; width: 100%; text-align: center;
+    }
     .btn-journal-submit { background: linear-gradient(135deg, #f43f5e 0%, #be185d 100%); color: white; }
 
     .search-filter-box {
@@ -384,10 +331,13 @@
     .btn-submit {
       width: 100%; background: var(--primary); color: white; border: none; padding: 11px;
       border-radius: 10px; font-weight: 700; font-size: 0.88rem; cursor: pointer;
+      box-shadow: 0 4px 12px rgba(236, 72, 153, 0.2);
     }
     .btn-submit-purple { background: var(--purple); }
 
-    .journal-card-item { background: #ffffff; border-radius: 14px; padding: 12px; margin-bottom: 10px; border: 1.5px solid #fbcfe8; }
+    .journal-card-item {
+      background: #ffffff; border-radius: 14px; padding: 12px; margin-bottom: 10px; border: 1.5px solid #fbcfe8;
+    }
     .journal-card-item.done { opacity: 0.65; background: #fafaf9; border-color: #e2e8f0; }
     .badge-journal { background: #ffe4e6; color: #be185d; }
 
@@ -408,16 +358,16 @@
     .btn-zalo { background: #0068ff; color: white; border: none; }
     .btn-delete { color: var(--danger); border-color: #fecaca; background: #fff5f5; }
 
-    .week-table-card { background: white; border-radius: 16px; border: 1px solid var(--border); padding: 10px; margin-bottom: 10px; }
-    .week-control-bar { display: flex; align-items: center; gap: 6px; margin-bottom: 10px; }
+    .week-table-card { background: white; border-radius: 16px; border: 1px solid var(--border); padding: 8px; margin-bottom: 10px; }
+    .week-control-bar { display: flex; align-items: center; gap: 6px; margin-bottom: 8px; }
     .week-dropdown-wrap { flex: 1; }
     .week-select-menu { width: 100%; background: #fff1f2; border: 1.5px solid var(--primary); color: var(--primary-dark); font-weight: 700; font-size: 0.75rem; padding: 6px 8px; border-radius: 8px; }
     .btn-copy-month { background: #fdf2f8; border: 1.5px solid #fbcfe8; color: #be185d; font-size: 0.68rem; font-weight: 700; padding: 6px 8px; border-radius: 8px; cursor: pointer; }
 
-    .week-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; text-align: center; margin-bottom: 10px; }
+    .week-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px; text-align: center; margin-bottom: 8px; }
     .day-col {
-      border: 1px solid var(--border); border-radius: 8px; padding: 6px 2px; background: #fafafa;
-      display: flex; flex-direction: column; align-items: center; justify-content: flex-start; min-width: 0; min-height: 82px;
+      border: 1px solid var(--border); border-radius: 6px; padding: 4px 1px; background: #fafafa;
+      display: flex; flex-direction: column; align-items: center; justify-content: space-between; min-width: 0;
     }
     .day-col.today { border-color: var(--primary); outline: 1.5px solid #fbcfe8; }
 
@@ -441,14 +391,22 @@
     .day-col.is-hch .calendar-date { color: #3b0764 !important; font-weight: 900; }
     .day-col.is-hch .day-shift-select { border-color: #9333ea !important; color: #3b0764 !important; font-weight: 900; background: #e9d5ff !important; }
 
-    .day-name { font-size: 0.68rem; font-weight: 900; line-height: 1.1; margin-bottom: 2px; }
-    .calendar-date { display: block; font-size: .60rem; margin-bottom: 6px; font-weight: 900; }
+    .day-name { font-size: 0.68rem; font-weight: 900; line-height: 1.1; }
+    .calendar-date { display: block; font-size: .60rem; margin: 1px 0 3px; font-weight: 900; }
     
     .day-shift-select {
-      width: 96%; border: 1px solid var(--border); border-radius: 6px; font-size: 0.62rem;
-      padding: 4px 0; font-weight: 900; text-align: center; text-align-last: center; background: #fff;
-      -webkit-appearance: none; appearance: none; outline: none; cursor: pointer;
+      width: 98%; border: 1px solid var(--border); border-radius: 4px; font-size: 0.58rem;
+      padding: 3px 0; font-weight: 900; text-align: center; text-align-last: center; background: #fff;
+      -webkit-appearance: none; -moz-appearance: none; appearance: none; outline: none; cursor: pointer;
+      margin-bottom: 3px;
     }
+
+    .day-note-input {
+      width: 98%; border: 1px solid var(--border); border-radius: 4px; font-size: 0.55rem;
+      padding: 3px 2px; text-align: center; background: #ffffff; color: var(--text); outline: none;
+      resize: none; height: 26px; line-height: 1.1;
+    }
+    .day-note-input:focus { border-color: var(--primary); background: #fff; }
 
     .sync-calendar-panel { background: #fdf2f8; border: 1px solid #fbcfe8; border-radius: 10px; padding: 8px; margin-top: 8px; }
     .sync-row { display: flex; gap: 6px; align-items: center; }
@@ -480,33 +438,41 @@
     .shift-config-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
     
     .shift-config-card { background: white; padding: 8px 6px; border-radius: 10px; border: 1.5px solid var(--border); display: flex; flex-direction: column; gap: 6px; }
-    .shift-config-card.card-hch { background: #e9d5ff !important; border-color: #9333ea !important; }
     .shift-config-card.card-c1 { background: #bae6fd !important; border-color: #0284c7 !important; }
     .shift-config-card.card-c2 { background: #fef08a !important; border-color: #ca8a04 !important; }
+    .shift-config-card.card-hch { background: #e9d5ff !important; border-color: #9333ea !important; }
 
     .shift-config-card h4 { font-size: 0.7rem; margin-bottom: 2px; text-align: center; font-weight: 900; }
-    .card-hch h4 { color: #581c87 !important; }
     .card-c1 h4 { color: #0c4a6e !important; }
     .card-c2 h4 { color: #713f12 !important; }
+    .card-hch h4 { color: #581c87 !important; }
 
     .time-input-row { display: flex; flex-direction: column; gap: 2px; font-size: 0.65rem; font-weight: 800; }
-    .card-hch .time-input-row { color: #3b0764 !important; }
     .card-c1 .time-input-row { color: #082f49 !important; }
     .card-c2 .time-input-row { color: #422006 !important; }
+    .card-hch .time-input-row { color: #3b0764 !important; }
 
     .time-input-wrap { position: relative; width: 100%; }
     .time-input-wrap input {
       width: 100%; padding: 5px 6px; font-size: 0.72rem; border-radius: 6px; text-align: center; font-weight: 800; background: #ffffff !important; border: 1.5px solid var(--border);
       -webkit-appearance: none; appearance: none;
     }
-    .card-hch .time-input-wrap input { border-color: #9333ea !important; color: #3b0764 !important; }
+    .time-input-wrap input::-webkit-calendar-picker-indicator { display: none; -webkit-appearance: none; }
+
     .card-c1 .time-input-wrap input { border-color: #0284c7 !important; color: #082f49 !important; }
     .card-c2 .time-input-wrap input { border-color: #ca8a04 !important; color: #422006 !important; }
+    .card-hch .time-input-wrap input { border-color: #9333ea !important; color: #3b0764 !important; }
 
     #toast {
       position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%); background: rgba(76, 5, 25, 0.94);
       color: white; padding: 10px 20px; border-radius: 24px; font-size: 0.84rem; display: none; z-index: 1000;
       box-shadow: 0 6px 18px rgba(0,0,0,0.25); text-align: center; max-width: 90%;
+    }
+
+    @media(max-width:560px) {
+      header h1 { font-size:.88rem; }
+      .header-btns button { padding:6px 7px; font-size:.68rem; }
+      .day-shift-select { font-size: 0.55rem; padding: 2px 0; }
     }
   </style>
 </head>
@@ -515,7 +481,7 @@
   <!-- MÀN HÌNH KHÓA BẢO MẬT (PASSCODE 131426) -->
   <div id="lockScreen">
     <div class="lock-box">
-      <div class="lock-brand-title">Ái Nhuy</div>
+      <div class="lock-brand-title">Sổ Tay Ái Nhuy</div>
       <div class="romantic-display-box" id="romanticDisplay"></div>
       <div class="passcode-dots">
         <div class="dot" id="dot-0"></div>
@@ -543,6 +509,7 @@
   </div>
 
   <audio id="alarmAudioElement" preload="auto" loop></audio>
+  <audio id="warningAudioElement" preload="auto" loop></audio>
 
   <header>
     <h1><span class="header-title-name">Ái Nhuy</span></h1>
@@ -583,20 +550,13 @@
       </div>
     </div>
 
-    <!-- TAB ĐIỀU HƯỚNG NHỎ GỌN, ĐẸP MẮT & LÃNG MẠN -->
     <div class="nav-tabs">
-      <button class="nav-tab-btn active" id="tabBtn-shifts" onclick="switchView('shifts')">
-        <span>📅</span>
-        <span>Lịch Ca</span>
+      <button class="nav-tab-btn active" id="tabBtn-shifts" onclick="switchView('shifts')">📅 Lịch Ca</button>
+      <button class="nav-tab-btn nav-tab-btn-two-lines" id="tabBtn-journal" onclick="switchView('journal')">
+        <span>💌 Nhật kí</span>
+        <span>Tình yêu</span>
       </button>
-      <button class="nav-tab-btn" id="tabBtn-journal" onclick="switchView('journal')">
-        <span>💌</span>
-        <span>Nhật Ký</span>
-      </button>
-      <button class="nav-tab-btn" id="tabBtn-issues" onclick="switchView('issues')">
-        <span>⚡</span>
-        <span>Việc Làm</span>
-      </button>
+      <button class="nav-tab-btn" id="tabBtn-issues" onclick="switchView('issues')">⚡ Việc Cần Làm</button>
     </div>
 
     <!-- VIEW 1: LỊCH CA -->
@@ -632,17 +592,6 @@
             <span style="font-size:0.68rem; font-weight:bold; color:#10b981;">● Báo thức kích hoạt</span>
           </div>
           <div class="shift-config-grid">
-            <div class="shift-config-card card-hch">
-              <h4>Hành Chính</h4>
-              <div class="time-input-row">
-                <span>Vào:</span>
-                <div class="time-input-wrap"><input type="time" id="cfg_hch_in" onchange="updateShiftTimeConfig()"></div>
-              </div>
-              <div class="time-input-row">
-                <span>Ra:</span>
-                <div class="time-input-wrap"><input type="time" id="cfg_hch_out" onchange="updateShiftTimeConfig()"></div>
-              </div>
-            </div>
             <div class="shift-config-card card-c1">
               <h4>Ca 1 (Sáng)</h4>
               <div class="time-input-row">
@@ -665,12 +614,23 @@
                 <div class="time-input-wrap"><input type="time" id="cfg_c2_out" onchange="updateShiftTimeConfig()"></div>
               </div>
             </div>
+            <div class="shift-config-card card-hch">
+              <h4>Hành Chính</h4>
+              <div class="time-input-row">
+                <span>Vào:</span>
+                <div class="time-input-wrap"><input type="time" id="cfg_hch_in" onchange="updateShiftTimeConfig()"></div>
+              </div>
+              <div class="time-input-row">
+                <span>Ra:</span>
+                <div class="time-input-wrap"><input type="time" id="cfg_hch_out" onchange="updateShiftTimeConfig()"></div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- VIEW 2: NHẬT KÝ -->
+    <!-- VIEW 2: NHẬT KÝ TÌNH YÊU & CÔNG VIỆC -->
     <div id="view-journal" style="display:none;">
       <div class="card-box card-journal">
         <div class="journal-heading">💌 Ghi Nhật Ký Tình Yêu & Công Việc Trong Ngày</div>
@@ -703,7 +663,7 @@
           <label>Nội dung chi tiết</label>
           <textarea id="journalContent" placeholder="Nội dung..."></textarea>
         </div>
-        <button class="btn-submit btn-journal-submit" onclick="saveJournalEntry()">+ Lưu Vào Nhật Ký 💕</button>
+        <button class="btn-submit btn-journal-submit" id="btnSaveJournal" onclick="saveJournalEntry()">+ Lưu Vào Nhật Ký 💕</button>
       </div>
 
       <div class="search-filter-box">
@@ -761,6 +721,7 @@
       if (lockEl) lockEl.style.display = 'flex';
       const romEl = document.getElementById('romanticDisplay');
       if (romEl) romEl.innerText = "";
+      sessionStorage.clear();
     }
 
     function pressKey(val) {
@@ -770,28 +731,20 @@
         if (romEl) romEl.innerText = "";
         updatePinDots();
       } else if (val === 'FLOWER') {
-        const effectsMap = {
-          "11111": { text: "✨ Anh ✨", type: "none" },
-          "22222": { text: "💖 nhớ 💖", type: "none" },
-          "33333": { text: "🌸 em 🌸", type: "none" },
-          "1314":  { text: "✨ Người đàn ông tuyệt vời của Ái Nhuy 💕", type: "romantic_photo" },
-          "44444": { text: "💖 Yêu em nhiều lắm 💖", type: "hearts" },
-          "55555": { text: "😘 Gửi em ngàn nụ hôn 😘", type: "sticker", icon: "💋" },
-          "66666": { text: "✨ Mãi bên nhau nhé ✨", type: "sparkles" },
-          "77777": { text: "💐 Tặng công chúa của anh 💐", type: "sticker", icon: "💐" },
-          "88888": { text: "🌙 Ngủ ngon nhé bé yêu 💤", type: "sticker", icon: "🧸" },
-          "99999": { text: "✨ Ái Nhuy xinh đẹp ✨", type: "combo" }
-        };
-
-        const currentEffect = effectsMap[enteredPin] || { text: "🌸 Ái Nhuy 💕", type: "none" };
-        if (romEl) romEl.innerText = currentEffect.text;
-        triggerSecretEffect(currentEffect);
-
+        if (enteredPin === "11111") {
+          if (romEl) romEl.innerText = "✨ Anh ✨";
+        } else if (enteredPin === "22222") {
+          if (romEl) romEl.innerText = "💖 nhớ 💖";
+        } else if (enteredPin === "33333") {
+          if (romEl) romEl.innerText = "🌸 em 🌸";
+        } else {
+          if (romEl) romEl.innerText = "🌸 Ái Nhuy 💕";
+        }
         setTimeout(() => {
           enteredPin = "";
           updatePinDots();
           if (romEl) romEl.innerText = "";
-        }, currentEffect.type === "romantic_photo" ? 4000 : 2500);
+        }, 2500);
       } else {
         if (enteredPin.length < 6) {
           enteredPin += val;
@@ -799,58 +752,6 @@
           if (enteredPin.length === 6) {
             setTimeout(checkPinAndUnlock, 150);
           }
-        }
-      }
-    }
-
-    function triggerSecretEffect(effect) {
-      if (effect.type === "romantic_photo") {
-        const modal = document.createElement('div');
-        modal.className = 'romantic-photo-overlay';
-        modal.innerHTML = `
-          <div class="romantic-photo-card">
-            <div class="romantic-photo-title">✨ Người đàn ông tuyệt vời của Ái Nhuy 💕</div>
-            <div class="romantic-photo-frame">
-              <img src="t2.jpg" alt="Chàng trai của Ái Nhuy" onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=600&auto=format&fit=crop'">
-            </div>
-            <button class="btn-close-photo" onclick="this.closest('.romantic-photo-overlay').remove()">💖 Đóng lại 💕</button>
-          </div>
-        `;
-        document.body.appendChild(modal);
-        
-        for (let i = 0; i < 25; i++) {
-          setTimeout(() => {
-            const p = document.createElement('div');
-            p.className = 'floating-particle';
-            p.innerText = ['❤️', '💖', '💕', '✨', '🌹'][Math.floor(Math.random() * 5)];
-            p.style.left = (Math.random() * 90 + 5) + 'vw';
-            p.style.fontSize = (Math.random() * 16 + 20) + 'px';
-            document.body.appendChild(p);
-            setTimeout(() => p.remove(), 3000);
-          }, i * 80);
-        }
-        return;
-      }
-
-      if (effect.type === "sticker" || effect.type === "combo") {
-        const sticker = document.createElement('div');
-        sticker.className = 'center-sticker-pop';
-        sticker.innerText = effect.icon || '💖';
-        document.body.appendChild(sticker);
-        setTimeout(() => sticker.remove(), 2300);
-      }
-      if (effect.type === "hearts" || effect.type === "sparkles" || effect.type === "combo") {
-        const icons = effect.type === "sparkles" ? ['✨', '⭐', '💫', '🌟'] : ['❤️', '💖', '💕', '💗', '💓'];
-        for (let i = 0; i < 22; i++) {
-          setTimeout(() => {
-            const p = document.createElement('div');
-            p.className = 'floating-particle';
-            p.innerText = icons[Math.floor(Math.random() * icons.length)];
-            p.style.left = (Math.random() * 90 + 5) + 'vw';
-            p.style.fontSize = (Math.random() * 14 + 18) + 'px';
-            document.body.appendChild(p);
-            setTimeout(() => p.remove(), 2500);
-          }, i * 70);
         }
       }
     }
@@ -885,7 +786,19 @@
     }
 
     document.addEventListener('visibilitychange', () => {
-      if (document.hidden) lockAppScreen();
+      if (document.hidden) {
+        lockAppScreen();
+      } else {
+        lockAppScreen();
+      }
+    });
+
+    window.addEventListener('blur', () => {
+      lockAppScreen();
+    });
+
+    window.addEventListener('pagehide', () => {
+      sessionStorage.clear();
     });
 
     function createFallingLeaves() {
@@ -907,9 +820,9 @@
     let journals = JSON.parse(localStorage.getItem('ainhuy_journals_v1') || '[]');
     let issues = JSON.parse(localStorage.getItem('ainhuy_issues_v1') || '[]');
     let shiftTimes = JSON.parse(localStorage.getItem('ainhuy_shift_times') || JSON.stringify({
-      hch_in: '08:00', hch_out: '17:00',
       c1_in: '05:30', c1_out: '14:00', 
-      c2_in: '16:30', c2_out: '22:00'
+      c2_in: '16:30', c2_out: '22:00',
+      hch_in: '08:00', hch_out: '17:00'
     }));
 
     let monthWeeksList = [];
@@ -962,11 +875,58 @@
         sample = Math.max(-1, Math.min(1, sample * 0.7));
         view.setInt16(44 + i * 2, sample < 0 ? sample * 0x8000 : sample * 0x7FFF, true);
       }
-      return URL.createObjectURL(new Blob([buffer], { type: 'audio/wav' }));
+
+      const blob = new Blob([buffer], { type: 'audio/wav' });
+      return URL.createObjectURL(blob);
+    }
+
+    function generateWarningAlarmWav() {
+      const sampleRate = 16000;
+      const duration = 0.5;
+      const numSamples = Math.floor(sampleRate * duration);
+      const buffer = new ArrayBuffer(44 + numSamples * 2);
+      const view = new DataView(buffer);
+
+      function writeString(view, offset, string) {
+        for (let i = 0; i < string.length; i++) view.setUint8(offset + i, string.charCodeAt(i));
+      }
+
+      writeString(view, 0, 'RIFF');
+      view.setUint32(4, 36 + numSamples * 2, true);
+      writeString(view, 8, 'WAVE');
+      writeString(view, 12, 'fmt ');
+      view.setUint32(16, 16, true);
+      view.setUint16(20, 1, true);
+      view.setUint16(22, 1, true);
+      view.setUint32(24, sampleRate, true);
+      view.setUint32(28, sampleRate * 2, true);
+      view.setUint16(32, 2, true);
+      view.setUint16(34, 16, true);
+      writeString(view, 36, 'data');
+      view.setUint32(40, numSamples * 2, true);
+
+      const notes = [920, 460, 920, 460];
+      for (let i = 0; i < numSamples; i++) {
+        const t = i / sampleRate;
+        let sample = 0;
+        notes.forEach((freq, idx) => {
+          const noteStart = idx * 0.1;
+          if (t >= noteStart && t < noteStart + 0.1) {
+            const dt = t - noteStart;
+            sample += Math.sin(2 * Math.PI * freq * dt) * 0.9;
+          }
+        });
+        sample = Math.max(-1, Math.min(1, sample));
+        view.setInt16(44 + i * 2, sample < 0 ? sample * 0x8000 : sample * 0x7FFF, true);
+      }
+      const blob = new Blob([buffer], { type: 'audio/wav' });
+      return URL.createObjectURL(blob);
     }
 
     let alarmAudioBlobUrl = null;
+    let warningAudioBlobUrl = null;
 
+    // HƠN 100 CÂU CHÚC TỪ MÃ INDEX ĐƯỢC TÍCH HỢP ĐẦY ĐỦ
     const wishesByTime = {
       morning: [
         { title: "Chào buổi sáng tình yêu! ☀️", quote: "Chào buổi sáng tình yêu của anh! Chúc em một ngày mới ngập tràn năng lượng, làm việc hiệu quả và gặp nhiều may mắn nhé. 💕" },
@@ -978,7 +938,27 @@
         { title: "Nụ cười đầu ngày! 😊", quote: "Gửi đến em ngàn nụ cười cho buổi sáng tươi vui. Chúc em một ngày làm việc tràn đầy hứng khởi và niềm vui." },
         { title: "Sức sống dồi dào! 🌿", quote: "Chúc em có một ngày mới tràn ngập sức sống, giải quyết mọi công việc nhanh gọn và chuẩn xác." },
         { title: "Cố lên cô gái của anh! 💪", quote: "Một ngày mới lại bắt đầu, chúc em luôn giữ vững phong độ, làm việc thật hăng say và hiệu quả." },
-        { title: "Bình minh hạnh phúc! 🌤️", quote: "Chúc Ái Nhuy một buổi sáng ngọt ngào, bước chân ra đường gặp toàn niềm vui và may mắn." }
+        { title: "Bình minh hạnh phúc! 🌤️", quote: "Chúc Ái Nhuy một buổi sáng ngọt ngào, bước chân ra đường gặp toàn niềm vui và may mắn." },
+        { title: "Nắng mai ấm áp! 🌷", quote: "Chúc em một buổi sáng ấm áp như ánh nắng sớm mai, mọi điều tốt đẹp nhất sẽ đến với em hôm nay." },
+        { title: "Hứng khởi trọn ngày! ☕", quote: "Ly cà phê buổi sáng chúc em tỉnh táo, sảng khoái và bắt nhịp công việc thật tuyệt vời nha." },
+        { title: "Nụ cười ngập tràn! 😄", quote: "Mong rằng nụ cười sẽ luôn ở trên môi em suốt cả ngày dài hôm nay. Yêu em!" },
+        { title: "May mắn gọi tên! 🍀", quote: "Chúc cô gái xinh đẹp của anh hôm nay đi đến đâu cũng gặp may mắn và thuận lợi tới đó." },
+        { title: "Tự tin vững bước! 👠", quote: "Hãy bước đi với sự tự tin cao nhất nhé, mọi thử thách hôm nay đều nằm trong tầm tay em." },
+        { title: "Thành công rực rỡ! 🎯", quote: "Chúc mọi kế hoạch và dự định trong ngày của em đều đạt kết quả cao nhất vượt mong đợi." },
+        { title: "Bình an muôn nơi! 🕊️", quote: "Chúc em một ngày làm việc bình an, an toàn và tràn ngập những khoảnh khắc đáng yêu." },
+        { title: "Tràn trề nhiệt huyết! 🔥", quote: "Đốt cháy mọi khó khăn bằng nhiệt huyết tuổi trẻ và sự thông minh vốn có của em nào!" },
+        { title: "Niềm vui nhân đôi! 🎈", quote: "Chúc ngày mới của em không chỉ vui mà niềm vui còn được nhân đôi, nhân ba suốt cả tuần." },
+        { title: "Tình yêu thương ngập tràn! 💖", quote: "Hãy luôn nhớ rằng có anh luôn ở đây hướng về em với tất cả tình yêu thương ngọt ngào nhất." },
+        { title: "Sáng nay thật đẹp! 🌺", quote: "Thời tiết thật đẹp, chúc em có một buổi sáng di chuyển an toàn và thuận lợi đến nơi làm việc." },
+        { title: "Hoàn hảo từng phút giây! ⏰", quote: "Chúc em làm việc gì cũng chuẩn xác, đúng giờ và hoàn thành xuất sắc từng mục tiêu nhỏ." },
+        { title: "Tinh thần sảng khoái! 🍃", quote: "Hít một hơi thật sâu và đón nhận ngày mới đầy tuyệt diệu đang chờ đón em phía trước nhé." },
+        { title: "Rạng rỡ như hoa! 🌸", quote: "Chúc Ái Nhuy xinh đẹp của anh hôm nay rạng rỡ, tươi tắn như những đóa hoa mùa xuân." },
+        { title: "Năng suất vượt trội! 🚀", quote: "Chúc em có một ngày làm việc với năng suất cao kỷ lục, xong việc sớm để nghỉ ngơi nha." },
+        { title: "Thêm nhiều niềm cảm hứng! 🎨", quote: "Mong rằng hôm nay em sẽ tìm thấy nhiều niềm cảm hứng mới mẻ trong công việc và cuộc sống." },
+        { title: "Bão hòa mọi mệt mỏi! ⚡", quote: "Mọi mệt mỏi hãy bỏ lại sau lưng, hôm nay chỉ có năng lượng và thành công đến với em thôi." },
+        { title: "Sáng thứ mấy cũng tuyệt! 📅", quote: "Dù là ngày nào trong tuần, chỉ cần em vui vẻ thì ngày đó đều là ngày tuyệt vời nhất." },
+        { title: "Nụ hôn buổi sáng! 😘", quote: "Gửi tặng em một nụ hôn gió ngọt ngào nhất cho buổi sáng tràn đầy yêu thương này." },
+        { title: "Bắt đầu hoàn hảo! ⭐", quote: "Khởi động ngày mới thật suôn sẻ, mọi việc trôi chảy như nước chảy mây trôi em nhé." }
       ],
       afternoon: [
         { title: "Nhớ em nhiều lắm! 💖", quote: "Dù bận rộn đến đâu thì hình bóng của em vẫn luôn ngự trị trong tim anh. Nhớ và thương Ái Nhuy vô cùng!" },
@@ -990,21 +970,71 @@
         { title: "Giữ gìn sức khỏe nha! 🍎", quote: "Sức khỏe là vốn quý nhất. Em nhớ uống đủ nước và giữ tinh thần thoải mái trong ca làm nhé." },
         { title: "Làm việc cẩn thận nhé! 📋", quote: "Hôm nay làm việc em nhớ cẩn thận từng chi tiết nhỏ nha, kiểm tra kỹ lưỡng mọi thứ để không có chút sai sót nào." },
         { title: "Ca chiều suôn sẻ! 🚀", quote: "Chúc em xử lý công việc ca chiều cực kỳ mượt mà, suôn sẻ và đạt kết quả cao nhất." },
-        { title: "Nắng ấm của anh! ☀️", quote: "Em chính là ánh nắng ấm áp nhất xua tan đi mọi mệt mỏi trong cuộc sống của anh." }
+        { title: "Nắng ấm của anh! ☀️", quote: "Em chính là ánh nắng ấm áp nhất xua tan đi mọi mệt mỏi trong cuộc sống của anh." },
+        { title: "Tiếp thêm năng lượng! ⚡", quote: "Giữa giờ chiều rồi, hãy uống một chút nước mát và mỉm cười thật tươi để tiếp tục chiến đấu nha." },
+        { title: "Cô gái kiên cường! 💪", quote: "Dù công việc có hơi mệt một chút, hãy nhớ rằng anh luôn ở phía sau ủng hộ và cổ vũ em." },
+        { title: "Thương em vất vả! 🥰", quote: "Thương cô gái nhỏ của anh phải làm việc chăm chỉ. Cố gắng lên em sắp đến giờ về rồi." },
+        { title: "Nụ cười tỏa nắng! 🌻", quote: "Chiều nay có mệt không em? Hãy nhớ nụ cười của em là tài sản quý giá nhất của anh đó." },
+        { title: "Vượt mọi thử thách! 🎯", quote: "Mọi rắc rối ca chiều đều sẽ được em giải quyết gọn gàng bằng sự thông minh của mình." },
+        { title: "Hơi ấm tình yêu! 🔥", quote: "Gửi đến em một chút hơi ấm và ngàn yêu thương để xua tan đi cái mệt giữa ca làm." },
+        { title: "Nghỉ ngơi chút nha! ☕", quote: "Làm việc căng thẳng quá thì đứng dậy vươn vai thư giãn vài phút cho thoải mái gân cốt nhé." },
+        { title: "Đồng hành mãi mãi! 👫", quote: "Dù con đường phía trước có ra sao, anh vẫn nguyện cùng em nắm tay đi đến cuối cuộc đời." },
+        { title: "Tự hào về em lắm! 🌟", quote: "Anh luôn cảm thấy vô cùng tự hào vì có một người yêu vừa giỏi giang lại vừa chu đáo như em." },
+        { title: "Bình yên giữa bộn bề! 🍃", quote: "Giữa bộn bề công việc, mong rằng nghĩ về anh sẽ giúp em cảm thấy bình yên và nhẹ nhàng hơn." },
+        { title: "Nhanh đến giờ về! ⏰", quote: "Đếm ngược thời gian chờ đến giờ tan ca để chúng ta lại được nhắn tin trò chuyện ngọt ngào nhé." },
+        { title: "Sự nghiệp thăng tiến! 📈", quote: "Chúc công việc chiều nay của em hanh thông, được cấp sự tin tưởng và đồng nghiệp yêu mến." },
+        { title: "Tình cảm vững bền! 🏰", quote: "Tình yêu chúng ta giống như tòa lâu đài kiên cố, không gì có thể lay chuyển được." },
+        { title: "Nụ hôn chiều tà! 💋", quote: "Gửi ngàn cái hôn dịu dàng vượt khoảng cách đến với cô gái ca chiều của anh." },
+        { title: "Luôn mỉm cười nhé! 😁", quote: "Dù có chuyện gì xảy ra, hãy cứ giữ tinh thần lạc quan và nụ cười rạng rỡ trên môi em nhé." },
+        { title: "Bảo bối của anh! 🎁", quote: "Em chính là món quà tuyệt vời nhất mà cuộc sống này đã ban tặng cho anh." },
+        { title: "Chăm chỉ vừa thôi nha! 🛑", quote: "Làm việc hết mình nhưng nhớ đừng để bản thân quá sức đấy, anh xót lắm nha." },
+        { title: "Thành quả phía trước! 🏆", quote: "Những giọt mồ hôi và sự nỗ lực hôm nay sẽ đổi lấy thành công ngọt ngào vào cuối ngày." },
+        { title: "Hạnh phúc đơn sơ! 🌾", quote: "Hạnh phúc với chúng ta đôi khi chỉ là những tin nhắn hỏi han nhau mỗi khi chiều về." },
+        { title: "Yêu em không hối tiếc! 💌", quote: "Được yêu và chăm sóc Ái Nhuy là điều tuyệt vời nhất trong cuộc đời của anh." }
       ],
       evening: [
         { title: "Kết thúc ngày rực rỡ! 🎉", quote: "Một ngày làm việc vất vả đã khép lại thật suôn sẻ. Giờ là lúc em tự thưởng cho mình sự thư giãn tuyệt đối nhé." },
         { title: "Xả hơi thôi nào! 🛋️", quote: "Đã hoàn thành xuất sắc nhiệm vụ rồi, hãy gác lại mọi lo toan công việc để tận hưởng buổi tối bình yên nha." },
         { title: "Tự hào về em! 🌟", quote: "Hôm nay em đã làm việc rất chăm chỉ và vất vả rồi. Nghỉ ngơi thật tốt nhé cô gái ngoan." },
         { title: "Thành quả ngọt ngào! 🍇", quote: "Những nỗ lực trong ngày hôm nay của em hoàn toàn xứng đáng với kết quả tuyệt vời nhận được." },
-        { title: "Bình yên cuối ngày! 🌆", quote: "Hoàng hôn buông xuống, chúc em có những phút giây thư giãn nhẹ nhàng bên gia đình và người thân." }
+        { title: "Bình yên cuối ngày! 🌆", quote: "Hoàng hôn buông xuống, chúc em có những phút giây thư giãn nhẹ nhàng bên gia đình và người thân." },
+        { title: "Bữa tối ngon miệng! 🍜", quote: "Chúc em có một bữa tối thật ngon miệng bên những món ăn yêu thích sau một ngày dài." },
+        { title: "Buổi tối ngọt ngào! 🍫", quote: "Gửi đến em buổi tối ngập tràn sự ấm áp, ngọt ngào và những bộ phim thật thú vị." },
+        { title: "Thư giãn trọn vẹn! 🎶", quote: "Bật một bản nhạc nhẹ nhàng, nhâm nhi tách trà ấm và tận hưởng buổi tối yên bình em nhé." },
+        { title: "Gác lại âu lo! 🕊️", quote: "Mọi phiền muộn của công việc hãy để lại ngoài cánh cửa, buổi tối là dành riêng cho sự nghỉ ngơi." },
+        { title: "Nụ cười cuối ngày! 😊", quote: "Mong rằng khép lại ngày hôm nay là một nụ cười mãn nguyện và hạnh phúc trọn vẹn của em." },
+        { title: "Ánh đèn ấm áp! 💡", quote: "Dưới ánh đèn vàng ấm áp, chúc em cảm nhận được trọn vẹn tình yêu thương và sự bình yên." },
+        { title: "Chăm sóc bản thân! 🛀", quote: "Tắm nước ấm và skincare thật kỹ lưỡng để chiều chuộng bản thân sau ngày dài mệt nhọc nha." },
+        { title: "Trò chuyện cùng anh! 💬", quote: "Tối nay lại cùng anh chuyện trò linh tinh mọi thứ trên đời để kết thúc một ngày thật trọn vẹn nhé." },
+        { title: "Hạnh phúc buổi tối! 🌙", quote: "Buổi tối thật lãng mạn khi nghĩ về nhau. Chúc tình yêu của anh có những giây phút thư thái." },
+        { title: "Năng lượng phục hồi! 🔋", quote: "Nạp lại đầy 100% pin năng lượng cho cơ thể và tinh thần để sẵn sàng cho ngày mai tươi mới." },
+        { title: "Bình yên trong tim! 💖", quote: "Dù ngoài kia có giông bão thế nào, bình yên nhất vẫn là lúc được nhắn tin cùng anh." },
+        { title: "Món quà tối nay! 🎁", quote: "Tối nay chúc em nhận được thật nhiều bất ngờ ngọt ngào và niềm vui bất tận." },
+        { title: "Không gian riêng tư! 🏡", quote: "Tận hưởng không gian ấm cúng trong căn phòng nhỏ của riêng em nhé." },
+        { title: "Nụ hôn buổi tối! 💋", quote: "Gửi tặng em ngàn chiếc hôn gió ấm áp trước khi bước vào giờ phút nghỉ ngơi ban đêm." },
+        { title: "Thương lắm cô ngốc! 🥰", quote: "Cứ hay lo xa đủ thứ, tối nay phải ngủ thật sớm và ngoan ngoãn nghe lời anh đấy nhé." }
       ],
       night: [
         { title: "Ngủ ngon nhé tình yêu! 🌙", quote: "Đã đến giờ đi ngủ rồi, chúc tình yêu của anh ngủ thật ngon và có những giấc mơ thật đẹp nhé. 💕" },
         { title: "Chúc mơ thấy anh! 💭", quote: "Đắp chăn ấm áp và ngủ thật sâu em nha, trong giấc mơ đêm nay nhớ ghé sang thăm anh đấy." },
         { title: "Giấc ngủ bình yên! 🌌", quote: "Chúc em có một đêm ngon giấc, xua tan mọi mỏi mệt để sáng mai thức dậy thật tươi trẻ." },
         { title: "Ôm em vào mộng! 🤗", quote: "Gửi ngàn cái ôm ngọt ngào qua màn hình, chúc Ái Nhuy ngủ ngon và có giấc mộng thật đẹp." },
-        { title: "Đêm nay thật êm đềm! 🌠", quote: "Ánh trăng ngoài kia đang dịu dàng ôm lấy giấc ngủ của em. Ngủ ngon nha công chúa của anh." }
+        { title: "Đêm nay thật êm đềm! 🌠", quote: "Ánh trăng ngoài kia đang dịu dàng ôm lấy giấc ngủ của em. Ngủ ngon nha công chúa của anh." },
+        { title: "Ngủ sâu và ngon! 🛌", quote: "Thả lỏng cơ thể, buông xõa mái tóc và chìm vào giấc ngủ thật sâu, không mộng mị em nhé." },
+        { title: "Hẹn gặp trong mơ! ✨", quote: "Đêm nay anh sẽ đợi em trong giấc mơ, chúng ta lại cùng nhau dạo bước thật hạnh phúc nha." },
+        { title: "Bình minh sớm mai! 🌅", quote: "Ngủ thật ngon để sáng mai thức dậy với một tinh thần sảng khoái và rạng rỡ nhất em nhé." },
+        { title: "Êm đềm hơi thở! 🍃", quote: "Hơi thở đều đặn trong đêm khuya, chúc em có một giấc ngủ ngon lành và an toàn tuyệt đối." },
+        { title: "Tình yêu che chở! 🛡️", quote: "Hãy để tình yêu của anh che chở và bảo vệ giấc ngủ của em suốt cả đêm dài giá lạnh." },
+        { title: "Đắp chăn cẩn thận! 🧥", quote: "Đêm nay trời có thể trở lạnh, em nhớ đắp chăn thật kín để không bị cảm lạnh nha." },
+        { title: "Tắt đèn chợp mắt! 💡", quote: "Đã khuya rồi, tắt điện thoại và khép mi lại để chìm vào giấc ngủ phục hồi sức khỏe thôi." },
+        { title: "Ngàn vì sao chúc ngủ ngon! ⭐", quote: "Ngàn vì sao trên bầu trời đêm nay đang thay anh gửi lời chúc ngủ ngon ngọt ngào nhất đến em." },
+        { title: "Yêu em đến tận cùng! 💞", quote: "Trước khi nhắm mắt đi ngủ, hãy nhớ rằng anh vô cùng yêu và thương Ái Nhuy." },
+        { title: "Nụ hôn chúc ngủ ngon! 😘", quote: "Một nụ hôn cuối ngày thật sâu lắng gửi đến em. Chúc ngủ ngon, tình yêu của đời anh!" },
+        { title: "Bình yên vĩnh cửu! 🕊️", quote: "Chúc em có một đêm trọn vẹn sự bình yên, mơ thấy những điều tuyệt diệu nhất." },
+        { title: "Mơ về tương lai! 🏰", quote: "Đêm nay chúc em mơ về ngôi nhà hạnh phúc của chúng ta trong tương lai không xa." },
+        { title: "Buông xõa mọi suy nghĩ! 🧠", quote: "Không suy nghĩ lo âu nữa nhé, mọi chuyện đã có anh lo. Ngủ ngoan nào em yêu." },
+        { title: "Ôm chặt qua màn hình! 🫂", quote: "Xiết chặt em vào lòng qua không gian ảo diệu này. Ngủ thật ngon nha em!" },
+        { title: "Chào tạm biệt ngày cũ! 📅", quote: "Khép lại một ngày dài, chúc em có giấc ngủ thật ngon để đón chào ngày mới ngập tràn niềm vui." }
       ]
     };
 
@@ -1077,11 +1107,52 @@
     }
 
     async function initWeatherDetection() {
+      const label = document.getElementById('weatherStatusLabel');
+      const hour = new Date().getHours();
+      const isNightTime = (hour >= 18 || hour < 5);
+      if (isNightTime) currentWeatherIndex = 3;
+      else if (hour >= 9 && hour <= 15) currentWeatherIndex = 0;
+      else currentWeatherIndex = 1;
+      renderWeatherIcon(weatherStates[currentWeatherIndex].type);
+
+      if ("geolocation" in navigator) {
+        if (label) label.innerText = 'Đang nhận diện vị trí GPS...';
+        navigator.geolocation.getCurrentPosition(async (pos) => {
+          try {
+            const lat = pos.coords.latitude;
+            const lon = pos.coords.longitude;
+            const res = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=weather_code,temperature_2m,is_day&timezone=auto`);
+            if (!res.ok) throw new Error();
+            const data = await res.json();
+            const cur = data.current;
+            const code = cur.weather_code;
+            const temp = Math.round(cur.temperature_2m);
+            const isDay = cur.is_day === 1;
+
+            if (code >= 51 && code <= 99) {
+              currentWeatherIndex = 2;
+              renderWeatherIcon('rainy', `🌧️ Ngoài trời có mưa (${temp}°C)`);
+            } else if (!isDay) {
+              currentWeatherIndex = 3;
+              renderWeatherIcon('night', `🌙 Đêm trong lành (${temp}°C)`);
+            } else if (code <= 1) {
+              currentWeatherIndex = 0;
+              renderWeatherIcon('sunny', `☀️ Ngoài trời nắng rực rỡ (${temp}°C)`);
+            } else {
+              currentWeatherIndex = 1;
+              renderWeatherIcon('fair', `🌤️ Bầu trời dịu mát (${temp}°C)`);
+            }
+          } catch (_) { fallbackWeatherByHour(); }
+        }, () => fallbackWeatherByHour(), { timeout: 7000 });
+      } else { fallbackWeatherByHour(); }
+    }
+
+    function fallbackWeatherByHour() {
       const hour = new Date().getHours();
       if (hour >= 18 || hour < 5) currentWeatherIndex = 3;
       else if (hour >= 9 && hour <= 15) currentWeatherIndex = 0;
       else currentWeatherIndex = 1;
-      renderWeatherIcon(weatherStates[currentWeatherIndex].type);
+      renderWeatherIcon(weatherStates[currentWeatherIndex].type, weatherStates[currentWeatherIndex].label);
     }
 
     function cycleWeatherDemo() {
@@ -1102,7 +1173,8 @@
 
       const now = new Date();
       journals.unshift({
-        id: Date.now(), title: title || 'Nhật ký yêu thương',
+        id: Date.now(),
+        title: title || 'Nhật ký yêu thương',
         content, category, journalDate, reminderTime, done: false,
         createdAt: now.toLocaleTimeString('vi-VN', { hour: '2-digit', minute: '2-digit' }) + ' ' + now.toLocaleDateString('vi-VN')
       });
@@ -1218,21 +1290,21 @@
     }
 
     function loadShiftTimeConfigUI() {
-      document.getElementById('cfg_hch_in').value = shiftTimes.hch_in || '08:00';
-      document.getElementById('cfg_hch_out').value = shiftTimes.hch_out || '17:00';
       document.getElementById('cfg_c1_in').value = shiftTimes.c1_in || '05:30';
       document.getElementById('cfg_c1_out').value = shiftTimes.c1_out || '14:00';
       document.getElementById('cfg_c2_in').value = shiftTimes.c2_in || '16:30';
       document.getElementById('cfg_c2_out').value = shiftTimes.c2_out || '22:00';
+      document.getElementById('cfg_hch_in').value = shiftTimes.hch_in || '08:00';
+      document.getElementById('cfg_hch_out').value = shiftTimes.hch_out || '17:00';
     }
 
     function updateShiftTimeConfig() {
-      shiftTimes.hch_in = document.getElementById('cfg_hch_in').value;
-      shiftTimes.hch_out = document.getElementById('cfg_hch_out').value;
       shiftTimes.c1_in = document.getElementById('cfg_c1_in').value;
       shiftTimes.c1_out = document.getElementById('cfg_c1_out').value;
       shiftTimes.c2_in = document.getElementById('cfg_c2_in').value;
       shiftTimes.c2_out = document.getElementById('cfg_c2_out').value;
+      shiftTimes.hch_in = document.getElementById('cfg_hch_in').value;
+      shiftTimes.hch_out = document.getElementById('cfg_hch_out').value;
 
       localStorage.setItem('ainhuy_shift_times', JSON.stringify(shiftTimes));
       showToast('Đã lưu giờ báo ca!');
@@ -1288,6 +1360,13 @@
       }));
     }
 
+    function getWeekNotesData(wIdx) {
+      const key = getWeekStorageKey(wIdx) + '_notes';
+      const saved = localStorage.getItem(key);
+      if (saved) return JSON.parse(saved);
+      return {};
+    }
+
     function initMonthWeeksDropdown() {
       buildMonthWeeksList();
       const select = document.getElementById('weekDropdownSelect');
@@ -1325,6 +1404,7 @@
       if (!currentWeekObj) return;
 
       const shiftsData = getShiftsForWeekIndex(currentWeekIndex);
+      const notesData = getWeekNotesData(currentWeekIndex);
 
       dayLabels.forEach((d, idx) => {
         const dayDate = new Date(currentWeekObj.monday);
@@ -1335,6 +1415,7 @@
                          dayDate.getFullYear() === now.getFullYear());
 
         const savedShift = shiftsData[d.key] || 'off';
+        const savedNote = notesData[d.key] || '';
         const dateLabel = `${String(dayDate.getDate()).padStart(2,'0')}/${String(dayDate.getMonth()+1).padStart(2,'0')}`;
 
         let shiftClass = 'is-off';
@@ -1354,6 +1435,7 @@
             <option value="hch" ${savedShift === 'hch' ? 'selected' : ''}>H.Chính</option>
             <option value="off" ${savedShift === 'off' ? 'selected' : ''}>🔴 Off</option>
           </select>
+          <textarea class="day-note-input" placeholder="Ghi chú..." oninput="updateDayNote(${d.key}, this.value)">${escapeHtml(savedNote)}</textarea>
         `;
         container.appendChild(col);
       });
@@ -1377,11 +1459,20 @@
       showToast('Đã lưu lịch ca!');
     }
 
+    function updateDayNote(dayKey, val) {
+      const key = getWeekStorageKey(currentWeekIndex) + '_notes';
+      const notesData = getWeekNotesData(currentWeekIndex);
+      notesData[dayKey] = val;
+      localStorage.setItem(key, JSON.stringify(notesData));
+    }
+
     function copyCurrentWeekToAll() {
       const curData = getShiftsForWeekIndex(currentWeekIndex);
-      if (confirm(`Áp dụng lịch tuần này cho cả tháng?`)) {
+      const curNotes = getWeekNotesData(currentWeekIndex);
+      if (confirm(`Áp dụng lịch và ghi chú tuần này cho cả tháng?`)) {
         monthWeeksList.forEach(w => {
           localStorage.setItem(getWeekStorageKey(w.index), JSON.stringify(curData));
+          localStorage.setItem(getWeekStorageKey(w.index) + '_notes', JSON.stringify(curNotes));
         });
         localStorage.setItem('ainhuy_weekly_shifts', JSON.stringify(curData));
         renderWeekGrid();
@@ -1426,11 +1517,15 @@
         };
         menu.appendChild(item);
       });
-      document.getElementById('syncDropdownLabel').innerText = selectedSyncWeeks.size === 0 ? 'Chọn tuần...' : `Đã chọn (${selectedSyncWeeks.size} tuần)`;
+      const lbl = document.getElementById('syncDropdownLabel');
+      lbl.innerText = selectedSyncWeeks.size === 0 ? 'Chọn tuần...' : `Đã chọn (${selectedSyncWeeks.size} tuần)`;
     }
 
     function executeSelectedSync() {
-      if (selectedSyncWeeks.size === 0) { alert('Vui lòng chọn tuần để nạp lịch!'); return; }
+      if (selectedSyncWeeks.size === 0) {
+        alert('Vui lòng chọn tuần để nạp lịch!');
+        return;
+      }
       exportToICSCalendarList(Array.from(selectedSyncWeeks).sort((a, b) => a - b));
     }
 
@@ -1439,16 +1534,33 @@
       const now = new Date();
       const dtStamp = now.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
 
-      function toICSLocalDateTime(year, month, day, timeStr) {
+      function toICSLocalDateTime(year, month, day, timeStr, addMinutes = 0) {
         const [h, m] = timeStr.split(':').map(Number);
-        let utcHour = h - 7;
-        let utcDay = day;
+        let totalMins = h * 60 + m + addMinutes;
+        let targetDay = day;
+        let targetMonth = month;
+        let targetYear = year;
+
+        if (totalMins >= 1440) {
+          totalMins -= 1440;
+          targetDay += 1;
+        } else if (totalMins < 0) {
+          totalMins += 1440;
+          targetDay -= 1;
+        }
+
+        const th = Math.floor(totalMins / 60);
+        const tm = totalMins % 60;
+
+        let utcHour = th - 7;
+        let utcDay = targetDay;
         if (utcHour < 0) {
           utcHour += 24;
           utcDay -= 1;
         }
+
         const pad = (n) => String(n).padStart(2, '0');
-        return `${year}${pad(month)}${pad(utcDay)}T${pad(utcHour)}${pad(m)}00Z`;
+        return `${targetYear}${pad(targetMonth)}${pad(utcDay)}T${pad(utcHour)}${pad(tm)}00Z`;
       }
 
       function toICADateString(year, month, day) {
@@ -1456,34 +1568,40 @@
       }
 
       let count = 0;
+
       weekIndices.forEach(wIdx => {
         const wObj = monthWeeksList[wIdx];
         if (!wObj) return;
         const shiftsData = getShiftsForWeekIndex(wIdx);
+        const notesData = getWeekNotesData(wIdx);
 
         for (let i = 0; i < 7; i++) {
           const dayKey = i === 6 ? 8 : i + 2;
           const shift = shiftsData[dayKey] || 'off';
+          const dayNote = notesData[dayKey] ? `\nGhi chú: ${notesData[dayKey]}` : '';
 
           const dayDate = new Date(wObj.monday);
           dayDate.setDate(wObj.monday.getDate() + i);
           const y = dayDate.getFullYear();
           const m = dayDate.getMonth() + 1;
           const d = dayDate.getDate();
+
           const dateStr = toICADateString(y, m, d);
 
           if (shift === 'off') {
             count++;
-            const nextDay = new Date(dayDate);
-            nextDay.setDate(dayDate.getDate() + 1);
+            const nextDayDate = new Date(dayDate);
+            nextDayDate.setDate(dayDate.getDate() + 1);
+            const nextDateStr = toICADateString(nextDayDate.getFullYear(), nextDayDate.getMonth() + 1, nextDayDate.getDate());
+
             events.push([
               'BEGIN:VEVENT',
-              `UID:shift-off-${dateStr}-${count}@ainhuy.shift`,
+              `UID:shift-off-${dateStr}-${dayKey}-${count}@ainhuy.shift`,
               `DTSTAMP:${dtStamp}`,
               `DTSTART;VALUE=DATE:${dateStr}`,
-              `DTEND;VALUE=DATE:${toICADateString(nextDay.getFullYear(), nextDay.getMonth()+1, nextDay.getDate())}`,
+              `DTEND;VALUE=DATE:${nextDateStr}`,
               `SUMMARY:🔴 Off`,
-              `DESCRIPTION:Hôm nay Ái Nhuy Off nghỉ ngơi nhé!`,
+              `DESCRIPTION:Hôm nay Ái Nhuy Off nghỉ ngơi nhé!${dayNote}`,
               `STATUS:CONFIRMED`,
               'END:VEVENT'
             ].join('\r\n'));
@@ -1508,18 +1626,18 @@
             shiftLabel = 'H.Chính';
           }
 
-          const inTimeUTC = toICSLocalDateTime(y, m, d, rawIn);
-          const outTimeUTC = toICSLocalDateTime(y, m, d, rawOut);
+          const inTimeUTC = toICSLocalDateTime(y, m, d, rawIn, 0);
+          const outTimeUTC = toICSLocalDateTime(y, m, d, rawOut, 0);
 
           count++;
           events.push([
             'BEGIN:VEVENT',
-            `UID:shift-${shift}-in-${dateStr}-${count}@ainhuy.shift`,
+            `UID:shift-${shift}-in-${dateStr}-${dayKey}-${count}@ainhuy.shift`,
             `DTSTAMP:${dtStamp}`,
             `DTSTART:${inTimeUTC}`,
             `DTEND:${inTimeUTC}`,
             `SUMMARY:🔔 Vào ${shiftLabel} (${rawIn})`,
-            `DESCRIPTION:Đã đến giờ vào làm việc ${shiftLabel}.`,
+            `DESCRIPTION:Đã đến giờ vào làm việc ${shiftLabel}.${dayNote}`,
             `STATUS:CONFIRMED`,
             'BEGIN:VALARM',
             'TRIGGER:-PT0M',
@@ -1532,12 +1650,12 @@
           count++;
           events.push([
             'BEGIN:VEVENT',
-            `UID:shift-${shift}-out-${dateStr}-${count}@ainhuy.shift`,
+            `UID:shift-${shift}-out-${dateStr}-${dayKey}-${count}@ainhuy.shift`,
             `DTSTAMP:${dtStamp}`,
             `DTSTART:${outTimeUTC}`,
             `DTEND:${outTimeUTC}`,
             `SUMMARY:🏁 Tan ${shiftLabel} (${rawOut})`,
-            `DESCRIPTION:Đã hết giờ làm việc ${shiftLabel}.`,
+            `DESCRIPTION:Đã hết giờ làm việc ${shiftLabel}.${dayNote}`,
             `STATUS:CONFIRMED`,
             'BEGIN:VALARM',
             'TRIGGER:-PT0M',
@@ -1550,12 +1668,12 @@
           count++;
           events.push([
             'BEGIN:VEVENT',
-            `UID:shift-session-${shift}-${dateStr}-${count}@ainhuy.shift`,
+            `UID:shift-session-${shift}-${dateStr}-${dayKey}-${count}@ainhuy.shift`,
             `DTSTAMP:${dtStamp}`,
             `DTSTART:${inTimeUTC}`,
             `DTEND:${outTimeUTC}`,
             `SUMMARY:${summaryTitle}`,
-            `DESCRIPTION:Ca trực ${shiftLabel} từ ${rawIn} đến ${rawOut}.`,
+            `DESCRIPTION:Ca trực ${shiftLabel} từ ${rawIn} đến ${rawOut}.${dayNote}`,
             `STATUS:CONFIRMED`,
             'END:VEVENT'
           ].join('\r\n'));
@@ -1572,14 +1690,15 @@
         'X-WR-TIMEZONE:Asia/Ho_Chi_Minh'
       ].join('\r\n');
 
-      const icsBlob = new Blob([`${icsHeader}\r\n${events.join('\r\n')}\r\nEND:VCALENDAR\r\n`], { type: 'text/calendar;charset=utf-8' });
+      const icsContent = `${icsHeader}\r\n${events.join('\r\n')}\r\nEND:VCALENDAR\r\n`;
+      const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
       const link = document.createElement('a');
-      link.href = window.URL.createObjectURL(icsBlob);
+      link.href = window.URL.createObjectURL(blob);
       link.setAttribute('download', 'lich_ca_ai_nhuy.ics');
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
-      showToast('Đã xuất file lịch chuẩn báo thức!');
+      showToast(`Đã xuất file .ics báo thức chính xác!`);
     }
 
     function saveIssue() {
@@ -1669,14 +1788,21 @@
 
     async function requestWakeLock() {
       try {
-        if ('wakeLock' in navigator) wakeLock = await navigator.wakeLock.request('screen');
+        if ('wakeLock' in navigator) {
+          wakeLock = await navigator.wakeLock.request('screen');
+        }
       } catch (_) {}
     }
 
     function unlockAudioContext() {
       if (!alarmAudioBlobUrl) alarmAudioBlobUrl = generateGentleAlarmWav();
+      if (!warningAudioBlobUrl) warningAudioBlobUrl = generateWarningAlarmWav();
+
       const audioEl = document.getElementById('alarmAudioElement');
       if (audioEl && !audioEl.src) audioEl.src = alarmAudioBlobUrl;
+
+      const warnEl = document.getElementById('warningAudioElement');
+      if (warnEl && !warnEl.src) warnEl.src = warningAudioBlobUrl;
 
       const Ctx = window.AudioContext || window.webkitAudioContext;
       if (!audioCtx && Ctx) audioCtx = new Ctx();
@@ -1684,24 +1810,100 @@
       requestWakeLock();
     }
 
+    function playOscillatorAlarmTone() {
+      try {
+        const Ctx = window.AudioContext || window.webkitAudioContext;
+        if (!audioCtx && Ctx) audioCtx = new Ctx();
+        if (audioCtx) {
+          if (audioCtx.state === 'suspended') audioCtx.resume();
+          const osc = audioCtx.createOscillator();
+          const gain = audioCtx.createGain();
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(587.33, audioCtx.currentTime);
+          osc.frequency.setValueAtTime(880, audioCtx.currentTime + 0.15);
+          gain.gain.setValueAtTime(0.7, audioCtx.currentTime);
+          gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.6);
+          osc.connect(gain);
+          gain.connect(audioCtx.destination);
+          osc.start();
+          osc.stop(audioCtx.currentTime + 0.6);
+        }
+      } catch (_) {}
+    }
+
     function playGentleChime() {
       unlockAudioContext();
+      playOscillatorAlarmTone();
       try {
         const audioEl = document.getElementById('alarmAudioElement');
-        if (audioEl) { audioEl.currentTime = 0; audioEl.play().catch(() => {}); }
+        if (audioEl) {
+          audioEl.currentTime = 0;
+          audioEl.play().catch(() => {});
+        }
+      } catch (_) {}
+    }
+
+    function playWarningChime() {
+      unlockAudioContext();
+      try {
+        const Ctx = window.AudioContext || window.webkitAudioContext;
+        if (!audioCtx && Ctx) audioCtx = new Ctx();
+        if (audioCtx) {
+          if (audioCtx.state === 'suspended') audioCtx.resume();
+          const osc = audioCtx.createOscillator();
+          const gain = audioCtx.createGain();
+          osc.type = 'sawtooth';
+          osc.frequency.setValueAtTime(1200, audioCtx.currentTime);
+          osc.frequency.setValueAtTime(600, audioCtx.currentTime + 0.12);
+          osc.frequency.setValueAtTime(1200, audioCtx.currentTime + 0.24);
+          gain.gain.setValueAtTime(0.9, audioCtx.currentTime);
+          gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.45);
+          osc.connect(gain);
+          gain.connect(audioCtx.destination);
+          osc.start();
+          osc.stop(audioCtx.currentTime + 0.45);
+        }
+      } catch (_) {}
+
+      try {
+        const warnEl = document.getElementById('warningAudioElement');
+        if (warnEl) {
+          warnEl.currentTime = 0;
+          warnEl.play().catch(() => {});
+        }
       } catch (_) {}
     }
 
     function triggerDeviceVibration() {
       if ("vibrate" in navigator) {
-        try { navigator.vibrate([1000, 300, 1000, 300, 1500]); } catch (_) {}
+        try { navigator.vibrate([1000, 300, 1000, 300, 1500, 300, 2000]); } catch (_) {}
+      }
+    }
+
+    function triggerWarningVibration() {
+      if ("vibrate" in navigator) {
+        try { navigator.vibrate([400, 100, 400, 100, 800, 200, 800]); } catch (_) {}
       }
     }
 
     async function triggerSystemNotification(title, body) {
       if (!("Notification" in window) || Notification.permission !== "granted") return;
+      const notiOptions = {
+        body: body || 'Nhấn để mở ứng dụng Sổ Tay Ái Nhuy',
+        icon: "https://cdn-icons-png.flaticon.com/512/2921/2921222.png",
+        vibrate: [1000, 300, 1000, 300, 1500],
+        requireInteraction: true,
+        tag: 'shift-alarm'
+      };
       try {
-        new Notification(title, { body: body || 'Đến giờ trực ca!', icon: "https://cdn-icons-png.flaticon.com/512/2921/2921222.png", vibrate: [1000, 300, 1000] });
+        if ('serviceWorker' in navigator) {
+          const reg = await navigator.serviceWorker.getRegistration();
+          if (reg && reg.showNotification) {
+            reg.showNotification(title, notiOptions);
+            return;
+          }
+        }
+        new Notification(title, notiOptions);
       } catch (_) {}
     }
 
@@ -1710,6 +1912,7 @@
       requestWakeLock();
       document.getElementById('alarmTitle').innerText = title;
       document.getElementById('alarmBanner').style.display = 'block';
+
       triggerSystemNotification(title, 'Đến giờ trực ca của bạn!');
 
       if (isAlarmPlaying) return;
@@ -1725,11 +1928,19 @@
 
     function startWarningAlarm(title) {
       unlockAudioContext();
+      requestWakeLock();
       document.getElementById('alarmTitle').innerText = title;
       document.getElementById('alarmBanner').style.display = 'block';
+
       if (isAlarmPlaying) return;
       isAlarmPlaying = true;
-      playGentleChime();
+      playWarningChime();
+      triggerWarningVibration();
+
+      alarmInterval = setInterval(() => {
+        playWarningChime();
+        triggerWarningVibration();
+      }, 800);
     }
 
     function stopAlarm() {
@@ -1737,10 +1948,14 @@
       alarmInterval = null;
       isAlarmPlaying = false;
       document.getElementById('alarmBanner').style.display = 'none';
-      if ("vibrate" in navigator) { try { navigator.vibrate(0); } catch (_) {} }
+      if ("vibrate" in navigator) {
+        try { navigator.vibrate(0); } catch (_) {}
+      }
       try {
         const audioEl = document.getElementById('alarmAudioElement');
         if (audioEl) audioEl.pause();
+        const warnEl = document.getElementById('warningAudioElement');
+        if (warnEl) warnEl.pause();
       } catch (_) {}
       showToast('Đã tắt chuông!');
     }
@@ -1762,9 +1977,23 @@
       return t.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
     }
 
+    let localNotiMockState = localStorage.getItem('ainhuy_noti_mock_state') || 'default';
+
     function updateNotiButtonStatus() {
       const btn = document.getElementById('btnNotiStatus');
-      if (!btn || !('Notification' in window)) return;
+      if (!btn) return;
+
+      if (!('Notification' in window)) {
+        if (localNotiMockState === 'granted') {
+          btn.innerText = '🟢 Đã Bật Báo';
+          btn.className = 'noti-granted';
+        } else {
+          btn.innerText = '🔔 Bật Báo';
+          btn.className = '';
+        }
+        return;
+      }
+
       if (Notification.permission === 'granted') {
         btn.innerText = '🟢 Đã Bật Báo';
         btn.className = 'noti-granted';
@@ -1773,18 +2002,60 @@
         btn.className = 'noti-denied';
       } else {
         btn.innerText = '🔔 Bật Báo';
+        btn.className = '';
       }
     }
 
     async function toggleNotificationSetting() {
       unlockAudioContext();
-      if (!('Notification' in window)) { showToast('Trình duyệt không hỗ trợ thông báo.'); return; }
-      if (Notification.permission === 'granted') { showToast('Báo thức đang HOẠT ĐỘNG!'); return; }
-      const perm = await Notification.requestPermission();
+
+      if (!('Notification' in window)) {
+        if (localNotiMockState === 'granted') {
+          localNotiMockState = 'default';
+          localStorage.setItem('ainhuy_noti_mock_state', 'default');
+          showToast('Đã tắt báo!');
+        } else {
+          localNotiMockState = 'granted';
+          localStorage.setItem('ainhuy_noti_mock_state', 'granted');
+          showToast('Đã bật báo!');
+        }
+        updateNotiButtonStatus();
+        return;
+      }
+
+      if (Notification.permission === 'granted') {
+        showToast('Báo thức đang HOẠT ĐỘNG!');
+        return;
+      }
+
+      if (Notification.permission === 'denied') {
+        alert('Thông báo bị chặn. Bạn vào Cài đặt trình duyệt trên điện thoại để mở cấp quyền thông báo.');
+        return;
+      }
+
+      try {
+        const requestPromise = Notification.requestPermission();
+        if (requestPromise && typeof requestPromise.then === 'function') {
+          requestPromise.then(permission => {
+            handlePermissionResult(permission);
+          }).catch(() => {
+            updateNotiButtonStatus();
+          });
+        } else {
+          Notification.requestPermission(handlePermissionResult);
+        }
+      } catch (e) {
+        showToast('Không thể yêu cầu quyền.');
+      }
+    }
+
+    function handlePermissionResult(perm) {
       updateNotiButtonStatus();
       if (perm === 'granted') {
-        triggerSystemNotification('Ái Nhuy', 'Báo ca trực đã sẵn sàng!');
+        triggerSystemNotification('Sổ Tay Ái Nhuy', 'Báo ca trực đã sẵn sàng!');
         showToast('Đã kích hoạt thông báo!');
+      } else {
+        showToast('Chưa cho phép thông báo.');
       }
     }
 
@@ -1812,14 +2083,38 @@
       }
 
       if (todayShift === 'ca1') {
-        if ((shiftTimes.c1_in || '05:30') === currentTime) { lastTriggeredMinute = minuteKey; startContinuousAlarm(`🔵 ĐẾN GIỜ VÀO CA 1 (${currentTime})`); return; }
-        if ((shiftTimes.c1_out || '14:00') === currentTime) { lastTriggeredMinute = minuteKey; startContinuousAlarm(`🏁 HẾT GIỜ CA 1 (${currentTime})`); return; }
+        if ((shiftTimes.c1_in || '05:30') === currentTime) {
+          lastTriggeredMinute = minuteKey;
+          startContinuousAlarm(`🔵 ĐẾN GIỜ VÀO CA 1 (${currentTime})`);
+          return;
+        }
+        if ((shiftTimes.c1_out || '14:00') === currentTime) {
+          lastTriggeredMinute = minuteKey;
+          startContinuousAlarm(`🏁 HẾT GIỜ CA 1 (${currentTime})`);
+          return;
+        }
       } else if (todayShift === 'ca2') {
-        if ((shiftTimes.c2_in || '16:30') === currentTime) { lastTriggeredMinute = minuteKey; startContinuousAlarm(`🟡 ĐẾN GIỜ VÀO CA 2 (${currentTime})`); return; }
-        if ((shiftTimes.c2_out || '22:00') === currentTime) { lastTriggeredMinute = minuteKey; startContinuousAlarm(`🏁 HẾT GIỜ CA 2 (${currentTime})`); return; }
+        if ((shiftTimes.c2_in || '16:30') === currentTime) {
+          lastTriggeredMinute = minuteKey;
+          startContinuousAlarm(`🟡 ĐẾN GIỜ VÀO CA 2 (${currentTime})`);
+          return;
+        }
+        if ((shiftTimes.c2_out || '22:00') === currentTime) {
+          lastTriggeredMinute = minuteKey;
+          startContinuousAlarm(`🏁 HẾT GIỜ CA 2 (${currentTime})`);
+          return;
+        }
       } else if (todayShift === 'hch') {
-        if ((shiftTimes.hch_in || '08:00') === currentTime) { lastTriggeredMinute = minuteKey; startContinuousAlarm(`🟣 ĐẾN GIỜ VÀO HÀNH CHÍNH (${currentTime})`); return; }
-        if ((shiftTimes.hch_out || '17:00') === currentTime) { lastTriggeredMinute = minuteKey; startContinuousAlarm(`🏁 HẾT GIỜ HÀNH CHÍNH (${currentTime})`); return; }
+        if ((shiftTimes.hch_in || '08:00') === currentTime) {
+          lastTriggeredMinute = minuteKey;
+          startContinuousAlarm(`🟣 ĐẾN GIỜ VÀO HÀNH CHÍNH (${currentTime})`);
+          return;
+        }
+        if ((shiftTimes.hch_out || '17:00') === currentTime) {
+          lastTriggeredMinute = minuteKey;
+          startContinuousAlarm(`🏁 HẾT GIỜ HÀNH CHÍNH (${currentTime})`);
+          return;
+        }
       }
 
       journals.forEach(j => {
@@ -1830,17 +2125,20 @@
       });
     }
 
+    // Tần suất quét 1 giây để đảm bảo bắt trọn mốc báo thức ngay cả khi điện thoại vừa thoát chế độ ngủ sâu
     setInterval(checkScheduler, 1000);
 
     document.addEventListener('visibilitychange', () => {
       if (!document.hidden) {
         unlockAudioContext();
         checkScheduler();
+        updateNotiButtonStatus();
       }
     });
     window.addEventListener('focus', () => {
       unlockAudioContext();
       checkScheduler();
+      updateNotiButtonStatus();
     });
 
     document.addEventListener('DOMContentLoaded', () => {
@@ -1856,8 +2154,8 @@
       updateNotiButtonStatus();
     });
 
-    document.body.addEventListener('touchstart', unlockAudioContext, { once: true });
-    document.body.addEventListener('click', unlockAudioContext, { once: true });
+    document.body.addEventListener('touchstart', () => { unlockAudioContext(); }, { once: true });
+    document.body.addEventListener('click', () => { unlockAudioContext(); }, { once: true });
   </script>
 </body>
 </html>

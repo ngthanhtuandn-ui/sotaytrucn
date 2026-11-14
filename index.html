@@ -97,16 +97,56 @@
       animation: gradientShift 5s ease infinite;
       margin-bottom: 6px; letter-spacing: 0.8px;
     }
+    
+    /* HIỆU ỨNG CHỮ & TRÁI TIM ĐẬP NHỊP SIÊU LÃNG MẠN */
     .romantic-display-box {
-      font-size: 1.25rem; font-weight: 900; font-family: "Times New Roman", Times, serif; font-style: italic;
-      min-height: 32px; margin-bottom: 8px; display: flex; align-items: center; justify-content: center;
-      background: linear-gradient(45deg, #ec4899, #9333ea, #f43f5e, #db2777);
+      font-size: 1.35rem; font-weight: 900; font-family: "Times New Roman", Times, serif; font-style: italic;
+      min-height: 44px; margin-bottom: 8px; display: flex; align-items: center; justify-content: center; gap: 6px;
+      background: linear-gradient(45deg, #ff1493, #ff69b4, #ff1493, #c71585);
       background-size: 300% 300%;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      animation: gradientShift 4s ease infinite;
-      filter: drop-shadow(0 2px 6px rgba(236,72,153,0.3));
-      letter-spacing: 1px;
+      animation: gradientShift 3s ease infinite, heartbeatText 1.2s ease-in-out infinite;
+      filter: drop-shadow(0 3px 8px rgba(244,63,94,0.4));
+      letter-spacing: 0.8px; text-align: center; padding: 0 4px;
+    }
+    @keyframes heartbeatText {
+      0%, 100% { transform: scale(1); }
+      15%, 45% { transform: scale(1.08); }
+      30% { transform: scale(0.96); }
+    }
+
+    /* MODAL HIỆN ẢNH SIÊU LÃNG MẠN (MÃ 1314 + 🌸) */
+    #romanticPhotoModal {
+      display: none; position: fixed; inset: 0; z-index: 100000;
+      background: rgba(76, 5, 25, 0.85); backdrop-filter: blur(8px);
+      align-items: center; justify-content: center; padding: 16px;
+    }
+    .romantic-modal-card {
+      background: linear-gradient(135deg, #ffffff 0%, #fff1f2 100%);
+      border: 2.5px solid #f43f5e; border-radius: 26px; padding: 22px;
+      max-width: 320px; width: 100%; text-align: center;
+      box-shadow: 0 16px 50px rgba(244, 63, 94, 0.4);
+      animation: modalPop 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    @keyframes modalPop {
+      0% { transform: scale(0.8); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    .romantic-modal-img {
+      width: 160px; height: 160px; border-radius: 50%; object-fit: cover;
+      border: 4px solid #f43f5e; box-shadow: 0 8px 24px rgba(236, 72, 153, 0.4);
+      margin: 0 auto 14px auto; display: block;
+      animation: heartbeatText 2s ease-in-out infinite;
+    }
+    .romantic-modal-title {
+      font-size: 1.35rem; font-weight: 900; color: #be185d; margin-bottom: 14px;
+      font-family: "Times New Roman", Times, serif; font-style: italic;
+    }
+    .romantic-modal-btn {
+      background: linear-gradient(135deg, #f43f5e, #be185d); color: white; border: none;
+      padding: 10px 24px; border-radius: 14px; font-weight: 800; font-size: 0.88rem; cursor: pointer;
+      box-shadow: 0 4px 14px rgba(244, 63, 94, 0.3);
     }
 
     .passcode-dots { display: flex; justify-content: center; gap: 12px; margin-bottom: 16px; }
@@ -478,6 +518,15 @@
 </head>
 <body>
 
+  <!-- MODAL HIỆN ẢNH SIÊU LÃNG MẠN (MÃ 1314 + 🌸) -->
+  <div id="romanticPhotoModal">
+    <div class="romantic-modal-card">
+      <img src="t2.jpg" alt="Ái Nhuy" class="romantic-modal-img">
+      <div class="romantic-modal-title">Anh Nhớ Em Nhiều Lắm 💕</div>
+      <button class="romantic-modal-btn" onclick="closeRomanticModal()">💖 Đóng lại 💖</button>
+    </div>
+  </div>
+
   <!-- MÀN HÌNH KHÓA BẢO MẬT (PASSCODE 131426) -->
   <div id="lockScreen">
     <div class="lock-box">
@@ -702,7 +751,7 @@
           <label>Nội dung chi tiết</label>
           <textarea id="issueContent" placeholder="Mô tả..."></textarea>
         </div>
-        <button class="btn-submit btn-submit-purple" onclick="saveIssue()">+ Lưu Việc Cần Xử Lý</button>
+        <button class="btn-submit btn-submit-purple" onclick="saveIssue()">+ Việc Cần Xử Lý</button>
       </div>
       <div id="issuesList"></div>
     </div>
@@ -724,6 +773,13 @@
       sessionStorage.clear();
     }
 
+    function closeRomanticModal() {
+      const modal = document.getElementById('romanticPhotoModal');
+      if (modal) modal.style.display = 'none';
+      enteredPin = "";
+      updatePinDots();
+    }
+
     function pressKey(val) {
       const romEl = document.getElementById('romanticDisplay');
       if (val === 'C') {
@@ -731,20 +787,49 @@
         if (romEl) romEl.innerText = "";
         updatePinDots();
       } else if (val === 'FLOWER') {
-        if (enteredPin === "11111") {
-          if (romEl) romEl.innerText = "✨ Anh ✨";
-        } else if (enteredPin === "22222") {
-          if (romEl) romEl.innerText = "💖 nhớ 💖";
-        } else if (enteredPin === "33333") {
-          if (romEl) romEl.innerText = "🌸 em 🌸";
-        } else {
-          if (romEl) romEl.innerText = "🌸 Ái Nhuy 💕";
+        // MÃ BÍ MẬT 1314 + 🌸
+        if (enteredPin === "1314") {
+          const modal = document.getElementById('romanticPhotoModal');
+          if (modal) modal.style.display = 'flex';
+          if (romEl) romEl.innerHTML = "💖 <b>Ái Nhuy Xinh Đẹp</b> 💖";
+          return;
+        } 
+        // MÃ 11111 + 🌸 -> Anh (Thiết kế cực kỳ lãng mạn)
+        else if (enteredPin === "11111") {
+          if (romEl) romEl.innerHTML = "✨ 💖 <b>Anh</b> 💖 ✨";
+        } 
+        // MÃ 22222 + 🌸 -> nhớ (Thiết kế tim đập nhịp bay bổng)
+        else if (enteredPin === "22222") {
+          if (romEl) romEl.innerHTML = "🌸 💓 <i>nhớ</i> 💓 🌸";
+        } 
+        // MÃ 33333 + 🌸 -> em (Thiết kế cực ngọt ngào)
+        else if (enteredPin === "33333") {
+          if (romEl) romEl.innerHTML = "💕 ✨ <b>em</b> ✨ 💕";
+        } 
+        // CÁC MÃ TỪ 44444 ĐẾN 88888 + 🌸 (Icon lãng mạn, trái tim đập nhịp, nụ hôn, lá vàng rơi, Ái Nhuy xinh đẹp)
+        else if (enteredPin === "44444") {
+          if (romEl) romEl.innerHTML = "💖 💋 🍁 <b>Ái Nhuy Xinh Đẹp Của Anh</b> 🍁 💋 💖";
+        } else if (enteredPin === "55555") {
+          if (romEl) romEl.innerHTML = "🍂 💓 💋 <b>Mãi Yêu Ái Nhuy Xinh Đẹp Nhất!</b> 💋 💓 🍂";
+        } else if (enteredPin === "66666") {
+          if (romEl) romEl.innerHTML = "🍁 ❤️ 💋 <b>Gửi Ngàn Nụ Hôn Ngọt Ngào Đến Em!</b> 💋 ❤️ 🍁";
+        } else if (enteredPin === "77777") {
+          if (romEl) romEl.innerHTML = "💖 🍂 💓 <b>Trái Tim Anh Chỉ Có Ái Nhuy Thôi!</b> 💓 🍂 💖";
+        } else if (enteredPin === "88888") {
+          if (romEl) romEl.innerHTML = "🍁 ✨ 💋 <b>Ái Nhuy Là Nữ Hoàng Của Trái Tim Anh!</b> 💋 ✨ 🍁";
+        } 
+        // MÃ 99999 + 🌸 -> Chúc em ngủ ngon thiết kế cực kì lãng mạn, yêu thương
+        else if (enteredPin === "99999") {
+          if (romEl) romEl.innerHTML = "🌙 💖 ✨ <b>Chúc Em Ngủ Ngon & Mơ Thật Đẹp Nha!</b> ✨ 💖 🌙";
+        } 
+        else {
+          if (romEl) romEl.innerHTML = "🌸 ❤️ <b>Ái Nhuy Xinh Đẹp Nhất Trời Nam!</b> ❤️ 🌸";
         }
         setTimeout(() => {
           enteredPin = "";
           updatePinDots();
           if (romEl) romEl.innerText = "";
-        }, 2500);
+        }, 3800);
       } else {
         if (enteredPin.length < 6) {
           enteredPin += val;
@@ -801,19 +886,20 @@
       sessionStorage.clear();
     });
 
+    // LÁ MÙA THU & TRÁI TIM RƠI KHẮP MÀN HÌNH
     function createFallingLeaves() {
-      const leafChars = ['🍁', '🍂', '🍃', '🌿', '✨'];
+      const leafChars = ['🍁', '🍂', '🍃', '🌿', '💖', '❤️', '💋', '🌸'];
       setInterval(() => {
         const leaf = document.createElement('div');
         leaf.className = 'falling-leaf';
         leaf.innerText = leafChars[Math.floor(Math.random() * leafChars.length)];
         leaf.style.left = Math.random() * 100 + 'vw';
-        leaf.style.fontSize = (Math.random() * 10 + 12) + 'px';
-        const duration = Math.random() * 5 + 8;
+        leaf.style.fontSize = (Math.random() * 12 + 14) + 'px';
+        const duration = Math.random() * 5 + 7;
         leaf.style.animationDuration = duration + 's';
         document.body.appendChild(leaf);
         setTimeout(() => leaf.remove(), duration * 1000);
-      }, 900);
+      }, 750);
     }
     createFallingLeaves();
 
@@ -997,44 +1083,14 @@
         { title: "Xả hơi thôi nào! 🛋️", quote: "Đã hoàn thành xuất sắc nhiệm vụ rồi, hãy gác lại mọi lo toan công việc để tận hưởng buổi tối bình yên nha." },
         { title: "Tự hào về em! 🌟", quote: "Hôm nay em đã làm việc rất chăm chỉ và vất vả rồi. Nghỉ ngơi thật tốt nhé cô gái ngoan." },
         { title: "Thành quả ngọt ngào! 🍇", quote: "Những nỗ lực trong ngày hôm nay của em hoàn toàn xứng đáng với kết quả tuyệt vời nhận được." },
-        { title: "Bình yên cuối ngày! 🌆", quote: "Hoàng hôn buông xuống, chúc em có những phút giây thư giãn nhẹ nhàng bên gia đình và người thân." },
-        { title: "Bữa tối ngon miệng! 🍜", quote: "Chúc em có một bữa tối thật ngon miệng bên những món ăn yêu thích sau một ngày dài." },
-        { title: "Buổi tối ngọt ngào! 🍫", quote: "Gửi đến em buổi tối ngập tràn sự ấm áp, ngọt ngào và những bộ phim thật thú vị." },
-        { title: "Thư giãn trọn vẹn! 🎶", quote: "Bật một bản nhạc nhẹ nhàng, nhâm nhi tách trà ấm và tận hưởng buổi tối yên bình em nhé." },
-        { title: "Gác lại âu lo! 🕊️", quote: "Mọi phiền muộn của công việc hãy để lại ngoài cánh cửa, buổi tối là dành riêng cho sự nghỉ ngơi." },
-        { title: "Nụ cười cuối ngày! 😊", quote: "Mong rằng khép lại ngày hôm nay là một nụ cười mãn nguyện và hạnh phúc trọn vẹn của em." },
-        { title: "Ánh đèn ấm áp! 💡", quote: "Dưới ánh đèn vàng ấm áp, chúc em cảm nhận được trọn vẹn tình yêu thương và sự bình yên." },
-        { title: "Chăm sóc bản thân! 🛀", quote: "Tắm nước ấm và skincare thật kỹ lưỡng để chiều chuộng bản thân sau ngày dài mệt nhọc nha." },
-        { title: "Trò chuyện cùng anh! 💬", quote: "Tối nay lại cùng anh chuyện trò linh tinh mọi thứ trên đời để kết thúc một ngày thật trọn vẹn nhé." },
-        { title: "Hạnh phúc buổi tối! 🌙", quote: "Buổi tối thật lãng mạn khi nghĩ về nhau. Chúc tình yêu của anh có những giây phút thư thái." },
-        { title: "Năng lượng phục hồi! 🔋", quote: "Nạp lại đầy 100% pin năng lượng cho cơ thể và tinh thần để sẵn sàng cho ngày mai tươi mới." },
-        { title: "Bình yên trong tim! 💖", quote: "Dù ngoài kia có giông bão thế nào, bình yên nhất vẫn là lúc được nhắn tin cùng anh." },
-        { title: "Món quà tối nay! 🎁", quote: "Tối nay chúc em nhận được thật nhiều bất ngờ ngọt ngào và niềm vui bất tận." },
-        { title: "Không gian riêng tư! 🏡", quote: "Tận hưởng không gian ấm cúng trong căn phòng nhỏ của riêng em nhé." },
-        { title: "Nụ hôn buổi tối! 💋", quote: "Gửi tặng em ngàn chiếc hôn gió ấm áp trước khi bước vào giờ phút nghỉ ngơi ban đêm." },
-        { title: "Thương lắm cô ngốc! 🥰", quote: "Cứ hay lo xa đủ thứ, tối nay phải ngủ thật sớm và ngoan ngoãn nghe lời anh đấy nhé." }
+        { title: "Bình yên cuối ngày! 🌆", quote: "Hoàng hôn buông xuống, chúc em có những phút giây thư giãn nhẹ nhàng bên gia đình và người thân." }
       ],
       night: [
         { title: "Ngủ ngon nhé tình yêu! 🌙", quote: "Đã đến giờ đi ngủ rồi, chúc tình yêu của anh ngủ thật ngon và có những giấc mơ thật đẹp nhé. 💕" },
         { title: "Chúc mơ thấy anh! 💭", quote: "Đắp chăn ấm áp và ngủ thật sâu em nha, trong giấc mơ đêm nay nhớ ghé sang thăm anh đấy." },
         { title: "Giấc ngủ bình yên! 🌌", quote: "Chúc em có một đêm ngon giấc, xua tan mọi mỏi mệt để sáng mai thức dậy thật tươi trẻ." },
         { title: "Ôm em vào mộng! 🤗", quote: "Gửi ngàn cái ôm ngọt ngào qua màn hình, chúc Ái Nhuy ngủ ngon và có giấc mộng thật đẹp." },
-        { title: "Đêm nay thật êm đềm! 🌠", quote: "Ánh trăng ngoài kia đang dịu dàng ôm lấy giấc ngủ của em. Ngủ ngon nha công chúa của anh." },
-        { title: "Ngủ sâu và ngon! 🛌", quote: "Thả lỏng cơ thể, buông xõa mái tóc và chìm vào giấc ngủ thật sâu, không mộng mị em nhé." },
-        { title: "Hẹn gặp trong mơ! ✨", quote: "Đêm nay anh sẽ đợi em trong giấc mơ, chúng ta lại cùng nhau dạo bước thật hạnh phúc nha." },
-        { title: "Bình minh sớm mai! 🌅", quote: "Ngủ thật ngon để sáng mai thức dậy với một tinh thần sảng khoái và rạng rỡ nhất em nhé." },
-        { title: "Êm đềm hơi thở! 🍃", quote: "Hơi thở đều đặn trong đêm khuya, chúc em có một giấc ngủ ngon lành và an toàn tuyệt đối." },
-        { title: "Tình yêu che chở! 🛡️", quote: "Hãy để tình yêu của anh che chở và bảo vệ giấc ngủ của em suốt cả đêm dài giá lạnh." },
-        { title: "Đắp chăn cẩn thận! 🧥", quote: "Đêm nay trời có thể trở lạnh, em nhớ đắp chăn thật kín để không bị cảm lạnh nha." },
-        { title: "Tắt đèn chợp mắt! 💡", quote: "Đã khuya rồi, tắt điện thoại và khép mi lại để chìm vào giấc ngủ phục hồi sức khỏe thôi." },
-        { title: "Ngàn vì sao chúc ngủ ngon! ⭐", quote: "Ngàn vì sao trên bầu trời đêm nay đang thay anh gửi lời chúc ngủ ngon ngọt ngào nhất đến em." },
-        { title: "Yêu em đến tận cùng! 💞", quote: "Trước khi nhắm mắt đi ngủ, hãy nhớ rằng anh vô cùng yêu và thương Ái Nhuy." },
-        { title: "Nụ hôn chúc ngủ ngon! 😘", quote: "Một nụ hôn cuối ngày thật sâu lắng gửi đến em. Chúc ngủ ngon, tình yêu của đời anh!" },
-        { title: "Bình yên vĩnh cửu! 🕊️", quote: "Chúc em có một đêm trọn vẹn sự bình yên, mơ thấy những điều tuyệt diệu nhất." },
-        { title: "Mơ về tương lai! 🏰", quote: "Đêm nay chúc em mơ về ngôi nhà hạnh phúc của chúng ta trong tương lai không xa." },
-        { title: "Buông xõa mọi suy nghĩ! 🧠", quote: "Không suy nghĩ lo âu nữa nhé, mọi chuyện đã có anh lo. Ngủ ngoan nào em yêu." },
-        { title: "Ôm chặt qua màn hình! 🫂", quote: "Xiết chặt em vào lòng qua không gian ảo diệu này. Ngủ thật ngon nha em!" },
-        { title: "Chào tạm biệt ngày cũ! 📅", quote: "Khép lại một ngày dài, chúc em có giấc ngủ thật ngon để đón chào ngày mới ngập tràn niềm vui." }
+        { title: "Đêm nay thật êm đềm! 🌠", quote: "Ánh trăng ngoài kia đang dịu dàng ôm lấy giấc ngủ của em. Ngủ ngon nha công chúa của anh." }
       ]
     };
 
@@ -2125,7 +2181,6 @@
       });
     }
 
-    // Tần suất quét 1 giây để đảm bảo bắt trọn mốc báo thức ngay cả khi điện thoại vừa thoát chế độ ngủ sâu
     setInterval(checkScheduler, 1000);
 
     document.addEventListener('visibilitychange', () => {

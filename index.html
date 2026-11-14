@@ -22,7 +22,7 @@
       user-select: none !important;
       -webkit-touch-callout: none !important;
     }
-    input, textarea, .day-note-input {
+    input, textarea {
       -webkit-user-select: text !important;
       -moz-user-select: text !important;
       -ms-user-select: text !important;
@@ -335,18 +335,26 @@
       font-weight: 800; cursor: pointer; white-space: nowrap; box-shadow: 0 2px 6px rgba(0,0,0,0.15);
     }
 
-    .nav-tabs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; margin-bottom: 12px; }
+    /* TINH CHỈNH CÁC TAB NHỎ GỌN, ĐẸP MẮT, LÃNG MẠN HỢP VỚI NỮ */
+    .nav-tabs {
+      display: flex; gap: 8px; margin-bottom: 14px; background: rgba(255, 255, 255, 0.7);
+      padding: 6px; border-radius: 16px; border: 1.5px solid #fbcfe8;
+      box-shadow: 0 4px 16px rgba(236, 72, 153, 0.08); backdrop-filter: blur(8px);
+    }
     .nav-tab-btn {
-      padding: 10px 4px; border-radius: 12px; border: 1px solid var(--border); background: white;
-      font-size: 0.78rem; font-weight: 700; color: var(--muted); cursor: pointer; text-align: center;
-      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      flex: 1; padding: 8px 6px; border-radius: 12px; border: 1px solid transparent; background: transparent;
+      font-size: 0.76rem; font-weight: 700; color: #9f1239; cursor: pointer; text-align: center;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px;
     }
+    .nav-tab-btn:hover { background: #ffe4e6; }
     .nav-tab-btn.active {
-      background: var(--primary); color: white; border-color: var(--primary);
-      box-shadow: 0 4px 12px rgba(236, 72, 153, 0.25);
+      background: linear-gradient(135deg, #ec4899 0%, #db2777 100%); color: white; border-color: #f43f5e;
+      box-shadow: 0 4px 14px rgba(236, 72, 153, 0.35); transform: translateY(-1px);
     }
-    .nav-tab-btn-two-lines { display: flex; flex-direction: column; align-items: center; justify-content: center; line-height: 1.2; }
-    .nav-tab-btn.active-journal { background: #ffe4e6 !important; color: #be185d !important; border-color: #f43f5e !important; }
+    .nav-tab-btn.active-journal {
+      background: linear-gradient(135deg, #f43f5e 0%, #be185d 100%) !important; color: white !important; border-color: #fda4af !important;
+      box-shadow: 0 4px 14px rgba(244, 63, 94, 0.35);
+    }
 
     .card-box {
       background: var(--card); border-radius: 18px; padding: 14px; margin-bottom: 12px;
@@ -400,16 +408,16 @@
     .btn-zalo { background: #0068ff; color: white; border: none; }
     .btn-delete { color: var(--danger); border-color: #fecaca; background: #fff5f5; }
 
-    .week-table-card { background: white; border-radius: 16px; border: 1px solid var(--border); padding: 8px; margin-bottom: 10px; }
-    .week-control-bar { display: flex; align-items: center; gap: 6px; margin-bottom: 8px; }
+    .week-table-card { background: white; border-radius: 16px; border: 1px solid var(--border); padding: 10px; margin-bottom: 10px; }
+    .week-control-bar { display: flex; align-items: center; gap: 6px; margin-bottom: 10px; }
     .week-dropdown-wrap { flex: 1; }
     .week-select-menu { width: 100%; background: #fff1f2; border: 1.5px solid var(--primary); color: var(--primary-dark); font-weight: 700; font-size: 0.75rem; padding: 6px 8px; border-radius: 8px; }
     .btn-copy-month { background: #fdf2f8; border: 1.5px solid #fbcfe8; color: #be185d; font-size: 0.68rem; font-weight: 700; padding: 6px 8px; border-radius: 8px; cursor: pointer; }
 
-    .week-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px; text-align: center; margin-bottom: 8px; }
+    .week-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; text-align: center; margin-bottom: 10px; }
     .day-col {
-      border: 1px solid var(--border); border-radius: 6px; padding: 4px 1px; background: #fafafa;
-      display: flex; flex-direction: column; align-items: center; justify-content: space-between; min-width: 0;
+      border: 1px solid var(--border); border-radius: 8px; padding: 6px 2px; background: #fafafa;
+      display: flex; flex-direction: column; align-items: center; justify-content: flex-start; min-width: 0; min-height: 82px;
     }
     .day-col.today { border-color: var(--primary); outline: 1.5px solid #fbcfe8; }
 
@@ -433,18 +441,13 @@
     .day-col.is-hch .calendar-date { color: #3b0764 !important; font-weight: 900; }
     .day-col.is-hch .day-shift-select { border-color: #9333ea !important; color: #3b0764 !important; font-weight: 900; background: #e9d5ff !important; }
 
-    .day-name { font-size: 0.68rem; font-weight: 900; line-height: 1.1; }
-    .calendar-date { display: block; font-size: .60rem; margin: 1px 0 3px; font-weight: 900; }
+    .day-name { font-size: 0.68rem; font-weight: 900; line-height: 1.1; margin-bottom: 2px; }
+    .calendar-date { display: block; font-size: .60rem; margin-bottom: 6px; font-weight: 900; }
     
     .day-shift-select {
-      width: 98%; border: 1px solid var(--border); border-radius: 4px; font-size: 0.58rem;
-      padding: 3px 0; font-weight: 900; text-align: center; text-align-last: center; background: #fff;
-      -webkit-appearance: none; appearance: none; outline: none; cursor: pointer; margin-bottom: 3px;
-    }
-    .day-note-input {
-      width: 98%; border: 1px solid var(--border); border-radius: 4px; font-size: 0.55rem;
-      padding: 3px 2px; text-align: center; background: #ffffff; color: var(--text); outline: none;
-      resize: none; height: 26px; line-height: 1.1;
+      width: 96%; border: 1px solid var(--border); border-radius: 6px; font-size: 0.62rem;
+      padding: 4px 0; font-weight: 900; text-align: center; text-align-last: center; background: #fff;
+      -webkit-appearance: none; appearance: none; outline: none; cursor: pointer;
     }
 
     .sync-calendar-panel { background: #fdf2f8; border: 1px solid #fbcfe8; border-radius: 10px; padding: 8px; margin-top: 8px; }
@@ -472,7 +475,6 @@
       white-space: nowrap; box-shadow: 0 2px 8px rgba(244, 63, 94, 0.25);
     }
 
-    /* ĐÃ TINH GỌN TAB CÀI ĐẶT GIỜ NGAY NGẮN, ĐẸP MẮT */
     .shift-settings-box { background: #fdf2f8; border: 1px solid var(--border); border-radius: 12px; padding: 10px; margin-top: 8px; }
     .shift-settings-title { font-size: 0.78rem; font-weight: 700; color: var(--primary-dark); margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center; }
     .shift-config-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
@@ -541,7 +543,6 @@
   </div>
 
   <audio id="alarmAudioElement" preload="auto" loop></audio>
-  <audio id="warningAudioElement" preload="auto" loop></audio>
 
   <header>
     <h1><span class="header-title-name">Ái Nhuy</span></h1>
@@ -582,13 +583,20 @@
       </div>
     </div>
 
+    <!-- TAB ĐIỀU HƯỚNG NHỎ GỌN, ĐẸP MẮT & LÃNG MẠN -->
     <div class="nav-tabs">
-      <button class="nav-tab-btn active" id="tabBtn-shifts" onclick="switchView('shifts')">📅 Lịch Ca</button>
-      <button class="nav-tab-btn nav-tab-btn-two-lines" id="tabBtn-journal" onclick="switchView('journal')">
-        <span>💌 Nhật kí</span>
-        <span>Tình yêu</span>
+      <button class="nav-tab-btn active" id="tabBtn-shifts" onclick="switchView('shifts')">
+        <span>📅</span>
+        <span>Lịch Ca</span>
       </button>
-      <button class="nav-tab-btn" id="tabBtn-issues" onclick="switchView('issues')">⚡ Việc Cần Làm</button>
+      <button class="nav-tab-btn" id="tabBtn-journal" onclick="switchView('journal')">
+        <span>💌</span>
+        <span>Nhật Ký</span>
+      </button>
+      <button class="nav-tab-btn" id="tabBtn-issues" onclick="switchView('issues')">
+        <span>⚡</span>
+        <span>Việc Làm</span>
+      </button>
     </div>
 
     <!-- VIEW 1: LỊCH CA -->
@@ -959,7 +967,6 @@
 
     let alarmAudioBlobUrl = null;
 
-    /* TẤT CẢ CÁC CÂU CHÚC ĐƯỢC ĐỒNG BỘ ĐẦY ĐỦ THEO KHUNG GIỜ */
     const wishesByTime = {
       morning: [
         { title: "Chào buổi sáng tình yêu! ☀️", quote: "Chào buổi sáng tình yêu của anh! Chúc em một ngày mới ngập tràn năng lượng, làm việc hiệu quả và gặp nhiều may mắn nhé. 💕" },
@@ -1281,13 +1288,6 @@
       }));
     }
 
-    function getWeekNotesData(wIdx) {
-      const key = getWeekStorageKey(wIdx) + '_notes';
-      const saved = localStorage.getItem(key);
-      if (saved) return JSON.parse(saved);
-      return {};
-    }
-
     function initMonthWeeksDropdown() {
       buildMonthWeeksList();
       const select = document.getElementById('weekDropdownSelect');
@@ -1325,7 +1325,6 @@
       if (!currentWeekObj) return;
 
       const shiftsData = getShiftsForWeekIndex(currentWeekIndex);
-      const notesData = getWeekNotesData(currentWeekIndex);
 
       dayLabels.forEach((d, idx) => {
         const dayDate = new Date(currentWeekObj.monday);
@@ -1336,7 +1335,6 @@
                          dayDate.getFullYear() === now.getFullYear());
 
         const savedShift = shiftsData[d.key] || 'off';
-        const savedNote = notesData[d.key] || '';
         const dateLabel = `${String(dayDate.getDate()).padStart(2,'0')}/${String(dayDate.getMonth()+1).padStart(2,'0')}`;
 
         let shiftClass = 'is-off';
@@ -1356,7 +1354,6 @@
             <option value="hch" ${savedShift === 'hch' ? 'selected' : ''}>H.Chính</option>
             <option value="off" ${savedShift === 'off' ? 'selected' : ''}>🔴 Off</option>
           </select>
-          <textarea class="day-note-input" placeholder="Ghi chú..." oninput="updateDayNote(${d.key}, this.value)">${escapeHtml(savedNote)}</textarea>
         `;
         container.appendChild(col);
       });
@@ -1380,20 +1377,11 @@
       showToast('Đã lưu lịch ca!');
     }
 
-    function updateDayNote(dayKey, val) {
-      const key = getWeekStorageKey(currentWeekIndex) + '_notes';
-      const notesData = getWeekNotesData(currentWeekIndex);
-      notesData[dayKey] = val;
-      localStorage.setItem(key, JSON.stringify(notesData));
-    }
-
     function copyCurrentWeekToAll() {
       const curData = getShiftsForWeekIndex(currentWeekIndex);
-      const curNotes = getWeekNotesData(currentWeekIndex);
-      if (confirm(`Áp dụng lịch và ghi chú tuần này cho cả tháng?`)) {
+      if (confirm(`Áp dụng lịch tuần này cho cả tháng?`)) {
         monthWeeksList.forEach(w => {
           localStorage.setItem(getWeekStorageKey(w.index), JSON.stringify(curData));
-          localStorage.setItem(getWeekStorageKey(w.index) + '_notes', JSON.stringify(curNotes));
         });
         localStorage.setItem('ainhuy_weekly_shifts', JSON.stringify(curData));
         renderWeekGrid();
@@ -1472,12 +1460,10 @@
         const wObj = monthWeeksList[wIdx];
         if (!wObj) return;
         const shiftsData = getShiftsForWeekIndex(wIdx);
-        const notesData = getWeekNotesData(wIdx);
 
         for (let i = 0; i < 7; i++) {
           const dayKey = i === 6 ? 8 : i + 2;
           const shift = shiftsData[dayKey] || 'off';
-          const dayNote = notesData[dayKey] ? `\nGhi chú: ${notesData[dayKey]}` : '';
 
           const dayDate = new Date(wObj.monday);
           dayDate.setDate(wObj.monday.getDate() + i);
@@ -1497,7 +1483,7 @@
               `DTSTART;VALUE=DATE:${dateStr}`,
               `DTEND;VALUE=DATE:${toICADateString(nextDay.getFullYear(), nextDay.getMonth()+1, nextDay.getDate())}`,
               `SUMMARY:🔴 Off`,
-              `DESCRIPTION:Hôm nay Ái Nhuy Off nghỉ ngơi nhé!${dayNote}`,
+              `DESCRIPTION:Hôm nay Ái Nhuy Off nghỉ ngơi nhé!`,
               `STATUS:CONFIRMED`,
               'END:VEVENT'
             ].join('\r\n'));
@@ -1533,7 +1519,7 @@
             `DTSTART:${inTimeUTC}`,
             `DTEND:${inTimeUTC}`,
             `SUMMARY:🔔 Vào ${shiftLabel} (${rawIn})`,
-            `DESCRIPTION:Đã đến giờ vào làm việc ${shiftLabel}.${dayNote}`,
+            `DESCRIPTION:Đã đến giờ vào làm việc ${shiftLabel}.`,
             `STATUS:CONFIRMED`,
             'BEGIN:VALARM',
             'TRIGGER:-PT0M',
@@ -1551,7 +1537,7 @@
             `DTSTART:${outTimeUTC}`,
             `DTEND:${outTimeUTC}`,
             `SUMMARY:🏁 Tan ${shiftLabel} (${rawOut})`,
-            `DESCRIPTION:Đã hết giờ làm việc ${shiftLabel}.${dayNote}`,
+            `DESCRIPTION:Đã hết giờ làm việc ${shiftLabel}.`,
             `STATUS:CONFIRMED`,
             'BEGIN:VALARM',
             'TRIGGER:-PT0M',
@@ -1569,7 +1555,7 @@
             `DTSTART:${inTimeUTC}`,
             `DTEND:${outTimeUTC}`,
             `SUMMARY:${summaryTitle}`,
-            `DESCRIPTION:Ca trực ${shiftLabel} từ ${rawIn} đến ${rawOut}.${dayNote}`,
+            `DESCRIPTION:Ca trực ${shiftLabel} từ ${rawIn} đến ${rawOut}.`,
             `STATUS:CONFIRMED`,
             'END:VEVENT'
           ].join('\r\n'));

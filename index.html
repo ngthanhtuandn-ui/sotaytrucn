@@ -115,17 +115,17 @@
       30% { transform: scale(0.96); }
     }
 
-    /* MODAL HIỂN THỊ ẢNH TO RÕ, LÃNG MẠN (MÃ 1314 + 🌸) */
+    /* MODAL HIỂN THỊ KHUNG ẢNH ĐỨNG TRỌN VẸN MẶT VÀ THÂN NGỰC (MÃ 1314 + 🌸) */
     #romanticPhotoModal {
       display: none; position: fixed; inset: 0; z-index: 100000;
-      background: rgba(76, 5, 25, 0.88); backdrop-filter: blur(10px);
-      align-items: center; justify-content: center; padding: 20px;
+      background: rgba(76, 5, 25, 0.9); backdrop-filter: blur(12px);
+      align-items: center; justify-content: center; padding: 16px;
     }
     .romantic-modal-card {
       background: linear-gradient(135deg, #ffffff 0%, #fff1f2 100%);
-      border: 3px solid #f43f5e; border-radius: 30px; padding: 28px 20px;
-      max-width: 350px; width: 100%; text-align: center;
-      box-shadow: 0 20px 60px rgba(244, 63, 94, 0.5);
+      border: 3px solid #f43f5e; border-radius: 28px; padding: 20px 16px;
+      max-width: 340px; width: 100%; text-align: center;
+      box-shadow: 0 20px 60px rgba(244, 63, 94, 0.6);
       animation: modalPop 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
     @keyframes modalPop {
@@ -133,19 +133,19 @@
       100% { transform: scale(1); opacity: 1; }
     }
     .romantic-modal-img {
-      width: 200px; height: 200px; border-radius: 50%; object-fit: cover;
-      border: 5px solid #f43f5e; box-shadow: 0 10px 30px rgba(236, 72, 153, 0.45);
-      margin: 0 auto 16px auto; display: block;
-      animation: heartbeatText 2s ease-in-out infinite;
+      width: 100%; max-height: 380px; object-fit: contain; border-radius: 20px;
+      border: 3px solid #f43f5e; box-shadow: 0 8px 24px rgba(236, 72, 153, 0.35);
+      margin: 0 auto 12px auto; display: block; background: #fff5f7;
+      animation: heartbeatText 2.5s ease-in-out infinite;
     }
     .romantic-modal-title {
-      font-size: 1.5rem; font-weight: 900; color: #be185d; margin-bottom: 16px;
+      font-size: 1.4rem; font-weight: 900; color: #be185d; margin-bottom: 12px;
       font-family: "Times New Roman", Times, serif; font-style: italic;
     }
     .romantic-modal-btn {
       background: linear-gradient(135deg, #f43f5e, #be185d); color: white; border: none;
-      padding: 12px 28px; border-radius: 16px; font-weight: 800; font-size: 0.95rem; cursor: pointer;
-      box-shadow: 0 6px 16px rgba(244, 63, 94, 0.35);
+      padding: 10px 24px; border-radius: 14px; font-weight: 800; font-size: 0.9rem; cursor: pointer;
+      box-shadow: 0 5px 16px rgba(244, 63, 94, 0.35);
     }
 
     .passcode-dots { display: flex; justify-content: center; gap: 12px; margin-bottom: 16px; }
@@ -510,7 +510,7 @@
 </head>
 <body>
 
-  <!-- MODAL HIỆN ẢNH NHÂN VẬT NAM TO RÕ KÈM LỜI NHẮN KHI NHẬP 1314 + 🌸 -->
+  <!-- MODAL HIỆN ẢNH ĐỨNG TRỌN VẸN MẶT VÀ THÂN NGỰC (MÃ 1314 + 🌸) -->
   <div id="romanticPhotoModal">
     <div class="romantic-modal-card">
       <img src="t2.jpg" alt="Nhân vật nam" class="romantic-modal-img">
@@ -1098,7 +1098,7 @@
         { title: "Hoàn toàn thư giãn! 🌸", quote: "Chúc giấc ngủ của em không bị quấy rầy bởi bất cứ điều gì, hoàn toàn thư giãn." },
         { title: "Hẹn gặp trong mơ! 💭", quote: "Hẹn gặp em trong những giấc mơ đẹp nhất đêm nay nhé, tình yêu của anh." },
         { title: "Tuyệt diệu nhất! ⭐", quote: "Chúc cô gái của anh ngủ ngon, mơ thấy những điều tuyệt diệu nhất trên đời." },
-        { title: "Ánh trăng dịu dàng! 🌙", quote: "Đêm nay trăng rất sáng, giống như nụ cười dịu dàng của em đang thắp sáng tâm hồn anh. Ng ngủ ngon nha!" },
+        { title: "Ánh trăng dịu dàng! 🌙", quote: "Đêm nay trăng rất sáng, giống như nụ cười dịu dàng của em đang thắp sáng tâm hồn anh. Ngủ ngon nha!" },
         { title: "Bình yên trọn vẹn! 🕊️", quote: "Chúc em có một đêm trọn vẹn bình yên, giấc ngủ ngon sẽ mang lại cho em nguồn năng lượng mới vào ngày mai." }
       ]
     };

@@ -6,13 +6,12 @@
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
-  <title>Sổ Tay Tình Yêu & Lịch Ca Của Ái Nhuy 💕</title>
-  <meta name="theme-color" content="#ec4899">
+  <title>Sổ Tay Tình Yêu & Lịch Ca Của Ái Nhuy 💗</title>
+  <meta name="theme-color" content="#f9a8d4">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
 
-  <!-- CHỐNG SAO CHÉP VÀ BÔI ĐEN TOÀN DIỆN -->
   <style>
     * {
       -webkit-user-select: none !important;
@@ -58,185 +57,357 @@
 
   <style>
     :root {
-      --primary: #ec4899;
-      --primary-dark: #be185d;
-      --accent: #f43f5e;
-      --bg: #fff1f2;
+      --primary: #f472b6;
+      --primary-soft: #fdf2f8;
+      --primary-dark: #9d174d;
+      --accent: #fb7185;
+      --bg: #fff9fa;
       --card: #ffffff;
-      --text: #4c0519;
-      --muted: #881337;
-      --border: #fbcfe8;
-      --success: #10b981;
-      --danger: #ef4444;
-      --purple: #7c3aed;
-      --journal-bg: #fff1f2;
-      --journal-border: #fda4af;
-      --journal-text: #9f1239;
+      --text: #5c162e;
+      --muted: #9d4b67;
+      --border: #fce7f3;
+      --success: #34d399;
+      --danger: #f87171;
+      --purple: #a78bfa;
+      --journal-bg: #fff7f9;
+      --journal-border: #fbcfe8;
+      --journal-text: #9d174d;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; -webkit-tap-highlight-color: transparent; }
-    body { background: radial-gradient(ellipse at top,#ffe4e6 0%,#fff1f2 50%,#ffe4e6 100%); color: var(--text); padding-bottom: 90px; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    }
 
-    /* MÀN HÌNH KHÓA BẢO MẬT TUYỆT ĐỐI */
+    body {
+      background: linear-gradient(180deg, #fff5f7 0%, #fffafb 55%, #fff5f7 100%);
+      color: var(--text);
+      padding-bottom: 90px;
+    }
+
+    /* MÀN HÌNH KHÓA BẢO MẬT */
     #lockScreen {
-      position: fixed; inset: 0; z-index: 99999;
-      background: linear-gradient(135deg, #fda4af 0%, #f43f5e 50%, #be185d 100%);
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      padding: 20px; color: white; text-align: center;
+      position: fixed;
+      inset: 0;
+      z-index: 99999;
+      background: linear-gradient(135deg, #fbcfe8 0%, #f9a8d4 50%, #f472b6 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      color: white;
+      text-align: center;
     }
+
     .lock-box {
-      background: rgba(255, 255, 255, 0.96); padding: 24px 20px; border-radius: 28px;
-      width: 100%; max-width: 330px; box-shadow: 0 12px 40px rgba(190, 24, 93, 0.3); color: var(--text);
+      background: rgba(255, 255, 255, 0.96);
+      padding: 24px 20px;
+      border-radius: 28px;
+      width: 100%;
+      max-width: 330px;
+      box-shadow: 0 14px 36px rgba(157, 23, 77, 0.18);
+      color: var(--text);
+      border: 1px solid #fce7f3;
     }
+
     .lock-brand-title {
-      font-size: 1.45rem; font-weight: 800; font-family: "Times New Roman", Times, serif; font-style: italic;
-      background: linear-gradient(45deg, #be185d, #ec4899, #f43f5e, #7c3aed, #db2777);
-      background-size: 300% 300%;
+      font-size: 1.45rem;
+      font-weight: 800;
+      font-family: "Times New Roman", Times, serif;
+      font-style: italic;
+      background: linear-gradient(45deg, #be185d, #ec4899, #8b5cf6);
+      background-size: 250% 250%;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       animation: gradientShift 5s ease infinite;
-      margin-bottom: 6px; letter-spacing: 0.8px;
+      margin-bottom: 6px;
+      letter-spacing: 0.6px;
     }
-    
+
     .romantic-display-box {
-      font-size: 1.12rem; font-weight: 900; font-family: "Times New Roman", Times, serif; font-style: italic;
-      min-height: 46px; margin-bottom: 8px; display: flex; align-items: center; justify-content: center; gap: 6px;
-      background: linear-gradient(45deg, #ff1493, #ff69b4, #ff1493, #c71585);
-      background-size: 300% 300%;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: gradientShift 3s ease infinite, heartbeatText 1.2s ease-in-out infinite;
-      filter: drop-shadow(0 3px 8px rgba(244,63,94,0.4));
-      letter-spacing: 0.4px; text-align: center; padding: 0 4px; line-height: 1.25;
+      font-size: 1.08rem;
+      font-weight: 800;
+      font-family: "Times New Roman", Times, serif;
+      font-style: italic;
+      min-height: 44px;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      color: #be185d;
+      text-align: center;
+      padding: 0 4px;
+      line-height: 1.25;
     }
+
     @keyframes heartbeatText {
       0%, 100% { transform: scale(1); }
-      15%, 45% { transform: scale(1.06); }
-      30% { transform: scale(0.97); }
+      20%, 50% { transform: scale(1.04); }
+      35% { transform: scale(0.98); }
     }
 
-    /* MODAL HIỂN THỊ KHUNG ẢNH ĐỨNG TRỌN VẸN MẶT VÀ THÂN NGỰC (MÃ 1314 + 🌸) */
+    /* MODAL ẢNH 1314 + 🌸 */
     #romanticPhotoModal {
-      display: none; position: fixed; inset: 0; z-index: 100000;
-      background: rgba(76, 5, 25, 0.9); backdrop-filter: blur(12px);
-      align-items: center; justify-content: center; padding: 16px;
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 100000;
+      background: rgba(92, 22, 46, 0.78);
+      backdrop-filter: blur(10px);
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
     }
+
     .romantic-modal-card {
-      background: linear-gradient(135deg, #ffffff 0%, #fff1f2 100%);
-      border: 3px solid #f43f5e; border-radius: 28px; padding: 20px 16px;
-      max-width: 340px; width: 100%; text-align: center;
-      box-shadow: 0 20px 60px rgba(244, 63, 94, 0.6);
-      animation: modalPop 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+      background: linear-gradient(135deg, #ffffff 0%, #fff5f7 100%);
+      border: 2px solid #f9a8d4;
+      border-radius: 28px;
+      padding: 20px 16px;
+      max-width: 340px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 20px 50px rgba(157, 23, 77, 0.35);
+      animation: modalPop 0.3s ease;
     }
+
     @keyframes modalPop {
-      0% { transform: scale(0.75); opacity: 0; }
+      0% { transform: scale(0.85); opacity: 0; }
       100% { transform: scale(1); opacity: 1; }
     }
+
     .romantic-modal-img {
-      width: 100%; max-height: 380px; object-fit: contain; border-radius: 20px;
-      border: 3px solid #f43f5e; box-shadow: 0 8px 24px rgba(236, 72, 153, 0.35);
-      margin: 0 auto 12px auto; display: block; background: #fff5f7;
-      animation: heartbeatText 2.5s ease-in-out infinite;
-    }
-    .romantic-modal-title {
-      font-size: 1.4rem; font-weight: 900; color: #be185d; margin-bottom: 12px;
-      font-family: "Times New Roman", Times, serif; font-style: italic;
-    }
-    .romantic-modal-btn {
-      background: linear-gradient(135deg, #f43f5e, #be185d); color: white; border: none;
-      padding: 10px 24px; border-radius: 14px; font-weight: 800; font-size: 0.9rem; cursor: pointer;
-      box-shadow: 0 5px 16px rgba(244, 63, 94, 0.35);
+      width: 100%;
+      max-height: 360px;
+      object-fit: contain;
+      border-radius: 20px;
+      border: 2px solid #fbcfe8;
+      margin: 0 auto 12px auto;
+      display: block;
+      background: #fff9fa;
     }
 
-    .passcode-dots { display: flex; justify-content: center; gap: 12px; margin-bottom: 16px; }
-    .dot { width: 14px; height: 14px; border-radius: 50%; border: 2px solid #f43f5e; background: #fff; transition: all 0.2s; }
-    .dot.filled { background: #f43f5e; }
-    .keypad { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
-    .key-btn {
-      background: #fff1f2; border: 1px solid #fbcfe8; font-size: 1.1rem; font-weight: 800;
-      color: #be185d; padding: 10px 0; border-radius: 12px; cursor: pointer; transition: 0.15s;
+    .romantic-modal-title {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: #be185d;
+      margin-bottom: 12px;
+      font-family: "Times New Roman", Times, serif;
+      font-style: italic;
     }
-    .key-btn:active { background: #f43f5e; color: #fff; transform: scale(0.95); }
+
+    .romantic-modal-btn {
+      background: linear-gradient(135deg, #f472b6, #db2777);
+      color: white;
+      border: none;
+      padding: 10px 24px;
+      border-radius: 14px;
+      font-weight: 700;
+      font-size: 0.88rem;
+      cursor: pointer;
+    }
+
+    .passcode-dots {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .dot {
+      width: 13px;
+      height: 13px;
+      border-radius: 50%;
+      border: 2px solid #f472b6;
+      background: #fff;
+      transition: all 0.2s;
+    }
+
+    .dot.filled {
+      background: #f472b6;
+    }
+
+    .keypad {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+
+    .key-btn {
+      background: #fff5f7;
+      border: 1px solid #fbcfe8;
+      font-size: 1.08rem;
+      font-weight: 700;
+      color: #9d174d;
+      padding: 10px 0;
+      border-radius: 14px;
+      cursor: pointer;
+      transition: 0.15s;
+    }
+
+    .key-btn:active {
+      background: #f472b6;
+      color: #fff;
+      transform: scale(0.96);
+    }
 
     @keyframes flowerSpin {
       0% { transform: rotate(0deg) scale(1); }
-      50% { transform: rotate(180deg) scale(1.15); }
+      50% { transform: rotate(180deg) scale(1.12); }
       100% { transform: rotate(360deg) scale(1); }
     }
-    .flower-icon-spin { display: inline-block; animation: flowerSpin 6s linear infinite; font-size: 1.1rem; }
+    .flower-icon-spin {
+      display: inline-block;
+      animation: flowerSpin 6s linear infinite;
+      font-size: 1.05rem;
+    }
 
     .falling-leaf {
-      position: fixed; top: -10vh; z-index: 999; pointer-events: none;
+      position: fixed;
+      top: -10vh;
+      z-index: 999;
+      pointer-events: none;
       animation: fallLeaf linear infinite;
     }
+
     @keyframes fallLeaf {
-      0% { transform: translateY(0vh) translateX(0vw) rotate(0deg); opacity: 0.95; }
-      50% { transform: translateY(55vh) translateX(12vw) rotate(180deg); opacity: 0.75; }
-      100% { transform: translateY(110vh) translateX(-8vw) rotate(360deg); opacity: 0.1; }
+      0% { transform: translateY(0vh) translateX(0vw) rotate(0deg); opacity: 0.8; }
+      50% { transform: translateY(55vh) translateX(10vw) rotate(180deg); opacity: 0.6; }
+      100% { transform: translateY(110vh) translateX(-8vw) rotate(360deg); opacity: 0.08; }
     }
 
+    /* HEADER PASTEL DỊU MẮT */
     header {
-      background: linear-gradient(115deg,#be185d 0%,#db2777 60%,#f43f5e 100%);
-      color: white; padding: 12px 16px; position: sticky; top: 0; z-index: 100;
-      box-shadow: 0 6px 22px rgba(219,39,119,.25); display: flex; justify-content: space-between; align-items: center; gap: 6px;
+      background: linear-gradient(120deg, #f9a8d4 0%, #f472b6 55%, #fda4af 100%);
+      color: #ffffff;
+      padding: 12px 16px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 6px 20px rgba(244, 114, 182, 0.22);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 6px;
     }
-    
+
     .header-title-name {
-      font-size: 1.45rem; font-weight: 900; font-family: "Times New Roman", Times, serif; font-style: italic;
-      background: linear-gradient(45deg, #ffffff, #fde047, #fbcfe8, #ffffff, #fed7aa);
-      background-size: 300% 300%;
+      font-size: 1.42rem;
+      font-weight: 800;
+      font-family: "Times New Roman", Times, serif;
+      font-style: italic;
+      background: linear-gradient(45deg, #ffffff, #fef9c3, #fce7f3);
+      background-size: 250% 250%;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       animation: gradientShift 5s ease infinite;
-      letter-spacing: 0.8px;
-      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15));
+      letter-spacing: 0.6px;
     }
+
     @keyframes gradientShift {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
     }
 
-    .header-btns { display: flex; gap: 6px; flex-wrap: wrap; justify-content: flex-end; }
+    .header-btns {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
     .header-btns button {
-      background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.35); color: white;
-      padding: 6px 12px; border-radius: 8px; font-size: 0.72rem; cursor: pointer; font-weight: 600;
-      backdrop-filter: blur(6px); transition: all 0.2s ease;
+      background: rgba(255, 255, 255, 0.32);
+      border: 1px solid rgba(255, 255, 255, 0.55);
+      color: #ffffff;
+      padding: 6px 11px;
+      border-radius: 10px;
+      font-size: 0.72rem;
+      cursor: pointer;
+      font-weight: 700;
+      backdrop-filter: blur(6px);
+      transition: all 0.2s ease;
     }
-    .header-btns button:active { background: rgba(255,255,255,0.4); transform: scale(0.96); }
 
-    #btnNotiStatus.noti-granted { background: #10b981 !important; border-color: #34d399 !important; color: #ffffff !important; }
-    #btnNotiStatus.noti-denied { background: #ef4444 !important; border-color: #f87171 !important; color: #ffffff !important; }
+    .header-btns button:active {
+      background: rgba(255, 255, 255, 0.5);
+      transform: scale(0.96);
+    }
 
-    .container { max-width: 760px; margin: auto; padding: 12px; }
+    #btnNotiStatus.noti-granted {
+      background: #6ee7b7 !important;
+      border-color: #a7f3d0 !important;
+      color: #064e3b !important;
+    }
 
+    #btnNotiStatus.noti-denied {
+      background: #fca5a5 !important;
+      border-color: #fecaca !important;
+      color: #7f1d1d !important;
+    }
+
+    .container {
+      max-width: 760px;
+      margin: auto;
+      padding: 12px;
+    }
+
+    /* BANNER LỜI CHÚC & THỜI TIẾT */
     .greeting-banner {
-      background: linear-gradient(135deg, #ffffff 0%, #fff1f2 100%);
-      border: 1px solid #fbcfe8; border-radius: 20px; padding: 14px 16px; margin-bottom: 12px;
-      box-shadow: 0 8px 24px rgba(244,63,94,.08); display: flex; align-items: center; justify-content: space-between; gap: 12px;
+      background: linear-gradient(135deg, #ffffff 0%, #fff5f7 100%);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+      box-shadow: 0 6px 20px rgba(244, 114, 182, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
     }
-    .greeting-info { display: flex; flex-direction: column; gap: 4px; flex: 1; cursor: pointer; min-width: 0; }
-    .greeting-title { font-size: 1.02rem; font-weight: 800; color: #be185d; line-height: 1.25; }
-    .greeting-quote { font-size: 0.84rem; font-weight: 700; color: #e11d48; line-height: 1.35; }
-    .greeting-text-sub { font-size: 0.76rem; font-weight: 600; color: #64748b; margin-top: 2px; }
-    .weather-status-text { font-size: 0.74rem; color: #64748b; font-weight: 600; }
+
+    .greeting-info {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      flex: 1;
+      cursor: pointer;
+      min-width: 0;
+    }
+
+    .greeting-title { font-size: 1rem; font-weight: 800; color: #be185d; line-height: 1.25; }
+    .greeting-quote { font-size: 0.82rem; font-weight: 600; color: #db2777; line-height: 1.35; }
+    .greeting-text-sub { font-size: 0.75rem; font-weight: 600; color: #78716c; margin-top: 2px; }
+    .weather-status-text { font-size: 0.73rem; color: #78716c; font-weight: 600; }
 
     .weather-widget {
-      position: relative; width: 86px; height: 68px; display: flex; align-items: center; justify-content: center;
-      cursor: pointer; flex-shrink: 0;
+      position: relative;
+      width: 82px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      flex-shrink: 0;
     }
 
-    .sunny-animated-box { position: relative; width: 68px; height: 68px; display: flex; align-items: center; justify-content: center; }
+    .sunny-animated-box { position: relative; width: 64px; height: 64px; display: flex; align-items: center; justify-content: center; }
     .sun-core {
-      width: 32px; height: 32px; border-radius: 50%;
-      background: radial-gradient(circle at 35% 35%, #fffde7 0%, #fde047 30%, #f59e0b 75%, #ea580c 100%);
-      box-shadow: 0 0 18px rgba(245, 158, 11, 0.7), inset 0 0 5px #ffffff;
+      width: 30px; height: 30px; border-radius: 50%;
+      background: radial-gradient(circle at 35% 35%, #fef9c3 0%, #fde047 55%, #fbbf24 100%);
+      box-shadow: 0 0 14px rgba(253, 224, 71, 0.65);
       animation: sunPulse 3s ease-in-out infinite alternate; z-index: 2;
     }
     .sun-rays-wrap { position: absolute; width: 100%; height: 100%; animation: sunSpin 14s linear infinite; z-index: 1; }
     .sun-beam {
-      position: absolute; top: 50%; left: 50%; width: 3.5px; height: 62px; margin-left: -1.75px; margin-top: -31px;
-      background: linear-gradient(to bottom, #f59e0b 0%, rgba(251,191,36,0) 25%, rgba(251,191,36,0) 75%, #f59e0b 100%);
+      position: absolute; top: 50%; left: 50%; width: 3px; height: 58px; margin-left: -1.5px; margin-top: -29px;
+      background: linear-gradient(to bottom, #fcd34d 0%, rgba(252,211,77,0) 25%, rgba(252,211,77,0) 75%, #fcd34d 100%);
       border-radius: 4px;
     }
     .sun-beam:nth-child(2) { transform: rotate(45deg); }
@@ -245,287 +416,506 @@
 
     @keyframes sunSpin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
     @keyframes sunPulse {
-      0% { transform: scale(0.92); box-shadow: 0 0 12px rgba(245, 158, 11, 0.5); }
-      100% { transform: scale(1.1); box-shadow: 0 0 24px rgba(234, 88, 12, 0.9); }
+      0% { transform: scale(0.94); }
+      100% { transform: scale(1.06); }
     }
 
-    .fair-animated-box { position: relative; width: 68px; height: 68px; }
+    .fair-animated-box { position: relative; width: 64px; height: 64px; }
     .fair-sun {
-      position: absolute; top: 6px; right: 10px; width: 24px; height: 24px; border-radius: 50%;
-      background: radial-gradient(circle, #fef08a 25%, #f59e0b 100%); box-shadow: 0 0 14px #fbbf24;
+      position: absolute; top: 6px; right: 10px; width: 22px; height: 22px; border-radius: 50%;
+      background: radial-gradient(circle, #fef9c3 30%, #fde047 100%);
       animation: sunPulse 3s ease-in-out infinite alternate;
     }
     .floating-cloud-1 {
-      position: absolute; bottom: 14px; left: 4px; width: 38px; height: 16px; background: #38bdf8;
-      border-radius: 12px; opacity: 0.95; animation: floatCloud1 3.5s ease-in-out infinite alternate;
+      position: absolute; bottom: 13px; left: 4px; width: 36px; height: 15px; background: #7dd3fc;
+      border-radius: 12px; opacity: 0.9; animation: floatCloud1 3.5s ease-in-out infinite alternate;
     }
-    .floating-cloud-1::before { content: ''; position: absolute; top: -9px; left: 7px; width: 18px; height: 18px; background: #38bdf8; border-radius: 50%; }
+    .floating-cloud-1::before { content: ''; position: absolute; top: -8px; left: 7px; width: 16px; height: 16px; background: #7dd3fc; border-radius: 50%; }
     .floating-cloud-2 {
-      position: absolute; bottom: 8px; right: 2px; width: 30px; height: 13px; background: #0284c7;
-      border-radius: 10px; animation: floatCloud2 4s ease-in-out infinite alternate; opacity: 0.85;
+      position: absolute; bottom: 8px; right: 2px; width: 28px; height: 12px; background: #bae6fd;
+      border-radius: 10px; animation: floatCloud2 4s ease-in-out infinite alternate;
     }
-    .floating-cloud-2::before { content: ''; position: absolute; top: -7px; left: 6px; width: 14px; height: 14px; background: #0284c7; border-radius: 50%; }
-    @keyframes floatCloud1 { 0% { transform: translateX(0); } 100% { transform: translateX(7px); } }
-    @keyframes floatCloud2 { 0% { transform: translateX(0); } 100% { transform: translateX(-6px); } }
+    .floating-cloud-2::before { content: ''; position: absolute; top: -6px; left: 6px; width: 13px; height: 13px; background: #bae6fd; border-radius: 50%; }
+    @keyframes floatCloud1 { 0% { transform: translateX(0); } 100% { transform: translateX(6px); } }
+    @keyframes floatCloud2 { 0% { transform: translateX(0); } 100% { transform: translateX(-5px); } }
 
-    .night-animated-box { position: relative; width: 86px; height: 68px; }
+    .night-animated-box { position: relative; width: 82px; height: 64px; }
     .night-moon {
-      position: absolute; top: -4px; right: 4px; width: 38px; height: 38px; border-radius: 50%;
-      box-shadow: 8px 6px 0 0 #facc15; transform: rotate(-18deg);
-      filter: drop-shadow(0 0 14px rgba(250, 204, 21, 0.9));
+      position: absolute; top: -2px; right: 4px; width: 34px; height: 34px; border-radius: 50%;
+      box-shadow: 7px 5px 0 0 #fde047; transform: rotate(-18deg);
       animation: moonGlow 3.2s ease-in-out infinite alternate; z-index: 2;
     }
     .night-sparkle { position: absolute; line-height: 1; animation: starTwinkle 2.5s ease-in-out infinite alternate; z-index: 1; }
-    .night-sparkle.st-far-left { top: 6px; left: 2px; font-size: 13px; color: #fef08a; }
-    .night-sparkle.st-mid-left-high { top: 22px; left: 24px; font-size: 11px; color: #38bdf8; }
-    .night-sparkle.st-mid-left-low { bottom: 8px; left: 10px; font-size: 14px; color: #fde047; }
-    .night-sparkle.st-near-left { bottom: 16px; left: 42px; font-size: 10px; color: #93c5fd; }
-    .night-sparkle.st-near-moon { top: 4px; left: 34px; font-size: 12px; color: #ffffff; }
+    .night-sparkle.st-far-left { top: 6px; left: 2px; font-size: 12px; color: #fde047; }
+    .night-sparkle.st-mid-left-high { top: 20px; left: 22px; font-size: 10px; color: #7dd3fc; }
+    .night-sparkle.st-mid-left-low { bottom: 8px; left: 10px; font-size: 13px; color: #fef08a; }
+    .night-sparkle.st-near-left { bottom: 15px; left: 40px; font-size: 10px; color: #bae6fd; }
+    .night-sparkle.st-near-moon { top: 4px; left: 32px; font-size: 11px; color: #f472b6; }
 
     @keyframes moonGlow {
-      0% { filter: drop-shadow(0 0 6px rgba(250, 204, 21, 0.5)); transform: rotate(-18deg) scale(0.97); }
-      100% { filter: drop-shadow(0 0 18px rgba(250, 204, 21, 1)); transform: rotate(-18deg) scale(1.05); }
+      0% { transform: rotate(-18deg) scale(0.97); }
+      100% { transform: rotate(-18deg) scale(1.04); }
     }
     @keyframes starTwinkle {
-      0% { opacity: 0.2; transform: scale(0.65); }
-      50% { opacity: 0.95; transform: scale(1.15); }
-      100% { opacity: 0.35; transform: scale(0.75); }
+      0% { opacity: 0.25; transform: scale(0.7); }
+      50% { opacity: 0.9; transform: scale(1.1); }
+      100% { opacity: 0.35; transform: scale(0.8); }
     }
 
-    .rainy-animated-box { position: relative; width: 68px; height: 68px; }
-    .rain-main-cloud { position: absolute; top: 10px; left: 10px; width: 44px; height: 20px; background: #64748b; border-radius: 14px; }
-    .rain-main-cloud::before { content: ''; position: absolute; top: -11px; left: 10px; width: 22px; height: 22px; background: #64748b; border-radius: 50%; }
-    .anim-drop { position: absolute; width: 2.8px; height: 10px; background: #0284c7; border-radius: 3px; animation: fallDown 0.75s linear infinite; }
-    .anim-drop.rd1 { left: 18px; top: 34px; animation-delay: 0s; }
-    .anim-drop.rd2 { left: 30px; top: 34px; animation-delay: 0.25s; }
-    .anim-drop.rd3 { left: 42px; top: 34px; animation-delay: 0.5s; }
-    @keyframes fallDown { 0% { transform: translateY(0); opacity: 1; } 100% { transform: translateY(18px); opacity: 0.15; } }
+    .rainy-animated-box { position: relative; width: 64px; height: 64px; }
+    .rain-main-cloud { position: absolute; top: 10px; left: 10px; width: 42px; height: 18px; background: #94a3b8; border-radius: 14px; }
+    .rain-main-cloud::before { content: ''; position: absolute; top: -10px; left: 10px; width: 20px; height: 20px; background: #94a3b8; border-radius: 50%; }
+    .anim-drop { position: absolute; width: 2.5px; height: 9px; background: #7dd3fc; border-radius: 3px; animation: fallDown 0.75s linear infinite; }
+    .anim-drop.rd1 { left: 18px; top: 32px; animation-delay: 0s; }
+    .anim-drop.rd2 { left: 29px; top: 32px; animation-delay: 0.25s; }
+    .anim-drop.rd3 { left: 40px; top: 32px; animation-delay: 0.5s; }
+    @keyframes fallDown { 0% { transform: translateY(0); opacity: 1; } 100% { transform: translateY(16px); opacity: 0.15; } }
 
-    .stats-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-bottom: 12px; }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
     .stat-card {
-      background: #fff; border: 1px solid var(--border); border-radius: 16px; padding: 12px 14px;
-      box-shadow: 0 4px 14px rgba(244,63,94,.04);
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 12px 14px;
+      box-shadow: 0 4px 14px rgba(244, 114, 182, 0.06);
     }
-    .stat-label { color: var(--muted); font-size: .74rem; font-weight: 600; }
+
+    .stat-label { color: var(--muted); font-size: 0.74rem; font-weight: 600; }
     .stat-value { font-size: 1.25rem; font-weight: 800; margin-top: 2px; color: #be185d; }
 
     #alarmBanner {
-      display: none; position: sticky; top: 55px; z-index: 105;
-      background: linear-gradient(135deg, #f43f5e, #be185d); color: white; padding: 12px 16px;
-      border-radius: 14px; margin-bottom: 14px; box-shadow: 0 6px 20px rgba(244, 63, 94, 0.4);
+      display: none;
+      position: sticky;
+      top: 56px;
+      z-index: 105;
+      background: linear-gradient(135deg, #fb7185, #f472b6);
+      color: white;
+      padding: 12px 16px;
+      border-radius: 16px;
+      margin-bottom: 12px;
+      box-shadow: 0 6px 20px rgba(244, 114, 182, 0.35);
       animation: pulse 1s infinite alternate;
     }
-    @keyframes pulse { from { opacity: 0.95; transform: scale(0.99); } to { opacity: 1; transform: scale(1.01); } }
-    .alarm-content { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
-    .alarm-title { font-weight: 800; font-size: 0.98rem; }
-    .btn-stop-alarm {
-      background: white; color: var(--primary); border: none; padding: 9px 18px; border-radius: 10px;
-      font-weight: 800; cursor: pointer; white-space: nowrap; box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+
+    @keyframes pulse {
+      from { opacity: 0.95; transform: scale(0.995); }
+      to { opacity: 1; transform: scale(1.005); }
     }
 
-    .nav-tabs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; margin-bottom: 12px; }
+    .alarm-content { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+    .alarm-title { font-weight: 800; font-size: 0.94rem; }
+    .btn-stop-alarm {
+      background: white; color: #be185d; border: none; padding: 8px 16px; border-radius: 12px;
+      font-weight: 800; cursor: pointer; white-space: nowrap;
+    }
+
+    /* TẤT CẢ CÁC TAB ĐƯỢC GIẢM TÔNG PASTEL NHẸ, GỌN, HIỆN ĐẠI, LÃNG MẠN */
+    .nav-tabs {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+      margin-bottom: 12px;
+      background: #fff7fa;
+      padding: 5px;
+      border-radius: 18px;
+      border: 1px solid #fce7f3;
+    }
+
     .nav-tab-btn {
-      padding: 10px 4px; border-radius: 12px; border: 1px solid var(--border); background: white;
-      font-size: 0.78rem; font-weight: 700; color: var(--muted); cursor: pointer; text-align: center;
-      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      padding: 9px 6px;
+      border-radius: 14px;
+      border: 1px solid transparent;
+      background: #ffffff;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #9d4b67;
+      cursor: pointer;
+      text-align: center;
+      transition: all 0.2s ease;
+      box-shadow: 0 2px 8px rgba(244, 114, 182, 0.05);
     }
+
     .nav-tab-btn.active {
-      background: var(--primary); color: white; border-color: var(--primary);
-      box-shadow: 0 4px 12px rgba(236, 72, 153, 0.25);
+      background: linear-gradient(135deg, #fce7f3 0%, #fbcfe8 100%);
+      color: #9d174d;
+      border-color: #f9a8d4;
+      box-shadow: 0 4px 12px rgba(244, 114, 182, 0.14);
     }
+
     .nav-tab-btn-two-lines {
-      display: flex; flex-direction: column; align-items: center; justify-content: center; line-height: 1.2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      line-height: 1.22;
     }
-    .nav-tab-btn.active-journal { background: #ffe4e6 !important; color: #be185d !important; border-color: #f43f5e !important; }
+
+    .nav-tab-btn.active-journal {
+      background: linear-gradient(135deg, #ffe4e6 0%, #fecdd3 100%) !important;
+      color: #9d174d !important;
+      border-color: #fda4af !important;
+    }
 
     .card-box {
-      background: var(--card); border-radius: 18px; padding: 14px; margin-bottom: 12px;
-      border: 1px solid var(--border); box-shadow: 0 4px 16px rgba(244,63,94,.04);
+      background: var(--card);
+      border-radius: 20px;
+      padding: 14px;
+      margin-bottom: 12px;
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 16px rgba(244, 114, 182, 0.05);
     }
-    .card-journal { background: var(--journal-bg); border: 1.5px solid var(--journal-border); }
-    
-    .journal-heading { 
-      font-size: 0.75rem; font-weight: 800; color: var(--journal-text); margin-bottom: 10px; 
-      white-space: nowrap; overflow: hidden; text-overflow: ellipsis; width: 100%; text-align: center;
+
+    .card-journal {
+      background: var(--journal-bg);
+      border: 1.5px solid var(--journal-border);
     }
-    .btn-journal-submit { background: linear-gradient(135deg, #f43f5e 0%, #be185d 100%); color: white; }
+
+    .journal-heading {
+      font-size: 0.78rem;
+      font-weight: 800;
+      color: var(--journal-text);
+      margin-bottom: 10px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      width: 100%;
+      text-align: center;
+    }
+
+    .btn-journal-submit {
+      background: linear-gradient(135deg, #f9a8d4 0%, #f472b6 100%);
+      color: #ffffff;
+    }
 
     .search-filter-box {
-      background: #fff; border: 1px solid var(--border); border-radius: 14px; padding: 10px;
-      margin-bottom: 12px; display: flex; flex-direction: column; gap: 8px;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 10px;
+      margin-bottom: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
     }
+
     .search-row { display: flex; gap: 6px; }
 
     .form-group { margin-bottom: 10px; }
-    label { display: block; font-size: 0.78rem; font-weight: 700; margin-bottom: 4px; color: var(--muted); }
+    label { display: block; font-size: 0.76rem; font-weight: 700; margin-bottom: 4px; color: var(--muted); }
     input, select, textarea {
-      width: 100%; padding: 9px 12px; border-radius: 10px; border: 1px solid var(--border);
-      font-size: 0.88rem; background: #fff; outline: none; color: var(--text);
+      width: 100%; padding: 9px 12px; border-radius: 12px; border: 1px solid var(--border);
+      font-size: 0.86rem; background: #fffdfd; outline: none; color: var(--text);
     }
-    input:focus, select:focus, textarea:focus { border-color: var(--primary); }
+    input:focus, select:focus, textarea:focus { border-color: #f9a8d4; }
     textarea { resize: vertical; min-height: 75px; }
     .row { display: flex; gap: 8px; }
     .row > div { flex: 1; }
 
     .btn-submit {
-      width: 100%; background: var(--primary); color: white; border: none; padding: 11px;
-      border-radius: 10px; font-weight: 700; font-size: 0.88rem; cursor: pointer;
-      box-shadow: 0 4px 12px rgba(236, 72, 153, 0.2);
+      width: 100%; background: linear-gradient(135deg, #f9a8d4, #f472b6); color: white; border: none; padding: 11px;
+      border-radius: 12px; font-weight: 700; font-size: 0.86rem; cursor: pointer;
+      box-shadow: 0 4px 12px rgba(244, 114, 182, 0.2);
     }
-    .btn-submit-purple { background: var(--purple); }
+
+    .btn-submit-purple {
+      background: linear-gradient(135deg, #c4b5fd, #a78bfa);
+    }
 
     .journal-card-item {
-      background: #ffffff; border-radius: 14px; padding: 12px; margin-bottom: 10px; border: 1.5px solid #fbcfe8;
+      background: #ffffff; border-radius: 16px; padding: 12px; margin-bottom: 10px; border: 1px solid #fbcfe8;
     }
     .journal-card-item.done { opacity: 0.65; background: #fafaf9; border-color: #e2e8f0; }
-    .badge-journal { background: #ffe4e6; color: #be185d; }
+    .badge-journal { background: #fce7f3; color: #9d174d; }
 
-    .item-card { background: var(--card); border-radius: 14px; padding: 12px; margin-bottom: 10px; border: 1px solid var(--border); }
+    .item-card { background: var(--card); border-radius: 16px; padding: 12px; margin-bottom: 10px; border: 1px solid var(--border); }
     .card-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
-    .badge { display: inline-block; padding: 3px 8px; border-radius: 6px; font-size: 0.68rem; font-weight: 700; text-transform: uppercase; }
-    .badge-phat-sinh { background: #ede9fe; color: #5b21b6; }
-    .card-title { font-size: 0.92rem; font-weight: 700; margin-bottom: 4px; color: #4c0519; }
+    .badge { display: inline-block; padding: 3px 8px; border-radius: 8px; font-size: 0.68rem; font-weight: 700; text-transform: uppercase; }
+    .badge-phat-sinh { background: #ede9fe; color: #6d28d9; }
+    .card-title { font-size: 0.9rem; font-weight: 700; margin-bottom: 4px; color: #5c162e; }
     .card-time { font-size: 0.72rem; color: var(--muted); }
-    .card-desc { font-size: 0.85rem; line-height: 1.5; color: #881337; white-space: pre-line; margin-bottom: 8px; }
-    .card-alarm-tag { font-size: 0.75rem; color: var(--danger); font-weight: 700; margin-bottom: 6px; display: inline-block; }
+    .card-desc { font-size: 0.84rem; line-height: 1.5; color: #881337; white-space: pre-line; margin-bottom: 8px; }
+    .card-alarm-tag { font-size: 0.74rem; color: #e11d48; font-weight: 700; margin-bottom: 6px; display: inline-block; }
 
-    .card-actions { display: flex; gap: 6px; margin-top: 8px; border-top: 1px solid #f1f5f9; padding-top: 8px; }
+    .card-actions { display: flex; gap: 6px; margin-top: 8px; border-top: 1px solid #fdf2f8; padding-top: 8px; }
     .btn-action {
-      flex: 1; padding: 7px 4px; border-radius: 8px; border: 1px solid var(--border);
-      background: #f8fafc; font-size: 0.72rem; font-weight: 700; cursor: pointer; text-align: center;
+      flex: 1; padding: 7px 4px; border-radius: 10px; border: 1px solid var(--border);
+      background: #fff9fb; font-size: 0.72rem; font-weight: 700; cursor: pointer; text-align: center; color: #5c162e;
     }
-    .btn-zalo { background: #0068ff; color: white; border: none; }
-    .btn-delete { color: var(--danger); border-color: #fecaca; background: #fff5f5; }
+    .btn-zalo { background: #60a5fa; color: white; border: none; }
+    .btn-delete { color: #be123c; border-color: #fecdd3; background: #fff1f2; }
 
-    .week-table-card { background: white; border-radius: 16px; border: 1px solid var(--border); padding: 8px; margin-bottom: 10px; }
+    /* THẺ LỊCH CA PASTEL NHẸ NHÀNG */
+    .week-table-card {
+      background: #ffffff;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      padding: 10px;
+      margin-bottom: 10px;
+      box-shadow: 0 6px 20px rgba(244, 114, 182, 0.06);
+    }
+
     .week-control-bar { display: flex; align-items: center; gap: 6px; margin-bottom: 8px; }
     .week-dropdown-wrap { flex: 1; }
-    .week-select-menu { width: 100%; background: #fff1f2; border: 1.5px solid var(--primary); color: var(--primary-dark); font-weight: 700; font-size: 0.75rem; padding: 6px 8px; border-radius: 8px; }
-    .btn-copy-month { background: #fdf2f8; border: 1.5px solid #fbcfe8; color: #be185d; font-size: 0.68rem; font-weight: 700; padding: 6px 8px; border-radius: 8px; cursor: pointer; }
+    .week-select-menu {
+      width: 100%;
+      background: #fff5f7;
+      border: 1px solid #f9a8d4;
+      color: #9d174d;
+      font-weight: 700;
+      font-size: 0.75rem;
+      padding: 7px 10px;
+      border-radius: 12px;
+    }
 
-    .week-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 3px; text-align: center; margin-bottom: 8px; }
+    .btn-copy-month {
+      background: #fdf2f8;
+      border: 1px solid #f9a8d4;
+      color: #9d174d;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 7px 10px;
+      border-radius: 12px;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .week-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; text-align: center; margin-bottom: 8px; }
     .day-col {
-      border: 1px solid var(--border); border-radius: 8px; padding: 6px 2px; background: #fafafa;
-      display: flex; flex-direction: column; align-items: center; justify-content: space-between; min-width: 0; min-height: 72px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 6px 2px;
+      background: #fffafb;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      min-width: 0;
+      min-height: 74px;
     }
-    .day-col.today { border-color: var(--primary); outline: 1.5px solid #fbcfe8; }
+    .day-col.today { border-color: #f472b6; outline: 1.5px solid #fbcfe8; }
 
-    .day-col.is-off { background: #fecaca !important; border-color: #ef4444 !important; }
-    .day-col.is-off .day-name { color: #991b1b !important; font-weight: 900; }
-    .day-col.is-off .calendar-date { color: #7f1d1d !important; font-weight: 900; }
-    .day-col.is-off .day-shift-select { border-color: #ef4444 !important; color: #7f1d1d !important; font-weight: 900; background: #fee2e2 !important; }
+    /* Tông màu các ca giảm nhẹ pastel dễ nhìn */
+    .day-col.is-off { background: #ffe4e6 !important; border-color: #fda4af !important; }
+    .day-col.is-off .day-name { color: #9f1239 !important; font-weight: 800; }
+    .day-col.is-off .calendar-date { color: #881337 !important; font-weight: 700; }
+    .day-col.is-off .day-shift-select { border-color: #fda4af !important; color: #881337 !important; font-weight: 800; background: #fff1f2 !important; }
 
-    .day-col.is-ca1 { background: #7dd3fc !important; border-color: #0284c7 !important; }
-    .day-col.is-ca1 .day-name { color: #0c4a6e !important; font-weight: 900; }
-    .day-col.is-ca1 .calendar-date { color: #082f49 !important; font-weight: 900; }
-    .day-col.is-ca1 .day-shift-select { border-color: #0284c7 !important; color: #082f49 !important; font-weight: 900; background: #bae6fd !important; }
+    .day-col.is-ca1 { background: #e0f2fe !important; border-color: #7dd3fc !important; }
+    .day-col.is-ca1 .day-name { color: #075985 !important; font-weight: 800; }
+    .day-col.is-ca1 .calendar-date { color: #0369a1 !important; font-weight: 700; }
+    .day-col.is-ca1 .day-shift-select { border-color: #7dd3fc !important; color: #075985 !important; font-weight: 800; background: #f0f9ff !important; }
 
-    .day-col.is-ca2 { background: #fde047 !important; border-color: #eab308 !important; }
-    .day-col.is-ca2 .day-name { color: #713f12 !important; font-weight: 900; }
-    .day-col.is-ca2 .calendar-date { color: #422006 !important; font-weight: 900; }
-    .day-col.is-ca2 .day-shift-select { border-color: #ca8a04 !important; color: #422006 !important; font-weight: 900; background: #fef08a !important; }
+    .day-col.is-ca2 { background: #fef9c3 !important; border-color: #fde047 !important; }
+    .day-col.is-ca2 .day-name { color: #854d0e !important; font-weight: 800; }
+    .day-col.is-ca2 .calendar-date { color: #a16207 !important; font-weight: 700; }
+    .day-col.is-ca2 .day-shift-select { border-color: #fde047 !important; color: #854d0e !important; font-weight: 800; background: #fefce8 !important; }
 
-    .day-col.is-hch { background: #d8b4fe !important; border-color: #9333ea !important; }
-    .day-col.is-hch .day-name { color: #581c87 !important; font-weight: 900; }
-    .day-col.is-hch .calendar-date { color: #3b0764 !important; font-weight: 900; }
-    .day-col.is-hch .day-shift-select { border-color: #9333ea !important; color: #3b0764 !important; font-weight: 900; background: #e9d5ff !important; }
+    .day-col.is-hch { background: #f3e8ff !important; border-color: #d8b4fe !important; }
+    .day-col.is-hch .day-name { color: #6b21a8 !important; font-weight: 800; }
+    .day-col.is-hch .calendar-date { color: #7e22ce !important; font-weight: 700; }
+    .day-col.is-hch .day-shift-select { border-color: #d8b4fe !important; color: #6b21a8 !important; font-weight: 800; background: #faf5ff !important; }
 
-    .day-name { font-size: 0.72rem; font-weight: 900; line-height: 1.1; }
-    .calendar-date { display: block; font-size: .64rem; margin: 2px 0 4px; font-weight: 900; }
-    
+    .day-name { font-size: 0.7rem; font-weight: 800; line-height: 1.15; }
+    .calendar-date { display: block; font-size: 0.62rem; margin: 2px 0 4px; font-weight: 700; }
+
     .day-shift-select {
-      width: 98%; border: 1px solid var(--border); border-radius: 6px; font-size: 0.65rem;
-      padding: 4px 0; font-weight: 900; text-align: center; text-align-last: center; background: #fff;
-      -webkit-appearance: none; -moz-appearance: none; appearance: none; outline: none; cursor: pointer;
+      width: 96%;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 0.63rem;
+      padding: 4px 0;
+      font-weight: 800;
+      text-align: center;
+      text-align-last: center;
+      background: #fff;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      outline: none;
+      cursor: pointer;
     }
 
-    .sync-calendar-panel { background: #fdf2f8; border: 1px solid #fbcfe8; border-radius: 10px; padding: 8px; margin-top: 8px; }
+    /* KHUNG ĐỒNG BỘ LỊCH & BÁO THỨC HỆ THỐNG */
+    .sync-calendar-panel {
+      background: #fff7fa;
+      border: 1px solid #fce7f3;
+      border-radius: 14px;
+      padding: 9px;
+      margin-top: 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
     .sync-row { display: flex; gap: 6px; align-items: center; }
-    .custom-multiselect { flex: 1.3; position: relative; }
+    .custom-multiselect { flex: 1.25; position: relative; }
     .multiselect-toggle-btn {
-      width: 100%; background: #fff; border: 1px solid var(--border); border-radius: 8px;
-      font-size: 0.72rem; font-weight: 700; padding: 7px; color: #334155; text-align: left;
-      cursor: pointer; display: flex; justify-content: space-between; align-items: center;
+      width: 100%;
+      background: #ffffff;
+      border: 1px solid #fbcfe8;
+      border-radius: 10px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 7px 9px;
+      color: #5c162e;
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
+
     .multiselect-dropdown {
-      display: none; position: absolute; bottom: calc(100% + 4px); left: 0; right: 0; background: #fff;
-      border: 1.5px solid var(--primary); border-radius: 8px; box-shadow: 0 4px 16px rgba(0,0,0,0.12);
-      z-index: 200; padding: 4px 0; max-height: 200px; overflow-y: auto;
+      display: none;
+      position: absolute;
+      bottom: calc(100% + 4px);
+      left: 0;
+      right: 0;
+      background: #ffffff;
+      border: 1.5px solid #f9a8d4;
+      border-radius: 10px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+      z-index: 200;
+      padding: 4px 0;
+      max-height: 200px;
+      overflow-y: auto;
     }
+
     .multiselect-dropdown.show { display: block; }
-    .multiselect-item { display: flex; justify-content: space-between; padding: 7px 10px; font-size: 0.75rem; font-weight: 600; cursor: pointer; }
-    .multiselect-item.selected { background: #ffe4e6; color: var(--primary-dark); font-weight: 700; }
-    .multiselect-check { font-size: 0.8rem; color: var(--primary); display: none; }
+    .multiselect-item { display: flex; justify-content: space-between; padding: 7px 10px; font-size: 0.74rem; font-weight: 600; cursor: pointer; }
+    .multiselect-item.selected { background: #fdf2f8; color: #9d174d; font-weight: 700; }
+    .multiselect-check { font-size: 0.8rem; color: #ec4899; display: none; }
     .multiselect-item.selected .multiselect-check { display: inline-block; }
 
     .btn-sync-submit {
-      flex: 1.2; background: linear-gradient(135deg, #f43f5e, #be185d); color: white; border: none;
-      padding: 8px 10px; border-radius: 8px; font-size: 0.74rem; font-weight: 800; cursor: pointer;
-      white-space: nowrap; box-shadow: 0 2px 8px rgba(244, 63, 94, 0.25);
+      flex: 1.1;
+      background: linear-gradient(135deg, #f9a8d4, #f472b6);
+      color: #ffffff;
+      border: none;
+      padding: 8px 10px;
+      border-radius: 10px;
+      font-size: 0.73rem;
+      font-weight: 800;
+      cursor: pointer;
+      white-space: nowrap;
     }
 
-    .alarm-tip-box {
-      margin-top: 8px; padding: 8px 10px; border-radius: 10px;
-      background: #fffbeb; border: 1px solid #fcd34d; color: #78350f;
-      font-size: 0.71rem; line-height: 1.4;
+    .sys-alarm-bar {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
     }
 
-    /* TINH CHỈNH KHU VỰC CÀI ĐẶT BÁO GIỜ CÂN ĐỐI, ĐỀU ĐẶN */
-    .shift-settings-box { background: #fdf2f8; border: 1px solid var(--border); border-radius: 12px; padding: 10px; margin-top: 8px; }
-    .shift-settings-title { font-size: 0.78rem; font-weight: 700; color: var(--primary-dark); margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center; }
+    .btn-sys-alarm {
+      flex: 1;
+      min-width: 140px;
+      background: #ffffff;
+      border: 1px solid #f9a8d4;
+      color: #9d174d;
+      padding: 7px 10px;
+      border-radius: 10px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      cursor: pointer;
+      text-align: center;
+      transition: all 0.15s ease;
+    }
+
+    .btn-sys-alarm:active {
+      background: #fdf2f8;
+      transform: scale(0.98);
+    }
+
+    /* CÀI ĐẶT GIỜ BÁO CA PASTEL */
+    .shift-settings-box {
+      background: #fff7fa;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 10px;
+      margin-top: 8px;
+    }
+
+    .shift-settings-title {
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: #9d174d;
+      margin-bottom: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
     .shift-config-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
-    
-    .shift-config-card { background: white; padding: 8px 4px; border-radius: 10px; border: 1.5px solid var(--border); display: flex; flex-direction: column; gap: 6px; align-items: center; }
-    .shift-config-card.card-c1 { background: #bae6fd !important; border-color: #0284c7 !important; }
-    .shift-config-card.card-c2 { background: #fef08a !important; border-color: #ca8a04 !important; }
-    .shift-config-card.card-hch { background: #e9d5ff !important; border-color: #9333ea !important; }
 
-    .shift-config-card h4 { font-size: 0.68rem; margin-bottom: 2px; text-align: center; font-weight: 900; width: 100%; white-space: nowrap; }
-    .card-c1 h4 { color: #0c4a6e !important; }
-    .card-c2 h4 { color: #713f12 !important; }
-    .card-hch h4 { color: #581c87 !important; }
+    .shift-config-card {
+      background: white;
+      padding: 8px 4px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      align-items: center;
+    }
 
-    .time-input-row { display: flex; align-items: center; justify-content: space-between; width: 100%; font-size: 0.65rem; font-weight: 800; gap: 2px; padding: 0 2px; }
-    .card-c1 .time-input-row { color: #082f49 !important; }
-    .card-c2 .time-input-row { color: #422006 !important; }
-    .card-hch .time-input-row { color: #3b0764 !important; }
+    .shift-config-card.card-c1 { background: #f0f9ff !important; border-color: #bae6fd !important; }
+    .shift-config-card.card-c2 { background: #fefce8 !important; border-color: #fef08a !important; }
+    .shift-config-card.card-hch { background: #faf5ff !important; border-color: #e9d5ff !important; }
+
+    .shift-config-card h4 { font-size: 0.68rem; margin-bottom: 2px; text-align: center; font-weight: 800; width: 100%; white-space: nowrap; }
+    .card-c1 h4 { color: #075985 !important; }
+    .card-c2 h4 { color: #854d0e !important; }
+    .card-hch h4 { color: #6b21a8 !important; }
+
+    .time-input-row { display: flex; align-items: center; justify-content: space-between; width: 100%; font-size: 0.65rem; font-weight: 700; gap: 2px; padding: 0 2px; }
+    .card-c1 .time-input-row { color: #0369a1 !important; }
+    .card-c2 .time-input-row { color: #a16207 !important; }
+    .card-hch .time-input-row { color: #7e22ce !important; }
 
     .time-input-wrap { width: 62px; }
     .time-input-wrap input {
-      width: 100%; padding: 4px 1px; font-size: 0.68rem; border-radius: 6px; text-align: center; font-weight: 800; background: #ffffff !important; border: 1.5px solid var(--border);
+      width: 100%; padding: 4px 1px; font-size: 0.68rem; border-radius: 8px; text-align: center; font-weight: 700;
+      background: #ffffff !important; border: 1px solid var(--border);
       -webkit-appearance: none; appearance: none; outline: none;
     }
     .time-input-wrap input::-webkit-calendar-picker-indicator { display: none; -webkit-appearance: none; }
 
-    .card-c1 .time-input-wrap input { border-color: #0284c7 !important; color: #082f49 !important; }
-    .card-c2 .time-input-wrap input { border-color: #ca8a04 !important; color: #422006 !important; }
-    .card-hch .time-input-wrap input { border-color: #9333ea !important; color: #3b0764 !important; }
+    .card-c1 .time-input-wrap input { border-color: #7dd3fc !important; color: #075985 !important; }
+    .card-c2 .time-input-wrap input { border-color: #fde047 !important; color: #854d0e !important; }
+    .card-hch .time-input-wrap input { border-color: #d8b4fe !important; color: #6b21a8 !important; }
 
     #toast {
-      position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%); background: rgba(76, 5, 25, 0.94);
-      color: white; padding: 10px 20px; border-radius: 24px; font-size: 0.84rem; display: none; z-index: 1000;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.25); text-align: center; max-width: 90%;
+      position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
+      background: rgba(157, 23, 77, 0.92); color: white; padding: 10px 20px; border-radius: 24px;
+      font-size: 0.82rem; display: none; z-index: 1000; box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+      text-align: center; max-width: 90%;
     }
 
     @media(max-width:560px) {
-      header h1 { font-size:.88rem; }
-      .header-btns button { padding:6px 7px; font-size:.68rem; }
+      header h1 { font-size: 0.88rem; }
+      .header-btns button { padding: 6px 7px; font-size: 0.68rem; }
       .day-shift-select { font-size: 0.6rem; padding: 3px 0; }
     }
   </style>
 </head>
 <body>
 
-  <!-- MODAL HIỆN ẢNH ĐỨNG TRỌN VẸN MẶT VÀ THÂN NGỰC (MÃ 1314 + 🌸) -->
+  <!-- MODAL HIỆN ẢNH 1314 + 🌸 -->
   <div id="romanticPhotoModal">
     <div class="romantic-modal-card">
       <img src="t2.jpg" alt="Nhân vật nam" class="romantic-modal-img">
-      <div class="romantic-modal-title">Anh Nhớ Em 💕</div>
+      <div class="romantic-modal-title">Anh Nhớ Em 💗</div>
       <button class="romantic-modal-btn" onclick="closeRomanticModal()">💖 Đóng Lại 💖</button>
     </div>
   </div>
 
-  <!-- MÀN HÌNH KHÓA BẢO MẬT (PASSCODE 131426) -->
+  <!-- MÀN HÌNH KHÓA BẢO MẬT -->
   <div id="lockScreen">
     <div class="lock-box">
       <div class="lock-brand-title">Sổ Tay Ái Nhuy</div>
@@ -548,7 +938,7 @@
         <button class="key-btn" onclick="pressKey('7')">7</button>
         <button class="key-btn" onclick="pressKey('8')">8</button>
         <button class="key-btn" onclick="pressKey('9')">9</button>
-        <button class="key-btn" onclick="pressKey('C')" style="font-size:0.85rem; color:#ef4444;">Xóa</button>
+        <button class="key-btn" onclick="pressKey('C')" style="font-size:0.84rem; color:#e11d48;">Xóa</button>
         <button class="key-btn" onclick="pressKey('0')">0</button>
         <button class="key-btn" onclick="pressKey('FLOWER')" title="Bông hoa yêu thương"><span class="flower-icon-spin">🌸</span></button>
       </div>
@@ -597,8 +987,9 @@
       </div>
     </div>
 
+    <!-- ĐÃ BỎ SỐ 17, THAY BẰNG TRÁI TIM NHỎ 💗 & TÔNG PASTEL NHẸ -->
     <div class="nav-tabs">
-      <button class="nav-tab-btn active" id="tabBtn-shifts" onclick="switchView('shifts')">📅 Lịch Ca</button>
+      <button class="nav-tab-btn active" id="tabBtn-shifts" onclick="switchView('shifts')">💗 Lịch Ca</button>
       <button class="nav-tab-btn nav-tab-btn-two-lines" id="tabBtn-journal" onclick="switchView('journal')">
         <span>💌 Nhật kí</span>
         <span>Tình yêu</span>
@@ -613,11 +1004,12 @@
           <div class="week-dropdown-wrap">
             <select id="weekDropdownSelect" class="week-select-menu" onchange="onWeekDropdownChange(this.value)"></select>
           </div>
-          <button class="btn-copy-month" onclick="copyCurrentWeekToAll()" title="Áp dụng tuần này cho cả tháng">⚡ Úp Cả Tháng</button>
+          <button class="btn-copy-month" onclick="copyCurrentWeekToAll()" title="Áp dụng tuần này cho cả tháng">💗 Úp Cả Tháng</button>
         </div>
-        
+
         <div class="week-grid" id="weekGridContainer"></div>
 
+        <!-- ĐÃ XÓA DÒNG CHỮ TRONG KHUNG THEO YÊU CẦU, GIỮ NÚT NẠP LỊCH & TẠO BÁO THỨC HỆ THỐNG -->
         <div class="sync-calendar-panel">
           <div class="sync-row">
             <div class="custom-multiselect">
@@ -631,15 +1023,21 @@
               📲 Nạp Vào Lịch ĐT
             </button>
           </div>
-          <div class="alarm-tip-box">
-            <b>💡 Lưu ý ngủ sâu:</b> File <b>.ics</b> thêm sự kiện vào ứng dụng <b>Lịch</b> của điện thoại (không phải báo thức hệ thống). Khi điện thoại ngủ sâu/khóa màn hình, bạn nên đặt thêm báo thức trong app <b>Đồng hồ</b> của máy ở đúng giờ vào/tan ca để luôn reo lớn và đánh thức máy chắc chắn.
+
+          <div class="sys-alarm-bar">
+            <button class="btn-sys-alarm" onclick="openSystemAlarmForToday('in')">
+              ⏰ Báo Vào Ca Hôm Nay
+            </button>
+            <button class="btn-sys-alarm" onclick="openSystemAlarmForToday('out')">
+              🔔 Báo Tan Ca Hôm Nay
+            </button>
           </div>
         </div>
 
         <div class="shift-settings-box">
           <div class="shift-settings-title">
-            <span>⚙️ Cài Đặt Giờ Báo Ca (Tự động báo)</span>
-            <span style="font-size:0.68rem; font-weight:bold; color:#10b981;">● Báo thức kích hoạt</span>
+            <span>⚙️ Cài Đặt Giờ Báo Ca</span>
+            <span style="font-size:0.68rem; font-weight:700; color:#059669;">● Sẵn sàng</span>
           </div>
           <div class="shift-config-grid">
             <div class="shift-config-card card-c1">
@@ -713,15 +1111,15 @@
           <label>Nội dung chi tiết</label>
           <textarea id="journalContent" placeholder="Nội dung..."></textarea>
         </div>
-        <button class="btn-submit btn-journal-submit" id="btnSaveJournal" onclick="saveJournalEntry()">+ Lưu Vào Nhật Ký 💕</button>
+        <button class="btn-submit btn-journal-submit" id="btnSaveJournal" onclick="saveJournalEntry()">+ Lưu Vào Nhật Ký 💗</button>
       </div>
 
       <div class="search-filter-box">
-        <div style="font-size:0.78rem; font-weight:700; color:#475569;">🔍 Tìm kiếm nhật ký:</div>
+        <div style="font-size:0.78rem; font-weight:700; color:#9d4b67;">🔍 Tìm kiếm nhật ký:</div>
         <div class="search-row">
           <input type="text" id="searchKeyword" placeholder="Nhập từ khóa..." oninput="filterJournals()" style="flex:1;">
           <input type="date" id="filterJournalDate" onchange="filterJournals()" style="flex:1;">
-          <button onclick="clearJournalFilter()" style="padding:0 10px; border-radius:10px; border:1px solid #cbd5e1; background:#f1f5f9; font-size:0.75rem; font-weight:700; cursor:pointer;">Hủy</button>
+          <button onclick="clearJournalFilter()" style="padding:0 10px; border-radius:10px; border:1px solid #fbcfe8; background:#fff5f7; color:#9d174d; font-size:0.75rem; font-weight:700; cursor:pointer;">Hủy</button>
         </div>
       </div>
       <div id="journalListContainer"></div>
@@ -729,7 +1127,7 @@
 
     <!-- VIEW 3: VIỆC CẦN XỬ LÝ -->
     <div id="view-issues" style="display:none;">
-      <div class="card-box" style="border-left: 4px solid var(--purple);">
+      <div class="card-box" style="border-left: 4px solid #c4b5fd;">
         <div class="form-group">
           <label>Tên công việc / Sự cố</label>
           <input type="text" id="issueTitle" placeholder="Tên việc...">
@@ -764,7 +1162,6 @@
     let enteredPin = "";
     let wrongPinCount = 0;
 
-    // Bảng slogan cho các mã + 🌸 (giữ 1314, 11111, 22222, 33333; bổ sung 00000 và 44444..99999)
     const flowerSlogans = {
       "1314": "💖 <b>Anh Nhớ Em</b> 💖",
       "11111": "✨ 💖 <b>Anh</b> 💖 ✨",
@@ -835,7 +1232,7 @@
         const lockEl = document.getElementById('lockScreen');
         if (lockEl) lockEl.style.display = 'none';
         wrongPinCount = 0;
-        showToast('Mở khóa thành công! Chào Ái Nhuy 💕');
+        showToast('Mở khóa thành công! Chào Ái Nhuy 💗');
         unlockAudioContext();
         checkScheduler();
       } else {
@@ -886,25 +1283,25 @@
     });
 
     function createFallingLeaves() {
-      const leafChars = ['🍁', '🍂', '🍃', '🌿', '💖', '❤️', '💋', '🌸'];
+      const leafChars = ['🌸', '💗', '🍃', '💕', '🌷'];
       setInterval(() => {
         const leaf = document.createElement('div');
         leaf.className = 'falling-leaf';
         leaf.innerText = leafChars[Math.floor(Math.random() * leafChars.length)];
         leaf.style.left = Math.random() * 100 + 'vw';
-        leaf.style.fontSize = (Math.random() * 12 + 14) + 'px';
+        leaf.style.fontSize = (Math.random() * 10 + 13) + 'px';
         const duration = Math.random() * 5 + 7;
         leaf.style.animationDuration = duration + 's';
         document.body.appendChild(leaf);
         setTimeout(() => leaf.remove(), duration * 1000);
-      }, 750);
+      }, 900);
     }
     createFallingLeaves();
 
     let journals = JSON.parse(localStorage.getItem('ainhuy_journals_v1') || '[]');
     let issues = JSON.parse(localStorage.getItem('ainhuy_issues_v1') || '[]');
     let shiftTimes = JSON.parse(localStorage.getItem('ainhuy_shift_times') || JSON.stringify({
-      c1_in: '05:30', c1_out: '14:00', 
+      c1_in: '05:30', c1_out: '14:00',
       c2_in: '16:30', c2_out: '22:00',
       hch_in: '08:00', hch_out: '17:00'
     }));
@@ -1012,30 +1409,21 @@
 
     const wishesByTime = {
       morning: [
-        { title: "Chào buổi sáng tình yêu! ☀️", quote: "Chào buổi sáng tình yêu của anh! Chúc em một ngày mới ngập tràn năng lượng, làm việc hiệu quả và gặp nhiều may mắn nhé. 💕" },
-        { title: "Ái Nhuy ơi, dậy thôi nào! 🌸", quote: "Ái Nhuy ơi, dậy thôi nào! Chúc em ngày mới rạng rỡ, hoàn thành xuất sắc mọi công việc được giao nha." },
-        { title: "Năng lượng tràn đầy nhé! ⚡", quote: "Bắt đầu ngày mới với nụ cười rạng rỡ và nguồn năng lượng tích cực nhất em nhé. Chúc em một ngày làm việc thật sung sức!" },
-        { title: "Khởi đầu mới suôn sẻ! 🌅", quote: "Chúc tình yêu của anh buổi sáng tốt lành, mọi việc trong ngày hôm nay sẽ diễn ra thật thuận lợi và suôn sẻ." },
-        { title: "Ngày mới tuyệt vời nhé! 🌻", quote: "Mặt trời lên rồi, chúc em một ngày mới bình an, làm việc gì cũng hanh thông và gặp toàn điều may mắn." }
+        { title: "Chào buổi sáng tình yêu! ☀️", quote: "Chào buổi sáng tình yêu của anh! Chúc em ngày mới ngập tràn năng lượng và may mắn nhé. 💗" },
+        { title: "Ái Nhuy ơi, dậy thôi nào! 🌸", quote: "Chúc em ngày mới rạng rỡ, hoàn thành xuất sắc mọi công việc nha." },
+        { title: "Năng lượng tràn đầy nhé! ✨", quote: "Bắt đầu ngày mới với nụ cười tươi tắn nhất em nhé!" }
       ],
       afternoon: [
-        { title: "Nhớ em nhiều lắm! 💖", quote: "Dù bận rộn đến đâu thì hình bóng của em vẫn luôn ngự trị trong tim anh. Nhớ và thương Ái Nhuy vô cùng!" },
-        { title: "Tình yêu tuyệt vời! 🌹", quote: "Cảm ơn em đã đến bên anh, mang theo ánh sáng và sưởi ấm trái tim anh mỗi ngày. Yêu em mãi mãi." },
-        { title: "Cuộc sống ngọt ngào! 💞", quote: "Cuộc sống này thật đẹp vì có em. Chúc cho tình yêu chúng ta luôn ngọt ngào và bền chặt theo năm tháng." },
-        { title: "Giữ gìn sức khỏe nha! 🍎", quote: "Sức khỏe là vốn quý nhất. Em nhớ uống đủ nước và giữ tinh thần thoải mái trong ca làm nhé." },
-        { title: "Ca chiều suôn sẻ! 🚀", quote: "Chúc em xử lý công việc ca chiều cực kỳ mượt mà, suôn sẻ và đạt kết quả cao nhất." }
+        { title: "Nhớ em nhiều lắm! 💗", quote: "Dù bận rộn đến đâu thì hình bóng em vẫn luôn trong tim anh." },
+        { title: "Giữ gìn sức khỏe nha! 🌸", quote: "Em nhớ uống đủ nước và giữ tinh thần thoải mái trong ca làm nhé." }
       ],
       evening: [
-        { title: "Kết thúc ngày rực rỡ! 🎉", quote: "Một ngày làm việc vất vả đã khép lại thật suôn sẻ. Giờ là lúc em tự thưởng cho mình sự thư giãn tuyệt đối nhé." },
-        { title: "Xả hơi thôi nào! 🛋️", quote: "Đã hoàn thành xuất sắc nhiệm vụ rồi, hãy gác lại mọi lo toan công việc để tận hưởng buổi tối bình yên nha." },
-        { title: "Tự hào về em! 🌟", quote: "Hôm nay em đã làm việc rất chăm chỉ và vất vả rồi. Nghỉ ngơi thật tốt nhé cô gái ngoan." },
-        { title: "Buổi tối ấm áp nhé! 🍲", quote: "Chúc bữa tối của em thật ngon miệng bên những người thân yêu và có khoảng thời gian thư thái." }
+        { title: "Kết thúc ngày rực rỡ! ✨", quote: "Một ngày làm việc đã khép lại, giờ là lúc em thư giãn nhé." },
+        { title: "Tự hào về em! 💗", quote: "Hôm nay em đã làm việc chăm chỉ rồi, nghỉ ngơi thật tốt nha." }
       ],
       night: [
-        { title: "Ngủ ngon nhé tình yêu! 🌙", quote: "Đã đến giờ đi ngủ rồi, chúc tình yêu của anh ngủ thật ngon và có những giấc mơ thật đẹp nhé. 💕" },
-        { title: "Chúc mơ thấy anh! 💭", quote: "Đắp chăn ấm áp và ngủ thật sâu em nha, trong giấc mơ đêm nay nhớ ghé sang thăm anh đấy." },
-        { title: "Giấc ngủ bình yên! 🌌", quote: "Chúc em có một đêm ngon giấc, xua tan mọi mỏi mệt để sáng mai thức dậy thật tươi trẻ." },
-        { title: "Đắp chăn kỹ nhé! 🛌", quote: "Đêm nay lạnh rồi, em nhớ đắp chăn thật kỹ trước khi chìm vào giấc ngủ nha." }
+        { title: "Ngủ ngon nhé tình yêu! 🌙", quote: "Chúc tình yêu của anh ngủ thật ngon và có giấc mơ thật đẹp nhé. 💗" },
+        { title: "Chúc mơ thấy anh! ✨", quote: "Đắp chăn ấm áp và ngủ thật sâu em nha." }
       ]
     };
 
@@ -1067,15 +1455,15 @@
       if (currentActiveList.length > 0) {
         currentGreetingIdx = (currentGreetingIdx + 1) % currentActiveList.length;
         displayCurrentGreeting();
-        showToast('Đã đổi câu chúc yêu thương 💕');
+        showToast('Đã đổi câu chúc yêu thương 💗');
       }
     }
 
     const weatherStates = [
-      { type: 'sunny', label: 'Trời nắng rực rỡ, chan hòa' },
-      { type: 'fair', label: 'Bầu trời trong xanh dịu mát' },
-      { type: 'rainy', label: 'Trời có mưa, em nhớ mang ô nhé' },
-      { type: 'night', label: 'Đêm trong lành, trăng sao huyền bí' }
+      { type: 'sunny', label: 'Trời nắng dịu nhẹ, chan hòa' },
+      { type: 'fair', label: 'Bầu trời trong xanh mát mẻ' },
+      { type: 'rainy', label: 'Trời có mưa, nhớ mang ô nhé' },
+      { type: 'night', label: 'Đêm trong lành, trăng sao dịu êm' }
     ];
     let currentWeatherIndex = 0;
 
@@ -1086,10 +1474,10 @@
 
       if (type === 'sunny') {
         widget.innerHTML = `<div class="sunny-animated-box"><div class="sun-core"></div><div class="sun-rays-wrap"><span class="sun-beam"></span><span class="sun-beam"></span><span class="sun-beam"></span><span class="sun-beam"></span></div></div>`;
-        if (label) label.innerText = customLabel || '☀️ Ngoài trời nắng rực rỡ';
+        if (label) label.innerText = customLabel || '☀️ Ngoài trời nắng nhẹ';
       } else if (type === 'fair') {
         widget.innerHTML = `<div class="fair-animated-box"><div class="fair-sun"></div><div class="floating-cloud-1"></div><div class="floating-cloud-2"></div></div>`;
-        if (label) label.innerText = customLabel || '🌤️ Bầu trời trong xanh dịu mát';
+        if (label) label.innerText = customLabel || '🌤️ Bầu trời trong xanh mát mẻ';
       } else if (type === 'rainy') {
         widget.innerHTML = `<div class="rainy-animated-box"><div class="rain-main-cloud"></div><span class="anim-drop rd1"></span><span class="anim-drop rd2"></span><span class="anim-drop rd3"></span></div>`;
         if (label) label.innerText = customLabel || '🌧️ Ngoài trời có mưa';
@@ -1138,7 +1526,7 @@
               renderWeatherIcon('night', `🌙 Đêm trong lành (${temp}°C)`);
             } else if (code <= 1) {
               currentWeatherIndex = 0;
-              renderWeatherIcon('sunny', `☀️ Ngoài trời nắng rực rỡ (${temp}°C)`);
+              renderWeatherIcon('sunny', `☀️ Ngoài trời nắng nhẹ (${temp}°C)`);
             } else {
               currentWeatherIndex = 1;
               renderWeatherIcon('fair', `🌤️ Bầu trời dịu mát (${temp}°C)`);
@@ -1159,7 +1547,7 @@
     function cycleWeatherDemo() {
       currentWeatherIndex = (currentWeatherIndex + 1) % weatherStates.length;
       renderWeatherIcon(weatherStates[currentWeatherIndex].type, weatherStates[currentWeatherIndex].label);
-      showToast(`Chế độ thời tiết: ${weatherStates[currentWeatherIndex].label}`);
+      showToast(`Thời tiết: ${weatherStates[currentWeatherIndex].label}`);
     }
 
     function saveJournalEntry() {
@@ -1185,7 +1573,7 @@
       document.getElementById('journalContent').value = '';
       document.getElementById('journalReminderTime').value = '';
       filterJournals(); updateDashboard();
-      showToast('Đã lưu nhật ký yêu thương! 💕');
+      showToast('Đã lưu nhật ký yêu thương! 💗');
     }
 
     function filterJournals() {
@@ -1281,7 +1669,7 @@
       const d = String(now.getDate()).padStart(2, '0');
       const m = String(now.getMonth() + 1).padStart(2, '0');
       const y = now.getFullYear();
-      
+
       const labelEl = document.getElementById('greetingDateLabel');
       if (labelEl) labelEl.innerText = `Hôm nay ${dayName}, ngày ${d}/${m}/${y}`;
       initGreetingPool();
@@ -1403,8 +1791,8 @@
         const dayDate = new Date(currentWeekObj.monday);
         dayDate.setDate(currentWeekObj.monday.getDate() + idx);
 
-        const isToday = (dayDate.getDate() === now.getDate() && 
-                         dayDate.getMonth() === now.getMonth() && 
+        const isToday = (dayDate.getDate() === now.getDate() &&
+                         dayDate.getMonth() === now.getMonth() &&
                          dayDate.getFullYear() === now.getFullYear());
 
         const savedShift = shiftsData[d.key] || 'off';
@@ -1419,13 +1807,13 @@
         col.className = `day-col ${isToday ? 'today' : ''} ${shiftClass}`;
         col.id = `col-day-${d.key}`;
         col.innerHTML = `
-          <div class="day-name">${d.label} ${isToday ? '●' : ''}</div>
+          <div class="day-name">${d.label} ${isToday ? '💗' : ''}</div>
           <span class="calendar-date">${dateLabel}</span>
           <select class="day-shift-select" onchange="updateShift(${d.key}, this.value)">
             <option value="ca1" ${savedShift === 'ca1' ? 'selected' : ''}>Ca 1</option>
             <option value="ca2" ${savedShift === 'ca2' ? 'selected' : ''}>Ca 2</option>
             <option value="hch" ${savedShift === 'hch' ? 'selected' : ''}>H.Chính</option>
-            <option value="off" ${savedShift === 'off' ? 'selected' : ''}>🔴 Off</option>
+            <option value="off" ${savedShift === 'off' ? 'selected' : ''}>Off</option>
           </select>
         `;
         container.appendChild(col);
@@ -1511,6 +1899,61 @@
       exportToICSCalendarList(Array.from(selectedSyncWeeks).sort((a, b) => a - b));
     }
 
+    function getTodayShiftInfo() {
+      const now = new Date();
+      const currentDayOfWeek = now.getDay();
+      const dayKey = (currentDayOfWeek === 0) ? 8 : (currentDayOfWeek + 1);
+      let shift = 'off';
+
+      if (monthWeeksList.length > 0) {
+        const todayTime = new Date(now.getFullYear(), now.getMonth(), now.getDate()).getTime();
+        let activeWIdx = 0;
+        monthWeeksList.forEach((w, idx) => {
+          const mon = new Date(w.monday.getFullYear(), w.monday.getMonth(), w.monday.getDate()).getTime();
+          const sun = new Date(w.sunday.getFullYear(), w.sunday.getMonth(), w.sunday.getDate()).getTime();
+          if (todayTime >= mon && todayTime <= sun) activeWIdx = idx;
+        });
+        shift = getShiftsForWeekIndex(activeWIdx)[dayKey] || 'off';
+      }
+
+      if (shift === 'ca1') {
+        return { shift, label: 'Ca 1', inTime: shiftTimes.c1_in || '05:30', outTime: shiftTimes.c1_out || '14:00' };
+      } else if (shift === 'ca2') {
+        return { shift, label: 'Ca 2', inTime: shiftTimes.c2_in || '16:30', outTime: shiftTimes.c2_out || '22:00' };
+      } else if (shift === 'hch') {
+        return { shift, label: 'H.Chính', inTime: shiftTimes.hch_in || '08:00', outTime: shiftTimes.hch_out || '17:00' };
+      }
+      return { shift: 'off', label: 'Off', inTime: null, outTime: null };
+    }
+
+    // Gọi mở ứng dụng Báo thức hệ thống (Android Intent SET_ALARM) để đánh thức khi ngủ sâu
+    function openSystemAlarmForToday(type) {
+      const info = getTodayShiftInfo();
+      if (info.shift === 'off') {
+        showToast('Hôm nay lịch ca đang là Off!');
+        return;
+      }
+      const timeStr = (type === 'in') ? info.inTime : info.outTime;
+      const [hStr, mStr] = timeStr.split(':');
+      const hour = parseInt(hStr, 10);
+      const minute = parseInt(mStr, 10);
+      const msg = (type === 'in') ? `Vào ${info.label} (${timeStr})` : `Tan ${info.label} (${timeStr})`;
+
+      const isAndroid = /Android/i.test(navigator.userAgent);
+      if (isAndroid) {
+        const intentUrl =
+          `intent:#Intent;action=android.intent.action.SET_ALARM` +
+          `;i.android.intent.extra.alarm.HOUR=${hour}` +
+          `;i.android.intent.extra.alarm.MINUTES=${minute}` +
+          `;S.android.intent.extra.alarm.MESSAGE=${encodeURIComponent(msg)}` +
+          `;B.android.intent.extra.alarm.SKIP_UI=false;end`;
+        window.location.href = intentUrl;
+        showToast(`Đang mở Đồng hồ báo thức ${msg}...`);
+      } else {
+        showToast(`Giờ ${msg}: Hãy đặt báo thức trong app Đồng hồ của máy để đánh thức khi ngủ sâu.`);
+      }
+    }
+
     function exportToICSCalendarList(weekIndices) {
       let events = [];
       const now = new Date();
@@ -1566,7 +2009,7 @@
               `DTSTAMP:${dtStamp}`,
               `DTSTART;VALUE=DATE:${dateStr}`,
               `DTEND;VALUE=DATE:${nextDateStr}`,
-              `SUMMARY:🔴 Off`,
+              `SUMMARY:Off`,
               `DESCRIPTION:Hôm nay Ái Nhuy Off nghỉ ngơi nhé!`,
               `STATUS:CONFIRMED`,
               'END:VEVENT'
@@ -1578,17 +2021,17 @@
           if (shift === 'ca1') {
             rawIn = shiftTimes.c1_in || '05:30';
             rawOut = shiftTimes.c1_out || '14:00';
-            summaryTitle = '🔵 Ca 1 (Sáng)';
+            summaryTitle = 'Ca 1 (Sáng)';
             shiftLabel = 'Ca 1';
           } else if (shift === 'ca2') {
             rawIn = shiftTimes.c2_in || '16:30';
             rawOut = shiftTimes.c2_out || '22:00';
-            summaryTitle = '🟡 Ca 2 (Chiều)';
+            summaryTitle = 'Ca 2 (Chiều)';
             shiftLabel = 'Ca 2';
           } else {
             rawIn = shiftTimes.hch_in || '08:00';
             rawOut = shiftTimes.hch_out || '17:00';
-            summaryTitle = '🟣 Ca Hành Chính';
+            summaryTitle = 'Ca Hành Chính';
             shiftLabel = 'H.Chính';
           }
 
@@ -1602,7 +2045,7 @@
             `DTSTAMP:${dtStamp}`,
             `DTSTART:${inTimeUTC}`,
             `DTEND:${inTimeUTC}`,
-            `SUMMARY:🔔 Vào ${shiftLabel} (${rawIn})`,
+            `SUMMARY:Vào ${shiftLabel} (${rawIn})`,
             `DESCRIPTION:Đã đến giờ vào làm việc ${shiftLabel}.`,
             `STATUS:CONFIRMED`,
             'BEGIN:VALARM',
@@ -1620,7 +2063,7 @@
             `DTSTAMP:${dtStamp}`,
             `DTSTART:${outTimeUTC}`,
             `DTEND:${outTimeUTC}`,
-            `SUMMARY:🏁 Tan ${shiftLabel} (${rawOut})`,
+            `SUMMARY:Tan ${shiftLabel} (${rawOut})`,
             `DESCRIPTION:Đã hết giờ làm việc ${shiftLabel}.`,
             `STATUS:CONFIRMED`,
             'BEGIN:VALARM',
@@ -1664,7 +2107,7 @@
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
-      showToast(`Đã xuất file lịch .ics! Nhớ đặt thêm báo thức trong app Đồng hồ nhé.`);
+      showToast('Đã xuất file lịch .ics!');
     }
 
     function saveIssue() {
@@ -2034,31 +2477,16 @@
     function isDueWithinWindow(targetTimeStr, nowMins) {
       const targetMins = parseMinutes(targetTimeStr);
       if (targetMins === null) return false;
-      // Cho phép kích hoạt đúng phút hoặc bù trễ tối đa 3 phút nếu máy vừa thức dậy từ ngủ sâu
       return nowMins >= targetMins && nowMins <= targetMins + 3;
     }
 
     function checkScheduler() {
       const now = new Date();
-      const currentH = String(now.getHours()).padStart(2,'0');
-      const currentM = String(now.getMinutes()).padStart(2,'0');
-      const currentTime = `${currentH}:${currentM}`;
       const nowMins = now.getHours() * 60 + now.getMinutes();
       const dayStamp = now.toDateString();
 
-      const currentDayOfWeek = now.getDay();
-      const dayKey = (currentDayOfWeek === 0) ? 8 : (currentDayOfWeek + 1);
-
-      let todayShift = 'off';
-      if (monthWeeksList.length > 0) {
-        const todayTime = now.getTime();
-        let activeWIdx = 0;
-        monthWeeksList.forEach((w, idx) => {
-          if (todayTime >= w.monday.getTime() && todayTime <= w.sunday.getTime()) activeWIdx = idx;
-        });
-        const shiftsData = getShiftsForWeekIndex(activeWIdx);
-        todayShift = shiftsData[dayKey] || 'off';
-      }
+      const info = getTodayShiftInfo();
+      const todayShift = info.shift;
 
       if (todayShift === 'ca1') {
         const inT = shiftTimes.c1_in || '05:30';

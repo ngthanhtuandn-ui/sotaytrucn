@@ -98,17 +98,18 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 20px;
+      padding: 16px;
       color: white;
       text-align: center;
+      overflow-y: auto;
     }
 
     .lock-box {
       background: rgba(255, 255, 255, 0.96);
-      padding: 24px 20px;
+      padding: 20px 18px;
       border-radius: 28px;
       width: 100%;
-      max-width: 330px;
+      max-width: 340px;
       box-shadow: 0 14px 36px rgba(157, 23, 77, 0.18);
       color: var(--text);
       border: 1px solid #fce7f3;
@@ -129,20 +130,73 @@
     }
 
     .romantic-display-box {
-      font-size: 1.08rem;
-      font-weight: 800;
-      font-family: "Times New Roman", Times, serif;
-      font-style: italic;
-      min-height: 44px;
-      margin-bottom: 8px;
+      min-height: 40px;
+      margin-bottom: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 6px;
-      color: #be185d;
-      text-align: center;
-      padding: 0 4px;
-      line-height: 1.25;
+      width: 100%;
+    }
+
+    .sticker-wish-card {
+      width: 100%;
+      background: linear-gradient(135deg, #fff5f8 0%, #fdf2f8 100%);
+      border: 1.5px solid #f9a8d4;
+      border-radius: 20px;
+      padding: 10px 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-align: left;
+      box-shadow: 0 6px 18px rgba(244, 114, 182, 0.14);
+      animation: modalPop 0.25s ease;
+    }
+
+    .sticker-wish-img-wrap {
+      position: relative;
+      width: 68px;
+      height: 68px;
+      flex-shrink: 0;
+      border-radius: 16px;
+      background: #ffffff;
+      border: 1.5px solid #fbcfe8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .sticker-wish-img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    .sticker-wish-fallback {
+      font-size: 1.7rem;
+      line-height: 1;
+      display: none;
+    }
+
+    .sticker-wish-content {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .sticker-wish-code {
+      font-size: 0.68rem;
+      font-weight: 800;
+      color: #db2777;
+      letter-spacing: 0.4px;
+      margin-bottom: 2px;
+    }
+
+    .sticker-wish-text {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #831843;
+      line-height: 1.3;
     }
 
     @keyframes heartbeatText {
@@ -177,7 +231,7 @@
     }
 
     @keyframes modalPop {
-      0% { transform: scale(0.85); opacity: 0; }
+      0% { transform: scale(0.88); opacity: 0; }
       100% { transform: scale(1); opacity: 1; }
     }
 
@@ -216,7 +270,7 @@
       display: flex;
       justify-content: center;
       gap: 12px;
-      margin-bottom: 16px;
+      margin-bottom: 14px;
     }
 
     .dot {
@@ -1161,28 +1215,87 @@
   <script>
     let enteredPin = "";
     let wrongPinCount = 0;
+    let stickerResetTimer = null;
 
-    const flowerSlogans = {
-      "1314": "💖 <b>Anh Nhớ Em</b> 💖",
-      "11111": "✨ 💖 <b>Anh</b> 💖 ✨",
-      "22222": "🌸 💓 <i>nhớ</i> 💓 🌸",
-      "33333": "💕 ✨ <b>em</b> ✨ 💕",
-      "00000": "🌅 💖 <b>Ngày Mới Rạng Rỡ Cùng Yêu Thương!</b> 💖 🌅",
-      "44444": "☀️ ⚡ <b>Chào Ngày Mới Vui Vẻ, Tràn Đầy Năng Lượng!</b> ⚡ ☀️",
-      "55555": "💓 🌸 <b>Nhớ Ái Nhuy Nhiều Lắm, Yêu Em Rất Nhiều!</b> 🌸 💓",
-      "66666": "🚀 ✨ <b>Làm Việc Năng Động, Hăng Say & Tỏa Sáng Nha!</b> ✨ 🚀",
-      "77777": "💕 💋 <b>Tình Yêu Của Anh Dành Trọn Cho Ái Nhuy!</b> 💋 💕",
-      "88888": "🌻 ☀️ <b>Bắt Đầu Ngày Mới Tươi Vui, May Mắn Gõ Cửa!</b> ☀️ 🌻",
-      "99999": "🌙 💖 <b>Chúc Người Yêu Ngủ Ngon & Mơ Thật Đẹp Nha!</b> 💖 🌙"
+    const flowerStickersByCode = {
+      "1314": {
+        badge: "🌸 MÃ 1314 • BÔNG HOA YÊU THƯƠNG",
+        wish: "Anh nhớ em nhiều lắm, ôm em thật chặt nè! 💗",
+        stickerImg: "t2.jpg",
+        fallbackEmoji: "🌸💗"
+      },
+      "00000": {
+        badge: "🌸 MÃ 00000 • KHỞI ĐẦU RẠNG RỠ",
+        wish: "Chúc ngày mới rạng rỡ, yêu thương ngập tràn! 🌷",
+        stickerImg: "n2.jpg",
+        fallbackEmoji: "🌸🥰"
+      },
+      "44444": {
+        badge: "🌸 MÃ 44444 • TRÀN ĐẦY NĂNG LƯỢNG",
+        wish: "Chào ngày mới vui vẻ, tràn đầy năng lượng nha! 🌻",
+        stickerImg: "n5.jpg",
+        fallbackEmoji: "🌸✨"
+      },
+      "55555": {
+        badge: "🌸 MÃ 55555 • THƯƠNG ÁI NHUY",
+        wish: "Nhớ Ái Nhuy nhiều lắm, thương em rất nhiều! 💕",
+        stickerImg: "n3.jpg",
+        fallbackEmoji: "🌸💞"
+      },
+      "66666": {
+        badge: "🌸 MÃ 66666 • TỎA SÁNG HÔM NAY",
+        wish: "Làm việc năng động, hăng say & tỏa sáng nha! 🌺",
+        stickerImg: "n5.jpg",
+        fallbackEmoji: "🌸🌟"
+      },
+      "77777": {
+        badge: "🌸 MÃ 77777 • TRỌN VẸN YÊU THƯƠNG",
+        wish: "Tình yêu của anh dành trọn cho Ái Nhuy! 🌹",
+        stickerImg: "n6.jpg",
+        fallbackEmoji: "🌸💘"
+      },
+      "88888": {
+        badge: "🌸 MÃ 88888 • MAY MẮN GÕ CỬA",
+        wish: "Bắt đầu ngày mới tươi vui, may mắn gõ cửa! 🌼",
+        stickerImg: "n4.jpg",
+        fallbackEmoji: "🌸🍀"
+      },
+      "99999": {
+        badge: "🌸 MÃ 99999 • GIẤC MƠ ÊM ÁI",
+        wish: "Chúc người yêu ngủ ngon & mơ thật đẹp nha! 🌸🌙",
+        stickerImg: "n7.jpg",
+        fallbackEmoji: "🌸🌙"
+      }
     };
+
+    function buildStickerWishHtml(entry) {
+      return `
+        <div class="sticker-wish-card">
+          <div class="sticker-wish-img-wrap">
+            <img
+              src="${entry.stickerImg}"
+              alt="Sticker hoa yêu thương"
+              class="sticker-wish-img"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';"
+            >
+            <span class="sticker-wish-fallback">${entry.fallbackEmoji}</span>
+          </div>
+          <div class="sticker-wish-content">
+            <div class="sticker-wish-code">${entry.badge}</div>
+            <div class="sticker-wish-text">${entry.wish}</div>
+          </div>
+        </div>
+      `;
+    }
 
     function lockAppScreen() {
       enteredPin = "";
       updatePinDots();
+      if (stickerResetTimer) clearTimeout(stickerResetTimer);
       const lockEl = document.getElementById('lockScreen');
       if (lockEl) lockEl.style.display = 'flex';
       const romEl = document.getElementById('romanticDisplay');
-      if (romEl) romEl.innerText = "";
+      if (romEl) romEl.innerHTML = "";
       sessionStorage.clear();
     }
 
@@ -1197,25 +1310,34 @@
       const romEl = document.getElementById('romanticDisplay');
       if (val === 'C') {
         enteredPin = "";
-        if (romEl) romEl.innerText = "";
+        if (stickerResetTimer) clearTimeout(stickerResetTimer);
+        if (romEl) romEl.innerHTML = "";
         updatePinDots();
       } else if (val === 'FLOWER') {
         if (enteredPin === "1314") {
           const modal = document.getElementById('romanticPhotoModal');
           if (modal) modal.style.display = 'flex';
-          if (romEl) romEl.innerHTML = flowerSlogans["1314"];
+          if (romEl) romEl.innerHTML = buildStickerWishHtml(flowerStickersByCode["1314"]);
           return;
         }
-        if (flowerSlogans[enteredPin]) {
-          if (romEl) romEl.innerHTML = flowerSlogans[enteredPin];
-        } else {
-          if (romEl) romEl.innerHTML = "🌸 ❤️ <b>Ái Nhuy Xinh Đẹp Nhất Trời Nam!</b> ❤️ 🌸";
+
+        const matched = flowerStickersByCode[enteredPin] || {
+          badge: "🌸 BÔNG HOA CỦA ÁI NHUY",
+          wish: "Chúc Ái Nhuy luôn xinh đẹp, vui vẻ & bình an! 💗",
+          stickerImg: "n8.jpg",
+          fallbackEmoji: "🌸💖"
+        };
+
+        if (romEl) {
+          romEl.innerHTML = buildStickerWishHtml(matched);
         }
-        setTimeout(() => {
+
+        if (stickerResetTimer) clearTimeout(stickerResetTimer);
+        stickerResetTimer = setTimeout(() => {
           enteredPin = "";
           updatePinDots();
-          if (romEl) romEl.innerText = "";
-        }, 3800);
+          if (romEl) romEl.innerHTML = "";
+        }, 4200);
       } else {
         if (enteredPin.length < 6) {
           enteredPin += val;
@@ -1926,7 +2048,6 @@
       return { shift: 'off', label: 'Off', inTime: null, outTime: null };
     }
 
-    // Gọi mở ứng dụng Báo thức hệ thống (Android Intent SET_ALARM) để đánh thức khi ngủ sâu
     function openSystemAlarmForToday(type) {
       const info = getTodayShiftInfo();
       if (info.shift === 'off') {

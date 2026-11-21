@@ -6,8 +6,8 @@
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
-  <title>Sổ Tay Tình Yêu & Lịch Ca Của Ái Nhuy 💗</title>
-  <meta name="theme-color" content="#f9a8d4">
+  <title>Sổ Tay Tình Yêu & Lịch Ca Của Ái Nhuy 💕</title>
+  <meta name="theme-color" content="#db7093">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
@@ -37,8 +37,8 @@
     });
     document.addEventListener('keydown', e => {
       if (
-        e.keyCode === 123 || 
-        (e.ctrlKey && e.shiftKey && (e.keyCode === 73 || e.keyCode === 74 || e.keyCode === 67)) || 
+        e.keyCode === 123 ||
+        (e.ctrlKey && e.shiftKey && (e.keyCode === 73 || e.keyCode === 74 || e.keyCode === 67)) ||
         (e.ctrlKey && e.keyCode === 85) ||
         (e.ctrlKey && e.keyCode === 67 && e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA')
       ) {
@@ -57,21 +57,20 @@
 
   <style>
     :root {
-      --primary: #f472b6;
-      --primary-soft: #fdf2f8;
-      --primary-dark: #9d174d;
-      --accent: #fb7185;
-      --bg: #fff9fa;
-      --card: #ffffff;
-      --text: #5c162e;
-      --muted: #9d4b67;
-      --border: #fce7f3;
-      --success: #34d399;
-      --danger: #f87171;
-      --purple: #a78bfa;
-      --journal-bg: #fff7f9;
-      --journal-border: #fbcfe8;
-      --journal-text: #9d174d;
+      --primary: #d87a98;
+      --primary-dark: #9d4b68;
+      --accent: #e08e9d;
+      --bg: #faf5f6;
+      --card: #fcfafb;
+      --text: #3b262d;
+      --muted: #6e4c57;
+      --border: #edd8df;
+      --success: #349c78;
+      --danger: #c95b68;
+      --purple: #8468b5;
+      --journal-bg: #fcf6f8;
+      --journal-border: #e6c6d0;
+      --journal-text: #8c435c;
     }
 
     * {
@@ -83,150 +82,170 @@
     }
 
     body {
-      background: linear-gradient(180deg, #fff5f7 0%, #fffafb 55%, #fff5f7 100%);
+      background: linear-gradient(180deg, #f8eff2 0%, #faf6f7 55%, #f5ecee 100%);
       color: var(--text);
       padding-bottom: 90px;
+      min-height: 100vh;
     }
 
-    /* MÀN HÌNH KHÓA BẢO MẬT */
     #lockScreen {
       position: fixed;
       inset: 0;
       z-index: 99999;
-      background: linear-gradient(135deg, #fbcfe8 0%, #f9a8d4 50%, #f472b6 100%);
+      background: linear-gradient(145deg, #e8bcc8 0%, #d99bb0 52%, #b56d88 100%);
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 16px;
+      padding: 20px;
       color: white;
       text-align: center;
-      overflow-y: auto;
     }
 
     .lock-box {
-      background: rgba(255, 255, 255, 0.96);
-      padding: 20px 18px;
-      border-radius: 28px;
+      background: rgba(252, 249, 250, 0.96);
+      padding: 22px 18px;
+      border-radius: 26px;
       width: 100%;
       max-width: 340px;
-      box-shadow: 0 14px 36px rgba(157, 23, 77, 0.18);
+      box-shadow: 0 12px 34px rgba(102, 51, 70, 0.22);
       color: var(--text);
-      border: 1px solid #fce7f3;
+      border: 1px solid #edd6de;
     }
 
     .lock-brand-title {
-      font-size: 1.45rem;
+      font-size: 1.4rem;
       font-weight: 800;
       font-family: "Times New Roman", Times, serif;
       font-style: italic;
-      background: linear-gradient(45deg, #be185d, #ec4899, #8b5cf6);
-      background-size: 250% 250%;
+      background: linear-gradient(45deg, #9d4b68, #d87a98, #8468b5, #b55d79);
+      background-size: 300% 300%;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      animation: gradientShift 5s ease infinite;
-      margin-bottom: 8px;
+      animation: gradientShift 6s ease infinite;
+      margin-bottom: 6px;
       letter-spacing: 0.6px;
     }
 
     .romantic-display-box {
-      min-height: 24px;
+      font-size: 1.15rem;
+      font-weight: 800;
+      font-family: "Times New Roman", Times, serif;
+      font-style: italic;
+      min-height: 36px;
       margin-bottom: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 100%;
-    }
-
-    .sticker-wish-card {
-      width: 100%;
-      background: linear-gradient(135deg, #fff5f8 0%, #fdf2f8 100%);
-      border: 1.5px solid #f9a8d4;
-      border-radius: 22px;
-      padding: 12px 14px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
+      gap: 6px;
+      color: #9d4b68;
+      letter-spacing: 0.4px;
       text-align: center;
-      box-shadow: 0 6px 18px rgba(244, 114, 182, 0.14);
-      animation: modalPop 0.25s ease;
-    }
-
-    .sticker-wish-img-wrap {
-      position: relative;
-      width: 112px;
-      height: 112px;
-      flex-shrink: 0;
-      border-radius: 20px;
-      background: #ffffff;
-      border: 1.5px solid #fbcfe8;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      margin: 0 auto;
-    }
-
-    .sticker-wish-img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      display: block;
-    }
-
-    .sticker-wish-fallback {
-      font-size: 2.5rem;
-      line-height: 1;
-      display: none;
-    }
-
-    .sticker-wish-content {
-      width: 100%;
-      text-align: center;
-    }
-
-    .sticker-wish-text {
-      font-size: 0.84rem;
-      font-weight: 700;
-      color: #831843;
-      line-height: 1.35;
+      padding: 0 4px;
+      line-height: 1.3;
     }
 
     @keyframes heartbeatText {
       0%, 100% { transform: scale(1); }
-      20%, 50% { transform: scale(1.04); }
-      35% { transform: scale(0.98); }
+      25% { transform: scale(1.04); }
+      50% { transform: scale(0.98); }
+      75% { transform: scale(1.03); }
     }
 
-    /* MODAL ẢNH 1314 + 🌸 */
     #romanticPhotoModal {
       display: none;
       position: fixed;
       inset: 0;
       z-index: 100000;
-      background: rgba(92, 22, 46, 0.78);
-      backdrop-filter: blur(10px);
+      background: rgba(52, 28, 36, 0.78);
+      backdrop-filter: blur(8px);
       align-items: center;
       justify-content: center;
       padding: 16px;
     }
 
     .romantic-modal-card {
-      background: linear-gradient(135deg, #ffffff 0%, #fff5f7 100%);
-      border: 2px solid #f9a8d4;
-      border-radius: 28px;
+      background: linear-gradient(135deg, #fcf9fa 0%, #f7ecef 100%);
+      border: 2px solid #dfa4b8;
+      border-radius: 26px;
       padding: 20px 16px;
       max-width: 340px;
       width: 100%;
       text-align: center;
-      box-shadow: 0 20px 50px rgba(157, 23, 77, 0.35);
-      animation: modalPop 0.3s ease;
+      box-shadow: 0 18px 46px rgba(59, 38, 45, 0.35);
+      animation: modalPop 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    #stickerShowcaseModal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 100001;
+      background: rgba(45, 27, 34, 0.72);
+      backdrop-filter: blur(8px);
+      align-items: center;
+      justify-content: center;
+      padding: 18px;
+    }
+
+    .sticker-showcase-card {
+      background: linear-gradient(160deg, #fcf9fa 0%, #f6ebee 100%);
+      border: 2px solid #e2b4c3;
+      border-radius: 28px;
+      padding: 24px 20px;
+      max-width: 360px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      box-shadow: 0 20px 50px rgba(48, 26, 35, 0.35);
+      animation: modalPop 0.32s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .sticker-enlarged-img {
+      width: 215px;
+      height: 215px;
+      max-width: 78vw;
+      max-height: 78vw;
+      object-fit: contain;
+      border-radius: 22px;
+      background: #ffffff;
+      padding: 10px;
+      border: 2px solid #edd4dc;
+      box-shadow: 0 10px 28px rgba(157, 75, 104, 0.18);
+      margin-bottom: 16px;
+      animation: heartbeatText 2.2s ease-in-out infinite;
+    }
+
+    .sticker-caption-below {
+      font-size: 1.02rem;
+      font-weight: 700;
+      color: #5c2b3d;
+      line-height: 1.48;
+      background: rgba(255, 255, 255, 0.85);
+      border: 1px solid #ebd2da;
+      border-radius: 16px;
+      padding: 12px 14px;
+      width: 100%;
+      margin-bottom: 16px;
+    }
+
+    .sticker-close-btn {
+      background: linear-gradient(135deg, #d87a98, #a95674);
+      color: #ffffff;
+      border: none;
+      padding: 10px 24px;
+      border-radius: 14px;
+      font-weight: 700;
+      font-size: 0.88rem;
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(169, 86, 116, 0.25);
     }
 
     @keyframes modalPop {
-      0% { transform: scale(0.88); opacity: 0; }
+      0% { transform: scale(0.8); opacity: 0; }
       100% { transform: scale(1); opacity: 1; }
     }
 
@@ -235,23 +254,24 @@
       max-height: 360px;
       object-fit: contain;
       border-radius: 20px;
-      border: 2px solid #fbcfe8;
+      border: 2px solid #e2b0c1;
+      box-shadow: 0 8px 20px rgba(157, 75, 104, 0.2);
       margin: 0 auto 12px auto;
       display: block;
-      background: #fff9fa;
+      background: #f8f2f4;
     }
 
     .romantic-modal-title {
       font-size: 1.35rem;
       font-weight: 800;
-      color: #be185d;
+      color: #9d4b68;
       margin-bottom: 12px;
       font-family: "Times New Roman", Times, serif;
       font-style: italic;
     }
 
     .romantic-modal-btn {
-      background: linear-gradient(135deg, #f472b6, #db2777);
+      background: linear-gradient(135deg, #d87a98, #a95674);
       color: white;
       border: none;
       padding: 10px 24px;
@@ -264,21 +284,21 @@
     .passcode-dots {
       display: flex;
       justify-content: center;
-      gap: 12px;
-      margin-bottom: 14px;
+      gap: 11px;
+      margin-bottom: 16px;
     }
 
     .dot {
       width: 13px;
       height: 13px;
       border-radius: 50%;
-      border: 2px solid #f472b6;
-      background: #fff;
+      border: 2px solid #c97792;
+      background: #fcf9fa;
       transition: all 0.2s;
     }
 
     .dot.filled {
-      background: #f472b6;
+      background: #c97792;
     }
 
     .keypad {
@@ -288,32 +308,33 @@
     }
 
     .key-btn {
-      background: #fff5f7;
-      border: 1px solid #fbcfe8;
+      background: #f7eef1;
+      border: 1px solid #e7ced6;
       font-size: 1.08rem;
       font-weight: 700;
-      color: #9d174d;
+      color: #8f435d;
       padding: 10px 0;
-      border-radius: 14px;
+      border-radius: 12px;
       cursor: pointer;
       transition: 0.15s;
     }
 
     .key-btn:active {
-      background: #f472b6;
+      background: #c97792;
       color: #fff;
       transform: scale(0.96);
     }
 
     @keyframes flowerSpin {
       0% { transform: rotate(0deg) scale(1); }
-      50% { transform: rotate(180deg) scale(1.12); }
+      50% { transform: rotate(180deg) scale(1.1); }
       100% { transform: rotate(360deg) scale(1); }
     }
+
     .flower-icon-spin {
       display: inline-block;
-      animation: flowerSpin 6s linear infinite;
-      font-size: 1.05rem;
+      animation: flowerSpin 7s linear infinite;
+      font-size: 1.08rem;
     }
 
     .falling-leaf {
@@ -322,23 +343,23 @@
       z-index: 999;
       pointer-events: none;
       animation: fallLeaf linear infinite;
+      opacity: 0.72;
     }
 
     @keyframes fallLeaf {
-      0% { transform: translateY(0vh) translateX(0vw) rotate(0deg); opacity: 0.8; }
-      50% { transform: translateY(55vh) translateX(10vw) rotate(180deg); opacity: 0.6; }
+      0% { transform: translateY(0vh) translateX(0vw) rotate(0deg); opacity: 0.75; }
+      50% { transform: translateY(55vh) translateX(10vw) rotate(180deg); opacity: 0.55; }
       100% { transform: translateY(110vh) translateX(-8vw) rotate(360deg); opacity: 0.08; }
     }
 
-    /* HEADER PASTEL DỊU MẮT */
     header {
-      background: linear-gradient(120deg, #f9a8d4 0%, #f472b6 55%, #fda4af 100%);
-      color: #ffffff;
+      background: linear-gradient(120deg, #a85673 0%, #c46d8b 60%, #d4829c 100%);
+      color: white;
       padding: 12px 16px;
       position: sticky;
       top: 0;
       z-index: 100;
-      box-shadow: 0 6px 20px rgba(244, 114, 182, 0.22);
+      box-shadow: 0 4px 16px rgba(138, 69, 94, 0.18);
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -346,15 +367,15 @@
     }
 
     .header-title-name {
-      font-size: 1.42rem;
+      font-size: 1.4rem;
       font-weight: 800;
       font-family: "Times New Roman", Times, serif;
       font-style: italic;
-      background: linear-gradient(45deg, #ffffff, #fef9c3, #fce7f3);
-      background-size: 250% 250%;
+      background: linear-gradient(45deg, #ffffff, #f8e5b4, #f9dce6, #ffffff);
+      background-size: 300% 300%;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      animation: gradientShift 5s ease infinite;
+      animation: gradientShift 6s ease infinite;
       letter-spacing: 0.6px;
     }
 
@@ -372,33 +393,33 @@
     }
 
     .header-btns button {
-      background: rgba(255, 255, 255, 0.32);
-      border: 1px solid rgba(255, 255, 255, 0.55);
-      color: #ffffff;
-      padding: 6px 11px;
-      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.22);
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      color: white;
+      padding: 6px 12px;
+      border-radius: 8px;
       font-size: 0.72rem;
       cursor: pointer;
-      font-weight: 700;
+      font-weight: 600;
       backdrop-filter: blur(6px);
       transition: all 0.2s ease;
     }
 
     .header-btns button:active {
-      background: rgba(255, 255, 255, 0.5);
-      transform: scale(0.96);
+      background: rgba(255, 255, 255, 0.38);
+      transform: scale(0.97);
     }
 
     #btnNotiStatus.noti-granted {
-      background: #6ee7b7 !important;
-      border-color: #a7f3d0 !important;
-      color: #064e3b !important;
+      background: #3d9979 !important;
+      border-color: #67b89c !important;
+      color: #ffffff !important;
     }
 
     #btnNotiStatus.noti-denied {
-      background: #fca5a5 !important;
-      border-color: #fecaca !important;
-      color: #7f1d1d !important;
+      background: #c75f6b !important;
+      border-color: #df8b95 !important;
+      color: #ffffff !important;
     }
 
     .container {
@@ -407,14 +428,13 @@
       padding: 12px;
     }
 
-    /* BANNER LỜI CHÚC & THỜI TIẾT */
     .greeting-banner {
-      background: linear-gradient(135deg, #ffffff 0%, #fff5f7 100%);
+      background: linear-gradient(135deg, #fcf9fa 0%, #f7eff2 100%);
       border: 1px solid var(--border);
-      border-radius: 22px;
+      border-radius: 20px;
       padding: 14px 16px;
       margin-bottom: 12px;
-      box-shadow: 0 6px 20px rgba(244, 114, 182, 0.08);
+      box-shadow: 0 6px 18px rgba(140, 67, 92, 0.06);
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -424,21 +444,43 @@
     .greeting-info {
       display: flex;
       flex-direction: column;
-      gap: 3px;
+      gap: 4px;
       flex: 1;
       cursor: pointer;
       min-width: 0;
     }
 
-    .greeting-title { font-size: 1rem; font-weight: 800; color: #be185d; line-height: 1.25; }
-    .greeting-quote { font-size: 0.82rem; font-weight: 600; color: #db2777; line-height: 1.35; }
-    .greeting-text-sub { font-size: 0.75rem; font-weight: 600; color: #78716c; margin-top: 2px; }
-    .weather-status-text { font-size: 0.73rem; color: #78716c; font-weight: 600; }
+    .greeting-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      line-height: 1.25;
+    }
+
+    .greeting-quote {
+      font-size: 0.83rem;
+      font-weight: 600;
+      color: #8f4760;
+      line-height: 1.38;
+    }
+
+    .greeting-text-sub {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #6d6368;
+      margin-top: 2px;
+    }
+
+    .weather-status-text {
+      font-size: 0.73rem;
+      color: #6d6368;
+      font-weight: 600;
+    }
 
     .weather-widget {
       position: relative;
-      width: 82px;
-      height: 64px;
+      width: 86px;
+      height: 68px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -446,17 +488,17 @@
       flex-shrink: 0;
     }
 
-    .sunny-animated-box { position: relative; width: 64px; height: 64px; display: flex; align-items: center; justify-content: center; }
+    .sunny-animated-box { position: relative; width: 68px; height: 68px; display: flex; align-items: center; justify-content: center; }
     .sun-core {
-      width: 30px; height: 30px; border-radius: 50%;
-      background: radial-gradient(circle at 35% 35%, #fef9c3 0%, #fde047 55%, #fbbf24 100%);
-      box-shadow: 0 0 14px rgba(253, 224, 71, 0.65);
-      animation: sunPulse 3s ease-in-out infinite alternate; z-index: 2;
+      width: 32px; height: 32px; border-radius: 50%;
+      background: radial-gradient(circle at 35% 35%, #fffdf2 0%, #f5dc82 35%, #e2a84b 80%, #cc8835 100%);
+      box-shadow: 0 0 14px rgba(226, 168, 75, 0.45);
+      animation: sunPulse 3.2s ease-in-out infinite alternate; z-index: 2;
     }
-    .sun-rays-wrap { position: absolute; width: 100%; height: 100%; animation: sunSpin 14s linear infinite; z-index: 1; }
+    .sun-rays-wrap { position: absolute; width: 100%; height: 100%; animation: sunSpin 16s linear infinite; z-index: 1; }
     .sun-beam {
-      position: absolute; top: 50%; left: 50%; width: 3px; height: 58px; margin-left: -1.5px; margin-top: -29px;
-      background: linear-gradient(to bottom, #fcd34d 0%, rgba(252,211,77,0) 25%, rgba(252,211,77,0) 75%, #fcd34d 100%);
+      position: absolute; top: 50%; left: 50%; width: 3px; height: 60px; margin-left: -1.5px; margin-top: -30px;
+      background: linear-gradient(to bottom, #e2a84b 0%, rgba(226,168,75,0) 25%, rgba(226,168,75,0) 75%, #e2a84b 100%);
       border-radius: 4px;
     }
     .sun-beam:nth-child(2) { transform: rotate(45deg); }
@@ -469,37 +511,38 @@
       100% { transform: scale(1.06); }
     }
 
-    .fair-animated-box { position: relative; width: 64px; height: 64px; }
+    .fair-animated-box { position: relative; width: 68px; height: 68px; }
     .fair-sun {
-      position: absolute; top: 6px; right: 10px; width: 22px; height: 22px; border-radius: 50%;
-      background: radial-gradient(circle, #fef9c3 30%, #fde047 100%);
-      animation: sunPulse 3s ease-in-out infinite alternate;
+      position: absolute; top: 6px; right: 10px; width: 24px; height: 24px; border-radius: 50%;
+      background: radial-gradient(circle, #f7e49c 25%, #e2a84b 100%);
+      animation: sunPulse 3.2s ease-in-out infinite alternate;
     }
     .floating-cloud-1 {
-      position: absolute; bottom: 13px; left: 4px; width: 36px; height: 15px; background: #7dd3fc;
-      border-radius: 12px; opacity: 0.9; animation: floatCloud1 3.5s ease-in-out infinite alternate;
+      position: absolute; bottom: 14px; left: 4px; width: 38px; height: 16px; background: #7bb4d4;
+      border-radius: 12px; opacity: 0.92; animation: floatCloud1 3.8s ease-in-out infinite alternate;
     }
-    .floating-cloud-1::before { content: ''; position: absolute; top: -8px; left: 7px; width: 16px; height: 16px; background: #7dd3fc; border-radius: 50%; }
+    .floating-cloud-1::before { content: ''; position: absolute; top: -9px; left: 7px; width: 18px; height: 18px; background: #7bb4d4; border-radius: 50%; }
     .floating-cloud-2 {
-      position: absolute; bottom: 8px; right: 2px; width: 28px; height: 12px; background: #bae6fd;
-      border-radius: 10px; animation: floatCloud2 4s ease-in-out infinite alternate;
+      position: absolute; bottom: 8px; right: 2px; width: 30px; height: 13px; background: #5b97ba;
+      border-radius: 10px; animation: floatCloud2 4.2s ease-in-out infinite alternate; opacity: 0.85;
     }
-    .floating-cloud-2::before { content: ''; position: absolute; top: -6px; left: 6px; width: 13px; height: 13px; background: #bae6fd; border-radius: 50%; }
+    .floating-cloud-2::before { content: ''; position: absolute; top: -7px; left: 6px; width: 14px; height: 14px; background: #5b97ba; border-radius: 50%; }
     @keyframes floatCloud1 { 0% { transform: translateX(0); } 100% { transform: translateX(6px); } }
     @keyframes floatCloud2 { 0% { transform: translateX(0); } 100% { transform: translateX(-5px); } }
 
-    .night-animated-box { position: relative; width: 82px; height: 64px; }
+    .night-animated-box { position: relative; width: 86px; height: 68px; }
     .night-moon {
-      position: absolute; top: -2px; right: 4px; width: 34px; height: 34px; border-radius: 50%;
-      box-shadow: 7px 5px 0 0 #fde047; transform: rotate(-18deg);
-      animation: moonGlow 3.2s ease-in-out infinite alternate; z-index: 2;
+      position: absolute; top: -4px; right: 4px; width: 38px; height: 38px; border-radius: 50%;
+      box-shadow: 8px 6px 0 0 #e8c55b; transform: rotate(-18deg);
+      filter: drop-shadow(0 0 10px rgba(232, 197, 91, 0.55));
+      animation: moonGlow 3.4s ease-in-out infinite alternate; z-index: 2;
     }
-    .night-sparkle { position: absolute; line-height: 1; animation: starTwinkle 2.5s ease-in-out infinite alternate; z-index: 1; }
-    .night-sparkle.st-far-left { top: 6px; left: 2px; font-size: 12px; color: #fde047; }
-    .night-sparkle.st-mid-left-high { top: 20px; left: 22px; font-size: 10px; color: #7dd3fc; }
-    .night-sparkle.st-mid-left-low { bottom: 8px; left: 10px; font-size: 13px; color: #fef08a; }
-    .night-sparkle.st-near-left { bottom: 15px; left: 40px; font-size: 10px; color: #bae6fd; }
-    .night-sparkle.st-near-moon { top: 4px; left: 32px; font-size: 11px; color: #f472b6; }
+    .night-sparkle { position: absolute; line-height: 1; animation: starTwinkle 2.6s ease-in-out infinite alternate; z-index: 1; }
+    .night-sparkle.st-far-left { top: 6px; left: 2px; font-size: 13px; color: #f0d786; }
+    .night-sparkle.st-mid-left-high { top: 22px; left: 24px; font-size: 11px; color: #7bb4d4; }
+    .night-sparkle.st-mid-left-low { bottom: 8px; left: 10px; font-size: 14px; color: #e8c55b; }
+    .night-sparkle.st-near-left { bottom: 16px; left: 42px; font-size: 10px; color: #9bc0dc; }
+    .night-sparkle.st-near-moon { top: 4px; left: 34px; font-size: 12px; color: #f5eff2; }
 
     @keyframes moonGlow {
       0% { transform: rotate(-18deg) scale(0.97); }
@@ -511,14 +554,14 @@
       100% { opacity: 0.35; transform: scale(0.8); }
     }
 
-    .rainy-animated-box { position: relative; width: 64px; height: 64px; }
-    .rain-main-cloud { position: absolute; top: 10px; left: 10px; width: 42px; height: 18px; background: #94a3b8; border-radius: 14px; }
-    .rain-main-cloud::before { content: ''; position: absolute; top: -10px; left: 10px; width: 20px; height: 20px; background: #94a3b8; border-radius: 50%; }
-    .anim-drop { position: absolute; width: 2.5px; height: 9px; background: #7dd3fc; border-radius: 3px; animation: fallDown 0.75s linear infinite; }
-    .anim-drop.rd1 { left: 18px; top: 32px; animation-delay: 0s; }
-    .anim-drop.rd2 { left: 29px; top: 32px; animation-delay: 0.25s; }
-    .anim-drop.rd3 { left: 40px; top: 32px; animation-delay: 0.5s; }
-    @keyframes fallDown { 0% { transform: translateY(0); opacity: 1; } 100% { transform: translateY(16px); opacity: 0.15; } }
+    .rainy-animated-box { position: relative; width: 68px; height: 68px; }
+    .rain-main-cloud { position: absolute; top: 10px; left: 10px; width: 44px; height: 20px; background: #7b8999; border-radius: 14px; }
+    .rain-main-cloud::before { content: ''; position: absolute; top: -11px; left: 10px; width: 22px; height: 22px; background: #7b8999; border-radius: 50%; }
+    .anim-drop { position: absolute; width: 2.6px; height: 10px; background: #5b97ba; border-radius: 3px; animation: fallDown 0.8s linear infinite; }
+    .anim-drop.rd1 { left: 18px; top: 34px; animation-delay: 0s; }
+    .anim-drop.rd2 { left: 30px; top: 34px; animation-delay: 0.26s; }
+    .anim-drop.rd3 { left: 42px; top: 34px; animation-delay: 0.52s; }
+    @keyframes fallDown { 0% { transform: translateY(0); opacity: 0.9; } 100% { transform: translateY(18px); opacity: 0.15; } }
 
     .stats-grid {
       display: grid;
@@ -528,73 +571,74 @@
     }
 
     .stat-card {
-      background: #ffffff;
+      background: var(--card);
       border: 1px solid var(--border);
-      border-radius: 18px;
+      border-radius: 16px;
       padding: 12px 14px;
-      box-shadow: 0 4px 14px rgba(244, 114, 182, 0.06);
+      box-shadow: 0 3px 12px rgba(140, 67, 92, 0.04);
     }
 
     .stat-label { color: var(--muted); font-size: 0.74rem; font-weight: 600; }
-    .stat-value { font-size: 1.25rem; font-weight: 800; margin-top: 2px; color: #be185d; }
+    .stat-value { font-size: 1.25rem; font-weight: 700; margin-top: 2px; color: var(--primary-dark); }
 
     #alarmBanner {
       display: none;
       position: sticky;
       top: 56px;
       z-index: 105;
-      background: linear-gradient(135deg, #fb7185, #f472b6);
+      background: linear-gradient(135deg, #c96272, #9d465a);
       color: white;
       padding: 12px 16px;
-      border-radius: 16px;
-      margin-bottom: 12px;
-      box-shadow: 0 6px 20px rgba(244, 114, 182, 0.35);
-      animation: pulse 1s infinite alternate;
+      border-radius: 14px;
+      margin-bottom: 14px;
+      box-shadow: 0 6px 18px rgba(157, 70, 90, 0.32);
+      animation: pulse 1.2s infinite alternate;
     }
 
     @keyframes pulse {
-      from { opacity: 0.95; transform: scale(0.995); }
+      from { opacity: 0.96; transform: scale(0.995); }
       to { opacity: 1; transform: scale(1.005); }
     }
 
     .alarm-content { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
-    .alarm-title { font-weight: 800; font-size: 0.94rem; }
+    .alarm-title { font-weight: 700; font-size: 0.95rem; }
     .btn-stop-alarm {
-      background: white; color: #be185d; border: none; padding: 8px 16px; border-radius: 12px;
-      font-weight: 800; cursor: pointer; white-space: nowrap;
+      background: #fcf9fa;
+      color: #9d465a;
+      border: none;
+      padding: 9px 16px;
+      border-radius: 10px;
+      font-weight: 700;
+      cursor: pointer;
+      white-space: nowrap;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
     }
 
-    /* TẤT CẢ CÁC TAB ĐƯỢC GIẢM TÔNG PASTEL NHẸ, GỌN, HIỆN ĐẠI, LÃNG MẠN */
     .nav-tabs {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 8px;
+      gap: 7px;
       margin-bottom: 12px;
-      background: #fff7fa;
-      padding: 5px;
-      border-radius: 18px;
-      border: 1px solid #fce7f3;
     }
 
     .nav-tab-btn {
-      padding: 9px 6px;
-      border-radius: 14px;
-      border: 1px solid transparent;
-      background: #ffffff;
+      padding: 10px 6px;
+      border-radius: 12px;
+      border: 1px solid #e3c8d1;
+      background: #f6eff2;
       font-size: 0.78rem;
-      font-weight: 700;
-      color: #9d4b67;
+      font-weight: 600;
+      color: #6b4955;
       cursor: pointer;
       text-align: center;
       transition: all 0.2s ease;
-      box-shadow: 0 2px 8px rgba(244, 114, 182, 0.05);
     }
 
     .nav-tab-btn.active {
-      background: linear-gradient(135deg, #fce7f3 0%, #fbcfe8 100%);
-      color: #9d174d;
-      border-color: #f9a8d4;
-      box-shadow: 0 4px 12px rgba(244, 114, 182, 0.14);
+      background: #b96682;
+      color: #ffffff;
+      border-color: #a75672;
+      box-shadow: 0 3px 10px rgba(157, 75, 104, 0.18);
     }
 
     .nav-tab-btn-two-lines {
@@ -606,18 +650,18 @@
     }
 
     .nav-tab-btn.active-journal {
-      background: linear-gradient(135deg, #ffe4e6 0%, #fecdd3 100%) !important;
-      color: #9d174d !important;
-      border-color: #fda4af !important;
+      background: #e9ced7 !important;
+      color: #7c354e !important;
+      border-color: #c98ca2 !important;
     }
 
     .card-box {
       background: var(--card);
-      border-radius: 20px;
+      border-radius: 18px;
       padding: 14px;
       margin-bottom: 12px;
       border: 1px solid var(--border);
-      box-shadow: 0 4px 16px rgba(244, 114, 182, 0.05);
+      box-shadow: 0 3px 14px rgba(140, 67, 92, 0.04);
     }
 
     .card-journal {
@@ -626,8 +670,8 @@
     }
 
     .journal-heading {
-      font-size: 0.78rem;
-      font-weight: 800;
+      font-size: 0.76rem;
+      font-weight: 700;
       color: var(--journal-text);
       margin-bottom: 10px;
       white-space: nowrap;
@@ -638,14 +682,14 @@
     }
 
     .btn-journal-submit {
-      background: linear-gradient(135deg, #f9a8d4 0%, #f472b6 100%);
-      color: #ffffff;
+      background: linear-gradient(135deg, #c8718e 0%, #9f4d69 100%);
+      color: white;
     }
 
     .search-filter-box {
-      background: #ffffff;
+      background: var(--card);
       border: 1px solid var(--border);
-      border-radius: 16px;
+      border-radius: 14px;
       padding: 10px;
       margin-bottom: 12px;
       display: flex;
@@ -656,130 +700,169 @@
     .search-row { display: flex; gap: 6px; }
 
     .form-group { margin-bottom: 10px; }
-    label { display: block; font-size: 0.76rem; font-weight: 700; margin-bottom: 4px; color: var(--muted); }
-    input, select, textarea {
-      width: 100%; padding: 9px 12px; border-radius: 12px; border: 1px solid var(--border);
-      font-size: 0.86rem; background: #fffdfd; outline: none; color: var(--text);
+    label {
+      display: block;
+      font-size: 0.78rem;
+      font-weight: 600;
+      margin-bottom: 4px;
+      color: var(--muted);
     }
-    input:focus, select:focus, textarea:focus { border-color: #f9a8d4; }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 9px 12px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      font-size: 0.88rem;
+      background: #ffffff;
+      outline: none;
+      color: var(--text);
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--primary);
+    }
+
     textarea { resize: vertical; min-height: 75px; }
     .row { display: flex; gap: 8px; }
     .row > div { flex: 1; }
 
     .btn-submit {
-      width: 100%; background: linear-gradient(135deg, #f9a8d4, #f472b6); color: white; border: none; padding: 11px;
-      border-radius: 12px; font-weight: 700; font-size: 0.86rem; cursor: pointer;
-      box-shadow: 0 4px 12px rgba(244, 114, 182, 0.2);
+      width: 100%;
+      background: #b96682;
+      color: white;
+      border: none;
+      padding: 11px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 0.88rem;
+      cursor: pointer;
+      box-shadow: 0 3px 10px rgba(157, 75, 104, 0.16);
     }
 
-    .btn-submit-purple {
-      background: linear-gradient(135deg, #c4b5fd, #a78bfa);
-    }
+    .btn-submit-purple { background: var(--purple); }
 
     .journal-card-item {
-      background: #ffffff; border-radius: 16px; padding: 12px; margin-bottom: 10px; border: 1px solid #fbcfe8;
-    }
-    .journal-card-item.done { opacity: 0.65; background: #fafaf9; border-color: #e2e8f0; }
-    .badge-journal { background: #fce7f3; color: #9d174d; }
-
-    .item-card { background: var(--card); border-radius: 16px; padding: 12px; margin-bottom: 10px; border: 1px solid var(--border); }
-    .card-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
-    .badge { display: inline-block; padding: 3px 8px; border-radius: 8px; font-size: 0.68rem; font-weight: 700; text-transform: uppercase; }
-    .badge-phat-sinh { background: #ede9fe; color: #6d28d9; }
-    .card-title { font-size: 0.9rem; font-weight: 700; margin-bottom: 4px; color: #5c162e; }
-    .card-time { font-size: 0.72rem; color: var(--muted); }
-    .card-desc { font-size: 0.84rem; line-height: 1.5; color: #881337; white-space: pre-line; margin-bottom: 8px; }
-    .card-alarm-tag { font-size: 0.74rem; color: #e11d48; font-weight: 700; margin-bottom: 6px; display: inline-block; }
-
-    .card-actions { display: flex; gap: 6px; margin-top: 8px; border-top: 1px solid #fdf2f8; padding-top: 8px; }
-    .btn-action {
-      flex: 1; padding: 7px 4px; border-radius: 10px; border: 1px solid var(--border);
-      background: #fff9fb; font-size: 0.72rem; font-weight: 700; cursor: pointer; text-align: center; color: #5c162e;
-    }
-    .btn-zalo { background: #60a5fa; color: white; border: none; }
-    .btn-delete { color: #be123c; border-color: #fecdd3; background: #fff1f2; }
-
-    /* THẺ LỊCH CA PASTEL NHẸ NHÀNG */
-    .week-table-card {
       background: #ffffff;
-      border-radius: 20px;
-      border: 1px solid var(--border);
-      padding: 10px;
+      border-radius: 14px;
+      padding: 12px;
       margin-bottom: 10px;
-      box-shadow: 0 6px 20px rgba(244, 114, 182, 0.06);
+      border: 1.5px solid var(--border);
+    }
+
+    .journal-card-item.done {
+      opacity: 0.68;
+      background: #f7f4f5;
+      border-color: #e2d8dc;
+    }
+
+    .badge-journal { background: #f3dde4; color: #8c435c; }
+
+    .item-card {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 12px;
+      margin-bottom: 10px;
+      border: 1px solid var(--border);
+    }
+
+    .card-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+    .badge { display: inline-block; padding: 3px 8px; border-radius: 6px; font-size: 0.68rem; font-weight: 700; text-transform: uppercase; }
+    .badge-phat-sinh { background: #eae4f5; color: #5b4387; }
+    .card-title { font-size: 0.92rem; font-weight: 700; margin-bottom: 4px; color: var(--text); }
+    .card-time { font-size: 0.72rem; color: var(--muted); }
+    .card-desc { font-size: 0.84rem; line-height: 1.5; color: #5e444d; white-space: pre-line; margin-bottom: 8px; }
+    .card-alarm-tag { font-size: 0.75rem; color: var(--danger); font-weight: 700; margin-bottom: 6px; display: inline-block; }
+
+    .card-actions { display: flex; gap: 6px; margin-top: 8px; border-top: 1px solid #f0e6ea; padding-top: 8px; }
+    .btn-action {
+      flex: 1;
+      padding: 7px 4px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: #f8f3f5;
+      font-size: 0.72rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-align: center;
+      color: var(--text);
+    }
+    .btn-zalo { background: #4f86c6; color: white; border: none; }
+    .btn-delete { color: #a8424e; border-color: #ebd0d4; background: #fdf4f5; }
+
+    .week-table-card {
+      background: var(--card);
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      padding: 8px;
+      margin-bottom: 10px;
     }
 
     .week-control-bar { display: flex; align-items: center; gap: 6px; margin-bottom: 8px; }
     .week-dropdown-wrap { flex: 1; }
     .week-select-menu {
       width: 100%;
-      background: #fff5f7;
-      border: 1px solid #f9a8d4;
-      color: #9d174d;
+      background: #f9f1f4;
+      border: 1.5px solid #c8869d;
+      color: var(--primary-dark);
       font-weight: 700;
       font-size: 0.75rem;
-      padding: 7px 10px;
-      border-radius: 12px;
+      padding: 6px 8px;
+      border-radius: 8px;
     }
 
     .btn-copy-month {
-      background: #fdf2f8;
-      border: 1px solid #f9a8d4;
-      color: #9d174d;
-      font-size: 0.7rem;
+      background: #f6edf1;
+      border: 1.5px solid #e2c5cf;
+      color: var(--primary-dark);
+      font-size: 0.68rem;
       font-weight: 700;
-      padding: 7px 10px;
-      border-radius: 12px;
+      padding: 6px 8px;
+      border-radius: 8px;
       cursor: pointer;
-      white-space: nowrap;
     }
 
-    .week-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; text-align: center; margin-bottom: 8px; }
+    .week-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 3px; text-align: center; margin-bottom: 8px; }
     .day-col {
       border: 1px solid var(--border);
-      border-radius: 12px;
+      border-radius: 8px;
       padding: 6px 2px;
-      background: #fffafb;
+      background: #f9f5f6;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: space-between;
       min-width: 0;
-      min-height: 74px;
+      min-height: 72px;
     }
-    .day-col.today { border-color: #f472b6; outline: 1.5px solid #fbcfe8; }
+    .day-col.today { border-color: var(--primary); outline: 1.5px solid #e7c5d0; }
 
-    /* Tông màu các ca giảm nhẹ pastel dễ nhìn */
-    .day-col.is-off { background: #ffe4e6 !important; border-color: #fda4af !important; }
-    .day-col.is-off .day-name { color: #9f1239 !important; font-weight: 800; }
-    .day-col.is-off .calendar-date { color: #881337 !important; font-weight: 700; }
-    .day-col.is-off .day-shift-select { border-color: #fda4af !important; color: #881337 !important; font-weight: 800; background: #fff1f2 !important; }
+    .day-col.is-off { background: #f3d2d6 !important; border-color: #d68d96 !important; }
+    .day-col.is-off .day-name, .day-col.is-off .calendar-date, .day-col.is-off .day-shift-select { color: #7a2e38 !important; }
+    .day-col.is-off .day-shift-select { border-color: #d68d96 !important; background: #fae4e7 !important; }
 
-    .day-col.is-ca1 { background: #e0f2fe !important; border-color: #7dd3fc !important; }
-    .day-col.is-ca1 .day-name { color: #075985 !important; font-weight: 800; }
-    .day-col.is-ca1 .calendar-date { color: #0369a1 !important; font-weight: 700; }
-    .day-col.is-ca1 .day-shift-select { border-color: #7dd3fc !important; color: #075985 !important; font-weight: 800; background: #f0f9ff !important; }
+    .day-col.is-ca1 { background: #cde6f5 !important; border-color: #7eb3d4 !important; }
+    .day-col.is-ca1 .day-name, .day-col.is-ca1 .calendar-date, .day-col.is-ca1 .day-shift-select { color: #26536e !important; }
+    .day-col.is-ca1 .day-shift-select { border-color: #7eb3d4 !important; background: #e3f1fa !important; }
 
-    .day-col.is-ca2 { background: #fef9c3 !important; border-color: #fde047 !important; }
-    .day-col.is-ca2 .day-name { color: #854d0e !important; font-weight: 800; }
-    .day-col.is-ca2 .calendar-date { color: #a16207 !important; font-weight: 700; }
-    .day-col.is-ca2 .day-shift-select { border-color: #fde047 !important; color: #854d0e !important; font-weight: 800; background: #fefce8 !important; }
+    .day-col.is-ca2 { background: #f5e9ba !important; border-color: #d4bc6a !important; }
+    .day-col.is-ca2 .day-name, .day-col.is-ca2 .calendar-date, .day-col.is-ca2 .day-shift-select { color: #69551e !important; }
+    .day-col.is-ca2 .day-shift-select { border-color: #d4bc6a !important; background: #fbf3d4 !important; }
 
-    .day-col.is-hch { background: #f3e8ff !important; border-color: #d8b4fe !important; }
-    .day-col.is-hch .day-name { color: #6b21a8 !important; font-weight: 800; }
-    .day-col.is-hch .calendar-date { color: #7e22ce !important; font-weight: 700; }
-    .day-col.is-hch .day-shift-select { border-color: #d8b4fe !important; color: #6b21a8 !important; font-weight: 800; background: #faf5ff !important; }
+    .day-col.is-hch { background: #e4d5f5 !important; border-color: #ae8fd4 !important; }
+    .day-col.is-hch .day-name, .day-col.is-hch .calendar-date, .day-col.is-hch .day-shift-select { color: #4e3470 !important; }
+    .day-col.is-hch .day-shift-select { border-color: #ae8fd4 !important; background: #f1e9fa !important; }
 
-    .day-name { font-size: 0.7rem; font-weight: 800; line-height: 1.15; }
-    .calendar-date { display: block; font-size: 0.62rem; margin: 2px 0 4px; font-weight: 700; }
+    .day-name { font-size: 0.72rem; font-weight: 800; line-height: 1.1; }
+    .calendar-date { display: block; font-size: 0.64rem; margin: 2px 0 4px; font-weight: 700; }
 
     .day-shift-select {
-      width: 96%;
+      width: 98%;
       border: 1px solid var(--border);
-      border-radius: 8px;
-      font-size: 0.63rem;
+      border-radius: 6px;
+      font-size: 0.65rem;
       padding: 4px 0;
-      font-weight: 800;
+      font-weight: 700;
       text-align: center;
       text-align-last: center;
       background: #fff;
@@ -790,29 +873,18 @@
       cursor: pointer;
     }
 
-    /* KHUNG ĐỒNG BỘ LỊCH & BÁO THỨC HỆ THỐNG */
-    .sync-calendar-panel {
-      background: #fff7fa;
-      border: 1px solid #fce7f3;
-      border-radius: 14px;
-      padding: 9px;
-      margin-top: 8px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
+    .sync-calendar-panel { background: #f8f0f3; border: 1px solid var(--border); border-radius: 10px; padding: 8px; margin-top: 8px; }
     .sync-row { display: flex; gap: 6px; align-items: center; }
-    .custom-multiselect { flex: 1.25; position: relative; }
+    .custom-multiselect { flex: 1.3; position: relative; }
     .multiselect-toggle-btn {
       width: 100%;
-      background: #ffffff;
-      border: 1px solid #fbcfe8;
-      border-radius: 10px;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 8px;
       font-size: 0.72rem;
-      font-weight: 700;
-      padding: 7px 9px;
-      color: #5c162e;
+      font-weight: 600;
+      padding: 7px;
+      color: var(--text);
       text-align: left;
       cursor: pointer;
       display: flex;
@@ -826,10 +898,10 @@
       bottom: calc(100% + 4px);
       left: 0;
       right: 0;
-      background: #ffffff;
-      border: 1.5px solid #f9a8d4;
-      border-radius: 10px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+      background: #fff;
+      border: 1.5px solid var(--primary);
+      border-radius: 8px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
       z-index: 200;
       padding: 4px 0;
       max-height: 200px;
@@ -837,113 +909,78 @@
     }
 
     .multiselect-dropdown.show { display: block; }
-    .multiselect-item { display: flex; justify-content: space-between; padding: 7px 10px; font-size: 0.74rem; font-weight: 600; cursor: pointer; }
-    .multiselect-item.selected { background: #fdf2f8; color: #9d174d; font-weight: 700; }
-    .multiselect-check { font-size: 0.8rem; color: #ec4899; display: none; }
+    .multiselect-item { display: flex; justify-content: space-between; padding: 7px 10px; font-size: 0.75rem; font-weight: 600; cursor: pointer; }
+    .multiselect-item.selected { background: #f6e6ec; color: var(--primary-dark); font-weight: 700; }
+    .multiselect-check { font-size: 0.8rem; color: var(--primary); display: none; }
     .multiselect-item.selected .multiselect-check { display: inline-block; }
 
     .btn-sync-submit {
-      flex: 1.1;
-      background: linear-gradient(135deg, #f9a8d4, #f472b6);
-      color: #ffffff;
+      flex: 1.2;
+      background: linear-gradient(135deg, #c97390, #9d4b68);
+      color: white;
       border: none;
       padding: 8px 10px;
-      border-radius: 10px;
-      font-size: 0.73rem;
-      font-weight: 800;
+      border-radius: 8px;
+      font-size: 0.74rem;
+      font-weight: 700;
       cursor: pointer;
       white-space: nowrap;
     }
 
-    .sys-alarm-bar {
-      display: flex;
-      gap: 6px;
-      flex-wrap: wrap;
-    }
-
-    .btn-sys-alarm {
-      flex: 1;
-      min-width: 140px;
-      background: #ffffff;
-      border: 1px solid #f9a8d4;
-      color: #9d174d;
-      padding: 7px 10px;
-      border-radius: 10px;
-      font-size: 0.72rem;
-      font-weight: 700;
-      cursor: pointer;
-      text-align: center;
-      transition: all 0.15s ease;
-    }
-
-    .btn-sys-alarm:active {
-      background: #fdf2f8;
-      transform: scale(0.98);
-    }
-
-    /* CÀI ĐẶT GIỜ BÁO CA PASTEL */
-    .shift-settings-box {
-      background: #fff7fa;
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 10px;
-      margin-top: 8px;
-    }
-
-    .shift-settings-title {
-      font-size: 0.76rem;
-      font-weight: 700;
-      color: #9d174d;
-      margin-bottom: 8px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
+    .shift-settings-box { background: #f8f0f3; border: 1px solid var(--border); border-radius: 12px; padding: 10px; margin-top: 8px; }
+    .shift-settings-title { font-size: 0.78rem; font-weight: 700; color: var(--primary-dark); margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center; }
     .shift-config-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
 
-    .shift-config-card {
-      background: white;
-      padding: 8px 4px;
-      border-radius: 12px;
-      border: 1px solid var(--border);
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      align-items: center;
-    }
-
-    .shift-config-card.card-c1 { background: #f0f9ff !important; border-color: #bae6fd !important; }
-    .shift-config-card.card-c2 { background: #fefce8 !important; border-color: #fef08a !important; }
-    .shift-config-card.card-hch { background: #faf5ff !important; border-color: #e9d5ff !important; }
+    .shift-config-card { background: white; padding: 8px 4px; border-radius: 10px; border: 1.5px solid var(--border); display: flex; flex-direction: column; gap: 6px; align-items: center; }
+    .shift-config-card.card-c1 { background: #e3f1fa !important; border-color: #7eb3d4 !important; }
+    .shift-config-card.card-c2 { background: #fbf3d4 !important; border-color: #d4bc6a !important; }
+    .shift-config-card.card-hch { background: #f1e9fa !important; border-color: #ae8fd4 !important; }
 
     .shift-config-card h4 { font-size: 0.68rem; margin-bottom: 2px; text-align: center; font-weight: 800; width: 100%; white-space: nowrap; }
-    .card-c1 h4 { color: #075985 !important; }
-    .card-c2 h4 { color: #854d0e !important; }
-    .card-hch h4 { color: #6b21a8 !important; }
+    .card-c1 h4 { color: #26536e !important; }
+    .card-c2 h4 { color: #69551e !important; }
+    .card-hch h4 { color: #4e3470 !important; }
 
     .time-input-row { display: flex; align-items: center; justify-content: space-between; width: 100%; font-size: 0.65rem; font-weight: 700; gap: 2px; padding: 0 2px; }
-    .card-c1 .time-input-row { color: #0369a1 !important; }
-    .card-c2 .time-input-row { color: #a16207 !important; }
-    .card-hch .time-input-row { color: #7e22ce !important; }
+    .card-c1 .time-input-row { color: #26536e !important; }
+    .card-c2 .time-input-row { color: #69551e !important; }
+    .card-hch .time-input-row { color: #4e3470 !important; }
 
     .time-input-wrap { width: 62px; }
     .time-input-wrap input {
-      width: 100%; padding: 4px 1px; font-size: 0.68rem; border-radius: 8px; text-align: center; font-weight: 700;
-      background: #ffffff !important; border: 1px solid var(--border);
-      -webkit-appearance: none; appearance: none; outline: none;
+      width: 100%;
+      padding: 4px 1px;
+      font-size: 0.68rem;
+      border-radius: 6px;
+      text-align: center;
+      font-weight: 700;
+      background: #ffffff !important;
+      border: 1.5px solid var(--border);
+      -webkit-appearance: none;
+      appearance: none;
+      outline: none;
     }
     .time-input-wrap input::-webkit-calendar-picker-indicator { display: none; -webkit-appearance: none; }
 
-    .card-c1 .time-input-wrap input { border-color: #7dd3fc !important; color: #075985 !important; }
-    .card-c2 .time-input-wrap input { border-color: #fde047 !important; color: #854d0e !important; }
-    .card-hch .time-input-wrap input { border-color: #d8b4fe !important; color: #6b21a8 !important; }
+    .card-c1 .time-input-wrap input { border-color: #7eb3d4 !important; color: #26536e !important; }
+    .card-c2 .time-input-wrap input { border-color: #d4bc6a !important; color: #69551e !important; }
+    .card-hch .time-input-wrap input { border-color: #ae8fd4 !important; color: #4e3470 !important; }
 
     #toast {
-      position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
-      background: rgba(157, 23, 77, 0.92); color: white; padding: 10px 20px; border-radius: 24px;
-      font-size: 0.82rem; display: none; z-index: 1000; box-shadow: 0 6px 18px rgba(0,0,0,0.18);
-      text-align: center; max-width: 90%;
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(59, 38, 45, 0.92);
+      color: #fcf9fa;
+      padding: 10px 20px;
+      border-radius: 24px;
+      font-size: 0.82rem;
+      display: none;
+      z-index: 100005;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      max-width: 90%;
     }
 
     @media(max-width:560px) {
@@ -955,16 +992,22 @@
 </head>
 <body>
 
-  <!-- MODAL HIỆN ẢNH 1314 + 🌸 -->
   <div id="romanticPhotoModal">
     <div class="romantic-modal-card">
       <img src="t2.jpg" alt="Nhân vật nam" class="romantic-modal-img">
-      <div class="romantic-modal-title">Anh Nhớ Em 💗</div>
+      <div class="romantic-modal-title">Anh Nhớ Em 💕</div>
       <button class="romantic-modal-btn" onclick="closeRomanticModal()">💖 Đóng Lại 💖</button>
     </div>
   </div>
 
-  <!-- MÀN HÌNH KHÓA BẢO MẬT -->
+  <div id="stickerShowcaseModal" onclick="if(event.target === this) closeStickerModal()">
+    <div class="sticker-showcase-card">
+      <img id="stickerShowcaseImg" src="" alt="Sticker yêu thương" class="sticker-enlarged-img">
+      <div id="stickerShowcaseCaption" class="sticker-caption-below"></div>
+      <button class="sticker-close-btn" onclick="closeStickerModal()">Đóng lại</button>
+    </div>
+  </div>
+
   <div id="lockScreen">
     <div class="lock-box">
       <div class="lock-brand-title">Sổ Tay Ái Nhuy</div>
@@ -987,7 +1030,7 @@
         <button class="key-btn" onclick="pressKey('7')">7</button>
         <button class="key-btn" onclick="pressKey('8')">8</button>
         <button class="key-btn" onclick="pressKey('9')">9</button>
-        <button class="key-btn" onclick="pressKey('C')" style="font-size:0.84rem; color:#e11d48;">Xóa</button>
+        <button class="key-btn" onclick="pressKey('C')" style="font-size:0.85rem; color:#b8525e;">Xóa</button>
         <button class="key-btn" onclick="pressKey('0')">0</button>
         <button class="key-btn" onclick="pressKey('FLOWER')" title="Bông hoa yêu thương"><span class="flower-icon-spin">🌸</span></button>
       </div>
@@ -1036,9 +1079,8 @@
       </div>
     </div>
 
-    <!-- ĐÃ BỎ SỐ 17, THAY BẰNG TRÁI TIM NHỎ 💗 & TÔNG PASTEL NHẸ -->
     <div class="nav-tabs">
-      <button class="nav-tab-btn active" id="tabBtn-shifts" onclick="switchView('shifts')">💗 Lịch Ca</button>
+      <button class="nav-tab-btn active" id="tabBtn-shifts" onclick="switchView('shifts')">📅 Lịch Ca</button>
       <button class="nav-tab-btn nav-tab-btn-two-lines" id="tabBtn-journal" onclick="switchView('journal')">
         <span>💌 Nhật kí</span>
         <span>Tình yêu</span>
@@ -1046,19 +1088,17 @@
       <button class="nav-tab-btn" id="tabBtn-issues" onclick="switchView('issues')">⚡ Việc Cần Làm</button>
     </div>
 
-    <!-- VIEW 1: LỊCH CA -->
     <div id="view-shifts">
       <div class="week-table-card">
         <div class="week-control-bar">
           <div class="week-dropdown-wrap">
             <select id="weekDropdownSelect" class="week-select-menu" onchange="onWeekDropdownChange(this.value)"></select>
           </div>
-          <button class="btn-copy-month" onclick="copyCurrentWeekToAll()" title="Áp dụng tuần này cho cả tháng">💗 Úp Cả Tháng</button>
+          <button class="btn-copy-month" onclick="copyCurrentWeekToAll()" title="Áp dụng tuần này cho cả tháng">⚡ Úp Cả Tháng</button>
         </div>
 
         <div class="week-grid" id="weekGridContainer"></div>
 
-        <!-- ĐÃ XÓA DÒNG CHỮ TRONG KHUNG THEO YÊU CẦU, GIỮ NÚT NẠP LỊCH & TẠO BÁO THỨC HỆ THỐNG -->
         <div class="sync-calendar-panel">
           <div class="sync-row">
             <div class="custom-multiselect">
@@ -1072,21 +1112,12 @@
               📲 Nạp Vào Lịch ĐT
             </button>
           </div>
-
-          <div class="sys-alarm-bar">
-            <button class="btn-sys-alarm" onclick="openSystemAlarmForToday('in')">
-              ⏰ Báo Vào Ca Hôm Nay
-            </button>
-            <button class="btn-sys-alarm" onclick="openSystemAlarmForToday('out')">
-              🔔 Báo Tan Ca Hôm Nay
-            </button>
-          </div>
         </div>
 
         <div class="shift-settings-box">
           <div class="shift-settings-title">
-            <span>⚙️ Cài Đặt Giờ Báo Ca</span>
-            <span style="font-size:0.68rem; font-weight:700; color:#059669;">● Sẵn sàng</span>
+            <span>⚙️ Cài Đặt Giờ Báo Ca (Tự động báo)</span>
+            <span style="font-size:0.68rem; font-weight:bold; color:#349c78;">● Ngủ sâu vẫn quét bù</span>
           </div>
           <div class="shift-config-grid">
             <div class="shift-config-card card-c1">
@@ -1127,7 +1158,6 @@
       </div>
     </div>
 
-    <!-- VIEW 2: NHẬT KÝ TÌNH YÊU & CÔNG VIỆC -->
     <div id="view-journal" style="display:none;">
       <div class="card-box card-journal">
         <div class="journal-heading">💌 Ghi Nhật Ký Tình Yêu & Công Việc Trong Ngày</div>
@@ -1160,23 +1190,22 @@
           <label>Nội dung chi tiết</label>
           <textarea id="journalContent" placeholder="Nội dung..."></textarea>
         </div>
-        <button class="btn-submit btn-journal-submit" id="btnSaveJournal" onclick="saveJournalEntry()">+ Lưu Vào Nhật Ký 💗</button>
+        <button class="btn-submit btn-journal-submit" id="btnSaveJournal" onclick="saveJournalEntry()">+ Lưu Vào Nhật Ký 💕</button>
       </div>
 
       <div class="search-filter-box">
-        <div style="font-size:0.78rem; font-weight:700; color:#9d4b67;">🔍 Tìm kiếm nhật ký:</div>
+        <div style="font-size:0.78rem; font-weight:700; color:var(--muted);">🔍 Tìm kiếm nhật ký:</div>
         <div class="search-row">
           <input type="text" id="searchKeyword" placeholder="Nhập từ khóa..." oninput="filterJournals()" style="flex:1;">
           <input type="date" id="filterJournalDate" onchange="filterJournals()" style="flex:1;">
-          <button onclick="clearJournalFilter()" style="padding:0 10px; border-radius:10px; border:1px solid #fbcfe8; background:#fff5f7; color:#9d174d; font-size:0.75rem; font-weight:700; cursor:pointer;">Hủy</button>
+          <button onclick="clearJournalFilter()" style="padding:0 10px; border-radius:10px; border:1px solid var(--border); background:#f5eff1; color:var(--text); font-size:0.75rem; font-weight:700; cursor:pointer;">Hủy</button>
         </div>
       </div>
       <div id="journalListContainer"></div>
     </div>
 
-    <!-- VIEW 3: VIỆC CẦN XỬ LÝ -->
     <div id="view-issues" style="display:none;">
-      <div class="card-box" style="border-left: 4px solid #c4b5fd;">
+      <div class="card-box" style="border-left: 4px solid var(--purple);">
         <div class="form-group">
           <label>Tên công việc / Sự cố</label>
           <input type="text" id="issueTitle" placeholder="Tên việc...">
@@ -1210,78 +1239,66 @@
   <script>
     let enteredPin = "";
     let wrongPinCount = 0;
-    let stickerResetTimer = null;
 
-    const flowerStickersByCode = {
-      "1314": {
-        wish: "Anh nhớ em nhiều lắm, ôm em thật chặt nè! 💗",
-        stickerImg: "t2.jpg",
-        fallbackEmoji: "🌸💗"
-      },
+    // Danh sách sticker gắn với mã + bông hoa 🌸
+    const flowerStickerMap = {
       "00000": {
-        wish: "Chúc ngày mới rạng rỡ, yêu thương ngập tràn! 🌷",
-        stickerImg: "n2.jpg",
-        fallbackEmoji: "🌸🥰"
+        src: "n1.jpg",
+        caption: "Xin chào cô gái dễ thương nhất hệ mặt trời! Hôm nay có nhớ anh một xíu nào không ta? 😄💕"
       },
       "44444": {
-        wish: "Chào ngày mới vui vẻ, tràn đầy năng lượng nha! 🌻",
-        stickerImg: "n5.jpg",
-        fallbackEmoji: "🌸✨"
+        src: "n15.jpg",
+        caption: "Bắn tim chí mạng vào trái tim Ái Nhuy đây! Đỡ không trượt phát nào luôn nhé 😘💖"
       },
       "55555": {
-        wish: "Nhớ Ái Nhuy nhiều lắm, thương em rất nhiều! 💕",
-        stickerImg: "n3.jpg",
-        fallbackEmoji: "🌸💞"
+        src: "n12.jpg",
+        caption: "Moah moah! Gửi liền một chùm hôn gió ngọt lịm cho người yêu xinh đẹp của anh 💋🌸"
       },
       "66666": {
-        wish: "Làm việc năng động, hăng say & tỏa sáng nha! 🌺",
-        stickerImg: "n5.jpg",
-        fallbackEmoji: "🌸🌟"
+        src: "n10.jpg",
+        caption: "Thương bấy nhiêu cho vừa đây trời! Thương nhiều tới mức tràn bộ nhớ luôn rồi nè 🥰❤️"
       },
       "77777": {
-        wish: "Tình yêu của anh dành trọn cho Ái Nhuy! 🌹",
-        stickerImg: "n6.jpg",
-        fallbackEmoji: "🌸💘"
+        src: "n8.jpg",
+        caption: "Đang làm việc hay đi đâu cũng chợt nhớ anh hoài vậy hả cô bé? Anh cũng nhớ em lắm! 💭💕"
       },
       "88888": {
-        wish: "Bắt đầu ngày mới tươi vui, may mắn gõ cửa! 🌼",
-        stickerImg: "n4.jpg",
-        fallbackEmoji: "🌸🍀"
+        src: "n9.jpg",
+        caption: "Báo cáo khẩn: Shipper mang yêu thương và hoa hồng đang chạy hết tốc lực tới bên em đây! 🌹🏃‍♂️"
       },
       "99999": {
-        wish: "Chúc người yêu ngủ ngon & mơ thật đẹp nha! 🌸🌙",
-        stickerImg: "n7.jpg",
-        fallbackEmoji: "🌸🌙"
+        src: "n7.jpg",
+        caption: "Chúc em ngủ ngon cuộn tròn ấm áp, mơ thấy anh và sáng mai dậy cười thật tươi nha! 🌙😴💖"
       }
     };
 
-    function buildStickerWishHtml(entry) {
-      return `
-        <div class="sticker-wish-card">
-          <div class="sticker-wish-img-wrap">
-            <img
-              src="${entry.stickerImg}"
-              alt="Sticker hoa yêu thương"
-              class="sticker-wish-img"
-              onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';"
-            >
-            <span class="sticker-wish-fallback">${entry.fallbackEmoji}</span>
-          </div>
-          <div class="sticker-wish-content">
-            <div class="sticker-wish-text">${entry.wish}</div>
-          </div>
-        </div>
-      `;
+    function openStickerModal(src, caption) {
+      const modal = document.getElementById('stickerShowcaseModal');
+      const imgEl = document.getElementById('stickerShowcaseImg');
+      const capEl = document.getElementById('stickerShowcaseCaption');
+      if (modal && imgEl && capEl) {
+        imgEl.src = src;
+        capEl.innerText = caption;
+        modal.style.display = 'flex';
+      }
+    }
+
+    function closeStickerModal() {
+      const modal = document.getElementById('stickerShowcaseModal');
+      if (modal) modal.style.display = 'none';
+      enteredPin = "";
+      updatePinDots();
+      const romEl = document.getElementById('romanticDisplay');
+      if (romEl) romEl.innerText = "";
     }
 
     function lockAppScreen() {
       enteredPin = "";
       updatePinDots();
-      if (stickerResetTimer) clearTimeout(stickerResetTimer);
       const lockEl = document.getElementById('lockScreen');
       if (lockEl) lockEl.style.display = 'flex';
       const romEl = document.getElementById('romanticDisplay');
-      if (romEl) romEl.innerHTML = "";
+      if (romEl) romEl.innerText = "";
       sessionStorage.clear();
     }
 
@@ -1296,33 +1313,34 @@
       const romEl = document.getElementById('romanticDisplay');
       if (val === 'C') {
         enteredPin = "";
-        if (stickerResetTimer) clearTimeout(stickerResetTimer);
-        if (romEl) romEl.innerHTML = "";
+        if (romEl) romEl.innerText = "";
         updatePinDots();
       } else if (val === 'FLOWER') {
         if (enteredPin === "1314") {
           const modal = document.getElementById('romanticPhotoModal');
           if (modal) modal.style.display = 'flex';
-          if (romEl) romEl.innerHTML = buildStickerWishHtml(flowerStickersByCode["1314"]);
+          if (romEl) romEl.innerHTML = "💖 <b>Anh Nhớ Em</b> 💖";
+          return;
+        } else if (enteredPin === "11111") {
+          if (romEl) romEl.innerHTML = "✨ 💖 <b>Anh</b> 💖 ✨";
+        } else if (enteredPin === "22222") {
+          if (romEl) romEl.innerHTML = "🌸 💓 <i>nhớ</i> 💓 🌸";
+        } else if (enteredPin === "33333") {
+          if (romEl) romEl.innerHTML = "💕 ✨ <b>em</b> ✨ 💕";
+        } else if (flowerStickerMap[enteredPin]) {
+          const item = flowerStickerMap[enteredPin];
+          openStickerModal(item.src, item.caption);
+          return;
+        } else {
+          openStickerModal("n6.jpg", "Yêu em thật nhiều! Nhập đúng mã kèm 🌸 để mở bí mật dễ thương nha 💕");
           return;
         }
 
-        const matched = flowerStickersByCode[enteredPin] || {
-          wish: "Chúc Ái Nhuy luôn xinh đẹp, vui vẻ & bình an! 💗",
-          stickerImg: "n8.jpg",
-          fallbackEmoji: "🌸💖"
-        };
-
-        if (romEl) {
-          romEl.innerHTML = buildStickerWishHtml(matched);
-        }
-
-        if (stickerResetTimer) clearTimeout(stickerResetTimer);
-        stickerResetTimer = setTimeout(() => {
+        setTimeout(() => {
           enteredPin = "";
           updatePinDots();
-          if (romEl) romEl.innerHTML = "";
-        }, 4200);
+          if (romEl) romEl.innerText = "";
+        }, 3200);
       } else {
         if (enteredPin.length < 6) {
           enteredPin += val;
@@ -1339,9 +1357,9 @@
         const lockEl = document.getElementById('lockScreen');
         if (lockEl) lockEl.style.display = 'none';
         wrongPinCount = 0;
-        showToast('Mở khóa thành công! Chào Ái Nhuy 💗');
+        showToast('Mở khóa thành công! Chào Ái Nhuy 💕');
         unlockAudioContext();
-        checkScheduler();
+        catchUpMissedAlarms();
       } else {
         wrongPinCount++;
         if (wrongPinCount >= 4) {
@@ -1364,39 +1382,14 @@
       }
     }
 
-    document.addEventListener('visibilitychange', () => {
-      if (document.hidden) {
-        lockAppScreen();
-      } else {
-        lockAppScreen();
-        unlockAudioContext();
-        checkScheduler();
-        updateNotiButtonStatus();
-      }
-    });
-
-    window.addEventListener('blur', () => {
-      lockAppScreen();
-    });
-
-    window.addEventListener('focus', () => {
-      unlockAudioContext();
-      checkScheduler();
-      updateNotiButtonStatus();
-    });
-
-    window.addEventListener('pagehide', () => {
-      sessionStorage.clear();
-    });
-
     function createFallingLeaves() {
-      const leafChars = ['🌸', '💗', '🍃', '💕', '🌷'];
+      const leafChars = ['🍁', '🍂', '🍃', '🌸', '💕'];
       setInterval(() => {
         const leaf = document.createElement('div');
         leaf.className = 'falling-leaf';
         leaf.innerText = leafChars[Math.floor(Math.random() * leafChars.length)];
         leaf.style.left = Math.random() * 100 + 'vw';
-        leaf.style.fontSize = (Math.random() * 10 + 13) + 'px';
+        leaf.style.fontSize = (Math.random() * 11 + 13) + 'px';
         const duration = Math.random() * 5 + 7;
         leaf.style.animationDuration = duration + 's';
         document.body.appendChild(leaf);
@@ -1421,7 +1414,14 @@
     let audioCtx = null;
     let alarmInterval = null;
     let isAlarmPlaying = false;
-    let triggeredTodaySet = new Set();
+    let triggeredAlarmKeys = new Set(JSON.parse(sessionStorage.getItem('ainhuy_triggered_alarms') || '[]'));
+
+    function markAlarmTriggered(key) {
+      triggeredAlarmKeys.add(key);
+      try {
+        sessionStorage.setItem('ainhuy_triggered_alarms', JSON.stringify(Array.from(triggeredAlarmKeys)));
+      } catch (_) {}
+    }
 
     function generateGentleAlarmWav() {
       const sampleRate = 16000;
@@ -1514,23 +1514,115 @@
     let alarmAudioBlobUrl = null;
     let warningAudioBlobUrl = null;
 
+    // ĐỦ 100 CÂU CHÚC TRÊN BANNER (35 SÁNG + 35 CHIỀU + 15 TỐI + 15 ĐÊM = 100 CÂU)
     const wishesByTime = {
       morning: [
-        { title: "Chào buổi sáng tình yêu! ☀️", quote: "Chào buổi sáng tình yêu của anh! Chúc em ngày mới ngập tràn năng lượng và may mắn nhé. 💗" },
-        { title: "Ái Nhuy ơi, dậy thôi nào! 🌸", quote: "Chúc em ngày mới rạng rỡ, hoàn thành xuất sắc mọi công việc nha." },
-        { title: "Năng lượng tràn đầy nhé! ✨", quote: "Bắt đầu ngày mới với nụ cười tươi tắn nhất em nhé!" }
+        { title: "Chào buổi sáng tình yêu! ☀️", quote: "Chào buổi sáng tình yêu của anh! Chúc em một ngày mới ngập tràn năng lượng, làm việc hiệu quả và gặp nhiều may mắn nhé. 💕" },
+        { title: "Ái Nhuy ơi, dậy thôi nào! 🌸", quote: "Ái Nhuy ơi, dậy thôi nào! Chúc em ngày mới rạng rỡ, hoàn thành xuất sắc mọi công việc được giao nha." },
+        { title: "Năng lượng tràn đầy nhé! ⚡", quote: "Bắt đầu ngày mới với nụ cười rạng rỡ và nguồn năng lượng tích cực nhất em nhé. Chúc em một ngày làm việc thật sung sức!" },
+        { title: "Khởi đầu mới suôn sẻ! 🌅", quote: "Chúc tình yêu của anh buổi sáng tốt lành, mọi việc trong ngày hôm nay sẽ diễn ra thật thuận lợi và suôn sẻ." },
+        { title: "Ngày mới tuyệt vời nhé! 🌻", quote: "Mặt trời lên rồi, chúc em một ngày mới bình an, làm việc gì cũng hanh thông và gặp toàn điều may mắn." },
+        { title: "Tỏa sáng rực rỡ nha! ✨", quote: "Hôm nay em hãy tự tin tỏa sáng nhé, cô gái tài giỏi của anh chắc chắn sẽ hoàn thành tốt mọi nhiệm vụ." },
+        { title: "Nụ cười đầu ngày! 😊", quote: "Gửi đến em ngàn nụ cười cho buổi sáng tươi vui. Chúc em một ngày làm việc tràn đầy hứng khởi và niềm vui." },
+        { title: "Sức sống dồi dào! 🌿", quote: "Chúc em có một ngày mới tràn ngập sức sống, giải quyết mọi công việc nhanh gọn và chuẩn xác." },
+        { title: "Cố lên cô gái của anh! 💪", quote: "Một ngày mới lại bắt đầu, chúc em luôn giữ vững phong độ, làm việc thật hăng say và hiệu quả." },
+        { title: "Bình minh hạnh phúc! 🌤️", quote: "Chúc Ái Nhuy một buổi sáng ngọt ngào, bước chân ra đường gặp toàn niềm vui và may mắn." },
+        { title: "Nắng mai ấm áp! 🌷", quote: "Chúc em một buổi sáng ấm áp như ánh nắng sớm mai, mọi điều tốt đẹp nhất sẽ đến với em hôm nay." },
+        { title: "Hứng khởi trọn ngày! ☕", quote: "Ly cà phê buổi sáng chúc em tỉnh táo, sảng khoái và bắt nhịp công việc thật tuyệt vời nha." },
+        { title: "Nụ cười ngập tràn! 😄", quote: "Mong rằng nụ cười sẽ luôn ở trên môi em suốt cả ngày dài hôm nay. Yêu em!" },
+        { title: "May mắn gọi tên! 🍀", quote: "Chúc cô gái xinh đẹp của anh hôm nay đi đến đâu cũng gặp may mắn và thuận lợi tới đó." },
+        { title: "Tự tin vững bước! 👠", quote: "Hãy bước đi với sự tự tin cao nhất nhé, mọi thử thách hôm nay đều nằm trong tầm tay em." },
+        { title: "Thành công rực rỡ! 🎯", quote: "Chúc mọi kế hoạch và dự định trong ngày của em đều đạt kết quả cao nhất vượt mong đợi." },
+        { title: "Bình an muôn nơi! 🕊️", quote: "Chúc em một ngày làm việc bình an, an toàn và tràn ngập những khoảnh khắc đáng yêu." },
+        { title: "Tràn trề nhiệt huyết! 🔥", quote: "Đốt cháy mọi khó khăn bằng nhiệt huyết tuổi trẻ và sự thông minh vốn có của em nào!" },
+        { title: "Niềm vui nhân đôi! 🎈", quote: "Chúc ngày mới của em không chỉ vui mà niềm vui còn được nhân đôi, nhân ba suốt cả tuần." },
+        { title: "Tình yêu thương ngập tràn! 💖", quote: "Hãy luôn nhớ rằng có anh luôn ở đây hướng về em với tất cả tình yêu thương ngọt ngào nhất." },
+        { title: "Sáng nay thật đẹp! 🌺", quote: "Thời tiết thật đẹp, chúc em có một buổi sáng di chuyển an toàn và thuận lợi đến nơi làm việc." },
+        { title: "Hoàn hảo từng phút giây! ⏰", quote: "Chúc em làm việc gì cũng chuẩn xác, đúng giờ và hoàn thành xuất sắc từng mục tiêu nhỏ." },
+        { title: "Tinh thần sảng khoái! 🍃", quote: "Hít một hơi thật sâu và đón nhận ngày mới đầy tuyệt diệu đang chờ đón em phía trước nhé." },
+        { title: "Rạng rỡ như hoa! 🌸", quote: "Chúc Ái Nhuy xinh đẹp của anh hôm nay rạng rỡ, tươi tắn như những đóa hoa mùa xuân." },
+        { title: "Năng suất vượt trội! 🚀", quote: "Chúc em có một ngày làm việc với năng suất cao kỷ lục, xong việc sớm để nghỉ ngơi nha." },
+        { title: "Thêm nhiều niềm cảm hứng! 🎨", quote: "Mong rằng hôm nay em sẽ tìm thấy nhiều niềm cảm hứng mới mẻ trong công việc và cuộc sống." },
+        { title: "Bão hòa mọi mệt mỏi! ⚡", quote: "Mọi mệt mỏi hãy bỏ lại sau lưng, hôm nay chỉ có năng lượng và thành công đến với em thôi." },
+        { title: "Sáng thứ mấy cũng tuyệt! 📅", quote: "Dù là ngày nào trong tuần, chỉ cần em vui vẻ thì ngày đó đều là ngày tuyệt vời nhất." },
+        { title: "Nụ hôn buổi sáng! 😘", quote: "Gửi tặng em một nụ hôn gió ngọt ngào nhất cho buổi sáng tràn đầy yêu thương này." },
+        { title: "Bắt đầu hoàn hảo! ⭐", quote: "Khởi động ngày mới thật suôn sẻ, mọi việc trôi chảy như nước chảy mây trôi em nhé." },
+        { title: "Mỉm cười đón nắng! 🌞", quote: "Ánh nắng sáng đã gõ cửa rồi, chúc em một ngày mới tràn ngập yêu thương và niềm vui nhỏ." },
+        { title: "Nhẹ nhàng & bình yên! 🦋", quote: "Chúc em hôm nay làm việc thật nhẹ nhàng, đầu óc thảnh thơi và mọi điều đều như ý." },
+        { title: "Đón nhận điều tốt lành! 🌈", quote: "Mở lòng đón nhận những điều tốt đẹp nhất hôm nay nhé cô gái ngọt ngào của anh." },
+        { title: "Vững vàng mọi bước! 🌱", quote: "Từng bước nhỏ hôm nay sẽ đưa em tới những điều tuyệt vời nhất. Anh tin ở em!" },
+        { title: "Yêu em từ sớm mai! 💓", quote: "Người đầu tiên anh nghĩ đến sáng nay chính là em. Chúc em một ngày thật rực rỡ!" }
       ],
       afternoon: [
-        { title: "Nhớ em nhiều lắm! 💗", quote: "Dù bận rộn đến đâu thì hình bóng em vẫn luôn trong tim anh." },
-        { title: "Giữ gìn sức khỏe nha! 🌸", quote: "Em nhớ uống đủ nước và giữ tinh thần thoải mái trong ca làm nhé." }
+        { title: "Nhớ em nhiều lắm! 💖", quote: "Dù bận rộn đến đâu thì hình bóng của em vẫn luôn ngự trị trong tim anh. Nhớ và thương Ái Nhuy vô cùng!" },
+        { title: "Tình yêu tuyệt vời! 🌹", quote: "Cảm ơn em đã đến bên anh, mang theo ánh sáng và sưởi ấm trái tim anh mỗi ngày. Yêu em mãi mãi." },
+        { title: "Cuộc sống ngọt ngào! 💞", quote: "Cuộc sống này thật đẹp vì có em. Chúc cho tình yêu chúng ta luôn ngọt ngào và bền chặt theo năm tháng." },
+        { title: "Nhớ nụ cười em! 😍", quote: "Chỉ cần nghĩ đến nụ cười của em thôi là anh lại có thêm động lực để vượt qua mọi thử thách rồi." },
+        { title: "Trái tim chung nhịp! 💓", quote: "Dù ở đâu, làm gì, hai trái tim chúng ta vẫn luôn chung một nhịp đập yêu thương." },
+        { title: "Ăn uống đầy đủ nhé! 🍲", quote: "Dù bận rộn đến đâu em cũng nhớ ăn uống đúng giờ và đủ chất nha, không được bỏ bữa đâu đấy!" },
+        { title: "Giữ gìn sức khỏe nha! 🍎", quote: "Sức khỏe là vốn quý nhất. Em nhớ uống đủ nước và giữ tinh thần thoải mái trong ca làm nhé." },
+        { title: "Làm việc cẩn thận nhé! 📋", quote: "Hôm nay làm việc em nhớ cẩn thận từng chi tiết nhỏ nha, kiểm tra kỹ lưỡng mọi thứ để không có chút sai sót nào." },
+        { title: "Ca chiều suôn sẻ! 🚀", quote: "Chúc em xử lý công việc ca chiều cực kỳ mượt mà, suôn sẻ và đạt kết quả cao nhất." },
+        { title: "Nắng ấm của anh! ☀️", quote: "Em chính là ánh nắng ấm áp nhất xua tan đi mọi mệt mỏi trong cuộc sống của anh." },
+        { title: "Tiếp thêm năng lượng! ⚡", quote: "Giữa giờ chiều rồi, hãy uống một chút nước mát và mỉm cười thật tươi để tiếp tục chiến đấu nha." },
+        { title: "Cô gái kiên cường! 💪", quote: "Dù công việc có hơi mệt một chút, hãy nhớ rằng anh luôn ở phía sau ủng hộ và cổ vũ em." },
+        { title: "Thương em vất vả! 🥰", quote: "Thương cô gái nhỏ của anh phải làm việc chăm chỉ. Cố gắng lên em sắp đến giờ về rồi." },
+        { title: "Nụ cười tỏa nắng! 🌻", quote: "Chiều nay có mệt không em? Hãy nhớ nụ cười của em là tài sản quý giá nhất của anh đó." },
+        { title: "Vượt mọi thử thách! 🎯", quote: "Mọi rắc rối ca chiều đều sẽ được em giải quyết gọn gàng bằng sự thông minh của mình." },
+        { title: "Hơi ấm tình yêu! 🔥", quote: "Gửi đến em một chút hơi ấm và ngàn yêu thương để xua tan đi cái mệt giữa ca làm." },
+        { title: "Nghỉ ngơi chút nha! ☕", quote: "Làm việc căng thẳng quá thì đứng dậy vươn vai thư giãn vài phút cho thoải mái gân cốt nhé." },
+        { title: "Đồng hành mãi mãi! 👫", quote: "Dù con đường phía trước có ra sao, anh vẫn nguyện cùng em nắm tay đi đến cuối cuộc đời." },
+        { title: "Tự hào về em lắm! 🌟", quote: "Anh luôn cảm thấy vô cùng tự hào vì có một người yêu vừa giỏi giang lại vừa chu đáo như em." },
+        { title: "Bình yên giữa bộn bề! 🍃", quote: "Giữa bộn bề công việc, mong rằng nghĩ về anh sẽ giúp em cảm thấy bình yên và nhẹ nhàng hơn." },
+        { title: "Nhanh đến giờ về! ⏰", quote: "Đếm ngược thời gian chờ đến giờ tan ca để chúng ta lại được nhắn tin trò chuyện ngọt ngào nhé." },
+        { title: "Sự nghiệp thăng tiến! 📈", quote: "Chúc công việc chiều nay của em hanh thông, được sự tin tưởng từ cấp trên và yêu mến từ đồng nghiệp." },
+        { title: "Tình cảm vững bền! 🏰", quote: "Tình yêu chúng ta giống như tòa lâu đài kiên cố, không gì có thể lay chuyển được." },
+        { title: "Nụ hôn chiều tà! 💋", quote: "Gửi ngàn cái hôn dịu dàng vượt khoảng cách đến với cô gái ca chiều của anh." },
+        { title: "Luôn mỉm cười nhé! 😁", quote: "Dù có chuyện gì xảy ra, hãy cứ giữ tinh thần lạc quan và nụ cười rạng rỡ trên môi em nhé." },
+        { title: "Bảo bối của anh! 🎁", quote: "Em chính là món quà tuyệt vời nhất mà cuộc sống này đã ban tặng cho anh." },
+        { title: "Chăm chỉ vừa thôi nha! 🛑", quote: "Làm việc hết mình nhưng nhớ đừng để bản thân quá sức đấy, anh xót lắm nha." },
+        { title: "Thành quả phía trước! 🏆", quote: "Những giọt mồ hôi và sự nỗ lực hôm nay sẽ đổi lấy thành công ngọt ngào vào cuối ngày." },
+        { title: "Hạnh phúc đơn sơ! 🌾", quote: "Hạnh phúc với chúng ta đôi khi chỉ là những tin nhắn hỏi han nhau mỗi khi chiều về." },
+        { title: "Yêu em không hối tiếc! 💌", quote: "Được yêu và chăm sóc Ái Nhuy là điều tuyệt vời nhất trong cuộc đời của anh." },
+        { title: "Gió chiều mát lành! 🌬️", quote: "Chúc buổi chiều của em thật dịu mát, mọi việc trôi chảy và không gặp trở ngại nào." },
+        { title: "Nhớ em từng giây! ⏳", quote: "Đồng hồ cứ quay mà nỗi nhớ em trong anh chỉ có tăng thêm thôi Ái Nhuy ơi." },
+        { title: "Xong việc sớm nhé! ✨", quote: "Chúc em giải quyết xong xuôi mọi đầu việc để chiều nay về nghỉ ngơi thật sớm." },
+        { title: "Luôn bên cạnh em! 🤍", quote: "Dù xa hay gần, anh vẫn luôn dõi theo và dành trọn sự quan tâm cho em." },
+        { title: "Chiều nay thật vui! 🎀", quote: "Mong rằng chiều nay em sẽ có vài niềm vui nho nhỏ khiến lòng mình thêm rạng rỡ." }
       ],
       evening: [
-        { title: "Kết thúc ngày rực rỡ! ✨", quote: "Một ngày làm việc đã khép lại, giờ là lúc em thư giãn nhé." },
-        { title: "Tự hào về em! 💗", quote: "Hôm nay em đã làm việc chăm chỉ rồi, nghỉ ngơi thật tốt nha." }
+        { title: "Kết thúc ngày rực rỡ! 🎉", quote: "Một ngày làm việc vất vả đã khép lại thật suôn sẻ. Giờ là lúc em tự thưởng cho mình sự thư giãn tuyệt đối nhé." },
+        { title: "Xả hơi thôi nào! 🛋️", quote: "Đã hoàn thành xuất sắc nhiệm vụ rồi, hãy gác lại mọi lo toan công việc để tận hưởng buổi tối bình yên nha." },
+        { title: "Tự hào về em! 🌟", quote: "Hôm nay em đã làm việc rất chăm chỉ và vất vả rồi. Nghỉ ngơi thật tốt nhé cô gái ngoan." },
+        { title: "Thành quả ngọt ngào! 🍇", quote: "Những nỗ lực trong ngày hôm nay của em hoàn toàn xứng đáng với kết quả tuyệt vời nhận được." },
+        { title: "Bình yên cuối ngày! 🌆", quote: "Hoàng hôn buông xuống, chúc em có những phút giây thư giãn nhẹ nhàng bên gia đình và người thân." },
+        { title: "Buổi tối ấm áp nhé! 🍲", quote: "Chúc bữa tối của em thật ngon miệng bên những người thân yêu và có khoảng thời gian thư thái." },
+        { title: "Thả lỏng cơ thể! 🌌", quote: "Sau một ngày dài bận rộn, giờ là lúc em thả lỏng cơ thể và tận hưởng sự yên bình của màn đêm." },
+        { title: "Xua tan căng thẳng! 🌠", quote: "Mong rằng buổi tối của em sẽ trôi qua thật nhẹ nhàng, xua tan đi mọi căng thẳng ngoài kia." },
+        { title: "Nạp lại năng lượng! ⚡", quote: "Tối nay nhớ ăn uống đầy đủ chất dinh dưỡng để nạp lại năng lượng cho ngày mai nhé em." },
+        { title: "Khoảnh khắc thư thái! 🎈", quote: "Khép lại một ngày dài, chúc em có buổi tối tràn ngập tiếng cười và những phút giây thoải mái." },
+        { title: "Dạo phố thư giãn! 🌆", quote: "Ánh đèn thành phố lên rồi, chúc em có những giờ phút dạo phố hoặc nghỉ ngơi thật thư thái." },
+        { title: "Yêu thương đong đầy! 💌", quote: "Gửi ngàn lời chúc tốt đẹp nhất đến em vào buổi tối yên bình này." },
+        { title: "Giấc ngủ chuẩn bị! 🌙", quote: "Chúc em có một buổi tối thật dịu ngọt, chuẩn bị tinh thần cho một giấc ngủ sâu trọn vẹn." },
+        { title: "Buổi tối an lành! 🕊️", quote: "Buổi tối an lành nhé cô gái nhỏ, mọi lo toan hãy để lại phía sau." },
+        { title: "Nghỉ ngơi sớm nha! 🛏️", quote: "Nghỉ ngơi thật sớm nha em, một buổi tối bình yên đang chờ đón em." }
       ],
       night: [
-        { title: "Ngủ ngon nhé tình yêu! 🌙", quote: "Chúc tình yêu của anh ngủ thật ngon và có giấc mơ thật đẹp nhé. 💗" },
-        { title: "Chúc mơ thấy anh! ✨", quote: "Đắp chăn ấm áp và ngủ thật sâu em nha." }
+        { title: "Ngủ ngon nhé tình yêu! 🌙", quote: "Đã đến giờ đi ngủ rồi, chúc tình yêu của anh ngủ thật ngon và có những giấc mơ thật đẹp nhé. 💕" },
+        { title: "Chúc mơ thấy anh! 💭", quote: "Đắp chăn ấm áp và ngủ thật sâu em nha, trong giấc mơ đêm nay nhớ ghé sang thăm anh đấy." },
+        { title: "Giấc ngủ bình yên! 🌌", quote: "Chúc em có một đêm ngon giấc, xua tan mọi mỏi mệt để sáng mai thức dậy thật tươi trẻ." },
+        { title: "Ôm em vào mộng! 🤗", quote: "Gửi ngàn cái ôm ngọt ngào qua màn hình, chúc Ái Nhuy ngủ ngon và có giấc mộng thật đẹp." },
+        { title: "Đêm nay thật êm đềm! 🌠", quote: "Ánh trăng ngoài kia đang dịu dàng ôm lấy giấc ngủ của em. Ngủ ngon nha công chúa của anh." },
+        { title: "Hơi ấm tình yêu! 💖", quote: "Chúc em chìm vào giấc ngủ trong sự bình yên và hơi ấm tình yêu của anh." },
+        { title: "Khởi đầu ngày mai! 🌅", quote: "Ngủ thật ngon giấc nhé em yêu, ngày mai lại là một khởi đầu tuyệt vời mới." },
+        { title: "Thế giới trong mơ! ✨", quote: "Chúc em mơ thấy những điều hạnh phúc nhất, thế giới trong mơ sẽ dịu dàng với em." },
+        { title: "Đắp chăn kỹ nhé! 🛌", quote: "Đêm nay lạnh rồi, em nhớ đắp chăn thật kỹ trước khi chìm vào giấc ngủ nha." },
+        { title: "Giấc ngủ sâu! 💤", quote: "Chúc em một giấc ngủ sâu không mộng mị, để sáng mai bừng sáng rạng ngời." },
+        { title: "Thả lỏng cơ thể! 🍃", quote: "Nhắm mắt lại và thả lỏng cơ thể thôi nào, cả ngày vất vả rồi, ngủ ngon em nhé." },
+        { title: "Người con gái trong tim! 💌", quote: "Gửi lời chúc ngủ ngon ngọt ngào nhất đến người con gái ngự trị trong tim anh." },
+        { title: "Tâm trạng phơi phới! 🌻", quote: "Chúc em ngủ ngon, mai thức dậy với một tâm trạng thật phơi phới và yêu đời." },
+        { title: "Hẹn gặp trong mơ! 💭", quote: "Hẹn gặp em trong những giấc mơ đẹp nhất đêm nay nhé, tình yêu của anh." },
+        { title: "Bình yên trọn vẹn! 🕊️", quote: "Chúc em có một đêm trọn vẹn bình yên, giấc ngủ ngon sẽ mang lại cho em nguồn năng lượng mới vào ngày mai." }
       ]
     };
 
@@ -1562,15 +1654,15 @@
       if (currentActiveList.length > 0) {
         currentGreetingIdx = (currentGreetingIdx + 1) % currentActiveList.length;
         displayCurrentGreeting();
-        showToast('Đã đổi câu chúc yêu thương 💗');
+        showToast('Đã đổi câu chúc yêu thương 💕');
       }
     }
 
     const weatherStates = [
-      { type: 'sunny', label: 'Trời nắng dịu nhẹ, chan hòa' },
-      { type: 'fair', label: 'Bầu trời trong xanh mát mẻ' },
-      { type: 'rainy', label: 'Trời có mưa, nhớ mang ô nhé' },
-      { type: 'night', label: 'Đêm trong lành, trăng sao dịu êm' }
+      { type: 'sunny', label: 'Trời nắng rực rỡ, chan hòa' },
+      { type: 'fair', label: 'Bầu trời trong xanh dịu mát' },
+      { type: 'rainy', label: 'Trời có mưa, em nhớ mang ô nhé' },
+      { type: 'night', label: 'Đêm trong lành, trăng sao huyền bí' }
     ];
     let currentWeatherIndex = 0;
 
@@ -1581,10 +1673,10 @@
 
       if (type === 'sunny') {
         widget.innerHTML = `<div class="sunny-animated-box"><div class="sun-core"></div><div class="sun-rays-wrap"><span class="sun-beam"></span><span class="sun-beam"></span><span class="sun-beam"></span><span class="sun-beam"></span></div></div>`;
-        if (label) label.innerText = customLabel || '☀️ Ngoài trời nắng nhẹ';
+        if (label) label.innerText = customLabel || '☀️ Ngoài trời nắng rực rỡ';
       } else if (type === 'fair') {
         widget.innerHTML = `<div class="fair-animated-box"><div class="fair-sun"></div><div class="floating-cloud-1"></div><div class="floating-cloud-2"></div></div>`;
-        if (label) label.innerText = customLabel || '🌤️ Bầu trời trong xanh mát mẻ';
+        if (label) label.innerText = customLabel || '🌤️ Bầu trời trong xanh dịu mát';
       } else if (type === 'rainy') {
         widget.innerHTML = `<div class="rainy-animated-box"><div class="rain-main-cloud"></div><span class="anim-drop rd1"></span><span class="anim-drop rd2"></span><span class="anim-drop rd3"></span></div>`;
         if (label) label.innerText = customLabel || '🌧️ Ngoài trời có mưa';
@@ -1633,7 +1725,7 @@
               renderWeatherIcon('night', `🌙 Đêm trong lành (${temp}°C)`);
             } else if (code <= 1) {
               currentWeatherIndex = 0;
-              renderWeatherIcon('sunny', `☀️ Ngoài trời nắng nhẹ (${temp}°C)`);
+              renderWeatherIcon('sunny', `☀️ Ngoài trời nắng rực rỡ (${temp}°C)`);
             } else {
               currentWeatherIndex = 1;
               renderWeatherIcon('fair', `🌤️ Bầu trời dịu mát (${temp}°C)`);
@@ -1654,7 +1746,7 @@
     function cycleWeatherDemo() {
       currentWeatherIndex = (currentWeatherIndex + 1) % weatherStates.length;
       renderWeatherIcon(weatherStates[currentWeatherIndex].type, weatherStates[currentWeatherIndex].label);
-      showToast(`Thời tiết: ${weatherStates[currentWeatherIndex].label}`);
+      showToast(`Chế độ thời tiết: ${weatherStates[currentWeatherIndex].label}`);
     }
 
     function saveJournalEntry() {
@@ -1680,7 +1772,7 @@
       document.getElementById('journalContent').value = '';
       document.getElementById('journalReminderTime').value = '';
       filterJournals(); updateDashboard();
-      showToast('Đã lưu nhật ký yêu thương! 💗');
+      showToast('Đã lưu nhật ký yêu thương! 💕');
     }
 
     function filterJournals() {
@@ -1705,7 +1797,7 @@
       const container = document.getElementById('journalListContainer');
       container.innerHTML = '';
       if (!listToRender || listToRender.length === 0) {
-        container.innerHTML = `<div style="text-align:center; color:#94a3b8; padding:20px; font-size:0.85rem;">Không tìm thấy trang nhật ký nào.</div>`;
+        container.innerHTML = `<div style="text-align:center; color:#8f7d83; padding:20px; font-size:0.85rem;">Không tìm thấy trang nhật ký nào.</div>`;
         return;
       }
       const catMap = { 'nhat-ky-yeu': '💖 Nhật kí tình yêu', 'viec-ngay': '📝 Thường nhật', 'ban-giao': '🤝 Bàn giao', 'su-co': '⚠️ Lưu ý' };
@@ -1844,7 +1936,7 @@
     function getWeekStorageKey(wIdx) {
       const w = monthWeeksList[wIdx];
       if (!w) return `shifts_w_${wIdx}`;
-      return `ainhuy_shifts_${w.monday.getFullYear()}_${w.monday.getMonth()+1}_${w.monday.getDate()}`;
+      return `ainhuy_shifts_${w.monday.getFullYear()}_${w.monday.getMonth() + 1}_${w.monday.getDate()}`;
     }
 
     function getShiftsForWeekIndex(wIdx) {
@@ -1861,8 +1953,8 @@
       const select = document.getElementById('weekDropdownSelect');
       select.innerHTML = '';
       monthWeeksList.forEach((w) => {
-        const monLabel = `${w.monday.getDate()}/${w.monday.getMonth()+1}`;
-        const sunLabel = `${w.sunday.getDate()}/${w.sunday.getMonth()+1}`;
+        const monLabel = `${w.monday.getDate()}/${w.monday.getMonth() + 1}`;
+        const sunLabel = `${w.sunday.getDate()}/${w.sunday.getMonth() + 1}`;
         const opt = document.createElement('option');
         opt.value = w.index;
         opt.text = `Tuần ${w.labelNumber} (${monLabel} - ${sunLabel})`;
@@ -1899,11 +1991,11 @@
         dayDate.setDate(currentWeekObj.monday.getDate() + idx);
 
         const isToday = (dayDate.getDate() === now.getDate() &&
-                         dayDate.getMonth() === now.getMonth() &&
-                         dayDate.getFullYear() === now.getFullYear());
+          dayDate.getMonth() === now.getMonth() &&
+          dayDate.getFullYear() === now.getFullYear());
 
         const savedShift = shiftsData[d.key] || 'off';
-        const dateLabel = `${String(dayDate.getDate()).padStart(2,'0')}/${String(dayDate.getMonth()+1).padStart(2,'0')}`;
+        const dateLabel = `${String(dayDate.getDate()).padStart(2, '0')}/${String(dayDate.getMonth() + 1).padStart(2, '0')}`;
 
         let shiftClass = 'is-off';
         if (savedShift === 'ca1') shiftClass = 'is-ca1';
@@ -1914,13 +2006,13 @@
         col.className = `day-col ${isToday ? 'today' : ''} ${shiftClass}`;
         col.id = `col-day-${d.key}`;
         col.innerHTML = `
-          <div class="day-name">${d.label} ${isToday ? '💗' : ''}</div>
+          <div class="day-name">${d.label} ${isToday ? '●' : ''}</div>
           <span class="calendar-date">${dateLabel}</span>
           <select class="day-shift-select" onchange="updateShift(${d.key}, this.value)">
             <option value="ca1" ${savedShift === 'ca1' ? 'selected' : ''}>Ca 1</option>
             <option value="ca2" ${savedShift === 'ca2' ? 'selected' : ''}>Ca 2</option>
             <option value="hch" ${savedShift === 'hch' ? 'selected' : ''}>H.Chính</option>
-            <option value="off" ${savedShift === 'off' ? 'selected' : ''}>Off</option>
+            <option value="off" ${savedShift === 'off' ? 'selected' : ''}>🔴 Off</option>
           </select>
         `;
         container.appendChild(col);
@@ -2006,60 +2098,6 @@
       exportToICSCalendarList(Array.from(selectedSyncWeeks).sort((a, b) => a - b));
     }
 
-    function getTodayShiftInfo() {
-      const now = new Date();
-      const currentDayOfWeek = now.getDay();
-      const dayKey = (currentDayOfWeek === 0) ? 8 : (currentDayOfWeek + 1);
-      let shift = 'off';
-
-      if (monthWeeksList.length > 0) {
-        const todayTime = new Date(now.getFullYear(), now.getMonth(), now.getDate()).getTime();
-        let activeWIdx = 0;
-        monthWeeksList.forEach((w, idx) => {
-          const mon = new Date(w.monday.getFullYear(), w.monday.getMonth(), w.monday.getDate()).getTime();
-          const sun = new Date(w.sunday.getFullYear(), w.sunday.getMonth(), w.sunday.getDate()).getTime();
-          if (todayTime >= mon && todayTime <= sun) activeWIdx = idx;
-        });
-        shift = getShiftsForWeekIndex(activeWIdx)[dayKey] || 'off';
-      }
-
-      if (shift === 'ca1') {
-        return { shift, label: 'Ca 1', inTime: shiftTimes.c1_in || '05:30', outTime: shiftTimes.c1_out || '14:00' };
-      } else if (shift === 'ca2') {
-        return { shift, label: 'Ca 2', inTime: shiftTimes.c2_in || '16:30', outTime: shiftTimes.c2_out || '22:00' };
-      } else if (shift === 'hch') {
-        return { shift, label: 'H.Chính', inTime: shiftTimes.hch_in || '08:00', outTime: shiftTimes.hch_out || '17:00' };
-      }
-      return { shift: 'off', label: 'Off', inTime: null, outTime: null };
-    }
-
-    function openSystemAlarmForToday(type) {
-      const info = getTodayShiftInfo();
-      if (info.shift === 'off') {
-        showToast('Hôm nay lịch ca đang là Off!');
-        return;
-      }
-      const timeStr = (type === 'in') ? info.inTime : info.outTime;
-      const [hStr, mStr] = timeStr.split(':');
-      const hour = parseInt(hStr, 10);
-      const minute = parseInt(mStr, 10);
-      const msg = (type === 'in') ? `Vào ${info.label} (${timeStr})` : `Tan ${info.label} (${timeStr})`;
-
-      const isAndroid = /Android/i.test(navigator.userAgent);
-      if (isAndroid) {
-        const intentUrl =
-          `intent:#Intent;action=android.intent.action.SET_ALARM` +
-          `;i.android.intent.extra.alarm.HOUR=${hour}` +
-          `;i.android.intent.extra.alarm.MINUTES=${minute}` +
-          `;S.android.intent.extra.alarm.MESSAGE=${encodeURIComponent(msg)}` +
-          `;B.android.intent.extra.alarm.SKIP_UI=false;end`;
-        window.location.href = intentUrl;
-        showToast(`Đang mở Đồng hồ báo thức ${msg}...`);
-      } else {
-        showToast(`Giờ ${msg}: Hãy đặt báo thức trong app Đồng hồ của máy để đánh thức khi ngủ sâu.`);
-      }
-    }
-
     function exportToICSCalendarList(weekIndices) {
       let events = [];
       const now = new Date();
@@ -2067,21 +2105,35 @@
 
       function toICSLocalDateTime(year, month, day, timeStr, addMinutes = 0) {
         const [h, m] = timeStr.split(':').map(Number);
-        const localDate = new Date(year, month - 1, day, h, m + addMinutes, 0);
+        let totalMins = h * 60 + m + addMinutes;
+        let targetDay = day;
+        let targetMonth = month;
+        let targetYear = year;
+
+        if (totalMins >= 1440) {
+          totalMins -= 1440;
+          targetDay += 1;
+        } else if (totalMins < 0) {
+          totalMins += 1440;
+          targetDay -= 1;
+        }
+
+        const th = Math.floor(totalMins / 60);
+        const tm = totalMins % 60;
+
+        let utcHour = th - 7;
+        let utcDay = targetDay;
+        if (utcHour < 0) {
+          utcHour += 24;
+          utcDay -= 1;
+        }
+
         const pad = (n) => String(n).padStart(2, '0');
-        return (
-          localDate.getUTCFullYear() +
-          pad(localDate.getUTCMonth() + 1) +
-          pad(localDate.getUTCDate()) +
-          'T' +
-          pad(localDate.getUTCHours()) +
-          pad(localDate.getUTCMinutes()) +
-          '00Z'
-        );
+        return `${targetYear}${pad(targetMonth)}${pad(utcDay)}T${pad(utcHour)}${pad(tm)}00Z`;
       }
 
       function toICADateString(year, month, day) {
-        return `${year}${String(month).padStart(2,'0')}${String(day).padStart(2,'0')}`;
+        return `${year}${String(month).padStart(2, '0')}${String(day).padStart(2, '0')}`;
       }
 
       let count = 0;
@@ -2115,7 +2167,7 @@
               `DTSTAMP:${dtStamp}`,
               `DTSTART;VALUE=DATE:${dateStr}`,
               `DTEND;VALUE=DATE:${nextDateStr}`,
-              `SUMMARY:Off`,
+              `SUMMARY:🔴 Off`,
               `DESCRIPTION:Hôm nay Ái Nhuy Off nghỉ ngơi nhé!`,
               `STATUS:CONFIRMED`,
               'END:VEVENT'
@@ -2127,17 +2179,17 @@
           if (shift === 'ca1') {
             rawIn = shiftTimes.c1_in || '05:30';
             rawOut = shiftTimes.c1_out || '14:00';
-            summaryTitle = 'Ca 1 (Sáng)';
+            summaryTitle = '🔵 Ca 1 (Sáng)';
             shiftLabel = 'Ca 1';
           } else if (shift === 'ca2') {
             rawIn = shiftTimes.c2_in || '16:30';
             rawOut = shiftTimes.c2_out || '22:00';
-            summaryTitle = 'Ca 2 (Chiều)';
+            summaryTitle = '🟡 Ca 2 (Chiều)';
             shiftLabel = 'Ca 2';
           } else {
             rawIn = shiftTimes.hch_in || '08:00';
             rawOut = shiftTimes.hch_out || '17:00';
-            summaryTitle = 'Ca Hành Chính';
+            summaryTitle = '🟣 Ca Hành Chính';
             shiftLabel = 'H.Chính';
           }
 
@@ -2151,7 +2203,7 @@
             `DTSTAMP:${dtStamp}`,
             `DTSTART:${inTimeUTC}`,
             `DTEND:${inTimeUTC}`,
-            `SUMMARY:Vào ${shiftLabel} (${rawIn})`,
+            `SUMMARY:🔔 Vào ${shiftLabel} (${rawIn})`,
             `DESCRIPTION:Đã đến giờ vào làm việc ${shiftLabel}.`,
             `STATUS:CONFIRMED`,
             'BEGIN:VALARM',
@@ -2169,7 +2221,7 @@
             `DTSTAMP:${dtStamp}`,
             `DTSTART:${outTimeUTC}`,
             `DTEND:${outTimeUTC}`,
-            `SUMMARY:Tan ${shiftLabel} (${rawOut})`,
+            `SUMMARY:🏁 Tan ${shiftLabel} (${rawOut})`,
             `DESCRIPTION:Đã hết giờ làm việc ${shiftLabel}.`,
             `STATUS:CONFIRMED`,
             'BEGIN:VALARM',
@@ -2213,7 +2265,7 @@
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
-      showToast('Đã xuất file lịch .ics!');
+      showToast(`Đã xuất file .ics báo thức chính xác!`);
     }
 
     function saveIssue() {
@@ -2242,14 +2294,14 @@
       const el = document.getElementById('issuesList');
       el.innerHTML = '';
       if (issues.length === 0) {
-        el.innerHTML = `<div style="text-align:center; color:#94a3b8; padding:16px; font-size:0.85rem;">Không có việc cần làm.</div>`;
+        el.innerHTML = `<div style="text-align:center; color:#8f7d83; padding:16px; font-size:0.85rem;">Không có việc cần làm.</div>`;
         return;
       }
       issues.forEach(item => {
         let reminderText = '';
         if (item.reminderDateTime) {
           const d = new Date(item.reminderDateTime);
-          if (!isNaN(d.getTime())) reminderText = `${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')} - ${d.getDate()}/${d.getMonth()+1}`;
+          if (!isNaN(d.getTime())) reminderText = `${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')} - ${d.getDate()}/${d.getMonth() + 1}`;
         }
         const div = document.createElement('div');
         div.className = `item-card ${item.done ? 'done' : ''}`;
@@ -2303,7 +2355,7 @@
 
     async function requestWakeLock() {
       try {
-        if ('wakeLock' in navigator) {
+        if ('wakeLock' in navigator && document.visibilityState === 'visible') {
           wakeLock = await navigator.wakeLock.request('screen');
         }
       } catch (_) {}
@@ -2321,7 +2373,9 @@
 
       const Ctx = window.AudioContext || window.webkitAudioContext;
       if (!audioCtx && Ctx) audioCtx = new Ctx();
-      if (audioCtx && audioCtx.state === 'suspended') audioCtx.resume();
+      if (audioCtx && audioCtx.state === 'suspended') {
+        audioCtx.resume().catch(() => {});
+      }
       requestWakeLock();
     }
 
@@ -2330,7 +2384,7 @@
         const Ctx = window.AudioContext || window.webkitAudioContext;
         if (!audioCtx && Ctx) audioCtx = new Ctx();
         if (audioCtx) {
-          if (audioCtx.state === 'suspended') audioCtx.resume();
+          if (audioCtx.state === 'suspended') audioCtx.resume().catch(() => {});
           const osc = audioCtx.createOscillator();
           const gain = audioCtx.createGain();
           osc.type = 'sine';
@@ -2364,7 +2418,7 @@
         const Ctx = window.AudioContext || window.webkitAudioContext;
         if (!audioCtx && Ctx) audioCtx = new Ctx();
         if (audioCtx) {
-          if (audioCtx.state === 'suspended') audioCtx.resume();
+          if (audioCtx.state === 'suspended') audioCtx.resume().catch(() => {});
           const osc = audioCtx.createOscillator();
           const gain = audioCtx.createGain();
           osc.type = 'sawtooth';
@@ -2574,85 +2628,150 @@
       }
     }
 
-    function parseMinutes(timeStr) {
-      if (!timeStr || !timeStr.includes(':')) return null;
-      const [h, m] = timeStr.split(':').map(Number);
+    function parseHMToMinutes(hmStr) {
+      if (!hmStr || !hmStr.includes(':')) return null;
+      const [h, m] = hmStr.split(':').map(Number);
+      if (Number.isNaN(h) || Number.isNaN(m)) return null;
       return h * 60 + m;
     }
 
-    function isDueWithinWindow(targetTimeStr, nowMins) {
-      const targetMins = parseMinutes(targetTimeStr);
-      if (targetMins === null) return false;
-      return nowMins >= targetMins && nowMins <= targetMins + 3;
+    function getTodayShiftAndSchedules(now) {
+      const currentDayOfWeek = now.getDay();
+      const dayKey = (currentDayOfWeek === 0) ? 8 : (currentDayOfWeek + 1);
+      const dateStr = now.toDateString();
+
+      let todayShift = 'off';
+      if (monthWeeksList.length > 0) {
+        const todayStart = new Date(now.getFullYear(), now.getMonth(), now.getDate()).getTime();
+        monthWeeksList.forEach((w, idx) => {
+          const wStart = new Date(w.monday.getFullYear(), w.monday.getMonth(), w.monday.getDate()).getTime();
+          const wEnd = new Date(w.sunday.getFullYear(), w.sunday.getMonth(), w.sunday.getDate(), 23, 59, 59, 999).getTime();
+          if (todayStart >= wStart && todayStart <= wEnd) {
+            const shiftsData = getShiftsForWeekIndex(idx);
+            todayShift = shiftsData[dayKey] || 'off';
+          }
+        });
+      }
+
+      const schedules = [];
+      if (todayShift === 'ca1') {
+        schedules.push({
+          key: `${dateStr}_ca1_in_${shiftTimes.c1_in || '05:30'}`,
+          mins: parseHMToMinutes(shiftTimes.c1_in || '05:30'),
+          title: `🔵 ĐẾN GIỜ VÀO CA 1 (${shiftTimes.c1_in || '05:30'})`
+        });
+        schedules.push({
+          key: `${dateStr}_ca1_out_${shiftTimes.c1_out || '14:00'}`,
+          mins: parseHMToMinutes(shiftTimes.c1_out || '14:00'),
+          title: `🏁 HẾT GIỜ CA 1 (${shiftTimes.c1_out || '14:00'})`
+        });
+      } else if (todayShift === 'ca2') {
+        schedules.push({
+          key: `${dateStr}_ca2_in_${shiftTimes.c2_in || '16:30'}`,
+          mins: parseHMToMinutes(shiftTimes.c2_in || '16:30'),
+          title: `🟡 ĐẾN GIỜ VÀO CA 2 (${shiftTimes.c2_in || '16:30'})`
+        });
+        schedules.push({
+          key: `${dateStr}_ca2_out_${shiftTimes.c2_out || '22:00'}`,
+          mins: parseHMToMinutes(shiftTimes.c2_out || '22:00'),
+          title: `🏁 HẾT GIỜ CA 2 (${shiftTimes.c2_out || '22:00'})`
+        });
+      } else if (todayShift === 'hch') {
+        schedules.push({
+          key: `${dateStr}_hch_in_${shiftTimes.hch_in || '08:00'}`,
+          mins: parseHMToMinutes(shiftTimes.hch_in || '08:00'),
+          title: `🟣 ĐẾN GIỜ VÀO HÀNH CHÍNH (${shiftTimes.hch_in || '08:00'})`
+        });
+        schedules.push({
+          key: `${dateStr}_hch_out_${shiftTimes.hch_out || '17:00'}`,
+          mins: parseHMToMinutes(shiftTimes.hch_out || '17:00'),
+          title: `🏁 HẾT GIỜ HÀNH CHÍNH (${shiftTimes.hch_out || '17:00'})`
+        });
+      }
+
+      const isoToday = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
+      journals.forEach(j => {
+        if (!j.done && j.reminderTime && (!j.journalDate || j.journalDate === isoToday)) {
+          schedules.push({
+            key: `${dateStr}_journal_${j.id}_${j.reminderTime}`,
+            mins: parseHMToMinutes(j.reminderTime),
+            title: `⏰ NHẬT KÝ: ${j.title.toUpperCase()}`
+          });
+        }
+      });
+
+      return schedules;
+    }
+
+    let lastCheckTimestamp = Date.now();
+
+    function evaluateAlarms(allowCatchUp = false) {
+      const now = new Date();
+      const nowMins = now.getHours() * 60 + now.getMinutes();
+      const schedules = getTodayShiftAndSchedules(now);
+
+      for (const item of schedules) {
+        if (item.mins === null) continue;
+        if (triggeredAlarmKeys.has(item.key)) continue;
+
+        if (nowMins === item.mins || (allowCatchUp && nowMins > item.mins && (nowMins - item.mins) <= 30)) {
+          markAlarmTriggered(item.key);
+          startContinuousAlarm(item.title);
+          break;
+        }
+      }
+      lastCheckTimestamp = Date.now();
+    }
+
+    function catchUpMissedAlarms() {
+      evaluateAlarms(true);
     }
 
     function checkScheduler() {
-      const now = new Date();
-      const nowMins = now.getHours() * 60 + now.getMinutes();
-      const dayStamp = now.toDateString();
-
-      const info = getTodayShiftInfo();
-      const todayShift = info.shift;
-
-      if (todayShift === 'ca1') {
-        const inT = shiftTimes.c1_in || '05:30';
-        const outT = shiftTimes.c1_out || '14:00';
-        const kIn = `${dayStamp}_ca1_in_${inT}`;
-        const kOut = `${dayStamp}_ca1_out_${outT}`;
-        if (!triggeredTodaySet.has(kIn) && isDueWithinWindow(inT, nowMins)) {
-          triggeredTodaySet.add(kIn);
-          startContinuousAlarm(`🔵 ĐẾN GIỜ VÀO CA 1 (${inT})`);
-          return;
-        }
-        if (!triggeredTodaySet.has(kOut) && isDueWithinWindow(outT, nowMins)) {
-          triggeredTodaySet.add(kOut);
-          startContinuousAlarm(`🏁 HẾT GIỜ CA 1 (${outT})`);
-          return;
-        }
-      } else if (todayShift === 'ca2') {
-        const inT = shiftTimes.c2_in || '16:30';
-        const outT = shiftTimes.c2_out || '22:00';
-        const kIn = `${dayStamp}_ca2_in_${inT}`;
-        const kOut = `${dayStamp}_ca2_out_${outT}`;
-        if (!triggeredTodaySet.has(kIn) && isDueWithinWindow(inT, nowMins)) {
-          triggeredTodaySet.add(kIn);
-          startContinuousAlarm(`🟡 ĐẾN GIỜ VÀO CA 2 (${inT})`);
-          return;
-        }
-        if (!triggeredTodaySet.has(kOut) && isDueWithinWindow(outT, nowMins)) {
-          triggeredTodaySet.add(kOut);
-          startContinuousAlarm(`🏁 HẾT GIỜ CA 2 (${outT})`);
-          return;
-        }
-      } else if (todayShift === 'hch') {
-        const inT = shiftTimes.hch_in || '08:00';
-        const outT = shiftTimes.hch_out || '17:00';
-        const kIn = `${dayStamp}_hch_in_${inT}`;
-        const kOut = `${dayStamp}_hch_out_${outT}`;
-        if (!triggeredTodaySet.has(kIn) && isDueWithinWindow(inT, nowMins)) {
-          triggeredTodaySet.add(kIn);
-          startContinuousAlarm(`🟣 ĐẾN GIỜ VÀO HÀNH CHÍNH (${inT})`);
-          return;
-        }
-        if (!triggeredTodaySet.has(kOut) && isDueWithinWindow(outT, nowMins)) {
-          triggeredTodaySet.add(kOut);
-          startContinuousAlarm(`🏁 HẾT GIỜ HÀNH CHÍNH (${outT})`);
-          return;
-        }
-      }
-
-      journals.forEach(j => {
-        if (!j.done && j.reminderTime) {
-          const kJ = `${dayStamp}_journal_${j.id}_${j.reminderTime}`;
-          if (!triggeredTodaySet.has(kJ) && isDueWithinWindow(j.reminderTime, nowMins)) {
-            triggeredTodaySet.add(kJ);
-            startContinuousAlarm(`⏰ NHẬT KÝ: ${j.title.toUpperCase()}`);
-          }
-        }
-      });
+      const elapsed = Date.now() - lastCheckTimestamp;
+      evaluateAlarms(elapsed > 15000);
     }
 
-    setInterval(checkScheduler, 1000);
+    function startBackgroundHeartbeatWorker() {
+      if (!window.Worker || !window.Blob) return;
+      try {
+        const workerCode = `
+          setInterval(() => {
+            postMessage('tick');
+          }, 1000);
+        `;
+        const blob = new Blob([workerCode], { type: 'application/javascript' });
+        const workerUrl = URL.createObjectURL(blob);
+        const worker = new Worker(workerUrl);
+        worker.onmessage = () => {
+          checkScheduler();
+        };
+      } catch (_) {
+        setInterval(checkScheduler, 1000);
+      }
+    }
+    startBackgroundHeartbeatWorker();
+
+    document.addEventListener('visibilitychange', () => {
+      if (!document.hidden) {
+        unlockAudioContext();
+        catchUpMissedAlarms();
+        updateNotiButtonStatus();
+      } else {
+        unlockAudioContext();
+      }
+    });
+
+    window.addEventListener('focus', () => {
+      unlockAudioContext();
+      catchUpMissedAlarms();
+      updateNotiButtonStatus();
+    });
+
+    window.addEventListener('pageshow', () => {
+      unlockAudioContext();
+      catchUpMissedAlarms();
+    });
 
     document.addEventListener('DOMContentLoaded', () => {
       lockAppScreen();
@@ -2665,6 +2784,7 @@
       renderIssues();
       updateDashboard();
       updateNotiButtonStatus();
+      catchUpMissedAlarms();
     });
 
     document.body.addEventListener('touchstart', () => { unlockAudioContext(); }, { once: true });

@@ -1396,7 +1396,7 @@
         wrongPinCount = 0;
         showToast('Mở khóa thành công! Chào Ái Nhuy 💕');
         unlockAudioContext();
-        evaluateAlarms(false);
+        evaluateAlarms(true);
       } else {
         wrongPinCount++;
         if (wrongPinCount >= 4) {
@@ -1451,10 +1451,15 @@
     let audioCtx = null;
     let alarmInterval = null;
     let isAlarmPlaying = false;
-    let triggeredAlarmKeys = new Set();
+    let triggeredAlarmKeys = new Set(JSON.parse(localStorage.getItem('ainhuy_triggered_alarms_v1') || '[]'));
 
     function markAlarmTriggered(key) {
       triggeredAlarmKeys.add(key);
+      try {
+        const recentKeys = Array.from(triggeredAlarmKeys).slice(-120);
+        triggeredAlarmKeys = new Set(recentKeys);
+        localStorage.setItem('ainhuy_triggered_alarms_v1', JSON.stringify(recentKeys));
+      } catch (_) {}
     }
 
     function generateGentleAlarmWav() {
@@ -1548,7 +1553,6 @@
     let alarmAudioBlobUrl = null;
     let warningAudioBlobUrl = null;
 
-    // ĐỦ 100 CÂU CHÚC TRÊN BANNER (35 SÁNG + 35 CHIỀU + 15 TỐI + 15 ĐÊM = 100 CÂU)
     const wishesByTime = {
       morning: [
         { title: "Chào buổi sáng tình yêu! ☀️", quote: "Chào buổi sáng tình yêu của anh! Chúc em một ngày mới ngập tràn năng lượng, làm việc hiệu quả và gặp nhiều may mắn nhé. 💕" },
@@ -2136,38 +2140,18 @@
       let events = [];
       const now = new Date();
       const dtStamp = now.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
+      const pad = (n) => String(n).padStart(2, '0');
 
-      function toICSLocalDateTime(year, month, day, timeStr, addMinutes = 0) {
+      function toICSLocalAndUTC(year, month, day, timeStr, addMinutes = 0) {
         const [h, m] = timeStr.split(':').map(Number);
-        let totalMins = h * 60 + m + addMinutes;
-        let targetDay = day;
-        let targetMonth = month;
-        let targetYear = year;
-
-        if (totalMins >= 1440) {
-          totalMins -= 1440;
-          targetDay += 1;
-        } else if (totalMins < 0) {
-          totalMins += 1440;
-          targetDay -= 1;
-        }
-
-        const th = Math.floor(totalMins / 60);
-        const tm = totalMins % 60;
-
-        let utcHour = th - 7;
-        let utcDay = targetDay;
-        if (utcHour < 0) {
-          utcHour += 24;
-          utcDay -= 1;
-        }
-
-        const pad = (n) => String(n).padStart(2, '0');
-        return `${targetYear}${pad(targetMonth)}${pad(utcDay)}T${pad(utcHour)}${pad(tm)}00Z`;
+        const localDate = new Date(year, month - 1, day, h || 0, (m || 0) + addMinutes, 0);
+        const localStr = `${localDate.getFullYear()}${pad(localDate.getMonth() + 1)}${pad(localDate.getDate())}T${pad(localDate.getHours())}${pad(localDate.getMinutes())}00`;
+        const utcStr = localDate.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
+        return { localStr, utcStr };
       }
 
-      function toICADateString(year, month, day) {
-        return `${year}${String(month).padStart(2, '0')}${String(day).padStart(2, '0')}`;
+      function toICADateString(dateObj) {
+        return `${dateObj.getFullYear()}${pad(dateObj.getMonth() + 1)}${pad(dateObj.getDate())}`;
       }
 
       let count = 0;
@@ -2187,13 +2171,13 @@
           const m = dayDate.getMonth() + 1;
           const d = dayDate.getDate();
 
-          const dateStr = toICADateString(y, m, d);
+          const dateStr = toICADateString(dayDate);
 
           if (shift === 'off') {
             count++;
             const nextDayDate = new Date(dayDate);
             nextDayDate.setDate(dayDate.getDate() + 1);
-            const nextDateStr = toICADateString(nextDayDate.getFullYear(), nextDayDate.getMonth() + 1, nextDayDate.getDate());
+            const nextDateStr = toICADateString(nextDayDate);
 
             events.push([
               'BEGIN:VEVENT',
@@ -2227,16 +2211,16 @@
             shiftLabel = 'H.Chính';
           }
 
-          const inTimeUTC = toICSLocalDateTime(y, m, d, rawIn, 0);
-          const outTimeUTC = toICSLocalDateTime(y, m, d, rawOut, 0);
+          const inSlot = toICSLocalAndUTC(y, m, d, rawIn, 0);
+          const outSlot = toICSLocalAndUTC(y, m, d, rawOut, 0);
 
           count++;
           events.push([
             'BEGIN:VEVENT',
             `UID:shift-${shift}-in-${dateStr}-${dayKey}-${count}@ainhuy.shift`,
             `DTSTAMP:${dtStamp}`,
-            `DTSTART:${inTimeUTC}`,
-            `DTEND:${inTimeUTC}`,
+            `DTSTART:${inSlot.utcStr}`,
+            `DTEND:${inSlot.utcStr}`,
             `SUMMARY:🔔 Vào ${shiftLabel} (${rawIn})`,
             `DESCRIPTION:Đã đến giờ vào làm việc ${shiftLabel}.`,
             `STATUS:CONFIRMED`,
@@ -2253,8 +2237,8 @@
             'BEGIN:VEVENT',
             `UID:shift-${shift}-out-${dateStr}-${dayKey}-${count}@ainhuy.shift`,
             `DTSTAMP:${dtStamp}`,
-            `DTSTART:${outTimeUTC}`,
-            `DTEND:${outTimeUTC}`,
+            `DTSTART:${outSlot.utcStr}`,
+            `DTEND:${outSlot.utcStr}`,
             `SUMMARY:🏁 Tan ${shiftLabel} (${rawOut})`,
             `DESCRIPTION:Đã hết giờ làm việc ${shiftLabel}.`,
             `STATUS:CONFIRMED`,
@@ -2271,8 +2255,8 @@
             'BEGIN:VEVENT',
             `UID:shift-session-${shift}-${dateStr}-${dayKey}-${count}@ainhuy.shift`,
             `DTSTAMP:${dtStamp}`,
-            `DTSTART:${inTimeUTC}`,
-            `DTEND:${outTimeUTC}`,
+            `DTSTART:${inSlot.utcStr}`,
+            `DTEND:${outSlot.utcStr}`,
             `SUMMARY:${summaryTitle}`,
             `DESCRIPTION:Ca trực ${shiftLabel} từ ${rawIn} đến ${rawOut}.`,
             `STATUS:CONFIRMED`,
@@ -2299,7 +2283,7 @@
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
-      showToast(`Đã xuất file .ics báo thức chính xác!`);
+      showToast(`Đã xuất file .ics lịch nhắc ca chuẩn giờ!`);
     }
 
     function saveIssue() {
@@ -2760,7 +2744,7 @@
         if (triggeredAlarmKeys.has(item.key)) continue;
 
         const diffMins = nowMins - item.mins;
-        if (nowMins === item.mins || (allowCatchUp && diffMins > 0 && diffMins <= 2)) {
+        if (nowMins === item.mins || (allowCatchUp && diffMins > 0 && diffMins <= 30)) {
           markAlarmTriggered(item.key);
           startContinuousAlarm(item.title);
           break;
@@ -2775,7 +2759,7 @@
         return;
       }
       const elapsed = Date.now() - lastCheckTimestamp;
-      evaluateAlarms(elapsed > 2000 && elapsed <= 150000);
+      evaluateAlarms(elapsed > 2500);
     }
 
     function startBackgroundHeartbeatWorker() {
@@ -2799,10 +2783,8 @@
     startBackgroundHeartbeatWorker();
 
     function handleAppBackgroundOrExit() {
-      stopAlarm();
       lockAppScreen();
       const now = new Date();
-      markPastSchedulesAsHandledOnBoot(now);
       lastCheckTimestamp = Date.now();
     }
 
@@ -2839,7 +2821,7 @@
     window.addEventListener('pageshow', (e) => {
       if (e.persisted) {
         lockAppScreen();
-        markPastSchedulesAsHandledOnBoot(new Date());
+        if (!isInitialBoot) evaluateAlarms(true);
       }
       unlockAudioContext();
       lastCheckTimestamp = Date.now();

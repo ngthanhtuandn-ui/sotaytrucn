@@ -6,11 +6,49 @@
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
-  <title>Sổ Tay Tình Yêu & Lịch Ca Của Ái Nhuy 💕</title>
+  <title>Ái Nhuy</title>
+  <meta name="application-name" content="Ái Nhuy">
+  <meta name="apple-mobile-web-app-title" content="Ái Nhuy">
   <meta name="theme-color" content="#ec5d8d">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <link id="faviconLink" rel="icon" type="image/jpeg" href="n1.jpg">
+  <link id="appleTouchIconLink" rel="apple-touch-icon" href="n1.jpg">
+
+  <script>
+    (function setupAppIdentityManifest() {
+      try {
+        const iconHref = new URL('n1.jpg', window.location.href).href;
+        const manifestObj = {
+          name: "Ái Nhuy",
+          short_name: "Ái Nhuy",
+          start_url: "./",
+          display: "standalone",
+          background_color: "#fff5f8",
+          theme_color: "#ec5d8d",
+          icons: [
+            {
+              src: iconHref,
+              sizes: "192x192",
+              type: "image/jpeg"
+            },
+            {
+              src: iconHref,
+              sizes: "512x512",
+              type: "image/jpeg"
+            }
+          ]
+        };
+        const manifestBlob = new Blob([JSON.stringify(manifestObj)], { type: "application/manifest+json" });
+        const manifestUrl = URL.createObjectURL(manifestBlob);
+        const linkEl = document.createElement('link');
+        linkEl.rel = 'manifest';
+        linkEl.href = manifestUrl;
+        document.head.appendChild(linkEl);
+      } catch (_) {}
+    })();
+  </script>
 
   <style>
     * {
@@ -1031,7 +1069,7 @@
 
   <div id="lockScreen">
     <div class="lock-box">
-      <div class="lock-brand-title">Sổ Tay Ái Nhuy</div>
+      <div class="lock-brand-title">Ái Nhuy</div>
       <div class="romantic-display-box" id="romanticDisplay"></div>
       <div class="passcode-dots">
         <div class="dot" id="dot-0"></div>
@@ -1101,7 +1139,7 @@
     </div>
 
     <div class="nav-tabs">
-      <button class="nav-tab-btn active" id="tabBtn-shifts" onclick="switchView('shifts')">📅 Lịch Ca</button>
+      <button class="nav-tab-btn active" id="tabBtn-shifts" onclick="switchView('shifts')">💕 Lịch Ca</button>
       <button class="nav-tab-btn nav-tab-btn-two-lines" id="tabBtn-journal" onclick="switchView('journal')">
         <span>💌 Nhật kí</span>
         <span>Tình yêu</span>
@@ -1137,10 +1175,20 @@
 
         <div class="shift-settings-box">
           <div class="shift-settings-title">
-            <span>⚙️ Cài Đặt Giờ Báo Ca (Tự động báo)</span>
-            <span style="font-size:0.68rem; font-weight:bold; color:#22a377;">● Ngủ sâu vẫn quét bù</span>
+            <span>⚙️ Cài đặt giờ</span>
           </div>
           <div class="shift-config-grid">
+            <div class="shift-config-card card-hch">
+              <h4>H.Chính</h4>
+              <div class="time-input-row">
+                <span>Vào:</span>
+                <div class="time-input-wrap"><input type="time" id="cfg_hch_in" onchange="updateShiftTimeConfig()"></div>
+              </div>
+              <div class="time-input-row">
+                <span>Ra:</span>
+                <div class="time-input-wrap"><input type="time" id="cfg_hch_out" onchange="updateShiftTimeConfig()"></div>
+              </div>
+            </div>
             <div class="shift-config-card card-c1">
               <h4>Ca 1 (Sáng)</h4>
               <div class="time-input-row">
@@ -1161,17 +1209,6 @@
               <div class="time-input-row">
                 <span>Ra:</span>
                 <div class="time-input-wrap"><input type="time" id="cfg_c2_out" onchange="updateShiftTimeConfig()"></div>
-              </div>
-            </div>
-            <div class="shift-config-card card-hch">
-              <h4>H.Chính</h4>
-              <div class="time-input-row">
-                <span>Vào:</span>
-                <div class="time-input-wrap"><input type="time" id="cfg_hch_in" onchange="updateShiftTimeConfig()"></div>
-              </div>
-              <div class="time-input-row">
-                <span>Ra:</span>
-                <div class="time-input-wrap"><input type="time" id="cfg_hch_out" onchange="updateShiftTimeConfig()"></div>
               </div>
             </div>
           </div>
@@ -1937,21 +1974,21 @@
     }
 
     function loadShiftTimeConfigUI() {
+      document.getElementById('cfg_hch_in').value = shiftTimes.hch_in || '08:00';
+      document.getElementById('cfg_hch_out').value = shiftTimes.hch_out || '17:00';
       document.getElementById('cfg_c1_in').value = shiftTimes.c1_in || '05:30';
       document.getElementById('cfg_c1_out').value = shiftTimes.c1_out || '14:00';
       document.getElementById('cfg_c2_in').value = shiftTimes.c2_in || '16:30';
       document.getElementById('cfg_c2_out').value = shiftTimes.c2_out || '22:00';
-      document.getElementById('cfg_hch_in').value = shiftTimes.hch_in || '08:00';
-      document.getElementById('cfg_hch_out').value = shiftTimes.hch_out || '17:00';
     }
 
     function updateShiftTimeConfig() {
+      shiftTimes.hch_in = document.getElementById('cfg_hch_in').value;
+      shiftTimes.hch_out = document.getElementById('cfg_hch_out').value;
       shiftTimes.c1_in = document.getElementById('cfg_c1_in').value;
       shiftTimes.c1_out = document.getElementById('cfg_c1_out').value;
       shiftTimes.c2_in = document.getElementById('cfg_c2_in').value;
       shiftTimes.c2_out = document.getElementById('cfg_c2_out').value;
-      shiftTimes.hch_in = document.getElementById('cfg_hch_in').value;
-      shiftTimes.hch_out = document.getElementById('cfg_hch_out').value;
 
       localStorage.setItem('ainhuy_shift_times', JSON.stringify(shiftTimes));
       showToast('Đã lưu giờ báo ca!');
@@ -2315,7 +2352,7 @@
         'CALSCALE:GREGORIAN',
         'METHOD:PUBLISH',
         `X-WR-TIMEZONE:${tzName}`,
-        'X-WR-CALNAME:Lịch Ca Ái Nhuy',
+        'X-WR-CALNAME:Ái Nhuy',
         ...(vtimezoneBlock ? [vtimezoneBlock] : [])
       ].join('\r\n');
 
@@ -2522,8 +2559,8 @@
     async function triggerSystemNotification(title, body) {
       if (!("Notification" in window) || Notification.permission !== "granted") return;
       const notiOptions = {
-        body: body || 'Nhấn để mở ứng dụng Sổ Tay Ái Nhuy',
-        icon: "https://cdn-icons-png.flaticon.com/512/2921/2921222.png",
+        body: body || 'Nhấn để mở ứng dụng Ái Nhuy',
+        icon: "n1.jpg",
         vibrate: [1000, 300, 1000, 300, 1500],
         requireInteraction: true,
         tag: 'shift-alarm'
@@ -2685,7 +2722,7 @@
     function handlePermissionResult(perm) {
       updateNotiButtonStatus();
       if (perm === 'granted') {
-        triggerSystemNotification('Sổ Tay Ái Nhuy', 'Báo ca trực đã sẵn sàng!');
+        triggerSystemNotification('Ái Nhuy', 'Báo ca trực đã sẵn sàng!');
         showToast('Đã kích hoạt thông báo!');
       } else {
         showToast('Chưa cho phép thông báo.');

@@ -117,6 +117,7 @@
       padding: 20px;
       color: white;
       text-align: center;
+      will-change: opacity, transform;
     }
 
     .lock-box {
@@ -128,6 +129,7 @@
       box-shadow: 0 14px 36px rgba(145, 36, 78, 0.28);
       color: var(--text);
       border: 1.5px solid #f7c7d9;
+      transform: translateZ(0);
     }
 
     .lock-brand-title {
@@ -190,7 +192,7 @@
       width: 100%;
       text-align: center;
       box-shadow: 0 18px 46px rgba(120, 24, 62, 0.35);
-      animation: modalPop 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+      animation: modalPop 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
 
     #stickerShowcaseModal {
@@ -218,7 +220,7 @@
       justify-content: center;
       text-align: center;
       box-shadow: 0 20px 50px rgba(120, 24, 62, 0.35);
-      animation: modalPop 0.32s cubic-bezier(0.34, 1.56, 0.64, 1);
+      animation: modalPop 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
 
     .sticker-enlarged-img {
@@ -262,7 +264,7 @@
     }
 
     @keyframes modalPop {
-      0% { transform: scale(0.8); opacity: 0; }
+      0% { transform: scale(0.9); opacity: 0; }
       100% { transform: scale(1); opacity: 1; }
     }
 
@@ -311,7 +313,7 @@
       border-radius: 50%;
       border: 2px solid #e85d8a;
       background: #fffafd;
-      transition: all 0.2s;
+      transition: transform 0.1s ease, background-color 0.1s ease;
     }
 
     .dot.filled {
@@ -334,13 +336,14 @@
       padding: 10px 0;
       border-radius: 12px;
       cursor: pointer;
-      transition: 0.15s;
+      touch-action: manipulation;
+      transition: transform 0.08s ease, background-color 0.08s ease;
     }
 
     .key-btn:active {
       background: #e85d8a;
       color: #fff;
-      transform: scale(0.96);
+      transform: scale(0.95);
     }
 
     @keyframes flowerSpin {
@@ -1257,6 +1260,7 @@
   <script>
     let enteredPin = "";
     let wrongPinCount = 0;
+    let clearCodeTimer = null;
 
     const flowerStickerMap = {
       "00000": {
@@ -1289,12 +1293,23 @@
       }
     };
 
+    function resetPinInputImmediate() {
+      if (clearCodeTimer) {
+        clearTimeout(clearCodeTimer);
+        clearCodeTimer = null;
+      }
+      enteredPin = "";
+      updatePinDots();
+      const romEl = document.getElementById('romanticDisplay');
+      if (romEl) romEl.innerHTML = "";
+    }
+
     function openStickerModal(src, caption) {
       const modal = document.getElementById('stickerShowcaseModal');
       const imgEl = document.getElementById('stickerShowcaseImg');
       const capEl = document.getElementById('stickerShowcaseCaption');
       if (modal && imgEl && capEl) {
-        imgEl.src = src;
+        if (imgEl.getAttribute('src') !== src) imgEl.src = src;
         capEl.innerText = caption;
         modal.style.display = 'flex';
       }
@@ -1303,25 +1318,18 @@
     function closeStickerModal() {
       const modal = document.getElementById('stickerShowcaseModal');
       if (modal) modal.style.display = 'none';
-      enteredPin = "";
-      updatePinDots();
-      const romEl = document.getElementById('romanticDisplay');
-      if (romEl) romEl.innerText = "";
+      resetPinInputImmediate();
     }
 
     function clearAppTracesOnExit() {
-      enteredPin = "";
       wrongPinCount = 0;
-      updatePinDots();
+      resetPinInputImmediate();
 
       const photoModal = document.getElementById('romanticPhotoModal');
       if (photoModal) photoModal.style.display = 'none';
 
       const stickerModal = document.getElementById('stickerShowcaseModal');
       if (stickerModal) stickerModal.style.display = 'none';
-
-      const romEl = document.getElementById('romanticDisplay');
-      if (romEl) romEl.innerText = "";
 
       const searchKw = document.getElementById('searchKeyword');
       if (searchKw) searchKw.value = '';
@@ -1342,49 +1350,63 @@
     function closeRomanticModal() {
       const modal = document.getElementById('romanticPhotoModal');
       if (modal) modal.style.display = 'none';
-      enteredPin = "";
-      updatePinDots();
+      resetPinInputImmediate();
+    }
+
+    function scheduleClearCode() {
+      if (clearCodeTimer) clearTimeout(clearCodeTimer);
+      clearCodeTimer = setTimeout(() => {
+        resetPinInputImmediate();
+      }, 3000);
     }
 
     function pressKey(val) {
       const romEl = document.getElementById('romanticDisplay');
       if (val === 'C') {
-        enteredPin = "";
-        if (romEl) romEl.innerText = "";
-        updatePinDots();
-      } else if (val === 'FLOWER') {
+        resetPinInputImmediate();
+        return;
+      }
+
+      if (val === 'FLOWER') {
         if (enteredPin === "1314") {
           const modal = document.getElementById('romanticPhotoModal');
           if (modal) modal.style.display = 'flex';
           if (romEl) romEl.innerHTML = "💖 <b>Anh Nhớ Em</b> 💖";
           return;
-        } else if (enteredPin === "11111") {
+        }
+        if (enteredPin === "11111") {
           if (romEl) romEl.innerHTML = "✨ 💖 <b>Anh</b> 💖 ✨";
-        } else if (enteredPin === "22222") {
+          scheduleClearCode();
+          return;
+        }
+        if (enteredPin === "22222") {
           if (romEl) romEl.innerHTML = "🌸 💓 <i>nhớ</i> 💓 🌸";
-        } else if (enteredPin === "33333") {
+          scheduleClearCode();
+          return;
+        }
+        if (enteredPin === "33333") {
           if (romEl) romEl.innerHTML = "💕 ✨ <b>em</b> ✨ 💕";
-        } else if (flowerStickerMap[enteredPin]) {
+          scheduleClearCode();
+          return;
+        }
+        if (flowerStickerMap[enteredPin]) {
           const item = flowerStickerMap[enteredPin];
           openStickerModal(item.src, item.caption);
           return;
-        } else {
-          openStickerModal("n6.jpg", "Yêu em thật nhiều! Nhập đúng mã kèm 🌸 để mở bí mật dễ thương nha 💕");
-          return;
         }
+        openStickerModal("n6.jpg", "Yêu em thật nhiều! Nhập đúng mã kèm 🌸 để mở bí mật dễ thương nha 💕");
+        return;
+      }
 
-        setTimeout(() => {
-          enteredPin = "";
-          updatePinDots();
-          if (romEl) romEl.innerText = "";
-        }, 3200);
-      } else {
-        if (enteredPin.length < 6) {
-          enteredPin += val;
-          updatePinDots();
-          if (enteredPin.length === 6) {
-            setTimeout(checkPinAndUnlock, 150);
-          }
+      if (enteredPin.length < 6) {
+        if (clearCodeTimer) {
+          clearTimeout(clearCodeTimer);
+          clearCodeTimer = null;
+        }
+        enteredPin += val;
+        updatePinDots();
+        if (enteredPin.length === 6) {
+          checkPinAndUnlock();
         }
       }
     }
@@ -1394,18 +1416,18 @@
         const lockEl = document.getElementById('lockScreen');
         if (lockEl) lockEl.style.display = 'none';
         wrongPinCount = 0;
+        resetPinInputImmediate();
         showToast('Mở khóa thành công! Chào Ái Nhuy 💕');
         unlockAudioContext();
         evaluateAlarms(true);
       } else {
         wrongPinCount++;
+        resetPinInputImmediate();
         if (wrongPinCount >= 4) {
           startWarningAlarm('🚨 CẢNH BÁO: NHẬP SAI MÃ QUÁ 4 LẦN!');
         } else {
           showToast('❌ Sai mật khẩu!');
         }
-        enteredPin = "";
-        updatePinDots();
       }
     }
 
@@ -1692,7 +1714,6 @@
       if (currentActiveList.length > 0) {
         currentGreetingIdx = (currentGreetingIdx + 1) % currentActiveList.length;
         displayCurrentGreeting();
-        showToast('Đã đổi câu chúc yêu thương 💕');
       }
     }
 
@@ -2136,22 +2157,46 @@
       exportToICSCalendarList(Array.from(selectedSyncWeeks).sort((a, b) => a - b));
     }
 
+    function escapeICS(str) {
+      return String(str || '')
+        .replace(/\\/g, '\\\\')
+        .replace(/\r\n|\r|\n/g, '\\n')
+        .replace(/,/g, '\\,')
+        .replace(/;/g, '\\;');
+    }
+
     function exportToICSCalendarList(weekIndices) {
       let events = [];
       const now = new Date();
-      const dtStamp = now.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
-      const pad = (n) => String(n).padStart(2, '0');
+      const pad2 = n => String(n).padStart(2, '0');
+      const dtStamp = `${now.getUTCFullYear()}${pad2(now.getUTCMonth() + 1)}${pad2(now.getUTCDate())}T${pad2(now.getUTCHours())}${pad2(now.getUTCMinutes())}${pad2(now.getUTCSeconds())}Z`;
+      const tzName = Intl.DateTimeFormat().resolvedOptions().timeZone || 'Asia/Ho_Chi_Minh';
 
-      function toICSLocalAndUTC(year, month, day, timeStr, addMinutes = 0) {
-        const [h, m] = timeStr.split(':').map(Number);
-        const localDate = new Date(year, month - 1, day, h || 0, (m || 0) + addMinutes, 0);
-        const localStr = `${localDate.getFullYear()}${pad(localDate.getMonth() + 1)}${pad(localDate.getDate())}T${pad(localDate.getHours())}${pad(localDate.getMinutes())}00`;
-        const utcStr = localDate.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
-        return { localStr, utcStr };
+      function toLocalICSString(year, month, day, timeStr, addMinutes = 0) {
+        const [h, m] = String(timeStr || '00:00').split(':').map(Number);
+        const dObj = new Date(year, month - 1, day, h || 0, (m || 0) + addMinutes, 0);
+        return `${dObj.getFullYear()}${pad2(dObj.getMonth() + 1)}${pad2(dObj.getDate())}T${pad2(dObj.getHours())}${pad2(dObj.getMinutes())}00`;
       }
 
-      function toICADateString(dateObj) {
-        return `${dateObj.getFullYear()}${pad(dateObj.getMonth() + 1)}${pad(dateObj.getDate())}`;
+      function buildDeepSleepAlarms(labelText) {
+        const safeDesc = escapeICS('BÁO THỨC CA TRỰC: ' + labelText);
+        return [
+          'BEGIN:VALARM',
+          'TRIGGER:PT0M',
+          'ACTION:DISPLAY',
+          `DESCRIPTION:${safeDesc}`,
+          'END:VALARM',
+          'BEGIN:VALARM',
+          'TRIGGER:PT2M',
+          'ACTION:DISPLAY',
+          `DESCRIPTION:${escapeICS('Nhắc lần 2 (+2 phút): ' + labelText)}`,
+          'END:VALARM',
+          'BEGIN:VALARM',
+          'TRIGGER:PT5M',
+          'ACTION:DISPLAY',
+          `DESCRIPTION:${escapeICS('Nhắc lần 3 (+5 phút): ' + labelText)}`,
+          'END:VALARM'
+        ].join('\r\n');
       }
 
       let count = 0;
@@ -2170,120 +2215,121 @@
           const y = dayDate.getFullYear();
           const m = dayDate.getMonth() + 1;
           const d = dayDate.getDate();
-
-          const dateStr = toICADateString(dayDate);
+          const dateStr = `${y}${pad2(m)}${pad2(d)}`;
 
           if (shift === 'off') {
-            count++;
-            const nextDayDate = new Date(dayDate);
-            nextDayDate.setDate(dayDate.getDate() + 1);
-            const nextDateStr = toICADateString(nextDayDate);
+            const nextDay = new Date(dayDate);
+            nextDay.setDate(dayDate.getDate() + 1);
+            const nextDateStr = `${nextDay.getFullYear()}${pad2(nextDay.getMonth() + 1)}${pad2(nextDay.getDate())}`;
 
+            count++;
             events.push([
               'BEGIN:VEVENT',
               `UID:shift-off-${dateStr}-${dayKey}-${count}@ainhuy.shift`,
               `DTSTAMP:${dtStamp}`,
               `DTSTART;VALUE=DATE:${dateStr}`,
               `DTEND;VALUE=DATE:${nextDateStr}`,
-              `SUMMARY:🔴 Off`,
-              `DESCRIPTION:Hôm nay Ái Nhuy Off nghỉ ngơi nhé!`,
-              `STATUS:CONFIRMED`,
+              'SUMMARY:Off 🔴',
+              'DESCRIPTION:Off 🔴',
+              'STATUS:CONFIRMED',
+              'TRANSP:TRANSPARENT',
               'END:VEVENT'
             ].join('\r\n'));
             continue;
           }
 
-          let rawIn, rawOut, summaryTitle, shiftLabel;
+          let rawIn, rawOut, shiftLabel;
           if (shift === 'ca1') {
             rawIn = shiftTimes.c1_in || '05:30';
             rawOut = shiftTimes.c1_out || '14:00';
-            summaryTitle = '🔵 Ca 1 (Sáng)';
             shiftLabel = 'Ca 1';
           } else if (shift === 'ca2') {
             rawIn = shiftTimes.c2_in || '16:30';
             rawOut = shiftTimes.c2_out || '22:00';
-            summaryTitle = '🟡 Ca 2 (Chiều)';
             shiftLabel = 'Ca 2';
           } else {
             rawIn = shiftTimes.hch_in || '08:00';
             rawOut = shiftTimes.hch_out || '17:00';
-            summaryTitle = '🟣 Ca Hành Chính';
             shiftLabel = 'H.Chính';
           }
 
-          const inSlot = toICSLocalAndUTC(y, m, d, rawIn, 0);
-          const outSlot = toICSLocalAndUTC(y, m, d, rawOut, 0);
+          const inLocal = toLocalICSString(y, m, d, rawIn, 0);
+          const outLocal = toLocalICSString(y, m, d, rawOut, 0);
+          const outEndLocal = toLocalICSString(y, m, d, rawOut, 15);
+
+          const inSummary = `⏰ ${shiftLabel} (${rawIn})`;
+          const outSummary = `🏁 Tan ${shiftLabel} (${rawOut})`;
 
           count++;
           events.push([
             'BEGIN:VEVENT',
-            `UID:shift-${shift}-in-${dateStr}-${dayKey}-${count}@ainhuy.shift`,
+            `UID:shift-in-${shift}-${dateStr}-${dayKey}-${count}@ainhuy.shift`,
             `DTSTAMP:${dtStamp}`,
-            `DTSTART:${inSlot.utcStr}`,
-            `DTEND:${inSlot.utcStr}`,
-            `SUMMARY:🔔 Vào ${shiftLabel} (${rawIn})`,
-            `DESCRIPTION:Đã đến giờ vào làm việc ${shiftLabel}.`,
-            `STATUS:CONFIRMED`,
-            'BEGIN:VALARM',
-            'TRIGGER:-PT0M',
-            'ACTION:DISPLAY',
-            `DESCRIPTION:Đến giờ vào ${shiftLabel}!`,
-            'END:VALARM',
+            `DTSTART;TZID=${tzName}:${inLocal}`,
+            `DTEND;TZID=${tzName}:${outLocal}`,
+            `SUMMARY:${escapeICS(inSummary)}`,
+            `DESCRIPTION:${escapeICS(inSummary)}`,
+            'PRIORITY:1',
+            'TRANSP:OPAQUE',
+            'X-APPLE-DEFAULT-ALARM:TRUE',
+            'STATUS:CONFIRMED',
+            buildDeepSleepAlarms(inSummary),
             'END:VEVENT'
           ].join('\r\n'));
 
           count++;
           events.push([
             'BEGIN:VEVENT',
-            `UID:shift-${shift}-out-${dateStr}-${dayKey}-${count}@ainhuy.shift`,
+            `UID:shift-out-${shift}-${dateStr}-${dayKey}-${count}@ainhuy.shift`,
             `DTSTAMP:${dtStamp}`,
-            `DTSTART:${outSlot.utcStr}`,
-            `DTEND:${outSlot.utcStr}`,
-            `SUMMARY:🏁 Tan ${shiftLabel} (${rawOut})`,
-            `DESCRIPTION:Đã hết giờ làm việc ${shiftLabel}.`,
-            `STATUS:CONFIRMED`,
-            'BEGIN:VALARM',
-            'TRIGGER:-PT0M',
-            'ACTION:DISPLAY',
-            `DESCRIPTION:Đã đến giờ tan ${shiftLabel}!`,
-            'END:VALARM',
-            'END:VEVENT'
-          ].join('\r\n'));
-
-          count++;
-          events.push([
-            'BEGIN:VEVENT',
-            `UID:shift-session-${shift}-${dateStr}-${dayKey}-${count}@ainhuy.shift`,
-            `DTSTAMP:${dtStamp}`,
-            `DTSTART:${inSlot.utcStr}`,
-            `DTEND:${outSlot.utcStr}`,
-            `SUMMARY:${summaryTitle}`,
-            `DESCRIPTION:Ca trực ${shiftLabel} từ ${rawIn} đến ${rawOut}.`,
-            `STATUS:CONFIRMED`,
+            `DTSTART;TZID=${tzName}:${outLocal}`,
+            `DTEND;TZID=${tzName}:${outEndLocal}`,
+            `SUMMARY:${escapeICS(outSummary)}`,
+            `DESCRIPTION:${escapeICS(outSummary)}`,
+            'PRIORITY:1',
+            'TRANSP:OPAQUE',
+            'X-APPLE-DEFAULT-ALARM:TRUE',
+            'STATUS:CONFIRMED',
+            buildDeepSleepAlarms(outSummary),
             'END:VEVENT'
           ].join('\r\n'));
         }
       });
 
+      const vtimezoneBlock = tzName === 'Asia/Ho_Chi_Minh' ? [
+        'BEGIN:VTIMEZONE',
+        'TZID:Asia/Ho_Chi_Minh',
+        'BEGIN:STANDARD',
+        'DTSTART:19700101T000000',
+        'TZOFFSETFROM:+0700',
+        'TZOFFSETTO:+0700',
+        'TZNAME:ICT',
+        'END:STANDARD',
+        'END:VTIMEZONE'
+      ].join('\r\n') : '';
+
       const icsHeader = [
         'BEGIN:VCALENDAR',
-        'PRODID:-//AiNhuy//AlarmShiftPro//VI',
+        'PRODID:-//AiNhuy//AlarmShiftExact//VI',
         'VERSION:2.0',
         'CALSCALE:GREGORIAN',
         'METHOD:PUBLISH',
+        `X-WR-TIMEZONE:${tzName}`,
         'X-WR-CALNAME:Lịch Ca Ái Nhuy',
-        'X-WR-TIMEZONE:Asia/Ho_Chi_Minh'
+        ...(vtimezoneBlock ? [vtimezoneBlock] : [])
       ].join('\r\n');
 
       const icsContent = `${icsHeader}\r\n${events.join('\r\n')}\r\nEND:VCALENDAR\r\n`;
       const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
+      const url = window.URL.createObjectURL(blob);
       const link = document.createElement('a');
-      link.href = window.URL.createObjectURL(blob);
+      link.href = url;
       link.setAttribute('download', 'lich_ca_ai_nhuy.ics');
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
-      showToast(`Đã xuất file .ics lịch nhắc ca chuẩn giờ!`);
+      setTimeout(() => window.URL.revokeObjectURL(url), 1000);
+      showToast(`Đã xuất ${count} mốc báo đúng giờ vào Lịch!`);
     }
 
     function saveIssue() {
@@ -2784,7 +2830,6 @@
 
     function handleAppBackgroundOrExit() {
       lockAppScreen();
-      const now = new Date();
       lastCheckTimestamp = Date.now();
     }
 

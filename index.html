@@ -13,13 +13,54 @@
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
-  <link id="faviconLink" rel="icon" type="image/jpeg" href="n1.1.jpg">
-  <link id="appleTouchIconLink" rel="apple-touch-icon" href="n1.1.jpg">
+  <link id="faviconLink" rel="icon" type="image/svg+xml">
+  <link id="appleTouchIconLink" rel="apple-touch-icon">
 
   <script>
+    function createFallbackArtDataUri(titleText = "Ái Nhuy 💕", subText = "Yêu thương mỗi ngày 🌸", bgStart = "#ff8fb3", bgEnd = "#b86adf") {
+      const safeTitle = String(titleText).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+      const safeSub = String(subText).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+      const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300">
+        <defs>
+          <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="${bgStart}"/>
+            <stop offset="55%" stop-color="#ffd1e3"/>
+            <stop offset="100%" stop-color="${bgEnd}"/>
+          </linearGradient>
+        </defs>
+        <rect width="400" height="300" rx="24" fill="url(#g)"/>
+        <circle cx="75" cy="65" r="26" fill="#fff7fa" fill-opacity="0.45"/>
+        <circle cx="330" cy="235" r="38" fill="#fff7fa" fill-opacity="0.35"/>
+        <path d="M200 220 C200 220 115 165 115 112 C115 84 137 64 164 64 C181 64 194 73 200 86 C206 73 219 64 236 64 C263 64 285 84 285 112 C285 165 200 220 200 220 Z" fill="#ff4d88" fill-opacity="0.9"/>
+        <text x="200" y="252" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#5e1634">${safeTitle}</text>
+        <text x="200" y="278" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="#7c284a">${safeSub}</text>
+      </svg>`;
+      return "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(svg);
+    }
+
+    const FALLBACK_MAIN_IMG = createFallbackArtDataUri("Ái Nhuy 💕", "Ngọt ngào & rạng rỡ 🌸", "#ff75a4", "#d95b96");
+    const FALLBACK_ROMANTIC_IMG = createFallbackArtDataUri("Anh Nhớ Em 💖", "Mãi bên nhau nhé ✨", "#f56ca2", "#9b6df0");
+    const FALLBACK_PUZZLE_IMG = createFallbackArtDataUri("Ghép Hình 12 Ô 🧩", "Chạm 2 ô để đổi chỗ 💕", "#ff7eb0", "#8e6cf0");
+
+    function attachSafeImageFallback(imgEl, fallbackSrc) {
+      if (!imgEl) return;
+      imgEl.dataset.fallbackSrc = fallbackSrc || FALLBACK_MAIN_IMG;
+      imgEl.addEventListener("error", function handleImgError() {
+        const fb = this.dataset.fallbackSrc || FALLBACK_MAIN_IMG;
+        if (this.src !== fb) {
+          this.src = fb;
+        }
+      });
+    }
+
     (function setupAppIdentityManifest() {
       try {
-        const iconHref = new URL('n1.1.jpg', window.location.href).href;
+        const iconHref = FALLBACK_MAIN_IMG;
+        const fav = document.getElementById("faviconLink");
+        const touch = document.getElementById("appleTouchIconLink");
+        if (fav) fav.href = iconHref;
+        if (touch) touch.href = iconHref;
+
         const manifestObj = {
           name: "Ái Nhuy",
           short_name: "Ái Nhuy",
@@ -31,12 +72,12 @@
             {
               src: iconHref,
               sizes: "192x192",
-              type: "image/jpeg"
+              type: "image/svg+xml"
             },
             {
               src: iconHref,
               sizes: "512x512",
-              type: "image/jpeg"
+              type: "image/svg+xml"
             }
           ]
         };
@@ -472,6 +513,7 @@
       border: 1.5px solid rgba(255, 255, 255, 0.85);
       background: #ffffff;
       flex-shrink: 0;
+      display: block;
     }
 
     .header-title-name {
@@ -807,6 +849,15 @@
       border-color: var(--primary-dark) !important;
     }
 
+    .tab-view-panel {
+      display: none;
+      width: 100%;
+    }
+
+    .tab-view-panel.is-active-tab {
+      display: block !important;
+    }
+
     .card-box {
       background: var(--card);
       border-radius: 18px;
@@ -822,15 +873,13 @@
     }
 
     .journal-heading {
-      font-size: 0.76rem;
+      font-size: 0.78rem;
       font-weight: 700;
       color: var(--journal-text);
       margin-bottom: 10px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
       width: 100%;
       text-align: center;
+      line-height: 1.35;
     }
 
     .btn-journal-submit {
@@ -1163,8 +1212,8 @@
       max-width: 348px;
       aspect-ratio: 4 / 3;
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      grid-template-rows: repeat(3, 1fr);
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-template-rows: repeat(3, minmax(0, 1fr));
       gap: 4px;
       background: var(--border);
       padding: 4px;
@@ -1177,9 +1226,11 @@
       background-repeat: no-repeat;
       cursor: pointer;
       position: relative;
-      border: 2px solid transparent;
+      border: 2px solid rgba(255, 255, 255, 0.7);
       transition: transform 0.12s ease, border-color 0.12s ease;
       overflow: hidden;
+      min-width: 0;
+      min-height: 0;
     }
 
     .puzzle-tile:active {
@@ -1197,7 +1248,7 @@
       position: absolute;
       top: 4px;
       right: 5px;
-      background: rgba(34, 163, 119, 0.88);
+      background: rgba(34, 163, 119, 0.9);
       color: #fff;
       font-size: 0.65rem;
       font-weight: 800;
@@ -1207,6 +1258,19 @@
       display: flex;
       align-items: center;
       justify-content: center;
+    }
+
+    .puzzle-complete-banner {
+      display: none;
+      margin-bottom: 10px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      background: #e6fbf2;
+      border: 1.5px solid #68d4ae;
+      color: #156d4e;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-align: center;
     }
 
     .puzzle-preview-box {
@@ -1225,6 +1289,7 @@
       object-fit: cover;
       border-radius: 12px;
       border: 2px solid var(--border);
+      display: inline-block;
     }
 
     #toast {
@@ -1256,7 +1321,7 @@
 
   <div id="romanticPhotoModal">
     <div class="romantic-modal-card">
-      <img src="t2.jpg" alt="Nhân vật nam" class="romantic-modal-img">
+      <img id="romanticModalImg" src="t2.jpg" alt="Nhân vật nam" class="romantic-modal-img">
       <div class="romantic-modal-title">Anh Nhớ Em 💕</div>
       <button class="romantic-modal-btn" onclick="closeRomanticModal()">💖 Đóng Lại 💖</button>
     </div>
@@ -1315,7 +1380,7 @@
 
   <header>
     <div class="header-brand">
-      <img src="n1.1.jpg" alt="Ái Nhuy" class="header-avatar-img">
+      <img id="headerAvatarImg" src="n1.1.jpg" alt="Ái Nhuy" class="header-avatar-img">
       <h1><span class="header-title-name">Ái Nhuy</span></h1>
     </div>
     <div class="header-btns">
@@ -1381,7 +1446,7 @@
       <button class="nav-tab-btn" id="tabBtn-puzzle" onclick="switchView('puzzle')">🧩 Ghép Hình</button>
     </div>
 
-    <div id="view-shifts">
+    <div id="view-shifts" class="tab-view-panel is-active-tab">
       <div class="week-table-card">
         <div class="month-shift-summary" id="monthShiftSummary">Thống kê tháng: Đang cập nhật...</div>
 
@@ -1452,7 +1517,7 @@
       </div>
     </div>
 
-    <div id="view-journal" style="display:none;">
+    <div id="view-journal" class="tab-view-panel">
       <div class="card-box card-journal">
         <div class="journal-heading">💌 Ghi Nhật Ký Tình Yêu & Công Việc Trong Ngày</div>
         <div class="row form-group">
@@ -1498,7 +1563,7 @@
       <div id="journalListContainer"></div>
     </div>
 
-    <div id="view-issues" style="display:none;">
+    <div id="view-issues" class="tab-view-panel">
       <div class="card-box" style="border-left: 4px solid var(--purple);">
         <div class="form-group">
           <label>Tên công việc / Sự cố</label>
@@ -1527,7 +1592,7 @@
       <div id="issuesList"></div>
     </div>
 
-    <div id="view-puzzle" style="display:none;">
+    <div id="view-puzzle" class="tab-view-panel">
       <div class="card-box">
         <div class="journal-heading">🧩 Ghép Hình 12 Khung (Chạm 2 ô để đổi chỗ)</div>
 
@@ -1541,6 +1606,10 @@
         <div class="puzzle-status-bar">
           <span id="puzzleProgressText">Đúng: 0/12 ô</span>
           <span id="puzzleMovesText">Số lần đổi: 0</span>
+        </div>
+
+        <div class="puzzle-complete-banner" id="puzzleCompleteBanner">
+          🎉 Tuyệt vời! Bạn đã ghép hoàn chỉnh 12/12 ô!
         </div>
 
         <div class="puzzle-board-wrap">
@@ -1598,13 +1667,13 @@
     let clearCodeTimer = null;
 
     const flowerStickerMap = {
-      "00000": { src: "n1.1.jpg", caption: "Xin chào cô gái dễ thương nhất hệ mặt trời! Hôm nay có nhớ anh một xíu nào không ta? 😄💕" },
-      "44444": { src: "n15.jpg", caption: "Bắn tim chí mạng vào trái tim Ái Nhuy đây! Đỡ không trượt phát nào luôn nhé 😘💖" },
-      "55555": { src: "n12.jpg", caption: "Moah moah! Gửi liền một chùm hôn gió ngọt lịm cho người yêu xinh đẹp của anh 💋🌸" },
-      "66666": { src: "n10.jpg", caption: "Thương bấy nhiêu cho vừa đây trời! Thương nhiều tới mức tràn bộ nhớ luôn rồi nè 🥰❤️" },
-      "77777": { src: "n8.jpg", caption: "Đang làm việc hay đi đâu cũng chợt nhớ anh hoài vậy hả cô bé? Anh cũng nhớ em lắm! 💭💕" },
-      "88888": { src: "n9.jpg", caption: "Báo cáo khẩn: Shipper mang yêu thương và hoa hồng đang chạy hết tốc lực tới bên em đây! 🌹🏃‍♂️" },
-      "99999": { src: "n7.jpg", caption: "Chúc em ngủ ngon cuộn tròn ấm áp, mơ thấy anh và sáng mai dậy cười thật tươi nha! 🌙😴💖" }
+      "00000": { src: "n1.1.jpg", fallback: createFallbackArtDataUri("Chào Ái Nhuy 😄", "Nhớ anh xíu nào không? 💕", "#ff85ad", "#ffbfd4"), caption: "Xin chào cô gái dễ thương nhất hệ mặt trời! Hôm nay có nhớ anh một xíu nào không ta? 😄💕" },
+      "44444": { src: "n15.jpg", fallback: createFallbackArtDataUri("Bắn Tim 😘", "Đỡ không trượt phát nào 💖", "#ff5e93", "#ffc2d9"), caption: "Bắn tim chí mạng vào trái tim Ái Nhuy đây! Đỡ không trượt phát nào luôn nhé 😘💖" },
+      "55555": { src: "n12.jpg", fallback: createFallbackArtDataUri("Moah Moah 💋", "Hôn gió ngọt lịm 🌸", "#ff75a4", "#ffe0ec"), caption: "Moah moah! Gửi liền một chùm hôn gió ngọt lịm cho người yêu xinh đẹp của anh 💋🌸" },
+      "66666": { src: "n10.jpg", fallback: createFallbackArtDataUri("Thương Nhiều 🥰", "Tràn bộ nhớ luôn rồi ❤️", "#f25c8a", "#ffd1e3"), caption: "Thương bấy nhiêu cho vừa đây trời! Thương nhiều tới mức tràn bộ nhớ luôn rồi nè 🥰❤️" },
+      "77777": { src: "n8.jpg", fallback: createFallbackArtDataUri("Nhớ Em 💭", "Anh cũng nhớ em lắm 💕", "#b37feb", "#f0e6ff"), caption: "Đang làm việc hay đi đâu cũng chợt nhớ anh hoài vậy hả cô bé? Anh cũng nhớ em lắm! 💭💕" },
+      "88888": { src: "n9.jpg", fallback: createFallbackArtDataUri("Ship Yêu Thương 🌹", "Đang chạy hết tốc lực 🏃‍♂️", "#ff6699", "#ffe3ec"), caption: "Báo cáo khẩn: Shipper mang yêu thương và hoa hồng đang chạy hết tốc lực tới bên em đây! 🌹🏃‍♂️" },
+      "99999": { src: "n7.jpg", fallback: createFallbackArtDataUri("Ngủ Ngon Nha 🌙", "Mơ thấy anh nhé 💖", "#7c5dfa", "#e8e0ff"), caption: "Chúc em ngủ ngon cuộn tròn ấm áp, mơ thấy anh và sáng mai dậy cười thật tươi nha! 🌙😴💖" }
     };
 
     function resetPinInputImmediate() {
@@ -1618,12 +1687,13 @@
       if (romEl) romEl.innerHTML = "";
     }
 
-    function openStickerModal(src, caption) {
+    function openStickerModal(src, caption, fallbackSrc = FALLBACK_MAIN_IMG) {
       const modal = document.getElementById('stickerShowcaseModal');
       const imgEl = document.getElementById('stickerShowcaseImg');
       const capEl = document.getElementById('stickerShowcaseCaption');
       if (modal && imgEl && capEl) {
-        if (imgEl.getAttribute('src') !== src) imgEl.src = src;
+        imgEl.dataset.fallbackSrc = fallbackSrc;
+        imgEl.src = src;
         capEl.innerText = caption;
         modal.style.display = 'flex';
       }
@@ -1700,10 +1770,10 @@
         }
         if (flowerStickerMap[enteredPin]) {
           const item = flowerStickerMap[enteredPin];
-          openStickerModal(item.src, item.caption);
+          openStickerModal(item.src, item.caption, item.fallback);
           return;
         }
-        openStickerModal("n6.jpg", "Yêu em thật nhiều! Nhập đúng mã kèm 🌸 để mở bí mật dễ thương nha 💕");
+        openStickerModal("n6.jpg", "Yêu em thật nhiều! Nhập đúng mã kèm 🌸 để mở bí mật dễ thương nha 💕", FALLBACK_MAIN_IMG);
         return;
       }
 
@@ -1851,7 +1921,7 @@
       writeString(view, 0, 'RIFF');
       view.setUint32(4, 36 + numSamples * 2, true);
       writeString(view, 8, 'WAVE');
-      view.setUint32(12, 'fmt ');
+      writeString(view, 12, 'fmt ');
       view.setUint32(16, 16, true);
       view.setUint16(20, 1, true);
       view.setUint16(22, 1, true);
@@ -1883,9 +1953,6 @@
     let alarmAudioBlobUrl = null;
     let warningAudioBlobUrl = null;
 
-    // =========================================================================
-    // PHÂN BỐ CÂU CHÚC THEO 5 KHUNG GIỜ (PHỦ TRỌN 24H) + TÂM TRẠNG
-    // =========================================================================
     const moodQuotes = {
       sweet: [
         { title: "Chào tình yêu của anh! 💕", quote: "Chúc Ái Nhuy luôn vui vẻ, làm gì cũng suôn sẻ và luôn nhớ rằng anh thương em nhiều lắm." },
@@ -1906,31 +1973,31 @@
     };
 
     const wishesByTime = {
-      earlyMorning: [ // 05:00 - 08:59 (Sáng sớm)
+      earlyMorning: [
         { title: "Chào buổi sáng tình yêu! ☀️", quote: "Chào buổi sáng tình yêu của anh! Chúc em ngày mới ngập tràn năng lượng và gặp nhiều may mắn nhé. 💕" },
         { title: "Ái Nhuy ơi, dậy thôi nào! 🌸", quote: "Ái Nhuy ơi, buổi sáng lành mạnh tới rồi! Chúc em ngày mới rạng rỡ và suôn sẻ nha." },
         { title: "Năng lượng sáng sớm nhé! ⚡", quote: "Bắt đầu ngày mới với nụ cười tươi và nguồn năng lượng tích cực nhất em nhé!" },
         { title: "Khởi đầu mới suôn sẻ! 🌅", quote: "Chúc tình yêu của anh buổi sáng tốt lành, mọi việc đầu ngày diễn ra thật thuận lợi." }
       ],
-      midday: [ // 09:00 - 13:59 (Trưa & đầu trưa)
+      midday: [
         { title: "Nhớ em nhiều lắm! 💖", quote: "Giữa ngày bận rộn, hình bóng của em vẫn luôn ở trong tim anh. Nhớ và thương Ái Nhuy vô cùng!" },
         { title: "Ăn trưa đầy đủ nhé! 🍲", quote: "Tới tầm trưa rồi, em nhớ ăn uống đúng giờ và đủ chất nha, không được bỏ bữa đâu đấy!" },
         { title: "Giữ gìn sức khỏe nha! 🍎", quote: "Sức khỏe là vốn quý nhất. Em nhớ uống đủ nước và nghỉ mắt giữa ngày nhé." },
         { title: "Buổi trưa an lành! 🌤️", quote: "Chúc em buổi trưa ngon miệng, nạp đủ năng lượng để tiếp tục ngày mới thật nhẹ nhàng." }
       ],
-      afternoon: [ // 14:00 - 17:59 (Buổi chiều)
+      afternoon: [
         { title: "Chiều nay suôn sẻ nhé! 🚀", quote: "Chúc em xử lý công việc buổi chiều cực kỳ mượt mà, suôn sẻ và giữ tinh thần thoải mái." },
         { title: "Thương em vất vả! 🥰", quote: "Thương cô gái nhỏ của anh chăm chỉ cả ngày. Nhớ giãn vai và uống thêm chút nước nhé em." },
         { title: "Giữ nhịp năng lượng nha! ☕", quote: "Buổi chiều dễ buồn ngủ, nhớ vươn vai nhẹ một cái và cười thật tươi nhé Ái Nhuy!" },
         { title: "Chiều dịu dàng gửi em! 🌇", quote: "Mong buổi chiều của em trôi qua êm ả, không áp lực và nhiều điều dễ thương." }
       ],
-      evening: [ // 18:00 - 21:59 (Buổi tối)
+      evening: [
         { title: "Buổi tối ấm áp nhé! 🍲", quote: "Chúc bữa tối của em thật ngon miệng và có khoảng thời gian thư giãn thật dễ chịu." },
         { title: "Xả hơi thôi nào! 🛋️", quote: "Buổi tối đến rồi, hãy gác lại những lo toan ban ngày để tận hưởng phút giây bình yên nha." },
         { title: "Xua tan căng thẳng! 🌠", quote: "Mong rằng buổi tối của em sẽ trôi qua thật nhẹ nhàng, xua tan mọi mệt mỏi trong ngày." },
         { title: "Tối ngọt ngào gửi em! 💕", quote: "Tối nay nhớ giữ ấm cơ thể và dành thời gian nghỉ ngơi cho bản thân nhé tình yêu của anh." }
       ],
-      lateNight: [ // 22:00 - 04:59 (Khuya & rạng sáng)
+      lateNight: [
         { title: "Ngủ ngon nhé tình yêu! 🌙", quote: "Khuya rồi, chúc tình yêu của anh ngủ thật ngon và có những giấc mơ thật đẹp nhé. 💕" },
         { title: "Chúc mơ thấy anh! 💭", quote: "Đắp chăn ấm áp và ngủ thật sâu em nha, trong giấc mơ đêm nay nhớ ghé sang thăm anh đấy." },
         { title: "Giấc ngủ bình yên! 🌌", quote: "Chúc em có một đêm ngon giấc, xua tan mọi mỏi mệt để thức dậy thật tươi tắn." },
@@ -2025,9 +2092,6 @@
       }
     }
 
-    // =========================================================================
-    // PHÂN BỐ ICON THỜI TIẾT THEO KHUNG GIỜ + GPS MỖI LẦN BẬT APP
-    // =========================================================================
     const weatherStates = [
       { type: 'sunny', label: '☀️ Trời nắng rực rỡ' },
       { type: 'fair', label: '☁️ Trời âm u, nhiều mây' },
@@ -2243,15 +2307,22 @@
       ['shifts', 'journal', 'issues', 'puzzle'].forEach(t => {
         const viewEl = document.getElementById(`view-${t}`);
         const btnEl = document.getElementById(`tabBtn-${t}`);
-        if (viewEl) viewEl.style.display = (t === tab) ? 'block' : 'none';
+        const isCurrent = (t === tab);
+        if (viewEl) {
+          viewEl.classList.toggle('is-active-tab', isCurrent);
+          viewEl.style.display = isCurrent ? 'block' : 'none';
+        }
         if (btnEl) {
           btnEl.classList.remove('active', 'active-journal');
-          if (t === tab) {
+          if (isCurrent) {
             if (t === 'journal') btnEl.classList.add('active-journal');
             else btnEl.classList.add('active');
           }
         }
       });
+      if (tab === 'puzzle') {
+        renderPuzzleBoard();
+      }
     }
 
     function updateGreetingHeader() {
@@ -2552,9 +2623,6 @@
       exportToICSCalendarList(Array.from(selectedSyncWeeks).sort((a, b) => a - b));
     }
 
-    // =========================================================================
-    // ĐỒNG BỘ MÃ FILE ICS TỪ INDEX.HTML
-    // =========================================================================
     function escapeICS(str) {
       return String(str || '')
         .replace(/\\/g, '\\\\')
@@ -2845,9 +2913,33 @@
     const PUZZLE_TOTAL = PUZZLE_COLS * PUZZLE_ROWS;
 
     let puzzleImageSrc = "n1.1.jpg";
+    let puzzleActiveRenderSrc = FALLBACK_PUZZLE_IMG;
     let puzzleBoard = Array.from({ length: PUZZLE_TOTAL }, (_, i) => i);
     let puzzleSelectedIndex = null;
     let puzzleMoves = 0;
+
+    function resolvePuzzleSource(srcToCheck, callback) {
+      if (!srcToCheck) {
+        callback(FALLBACK_PUZZLE_IMG);
+        return;
+      }
+      if (srcToCheck.startsWith("data:")) {
+        callback(srcToCheck);
+        return;
+      }
+      const probe = new Image();
+      probe.onload = function () {
+        if (probe.naturalWidth > 0 && probe.naturalHeight > 0) {
+          callback(srcToCheck);
+        } else {
+          callback(FALLBACK_PUZZLE_IMG);
+        }
+      };
+      probe.onerror = function () {
+        callback(FALLBACK_PUZZLE_IMG);
+      };
+      probe.src = srcToCheck;
+    }
 
     function triggerPuzzleImageUpload() {
       const inp = document.getElementById('puzzleImageInput');
@@ -2859,9 +2951,13 @@
       if (!file) return;
       const reader = new FileReader();
       reader.onload = function () {
-        puzzleImageSrc = String(reader.result || 'n1.1.jpg');
+        puzzleImageSrc = String(reader.result || FALLBACK_PUZZLE_IMG);
+        puzzleActiveRenderSrc = puzzleImageSrc;
         const previewImg = document.getElementById('puzzlePreviewImg');
-        if (previewImg) previewImg.src = puzzleImageSrc;
+        if (previewImg) {
+          previewImg.dataset.fallbackSrc = FALLBACK_PUZZLE_IMG;
+          previewImg.src = puzzleImageSrc;
+        }
         shufflePuzzleTiles();
         showToast('Đã nạp ảnh mới vào 12 khung ghép!');
       };
@@ -2886,11 +2982,16 @@
 
     function togglePuzzlePreview() {
       const box = document.getElementById('puzzlePreviewBox');
+      const previewImg = document.getElementById('puzzlePreviewImg');
+      if (previewImg && !previewImg.src) {
+        previewImg.dataset.fallbackSrc = FALLBACK_PUZZLE_IMG;
+        previewImg.src = puzzleActiveRenderSrc;
+      }
       if (!box) return;
       box.style.display = (box.style.display === 'block') ? 'none' : 'block';
     }
 
-    function renderPuzzleBoard() {
+    function paintPuzzleTiles() {
       const grid = document.getElementById('puzzleGrid12');
       if (!grid) return;
       grid.innerHTML = '';
@@ -2907,7 +3008,7 @@
 
         const tile = document.createElement('div');
         tile.className = `puzzle-tile ${puzzleSelectedIndex === slotIdx ? 'selected' : ''} ${isCorrect ? 'correct-slot' : ''}`;
-        tile.style.backgroundImage = `url("${puzzleImageSrc}")`;
+        tile.style.backgroundImage = `url("${puzzleActiveRenderSrc}")`;
         tile.style.backgroundSize = `${PUZZLE_COLS * 100}% ${PUZZLE_ROWS * 100}%`;
         tile.style.backgroundPosition = `${posX}% ${posY}%`;
         tile.onclick = () => onPuzzleTileClick(slotIdx);
@@ -2916,23 +3017,35 @@
 
       const progEl = document.getElementById('puzzleProgressText');
       const moveEl = document.getElementById('puzzleMovesText');
+      const completeBanner = document.getElementById('puzzleCompleteBanner');
       if (progEl) progEl.textContent = `Đúng: ${correctCount}/${PUZZLE_TOTAL} ô`;
       if (moveEl) moveEl.textContent = `Số lần đổi: ${puzzleMoves}`;
+
+      if (completeBanner) {
+        completeBanner.style.display = (correctCount === PUZZLE_TOTAL && puzzleMoves > 0) ? 'block' : 'none';
+      }
 
       if (correctCount === PUZZLE_TOTAL && puzzleMoves > 0) {
         showToast(`🎉 Xuất sắc! Ghép xong ${PUZZLE_TOTAL} ô sau ${puzzleMoves} lần đổi!`);
       }
     }
 
+    function renderPuzzleBoard() {
+      resolvePuzzleSource(puzzleImageSrc, function (resolvedSrc) {
+        puzzleActiveRenderSrc = resolvedSrc;
+        paintPuzzleTiles();
+      });
+    }
+
     function onPuzzleTileClick(slotIdx) {
       if (puzzleSelectedIndex === null) {
         puzzleSelectedIndex = slotIdx;
-        renderPuzzleBoard();
+        paintPuzzleTiles();
         return;
       }
       if (puzzleSelectedIndex === slotIdx) {
         puzzleSelectedIndex = null;
-        renderPuzzleBoard();
+        paintPuzzleTiles();
         return;
       }
       const temp = puzzleBoard[puzzleSelectedIndex];
@@ -2940,7 +3053,14 @@
       puzzleBoard[slotIdx] = temp;
       puzzleSelectedIndex = null;
       puzzleMoves++;
-      renderPuzzleBoard();
+      paintPuzzleTiles();
+    }
+
+    function initSafeImages() {
+      attachSafeImageFallback(document.getElementById("headerAvatarImg"), FALLBACK_MAIN_IMG);
+      attachSafeImageFallback(document.getElementById("romanticModalImg"), FALLBACK_ROMANTIC_IMG);
+      attachSafeImageFallback(document.getElementById("stickerShowcaseImg"), FALLBACK_MAIN_IMG);
+      attachSafeImageFallback(document.getElementById("puzzlePreviewImg"), FALLBACK_PUZZLE_IMG);
     }
 
     function updateDashboard() {
@@ -3059,7 +3179,7 @@
       if (!("Notification" in window) || Notification.permission !== "granted") return;
       const notiOptions = {
         body: body || 'Nhấn để mở ứng dụng Ái Nhuy',
-        icon: "n1.1.jpg",
+        icon: FALLBACK_MAIN_IMG,
         vibrate: [1000, 300, 1000, 300, 1500],
         requireInteraction: true,
         tag: 'shift-alarm'
@@ -3419,7 +3539,9 @@
 
     document.addEventListener('DOMContentLoaded', () => {
       applyTheme(currentTheme);
+      initSafeImages();
       lockAppScreen();
+      switchView('shifts');
       updateGreetingHeader();
       initWeatherDetection();
       initMonthWeeksDropdown();

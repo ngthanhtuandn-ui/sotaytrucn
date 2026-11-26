@@ -13,54 +13,13 @@
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
-  <link id="faviconLink" rel="icon" type="image/svg+xml">
-  <link id="appleTouchIconLink" rel="apple-touch-icon">
+  <link id="faviconLink" rel="icon" type="image/jpeg" href="n1.jpg">
+  <link id="appleTouchIconLink" rel="apple-touch-icon" href="n1.jpg">
 
   <script>
-    function createFallbackArtDataUri(titleText = "Ái Nhuy 💕", subText = "Yêu thương mỗi ngày 🌸", bgStart = "#ff8fb3", bgEnd = "#b86adf") {
-      const safeTitle = String(titleText).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
-      const safeSub = String(subText).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
-      const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300">
-        <defs>
-          <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="${bgStart}"/>
-            <stop offset="55%" stop-color="#ffd1e3"/>
-            <stop offset="100%" stop-color="${bgEnd}"/>
-          </linearGradient>
-        </defs>
-        <rect width="400" height="300" rx="24" fill="url(#g)"/>
-        <circle cx="75" cy="65" r="26" fill="#fff7fa" fill-opacity="0.45"/>
-        <circle cx="330" cy="235" r="38" fill="#fff7fa" fill-opacity="0.35"/>
-        <path d="M200 220 C200 220 115 165 115 112 C115 84 137 64 164 64 C181 64 194 73 200 86 C206 73 219 64 236 64 C263 64 285 84 285 112 C285 165 200 220 200 220 Z" fill="#ff4d88" fill-opacity="0.9"/>
-        <text x="200" y="252" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#5e1634">${safeTitle}</text>
-        <text x="200" y="278" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="#7c284a">${safeSub}</text>
-      </svg>`;
-      return "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(svg);
-    }
-
-    const FALLBACK_MAIN_IMG = createFallbackArtDataUri("Ái Nhuy 💕", "Ngọt ngào & rạng rỡ 🌸", "#ff75a4", "#d95b96");
-    const FALLBACK_ROMANTIC_IMG = createFallbackArtDataUri("Anh Nhớ Em 💖", "Mãi bên nhau nhé ✨", "#f56ca2", "#9b6df0");
-    const FALLBACK_PUZZLE_IMG = createFallbackArtDataUri("Ghép Hình 12 Ô 🧩", "Chạm 2 ô để đổi chỗ 💕", "#ff7eb0", "#8e6cf0");
-
-    function attachSafeImageFallback(imgEl, fallbackSrc) {
-      if (!imgEl) return;
-      imgEl.dataset.fallbackSrc = fallbackSrc || FALLBACK_MAIN_IMG;
-      imgEl.addEventListener("error", function handleImgError() {
-        const fb = this.dataset.fallbackSrc || FALLBACK_MAIN_IMG;
-        if (this.src !== fb) {
-          this.src = fb;
-        }
-      });
-    }
-
     (function setupAppIdentityManifest() {
       try {
-        const iconHref = FALLBACK_MAIN_IMG;
-        const fav = document.getElementById("faviconLink");
-        const touch = document.getElementById("appleTouchIconLink");
-        if (fav) fav.href = iconHref;
-        if (touch) touch.href = iconHref;
-
+        const iconHref = new URL('n1.jpg', window.location.href).href;
         const manifestObj = {
           name: "Ái Nhuy",
           short_name: "Ái Nhuy",
@@ -72,12 +31,12 @@
             {
               src: iconHref,
               sizes: "192x192",
-              type: "image/svg+xml"
+              type: "image/jpeg"
             },
             {
               src: iconHref,
               sizes: "512x512",
-              type: "image/svg+xml"
+              type: "image/jpeg"
             }
           ]
         };
@@ -157,7 +116,6 @@
       --primary-dark: #b52b5b;
       --accent: #ff85ad;
       --bg: #fff5f8;
-      --bg-grad: linear-gradient(165deg, #ffe6ef 0%, #fff6f9 48%, #f4ebff 100%);
       --card: #ffffff;
       --text: #3b1c28;
       --muted: #7c495d;
@@ -168,37 +126,6 @@
       --journal-bg: #fff3f7;
       --journal-border: #f5bfd2;
       --journal-text: #a62c58;
-      --header-grad: linear-gradient(120deg, #c93368 0%, #eb5c8d 55%, #ff85ad 100%);
-    }
-
-    body[data-theme="lavender"] {
-      --primary: #8b5cf6;
-      --primary-dark: #6d28d9;
-      --accent: #a78bfa;
-      --bg: #f6f3ff;
-      --bg-grad: linear-gradient(165deg, #ede7ff 0%, #faf8ff 50%, #ffeef6 100%);
-      --text: #2c1d4a;
-      --muted: #674ea7;
-      --border: #dcd2fa;
-      --journal-bg: #f5f0ff;
-      --journal-border: #d6c9fa;
-      --journal-text: #5b21b6;
-      --header-grad: linear-gradient(120deg, #6d28d9 0%, #8b5cf6 55%, #a78bfa 100%);
-    }
-
-    body[data-theme="peach"] {
-      --primary: #e87a5d;
-      --primary-dark: #b84a27;
-      --accent: #ffa07a;
-      --bg: #fff7f2;
-      --bg-grad: linear-gradient(165deg, #ffeadf 0%, #fffaf7 50%, #fff0f5 100%);
-      --text: #3e2219;
-      --muted: #855242;
-      --border: #fad3c2;
-      --journal-bg: #fff4ee;
-      --journal-border: #f7cbb8;
-      --journal-text: #9e3d1e;
-      --header-grad: linear-gradient(120deg, #c85232 0%, #e87a5d 55%, #ffa07a 100%);
     }
 
     * {
@@ -210,7 +137,7 @@
     }
 
     body {
-      background: var(--bg-grad);
+      background: linear-gradient(165deg, #ffe6ef 0%, #fff6f9 48%, #f4ebff 100%);
       color: var(--text);
       padding-bottom: 90px;
       min-height: 100vh;
@@ -306,7 +233,7 @@
       animation: modalPop 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
 
-    #stickerShowcaseModal, #funModal {
+    #stickerShowcaseModal {
       display: none;
       position: fixed;
       inset: 0;
@@ -394,7 +321,7 @@
     .romantic-modal-title {
       font-size: 1.35rem;
       font-weight: 800;
-      color: var(--primary-dark);
+      color: #c22b60;
       margin-bottom: 12px;
       font-family: "Times New Roman", Times, serif;
       font-style: italic;
@@ -485,7 +412,7 @@
     }
 
     header {
-      background: var(--header-grad);
+      background: linear-gradient(120deg, #c93368 0%, #eb5c8d 55%, #ff85ad 100%);
       color: white;
       padding: 12px 16px;
       position: sticky;
@@ -496,24 +423,6 @@
       justify-content: space-between;
       align-items: center;
       gap: 6px;
-    }
-
-    .header-brand {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      min-width: 0;
-    }
-
-    .header-avatar-img {
-      width: 30px;
-      height: 30px;
-      border-radius: 9px;
-      object-fit: cover;
-      border: 1.5px solid rgba(255, 255, 255, 0.85);
-      background: #ffffff;
-      flex-shrink: 0;
-      display: block;
     }
 
     .header-title-name {
@@ -546,7 +455,7 @@
       background: rgba(255, 255, 255, 0.24);
       border: 1px solid rgba(255, 255, 255, 0.45);
       color: white;
-      padding: 6px 10px;
+      padding: 6px 12px;
       border-radius: 8px;
       font-size: 0.72rem;
       cursor: pointer;
@@ -579,11 +488,11 @@
     }
 
     .greeting-banner {
-      background: linear-gradient(135deg, #ffffff 0%, var(--bg) 100%);
+      background: linear-gradient(135deg, #ffffff 0%, #fff0f6 100%);
       border: 1.5px solid var(--border);
       border-radius: 20px;
       padding: 14px 16px;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
       box-shadow: 0 6px 20px rgba(214, 58, 114, 0.08);
       display: flex;
       align-items: center;
@@ -610,7 +519,7 @@
     .greeting-quote {
       font-size: 0.84rem;
       font-weight: 600;
-      color: var(--journal-text);
+      color: #a62c58;
       line-height: 1.38;
     }
 
@@ -625,50 +534,6 @@
       font-size: 0.73rem;
       color: var(--muted);
       font-weight: 600;
-    }
-
-    .mood-strip {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 6px;
-      margin-bottom: 12px;
-      flex-wrap: wrap;
-    }
-
-    .mood-pills {
-      display: flex;
-      gap: 5px;
-      flex-wrap: wrap;
-      flex: 1;
-    }
-
-    .mood-btn {
-      background: var(--card);
-      border: 1.5px solid var(--border);
-      color: var(--muted);
-      border-radius: 20px;
-      padding: 5px 10px;
-      font-size: 0.72rem;
-      font-weight: 600;
-      cursor: pointer;
-    }
-
-    .mood-btn.active {
-      background: var(--primary);
-      color: #fff;
-      border-color: var(--primary-dark);
-    }
-
-    .fun-action-btn {
-      background: var(--journal-bg);
-      border: 1.5px solid var(--journal-border);
-      color: var(--primary-dark);
-      border-radius: 20px;
-      padding: 5px 11px;
-      font-size: 0.72rem;
-      font-weight: 700;
-      cursor: pointer;
     }
 
     .weather-widget {
@@ -759,8 +624,8 @@
 
     .stats-grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 8px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
       margin-bottom: 12px;
     }
 
@@ -768,12 +633,12 @@
       background: var(--card);
       border: 1.5px solid var(--border);
       border-radius: 16px;
-      padding: 10px 11px;
+      padding: 12px 14px;
       box-shadow: 0 4px 14px rgba(214, 58, 114, 0.06);
     }
 
-    .stat-label { color: var(--muted); font-size: 0.7rem; font-weight: 600; }
-    .stat-value { font-size: 1.15rem; font-weight: 700; margin-top: 2px; color: var(--primary-dark); }
+    .stat-label { color: var(--muted); font-size: 0.74rem; font-weight: 600; }
+    .stat-value { font-size: 1.25rem; font-weight: 700; margin-top: 2px; color: var(--primary-dark); }
 
     #alarmBanner {
       display: none;
@@ -795,12 +660,12 @@
     }
 
     .alarm-content { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
-    .alarm-title { font-weight: 700; font-size: 0.92rem; }
+    .alarm-title { font-weight: 700; font-size: 0.95rem; }
     .btn-stop-alarm {
       background: #ffffff;
       color: #c9224e;
       border: none;
-      padding: 9px 14px;
+      padding: 9px 16px;
       border-radius: 10px;
       font-weight: 700;
       cursor: pointer;
@@ -810,28 +675,28 @@
 
     .nav-tabs {
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 6px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 7px;
       margin-bottom: 12px;
     }
 
     .nav-tab-btn {
-      padding: 9px 4px;
+      padding: 10px 6px;
       border-radius: 12px;
-      border: 1.5px solid var(--border);
-      background: var(--bg);
-      font-size: 0.74rem;
+      border: 1.5px solid #f5bfd2;
+      background: #fff4f8;
+      font-size: 0.78rem;
       font-weight: 600;
-      color: var(--muted);
+      color: #8c3d59;
       cursor: pointer;
       text-align: center;
       transition: all 0.2s ease;
     }
 
     .nav-tab-btn.active {
-      background: linear-gradient(135deg, var(--accent), var(--primary-dark));
+      background: linear-gradient(135deg, #ff6b9d, #d63a72);
       color: #ffffff;
-      border-color: var(--primary-dark);
+      border-color: #c93368;
       box-shadow: 0 4px 12px rgba(214, 58, 114, 0.25);
     }
 
@@ -840,22 +705,13 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      line-height: 1.18;
+      line-height: 1.22;
     }
 
     .nav-tab-btn.active-journal {
-      background: linear-gradient(135deg, var(--accent), var(--primary)) !important;
+      background: linear-gradient(135deg, #ff85ad, #e0487c) !important;
       color: #ffffff !important;
-      border-color: var(--primary-dark) !important;
-    }
-
-    .tab-view-panel {
-      display: none;
-      width: 100%;
-    }
-
-    .tab-view-panel.is-active-tab {
-      display: block !important;
+      border-color: #d63a72 !important;
     }
 
     .card-box {
@@ -873,17 +729,19 @@
     }
 
     .journal-heading {
-      font-size: 0.78rem;
+      font-size: 0.76rem;
       font-weight: 700;
       color: var(--journal-text);
       margin-bottom: 10px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
       width: 100%;
       text-align: center;
-      line-height: 1.35;
     }
 
     .btn-journal-submit {
-      background: linear-gradient(135deg, var(--accent) 0%, var(--primary-dark) 100%);
+      background: linear-gradient(135deg, #ff6b9d 0%, #c93368 100%);
       color: white;
     }
 
@@ -930,7 +788,7 @@
 
     .btn-submit {
       width: 100%;
-      background: linear-gradient(135deg, var(--accent), var(--primary-dark));
+      background: linear-gradient(135deg, #ff6b9d, #d63a72);
       color: white;
       border: none;
       padding: 11px;
@@ -957,7 +815,7 @@
       border-color: #ead7de;
     }
 
-    .badge-journal { background: var(--bg); color: var(--primary-dark); }
+    .badge-journal { background: #ffe3ee; color: #b52b5b; }
 
     .item-card {
       background: var(--card);
@@ -972,16 +830,16 @@
     .badge-phat-sinh { background: #efe6ff; color: #6c3ac2; }
     .card-title { font-size: 0.92rem; font-weight: 700; margin-bottom: 4px; color: var(--text); }
     .card-time { font-size: 0.72rem; color: var(--muted); }
-    .card-desc { font-size: 0.84rem; line-height: 1.5; color: var(--muted); white-space: pre-line; margin-bottom: 8px; }
+    .card-desc { font-size: 0.84rem; line-height: 1.5; color: #663f4e; white-space: pre-line; margin-bottom: 8px; }
     .card-alarm-tag { font-size: 0.75rem; color: var(--danger); font-weight: 700; margin-bottom: 6px; display: inline-block; }
 
-    .card-actions { display: flex; gap: 6px; margin-top: 8px; border-top: 1px solid var(--border); padding-top: 8px; }
+    .card-actions { display: flex; gap: 6px; margin-top: 8px; border-top: 1px solid #fae3ec; padding-top: 8px; }
     .btn-action {
       flex: 1;
       padding: 7px 4px;
       border-radius: 8px;
       border: 1px solid var(--border);
-      background: var(--bg);
+      background: #fff5f8;
       font-size: 0.72rem;
       font-weight: 600;
       cursor: pointer;
@@ -995,28 +853,16 @@
       background: var(--card);
       border-radius: 16px;
       border: 1.5px solid var(--border);
-      padding: 10px;
+      padding: 8px;
       margin-bottom: 10px;
-    }
-
-    .month-shift-summary {
-      font-size: 0.72rem;
-      font-weight: 600;
-      color: var(--muted);
-      background: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 7px 10px;
-      margin-bottom: 8px;
-      text-align: center;
     }
 
     .week-control-bar { display: flex; align-items: center; gap: 6px; margin-bottom: 8px; }
     .week-dropdown-wrap { flex: 1; }
     .week-select-menu {
       width: 100%;
-      background: var(--bg);
-      border: 1.5px solid var(--accent);
+      background: #fff2f7;
+      border: 1.5px solid #e87da2;
       color: var(--primary-dark);
       font-weight: 700;
       font-size: 0.75rem;
@@ -1025,8 +871,8 @@
     }
 
     .btn-copy-month {
-      background: var(--bg);
-      border: 1.5px solid var(--border);
+      background: #fff0f6;
+      border: 1.5px solid #f0b6cb;
       color: var(--primary-dark);
       font-size: 0.68rem;
       font-weight: 700;
@@ -1086,7 +932,7 @@
       cursor: pointer;
     }
 
-    .sync-calendar-panel { background: var(--journal-bg); border: 1px solid var(--border); border-radius: 10px; padding: 8px; margin-top: 8px; }
+    .sync-calendar-panel { background: #fff3f7; border: 1px solid var(--border); border-radius: 10px; padding: 8px; margin-top: 8px; }
     .sync-row { display: flex; gap: 6px; align-items: center; }
     .custom-multiselect { flex: 1.3; position: relative; }
     .multiselect-toggle-btn {
@@ -1123,13 +969,13 @@
 
     .multiselect-dropdown.show { display: block; }
     .multiselect-item { display: flex; justify-content: space-between; padding: 7px 10px; font-size: 0.75rem; font-weight: 600; cursor: pointer; }
-    .multiselect-item.selected { background: var(--bg); color: var(--primary-dark); font-weight: 700; }
+    .multiselect-item.selected { background: #ffe3ee; color: var(--primary-dark); font-weight: 700; }
     .multiselect-check { font-size: 0.8rem; color: var(--primary); display: none; }
     .multiselect-item.selected .multiselect-check { display: inline-block; }
 
     .btn-sync-submit {
       flex: 1.2;
-      background: linear-gradient(135deg, var(--accent), var(--primary-dark));
+      background: linear-gradient(135deg, #ff6b9d, #c93368);
       color: white;
       border: none;
       padding: 8px 10px;
@@ -1140,7 +986,7 @@
       white-space: nowrap;
     }
 
-    .shift-settings-box { background: var(--journal-bg); border: 1px solid var(--border); border-radius: 12px; padding: 10px; margin-top: 8px; }
+    .shift-settings-box { background: #fff3f7; border: 1px solid var(--border); border-radius: 12px; padding: 10px; margin-top: 8px; }
     .shift-settings-title { font-size: 0.78rem; font-weight: 700; color: var(--primary-dark); margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center; }
     .shift-config-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
 
@@ -1179,125 +1025,12 @@
     .card-c2 .time-input-wrap input { border-color: #e6be4c !important; color: #78580e !important; }
     .card-hch .time-input-wrap input { border-color: #b48ef0 !important; color: #53268c !important; }
 
-    .puzzle-top-bar {
-      display: flex;
-      gap: 6px;
-      flex-wrap: wrap;
-      margin-bottom: 10px;
-    }
-
-    .puzzle-status-bar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 0.78rem;
-      font-weight: 700;
-      color: var(--primary-dark);
-      background: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 8px 12px;
-      margin-bottom: 10px;
-    }
-
-    .puzzle-board-wrap {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin: 8px 0 12px 0;
-    }
-
-    .puzzle-grid-12 {
-      width: 100%;
-      max-width: 348px;
-      aspect-ratio: 4 / 3;
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      grid-template-rows: repeat(3, minmax(0, 1fr));
-      gap: 4px;
-      background: var(--border);
-      padding: 4px;
-      border-radius: 16px;
-      box-shadow: 0 8px 20px rgba(214, 58, 114, 0.14);
-    }
-
-    .puzzle-tile {
-      border-radius: 10px;
-      background-repeat: no-repeat;
-      cursor: pointer;
-      position: relative;
-      border: 2px solid rgba(255, 255, 255, 0.7);
-      transition: transform 0.12s ease, border-color 0.12s ease;
-      overflow: hidden;
-      min-width: 0;
-      min-height: 0;
-    }
-
-    .puzzle-tile:active {
-      transform: scale(0.96);
-    }
-
-    .puzzle-tile.selected {
-      border-color: var(--primary-dark);
-      box-shadow: 0 0 0 2px #ffffff, 0 0 12px rgba(201, 51, 104, 0.6);
-      transform: scale(0.97);
-    }
-
-    .puzzle-tile.correct-slot::after {
-      content: "✓";
-      position: absolute;
-      top: 4px;
-      right: 5px;
-      background: rgba(34, 163, 119, 0.9);
-      color: #fff;
-      font-size: 0.65rem;
-      font-weight: 800;
-      width: 16px;
-      height: 16px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .puzzle-complete-banner {
-      display: none;
-      margin-bottom: 10px;
-      padding: 10px 12px;
-      border-radius: 12px;
-      background: #e6fbf2;
-      border: 1.5px solid #68d4ae;
-      color: #156d4e;
-      font-size: 0.78rem;
-      font-weight: 700;
-      text-align: center;
-    }
-
-    .puzzle-preview-box {
-      display: none;
-      text-align: center;
-      margin-top: 8px;
-      padding: 10px;
-      background: var(--bg);
-      border-radius: 14px;
-      border: 1px solid var(--border);
-    }
-
-    .puzzle-preview-box img {
-      width: 160px;
-      height: 120px;
-      object-fit: cover;
-      border-radius: 12px;
-      border: 2px solid var(--border);
-      display: inline-block;
-    }
-
     #toast {
       position: fixed;
       bottom: 24px;
       left: 50%;
       transform: translateX(-50%);
-      background: var(--primary-dark);
+      background: rgba(122, 28, 66, 0.94);
       color: #ffffff;
       padding: 10px 20px;
       border-radius: 24px;
@@ -1311,9 +1044,8 @@
 
     @media(max-width:560px) {
       header h1 { font-size: 0.88rem; }
-      .header-btns button { padding: 6px 7px; font-size: 0.66rem; }
+      .header-btns button { padding: 6px 7px; font-size: 0.68rem; }
       .day-shift-select { font-size: 0.6rem; padding: 3px 0; }
-      .nav-tab-btn { font-size: 0.68rem; }
     }
   </style>
 </head>
@@ -1321,7 +1053,7 @@
 
   <div id="romanticPhotoModal">
     <div class="romantic-modal-card">
-      <img id="romanticModalImg" src="t2.jpg" alt="Nhân vật nam" class="romantic-modal-img">
+      <img src="t2.jpg" alt="Nhân vật nam" class="romantic-modal-img">
       <div class="romantic-modal-title">Anh Nhớ Em 💕</div>
       <button class="romantic-modal-btn" onclick="closeRomanticModal()">💖 Đóng Lại 💖</button>
     </div>
@@ -1332,17 +1064,6 @@
       <img id="stickerShowcaseImg" src="" alt="Sticker yêu thương" class="sticker-enlarged-img">
       <div id="stickerShowcaseCaption" class="sticker-caption-below"></div>
       <button class="sticker-close-btn" onclick="closeStickerModal()">Đóng lại</button>
-    </div>
-  </div>
-
-  <div id="funModal" onclick="if(event.target === this) closeFunModal()">
-    <div class="sticker-showcase-card">
-      <div id="funModalTitle" class="romantic-modal-title" style="margin-bottom:8px;">✨ Gieo Quẻ Yêu Thương ✨</div>
-      <div id="funModalBody" class="sticker-caption-below" style="margin-bottom:14px;"></div>
-      <div style="display:flex; gap:8px; flex-wrap:wrap; justify-content:center;">
-        <button class="sticker-close-btn" onclick="copyFunQuest()">📲 Gửi Zalo</button>
-        <button class="btn-action" style="padding:10px 16px;" onclick="closeFunModal()">Đóng</button>
-      </div>
     </div>
   </div>
 
@@ -1379,12 +1100,8 @@
   <audio id="warningAudioElement" preload="auto" loop></audio>
 
   <header>
-    <div class="header-brand">
-      <img id="headerAvatarImg" src="n1.1.jpg" alt="Ái Nhuy" class="header-avatar-img">
-      <h1><span class="header-title-name">Ái Nhuy</span></h1>
-    </div>
+    <h1><span class="header-title-name">Ái Nhuy</span></h1>
     <div class="header-btns">
-      <button onclick="cycleTheme()" title="Đổi màu giao diện">🎨 Màu</button>
       <button onclick="enableSoundTest()">🔊 Thử Chuông</button>
       <button id="btnNotiStatus" onclick="toggleNotificationSetting()">🔔 Bật Báo</button>
     </div>
@@ -1401,31 +1118,16 @@
       <div class="weather-widget" id="weatherWidget" onclick="cycleWeatherDemo()" title="Chạm để chuyển đổi icon thời tiết"></div>
     </div>
 
-    <div class="mood-strip">
-      <div class="mood-pills" id="moodPills">
-        <button class="mood-btn active" data-mood="sweet" onclick="setMood('sweet')">💕 Ngọt ngào</button>
-        <button class="mood-btn" data-mood="tired" onclick="setMood('tired')">🥱 Hơi mệt</button>
-        <button class="mood-btn" data-mood="boost" onclick="setMood('boost')">⚡ Cần động lực</button>
-        <button class="mood-btn" data-mood="cuddle" onclick="setMood('cuddle')">🤗 Cần dỗ</button>
-      </div>
-      <button class="fun-action-btn" onclick="openLoveQuest()">🎲 Gieo quẻ</button>
-    </div>
-
     <div class="stats-grid">
       <div class="stat-card">
-        <div class="stat-label">📔 Nhật ký</div>
+        <div class="stat-label">📔 Nhật ký tình yêu</div>
         <div class="stat-value" id="statJournals">0</div>
-        <div class="stat-label" id="statJournalsSub">0 xong</div>
+        <div class="stat-label" id="statJournalsSub">0 hoàn thành</div>
       </div>
       <div class="stat-card">
-        <div class="stat-label">⚡ Việc cần làm</div>
+        <div class="stat-label">⚡ Việc cần xử lý</div>
         <div class="stat-value" id="statIssues">0</div>
-        <div class="stat-label" id="statIssuesSub">0 mở</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-label">🌴 Đếm ngược Off</div>
-        <div class="stat-value" id="statOffCountdown">--</div>
-        <div class="stat-label" id="statOffSub">Đang tính...</div>
+        <div class="stat-label" id="statIssuesSub">0 đang mở</div>
       </div>
     </div>
 
@@ -1442,14 +1144,11 @@
         <span>💌 Nhật kí</span>
         <span>Tình yêu</span>
       </button>
-      <button class="nav-tab-btn" id="tabBtn-issues" onclick="switchView('issues')">⚡ Việc Làm</button>
-      <button class="nav-tab-btn" id="tabBtn-puzzle" onclick="switchView('puzzle')">🧩 Ghép Hình</button>
+      <button class="nav-tab-btn" id="tabBtn-issues" onclick="switchView('issues')">⚡ Việc Cần Làm</button>
     </div>
 
-    <div id="view-shifts" class="tab-view-panel is-active-tab">
+    <div id="view-shifts">
       <div class="week-table-card">
-        <div class="month-shift-summary" id="monthShiftSummary">Thống kê tháng: Đang cập nhật...</div>
-
         <div class="week-control-bar">
           <div class="week-dropdown-wrap">
             <select id="weekDropdownSelect" class="week-select-menu" onchange="onWeekDropdownChange(this.value)"></select>
@@ -1517,7 +1216,7 @@
       </div>
     </div>
 
-    <div id="view-journal" class="tab-view-panel">
+    <div id="view-journal" style="display:none;">
       <div class="card-box card-journal">
         <div class="journal-heading">💌 Ghi Nhật Ký Tình Yêu & Công Việc Trong Ngày</div>
         <div class="row form-group">
@@ -1557,13 +1256,13 @@
         <div class="search-row">
           <input type="text" id="searchKeyword" placeholder="Nhập từ khóa..." oninput="filterJournals()" style="flex:1;">
           <input type="date" id="filterJournalDate" onchange="filterJournals()" style="flex:1;">
-          <button onclick="clearJournalFilter()" style="padding:0 10px; border-radius:10px; border:1px solid var(--border); background:var(--bg); color:var(--text); font-size:0.75rem; font-weight:700; cursor:pointer;">Hủy</button>
+          <button onclick="clearJournalFilter()" style="padding:0 10px; border-radius:10px; border:1px solid var(--border); background:#fff2f7; color:var(--text); font-size:0.75rem; font-weight:700; cursor:pointer;">Hủy</button>
         </div>
       </div>
       <div id="journalListContainer"></div>
     </div>
 
-    <div id="view-issues" class="tab-view-panel">
+    <div id="view-issues" style="display:none;">
       <div class="card-box" style="border-left: 4px solid var(--purple);">
         <div class="form-group">
           <label>Tên công việc / Sự cố</label>
@@ -1579,7 +1278,7 @@
             </select>
           </div>
           <div>
-            <label>Hẹn ngày & giờ xử lý (có báo chuông)</label>
+            <label>Hẹn ngày & giờ xử lý</label>
             <input type="datetime-local" id="issueDateTime">
           </div>
         </div>
@@ -1591,89 +1290,44 @@
       </div>
       <div id="issuesList"></div>
     </div>
-
-    <div id="view-puzzle" class="tab-view-panel">
-      <div class="card-box">
-        <div class="journal-heading">🧩 Ghép Hình 12 Khung (Chạm 2 ô để đổi chỗ)</div>
-
-        <div class="puzzle-top-bar">
-          <button class="btn-action" onclick="triggerPuzzleImageUpload()">📷 Nạp Ảnh Của Bạn</button>
-          <button class="btn-action" onclick="shufflePuzzleTiles()">🔀 Xáo Trộn</button>
-          <button class="btn-action" onclick="togglePuzzlePreview()">👁 Ảnh Mẫu</button>
-          <input type="file" id="puzzleImageInput" accept="image/*" style="display:none;" onchange="handlePuzzleImageUpload(event)">
-        </div>
-
-        <div class="puzzle-status-bar">
-          <span id="puzzleProgressText">Đúng: 0/12 ô</span>
-          <span id="puzzleMovesText">Số lần đổi: 0</span>
-        </div>
-
-        <div class="puzzle-complete-banner" id="puzzleCompleteBanner">
-          🎉 Tuyệt vời! Bạn đã ghép hoàn chỉnh 12/12 ô!
-        </div>
-
-        <div class="puzzle-board-wrap">
-          <div class="puzzle-grid-12" id="puzzleGrid12"></div>
-        </div>
-
-        <div class="puzzle-preview-box" id="puzzlePreviewBox">
-          <div style="font-size:0.74rem; font-weight:700; color:var(--muted); margin-bottom:6px;">Ảnh gốc tham khảo</div>
-          <img id="puzzlePreviewImg" src="n1.1.jpg" alt="Ảnh mẫu ghép hình">
-        </div>
-      </div>
-    </div>
   </div>
 
   <div id="toast">Thông báo</div>
 
   <script>
-    function safeStorageGet(key, fallback = null) {
-      try {
-        const val = localStorage.getItem(key);
-        return val !== null ? val : fallback;
-      } catch (_) {
-        return fallback;
-      }
-    }
-
-    function safeStorageSet(key, value) {
-      try {
-        localStorage.setItem(key, value);
-        return true;
-      } catch (_) {
-        return false;
-      }
-    }
-
-    const THEMES = ['pink', 'lavender', 'peach'];
-    const THEME_NAMES = { pink: 'Hồng Dâu 💕', lavender: 'Tím Lavender 💜', peach: 'Kem Đào 🍑' };
-    let currentTheme = safeStorageGet('ainhuy_theme', 'pink');
-
-    function applyTheme(themeName) {
-      currentTheme = THEMES.includes(themeName) ? themeName : 'pink';
-      if (currentTheme === 'pink') document.body.removeAttribute('data-theme');
-      else document.body.setAttribute('data-theme', currentTheme);
-      safeStorageSet('ainhuy_theme', currentTheme);
-    }
-
-    function cycleTheme() {
-      const next = THEMES[(THEMES.indexOf(currentTheme) + 1) % THEMES.length];
-      applyTheme(next);
-      showToast(`Giao diện: ${THEME_NAMES[next]}`);
-    }
-
     let enteredPin = "";
     let wrongPinCount = 0;
     let clearCodeTimer = null;
 
     const flowerStickerMap = {
-      "00000": { src: "n1.1.jpg", fallback: createFallbackArtDataUri("Chào Ái Nhuy 😄", "Nhớ anh xíu nào không? 💕", "#ff85ad", "#ffbfd4"), caption: "Xin chào cô gái dễ thương nhất hệ mặt trời! Hôm nay có nhớ anh một xíu nào không ta? 😄💕" },
-      "44444": { src: "n15.jpg", fallback: createFallbackArtDataUri("Bắn Tim 😘", "Đỡ không trượt phát nào 💖", "#ff5e93", "#ffc2d9"), caption: "Bắn tim chí mạng vào trái tim Ái Nhuy đây! Đỡ không trượt phát nào luôn nhé 😘💖" },
-      "55555": { src: "n12.jpg", fallback: createFallbackArtDataUri("Moah Moah 💋", "Hôn gió ngọt lịm 🌸", "#ff75a4", "#ffe0ec"), caption: "Moah moah! Gửi liền một chùm hôn gió ngọt lịm cho người yêu xinh đẹp của anh 💋🌸" },
-      "66666": { src: "n10.jpg", fallback: createFallbackArtDataUri("Thương Nhiều 🥰", "Tràn bộ nhớ luôn rồi ❤️", "#f25c8a", "#ffd1e3"), caption: "Thương bấy nhiêu cho vừa đây trời! Thương nhiều tới mức tràn bộ nhớ luôn rồi nè 🥰❤️" },
-      "77777": { src: "n8.jpg", fallback: createFallbackArtDataUri("Nhớ Em 💭", "Anh cũng nhớ em lắm 💕", "#b37feb", "#f0e6ff"), caption: "Đang làm việc hay đi đâu cũng chợt nhớ anh hoài vậy hả cô bé? Anh cũng nhớ em lắm! 💭💕" },
-      "88888": { src: "n9.jpg", fallback: createFallbackArtDataUri("Ship Yêu Thương 🌹", "Đang chạy hết tốc lực 🏃‍♂️", "#ff6699", "#ffe3ec"), caption: "Báo cáo khẩn: Shipper mang yêu thương và hoa hồng đang chạy hết tốc lực tới bên em đây! 🌹🏃‍♂️" },
-      "99999": { src: "n7.jpg", fallback: createFallbackArtDataUri("Ngủ Ngon Nha 🌙", "Mơ thấy anh nhé 💖", "#7c5dfa", "#e8e0ff"), caption: "Chúc em ngủ ngon cuộn tròn ấm áp, mơ thấy anh và sáng mai dậy cười thật tươi nha! 🌙😴💖" }
+      "00000": {
+        src: "n1.jpg",
+        caption: "Xin chào cô gái dễ thương nhất hệ mặt trời! Hôm nay có nhớ anh một xíu nào không ta? 😄💕"
+      },
+      "44444": {
+        src: "n15.jpg",
+        caption: "Bắn tim chí mạng vào trái tim Ái Nhuy đây! Đỡ không trượt phát nào luôn nhé 😘💖"
+      },
+      "55555": {
+        src: "n12.jpg",
+        caption: "Moah moah! Gửi liền một chùm hôn gió ngọt lịm cho người yêu xinh đẹp của anh 💋🌸"
+      },
+      "66666": {
+        src: "n10.jpg",
+        caption: "Thương bấy nhiêu cho vừa đây trời! Thương nhiều tới mức tràn bộ nhớ luôn rồi nè 🥰❤️"
+      },
+      "77777": {
+        src: "n8.jpg",
+        caption: "Đang làm việc hay đi đâu cũng chợt nhớ anh hoài vậy hả cô bé? Anh cũng nhớ em lắm! 💭💕"
+      },
+      "88888": {
+        src: "n9.jpg",
+        caption: "Báo cáo khẩn: Shipper mang yêu thương và hoa hồng đang chạy hết tốc lực tới bên em đây! 🌹🏃‍♂️"
+      },
+      "99999": {
+        src: "n7.jpg",
+        caption: "Chúc em ngủ ngon cuộn tròn ấm áp, mơ thấy anh và sáng mai dậy cười thật tươi nha! 🌙😴💖"
+      }
     };
 
     function resetPinInputImmediate() {
@@ -1687,13 +1341,12 @@
       if (romEl) romEl.innerHTML = "";
     }
 
-    function openStickerModal(src, caption, fallbackSrc = FALLBACK_MAIN_IMG) {
+    function openStickerModal(src, caption) {
       const modal = document.getElementById('stickerShowcaseModal');
       const imgEl = document.getElementById('stickerShowcaseImg');
       const capEl = document.getElementById('stickerShowcaseCaption');
       if (modal && imgEl && capEl) {
-        imgEl.dataset.fallbackSrc = fallbackSrc;
-        imgEl.src = src;
+        if (imgEl.getAttribute('src') !== src) imgEl.src = src;
         capEl.innerText = caption;
         modal.style.display = 'flex';
       }
@@ -1709,17 +1362,20 @@
       wrongPinCount = 0;
       resetPinInputImmediate();
 
-      ['romanticPhotoModal', 'stickerShowcaseModal', 'funModal'].forEach(id => {
-        const el = document.getElementById(id);
-        if (el) el.style.display = 'none';
-      });
+      const photoModal = document.getElementById('romanticPhotoModal');
+      if (photoModal) photoModal.style.display = 'none';
+
+      const stickerModal = document.getElementById('stickerShowcaseModal');
+      if (stickerModal) stickerModal.style.display = 'none';
 
       const searchKw = document.getElementById('searchKeyword');
       if (searchKw) searchKw.value = '';
       const filterDate = document.getElementById('filterJournalDate');
       if (filterDate) filterDate.value = '';
 
-      try { sessionStorage.clear(); } catch (_) {}
+      try {
+        sessionStorage.clear();
+      } catch (_) {}
     }
 
     function lockAppScreen() {
@@ -1736,7 +1392,9 @@
 
     function scheduleClearCode() {
       if (clearCodeTimer) clearTimeout(clearCodeTimer);
-      clearCodeTimer = setTimeout(() => { resetPinInputImmediate(); }, 3000);
+      clearCodeTimer = setTimeout(() => {
+        resetPinInputImmediate();
+      }, 3000);
     }
 
     function pressKey(val) {
@@ -1770,10 +1428,10 @@
         }
         if (flowerStickerMap[enteredPin]) {
           const item = flowerStickerMap[enteredPin];
-          openStickerModal(item.src, item.caption, item.fallback);
+          openStickerModal(item.src, item.caption);
           return;
         }
-        openStickerModal("n6.jpg", "Yêu em thật nhiều! Nhập đúng mã kèm 🌸 để mở bí mật dễ thương nha 💕", FALLBACK_MAIN_IMG);
+        openStickerModal("n6.jpg", "Yêu em thật nhiều! Nhập đúng mã kèm 🌸 để mở bí mật dễ thương nha 💕");
         return;
       }
 
@@ -1784,7 +1442,9 @@
         }
         enteredPin += val;
         updatePinDots();
-        if (enteredPin.length === 6) checkPinAndUnlock();
+        if (enteredPin.length === 6) {
+          checkPinAndUnlock();
+        }
       }
     }
 
@@ -1800,8 +1460,11 @@
       } else {
         wrongPinCount++;
         resetPinInputImmediate();
-        if (wrongPinCount >= 4) startWarningAlarm('🚨 CẢNH BÁO: NHẬP SAI MÃ QUÁ 4 LẦN!');
-        else showToast('❌ Sai mật khẩu!');
+        if (wrongPinCount >= 4) {
+          startWarningAlarm('🚨 CẢNH BÁO: NHẬP SAI MÃ QUÁ 4 LẦN!');
+        } else {
+          showToast('❌ Sai mật khẩu!');
+        }
       }
     }
 
@@ -1818,10 +1481,6 @@
     function createFallingLeaves() {
       const leafChars = ['🌸', '💕', '💖', '✨', '🌷'];
       setInterval(() => {
-        if (document.hidden) return;
-        const existingLeaves = document.querySelectorAll('.falling-leaf').length;
-        if (existingLeaves >= 14) return;
-
         const leaf = document.createElement('div');
         leaf.className = 'falling-leaf';
         leaf.innerText = leafChars[Math.floor(Math.random() * leafChars.length)];
@@ -1831,17 +1490,17 @@
         leaf.style.animationDuration = duration + 's';
         document.body.appendChild(leaf);
         setTimeout(() => leaf.remove(), duration * 1000);
-      }, 1100);
+      }, 900);
     }
     createFallingLeaves();
 
-    let journals = JSON.parse(safeStorageGet('ainhuy_journals_v1', '[]'));
-    let issues = JSON.parse(safeStorageGet('ainhuy_issues_v1', '[]'));
-    let shiftTimes = JSON.parse(safeStorageGet('ainhuy_shift_times', JSON.stringify({
+    let journals = JSON.parse(localStorage.getItem('ainhuy_journals_v1') || '[]');
+    let issues = JSON.parse(localStorage.getItem('ainhuy_issues_v1') || '[]');
+    let shiftTimes = JSON.parse(localStorage.getItem('ainhuy_shift_times') || JSON.stringify({
       c1_in: '05:30', c1_out: '14:00',
       c2_in: '16:30', c2_out: '22:00',
       hch_in: '08:00', hch_out: '17:00'
-    })));
+    }));
 
     let monthWeeksList = [];
     let currentWeekIndex = 0;
@@ -1851,14 +1510,14 @@
     let audioCtx = null;
     let alarmInterval = null;
     let isAlarmPlaying = false;
-    let triggeredAlarmKeys = new Set(JSON.parse(safeStorageGet('ainhuy_triggered_alarms_v1', '[]')));
+    let triggeredAlarmKeys = new Set(JSON.parse(localStorage.getItem('ainhuy_triggered_alarms_v1') || '[]'));
 
     function markAlarmTriggered(key) {
       triggeredAlarmKeys.add(key);
       try {
-        const recentKeys = Array.from(triggeredAlarmKeys).slice(-150);
+        const recentKeys = Array.from(triggeredAlarmKeys).slice(-120);
         triggeredAlarmKeys = new Set(recentKeys);
-        safeStorageSet('ainhuy_triggered_alarms_v1', JSON.stringify(recentKeys));
+        localStorage.setItem('ainhuy_triggered_alarms_v1', JSON.stringify(recentKeys));
       } catch (_) {}
     }
 
@@ -1869,8 +1528,8 @@
       const buffer = new ArrayBuffer(44 + numSamples * 2);
       const view = new DataView(buffer);
 
-      function writeString(v, offset, str) {
-        for (let i = 0; i < str.length; i++) v.setUint8(offset + i, str.charCodeAt(i));
+      function writeString(view, offset, string) {
+        for (let i = 0; i < string.length; i++) view.setUint8(offset + i, string.charCodeAt(i));
       }
 
       writeString(view, 0, 'RIFF');
@@ -1914,8 +1573,8 @@
       const buffer = new ArrayBuffer(44 + numSamples * 2);
       const view = new DataView(buffer);
 
-      function writeString(v, offset, str) {
-        for (let i = 0; i < str.length; i++) v.setUint8(offset + i, str.charCodeAt(i));
+      function writeString(view, offset, string) {
+        for (let i = 0; i < string.length; i++) view.setUint8(offset + i, string.charCodeAt(i));
       }
 
       writeString(view, 0, 'RIFF');
@@ -1953,93 +1612,129 @@
     let alarmAudioBlobUrl = null;
     let warningAudioBlobUrl = null;
 
-    const moodQuotes = {
-      sweet: [
-        { title: "Chào tình yêu của anh! 💕", quote: "Chúc Ái Nhuy luôn vui vẻ, làm gì cũng suôn sẻ và luôn nhớ rằng anh thương em nhiều lắm." },
-        { title: "Ái Nhuy ngọt ngào ơi! 🌸", quote: "Chỉ cần thấy em bình yên thì cả ngày của anh cũng nhẹ nhàng hơn hẳn. Thương em nhiều nè!" }
-      ],
-      tired: [
-        { title: "Thương em vất vả quá! 🫂", quote: "Hôm nay hơi mệt thì làm chậm lại một nhịp nhé. Nhớ uống nước ấm và nghỉ mắt vài phút đi em." },
-        { title: "Vòng tay chờ em! 🍵", quote: "Dù có hơi đuối sức một chút, em vẫn đang làm rất tốt rồi. Xong việc mình nghỉ ngơi thật sớm nha." }
-      ],
-      boost: [
-        { title: "Bật chế độ tỏa sáng! ⚡", quote: "Em giỏi lắm, mọi đầu việc hôm nay đều sẽ được xử lý gọn gàng thôi. Tự tin lên nào Ái Nhuy!" },
-        { title: "Nạp năng lượng nhé! 🚀", quote: "Một ly nước mát + nụ cười tươi là đủ nạp full năng lượng cho khung giờ này rồi đó!" }
-      ],
-      cuddle: [
-        { title: "Gửi ngàn cái ôm nè! 🤗", quote: "Đang cần dỗ dành hả em? Coi như có một cái ôm thật chặt gửi thẳng tới chỗ em đang ở nha 💖" },
-        { title: "Đừng buồn hay tủi thân nhé! 🌷", quote: "Có anh ở đây nghe em kể mọi chuyện. Thương em nhiều ơi là nhiều luôn đó!" }
-      ]
-    };
-
     const wishesByTime = {
-      earlyMorning: [
-        { title: "Chào buổi sáng tình yêu! ☀️", quote: "Chào buổi sáng tình yêu của anh! Chúc em ngày mới ngập tràn năng lượng và gặp nhiều may mắn nhé. 💕" },
-        { title: "Ái Nhuy ơi, dậy thôi nào! 🌸", quote: "Ái Nhuy ơi, buổi sáng lành mạnh tới rồi! Chúc em ngày mới rạng rỡ và suôn sẻ nha." },
-        { title: "Năng lượng sáng sớm nhé! ⚡", quote: "Bắt đầu ngày mới với nụ cười tươi và nguồn năng lượng tích cực nhất em nhé!" },
-        { title: "Khởi đầu mới suôn sẻ! 🌅", quote: "Chúc tình yêu của anh buổi sáng tốt lành, mọi việc đầu ngày diễn ra thật thuận lợi." }
-      ],
-      midday: [
-        { title: "Nhớ em nhiều lắm! 💖", quote: "Giữa ngày bận rộn, hình bóng của em vẫn luôn ở trong tim anh. Nhớ và thương Ái Nhuy vô cùng!" },
-        { title: "Ăn trưa đầy đủ nhé! 🍲", quote: "Tới tầm trưa rồi, em nhớ ăn uống đúng giờ và đủ chất nha, không được bỏ bữa đâu đấy!" },
-        { title: "Giữ gìn sức khỏe nha! 🍎", quote: "Sức khỏe là vốn quý nhất. Em nhớ uống đủ nước và nghỉ mắt giữa ngày nhé." },
-        { title: "Buổi trưa an lành! 🌤️", quote: "Chúc em buổi trưa ngon miệng, nạp đủ năng lượng để tiếp tục ngày mới thật nhẹ nhàng." }
+      morning: [
+        { title: "Chào buổi sáng tình yêu! ☀️", quote: "Chào buổi sáng tình yêu của anh! Chúc em một ngày mới ngập tràn năng lượng, làm việc hiệu quả và gặp nhiều may mắn nhé. 💕" },
+        { title: "Ái Nhuy ơi, dậy thôi nào! 🌸", quote: "Ái Nhuy ơi, dậy thôi nào! Chúc em ngày mới rạng rỡ, hoàn thành xuất sắc mọi công việc được giao nha." },
+        { title: "Năng lượng tràn đầy nhé! ⚡", quote: "Bắt đầu ngày mới với nụ cười rạng rỡ và nguồn năng lượng tích cực nhất em nhé. Chúc em một ngày làm việc thật sung sức!" },
+        { title: "Khởi đầu mới suôn sẻ! 🌅", quote: "Chúc tình yêu của anh buổi sáng tốt lành, mọi việc trong ngày hôm nay sẽ diễn ra thật thuận lợi và suôn sẻ." },
+        { title: "Ngày mới tuyệt vời nhé! 🌻", quote: "Mặt trời lên rồi, chúc em một ngày mới bình an, làm việc gì cũng hanh thông và gặp toàn điều may mắn." },
+        { title: "Tỏa sáng rực rỡ nha! ✨", quote: "Hôm nay em hãy tự tin tỏa sáng nhé, cô gái tài giỏi của anh chắc chắn sẽ hoàn thành tốt mọi nhiệm vụ." },
+        { title: "Nụ cười đầu ngày! 😊", quote: "Gửi đến em ngàn nụ cười cho buổi sáng tươi vui. Chúc em một ngày làm việc tràn đầy hứng khởi và niềm vui." },
+        { title: "Sức sống dồi dào! 🌿", quote: "Chúc em có một ngày mới tràn ngập sức sống, giải quyết mọi công việc nhanh gọn và chuẩn xác." },
+        { title: "Cố lên cô gái của anh! 💪", quote: "Một ngày mới lại bắt đầu, chúc em luôn giữ vững phong độ, làm việc thật hăng say và hiệu quả." },
+        { title: "Bình minh hạnh phúc! 🌤️", quote: "Chúc Ái Nhuy một buổi sáng ngọt ngào, bước chân ra đường gặp toàn niềm vui và may mắn." },
+        { title: "Nắng mai ấm áp! 🌷", quote: "Chúc em một buổi sáng ấm áp như ánh nắng sớm mai, mọi điều tốt đẹp nhất sẽ đến với em hôm nay." },
+        { title: "Hứng khởi trọn ngày! ☕", quote: "Ly cà phê buổi sáng chúc em tỉnh táo, sảng khoái và bắt nhịp công việc thật tuyệt vời nha." },
+        { title: "Nụ cười ngập tràn! 😄", quote: "Mong rằng nụ cười sẽ luôn ở trên môi em suốt cả ngày dài hôm nay. Yêu em!" },
+        { title: "May mắn gọi tên! 🍀", quote: "Chúc cô gái xinh đẹp của anh hôm nay đi đến đâu cũng gặp may mắn và thuận lợi tới đó." },
+        { title: "Tự tin vững bước! 👠", quote: "Hãy bước đi với sự tự tin cao nhất nhé, mọi thử thách hôm nay đều nằm trong tầm tay em." },
+        { title: "Thành công rực rỡ! 🎯", quote: "Chúc mọi kế hoạch và dự định trong ngày của em đều đạt kết quả cao nhất vượt mong đợi." },
+        { title: "Bình an muôn nơi! 🕊️", quote: "Chúc em một ngày làm việc bình an, an toàn và tràn ngập những khoảnh khắc đáng yêu." },
+        { title: "Tràn trề nhiệt huyết! 🔥", quote: "Đốt cháy mọi khó khăn bằng nhiệt huyết tuổi trẻ và sự thông minh vốn có của em nào!" },
+        { title: "Niềm vui nhân đôi! 🎈", quote: "Chúc ngày mới của em không chỉ vui mà niềm vui còn được nhân đôi, nhân ba suốt cả tuần." },
+        { title: "Tình yêu thương ngập tràn! 💖", quote: "Hãy luôn nhớ rằng có anh luôn ở đây hướng về em với tất cả tình yêu thương ngọt ngào nhất." },
+        { title: "Sáng nay thật đẹp! 🌺", quote: "Thời tiết thật đẹp, chúc em có một buổi sáng di chuyển an toàn và thuận lợi đến nơi làm việc." },
+        { title: "Hoàn hảo từng phút giây! ⏰", quote: "Chúc em làm việc gì cũng chuẩn xác, đúng giờ và hoàn thành xuất sắc từng mục tiêu nhỏ." },
+        { title: "Tinh thần sảng khoái! 🍃", quote: "Hít một hơi thật sâu và đón nhận ngày mới đầy tuyệt diệu đang chờ đón em phía trước nhé." },
+        { title: "Rạng rỡ như hoa! 🌸", quote: "Chúc Ái Nhuy xinh đẹp của anh hôm nay rạng rỡ, tươi tắn như những đóa hoa mùa xuân." },
+        { title: "Năng suất vượt trội! 🚀", quote: "Chúc em có một ngày làm việc với năng suất cao kỷ lục, xong việc sớm để nghỉ ngơi nha." },
+        { title: "Thêm nhiều niềm cảm hứng! 🎨", quote: "Mong rằng hôm nay em sẽ tìm thấy nhiều niềm cảm hứng mới mẻ trong công việc và cuộc sống." },
+        { title: "Bão hòa mọi mệt mỏi! ⚡", quote: "Mọi mệt mỏi hãy bỏ lại sau lưng, hôm nay chỉ có năng lượng và thành công đến với em thôi." },
+        { title: "Sáng thứ mấy cũng tuyệt! 📅", quote: "Dù là ngày nào trong tuần, chỉ cần em vui vẻ thì ngày đó đều là ngày tuyệt vời nhất." },
+        { title: "Nụ hôn buổi sáng! 😘", quote: "Gửi tặng em một nụ hôn gió ngọt ngào nhất cho buổi sáng tràn đầy yêu thương này." },
+        { title: "Bắt đầu hoàn hảo! ⭐", quote: "Khởi động ngày mới thật suôn sẻ, mọi việc trôi chảy như nước chảy mây trôi em nhé." },
+        { title: "Mỉm cười đón nắng! 🌞", quote: "Ánh nắng sáng đã gõ cửa rồi, chúc em một ngày mới tràn ngập yêu thương và niềm vui nhỏ." },
+        { title: "Nhẹ nhàng & bình yên! 🦋", quote: "Chúc em hôm nay làm việc thật nhẹ nhàng, đầu óc thảnh thơi và mọi điều đều như ý." },
+        { title: "Đón nhận điều tốt lành! 🌈", quote: "Mở lòng đón nhận những điều tốt đẹp nhất hôm nay nhé cô gái ngọt ngào của anh." },
+        { title: "Vững vàng mọi bước! 🌱", quote: "Từng bước nhỏ hôm nay sẽ đưa em tới những điều tuyệt vời nhất. Anh tin ở em!" },
+        { title: "Yêu em từ sớm mai! 💓", quote: "Người đầu tiên anh nghĩ đến sáng nay chính là em. Chúc em một ngày thật rực rỡ!" }
       ],
       afternoon: [
-        { title: "Chiều nay suôn sẻ nhé! 🚀", quote: "Chúc em xử lý công việc buổi chiều cực kỳ mượt mà, suôn sẻ và giữ tinh thần thoải mái." },
-        { title: "Thương em vất vả! 🥰", quote: "Thương cô gái nhỏ của anh chăm chỉ cả ngày. Nhớ giãn vai và uống thêm chút nước nhé em." },
-        { title: "Giữ nhịp năng lượng nha! ☕", quote: "Buổi chiều dễ buồn ngủ, nhớ vươn vai nhẹ một cái và cười thật tươi nhé Ái Nhuy!" },
-        { title: "Chiều dịu dàng gửi em! 🌇", quote: "Mong buổi chiều của em trôi qua êm ả, không áp lực và nhiều điều dễ thương." }
+        { title: "Nhớ em nhiều lắm! 💖", quote: "Dù bận rộn đến đâu thì hình bóng của em vẫn luôn ngự trị trong tim anh. Nhớ và thương Ái Nhuy vô cùng!" },
+        { title: "Tình yêu tuyệt vời! 🌹", quote: "Cảm ơn em đã đến bên anh, mang theo ánh sáng và sưởi ấm trái tim anh mỗi ngày. Yêu em mãi mãi." },
+        { title: "Cuộc sống ngọt ngào! 💞", quote: "Cuộc sống này thật đẹp vì có em. Chúc cho tình yêu chúng ta luôn ngọt ngào và bền chặt theo năm tháng." },
+        { title: "Nhớ nụ cười em! 😍", quote: "Chỉ cần nghĩ đến nụ cười của em thôi là anh lại có thêm động lực để vượt qua mọi thử thách rồi." },
+        { title: "Trái tim chung nhịp! 💓", quote: "Dù ở đâu, làm gì, hai trái tim chúng ta vẫn luôn chung một nhịp đập yêu thương." },
+        { title: "Ăn uống đầy đủ nhé! 🍲", quote: "Dù bận rộn đến đâu em cũng nhớ ăn uống đúng giờ và đủ chất nha, không được bỏ bữa đâu đấy!" },
+        { title: "Giữ gìn sức khỏe nha! 🍎", quote: "Sức khỏe là vốn quý nhất. Em nhớ uống đủ nước và giữ tinh thần thoải mái trong ca làm nhé." },
+        { title: "Làm việc cẩn thận nhé! 📋", quote: "Hôm nay làm việc em nhớ cẩn thận từng chi tiết nhỏ nha, kiểm tra kỹ lưỡng mọi thứ để không có chút sai sót nào." },
+        { title: "Ca chiều suôn sẻ! 🚀", quote: "Chúc em xử lý công việc ca chiều cực kỳ mượt mà, suôn sẻ và đạt kết quả cao nhất." },
+        { title: "Nắng ấm của anh! ☀️", quote: "Em chính là ánh nắng ấm áp nhất xua tan đi mọi mệt mỏi trong cuộc sống của anh." },
+        { title: "Tiếp thêm năng lượng! ⚡", quote: "Giữa giờ chiều rồi, hãy uống một chút nước mát và mỉm cười thật tươi để tiếp tục chiến đấu nha." },
+        { title: "Cô gái kiên cường! 💪", quote: "Dù công việc có hơi mệt một chút, hãy nhớ rằng anh luôn ở phía sau ủng hộ và cổ vũ em." },
+        { title: "Thương em vất vả! 🥰", quote: "Thương cô gái nhỏ của anh phải làm việc chăm chỉ. Cố gắng lên em sắp đến giờ về rồi." },
+        { title: "Nụ cười tỏa nắng! 🌻", quote: "Chiều nay có mệt không em? Hãy nhớ nụ cười của em là tài sản quý giá nhất của anh đó." },
+        { title: "Vượt mọi thử thách! 🎯", quote: "Mọi rắc rối ca chiều đều sẽ được em giải quyết gọn gàng bằng sự thông minh của mình." },
+        { title: "Hơi ấm tình yêu! 🔥", quote: "Gửi đến em một chút hơi ấm và ngàn yêu thương để xua tan đi cái mệt giữa ca làm." },
+        { title: "Nghỉ ngơi chút nha! ☕", quote: "Làm việc căng thẳng quá thì đứng dậy vươn vai thư giãn vài phút cho thoải mái gân cốt nhé." },
+        { title: "Đồng hành mãi mãi! 👫", quote: "Dù con đường phía trước có ra sao, anh vẫn nguyện cùng em nắm tay đi đến cuối cuộc đời." },
+        { title: "Tự hào về em lắm! 🌟", quote: "Anh luôn cảm thấy vô cùng tự hào vì có một người yêu vừa giỏi giang lại vừa chu đáo như em." },
+        { title: "Bình yên giữa bộn bề! 🍃", quote: "Giữa bộn bề công việc, mong rằng nghĩ về anh sẽ giúp em cảm thấy bình yên và nhẹ nhàng hơn." },
+        { title: "Nhanh đến giờ về! ⏰", quote: "Đếm ngược thời gian chờ đến giờ tan ca để chúng ta lại được nhắn tin trò chuyện ngọt ngào nhé." },
+        { title: "Sự nghiệp thăng tiến! 📈", quote: "Chúc công việc chiều nay của em hanh thông, được sự tin tưởng từ cấp trên và yêu mến từ đồng nghiệp." },
+        { title: "Tình cảm vững bền! 🏰", quote: "Tình yêu chúng ta giống như tòa lâu đài kiên cố, không gì có thể lay chuyển được." },
+        { title: "Nụ hôn chiều tà! 💋", quote: "Gửi ngàn cái hôn dịu dàng vượt khoảng cách đến với cô gái ca chiều của anh." },
+        { title: "Luôn mỉm cười nhé! 😁", quote: "Dù có chuyện gì xảy ra, hãy cứ giữ tinh thần lạc quan và nụ cười rạng rỡ trên môi em nhé." },
+        { title: "Bảo bối của anh! 🎁", quote: "Em chính là món quà tuyệt vời nhất mà cuộc sống này đã ban tặng cho anh." },
+        { title: "Chăm chỉ vừa thôi nha! 🛑", quote: "Làm việc hết mình nhưng nhớ đừng để bản thân quá sức đấy, anh xót lắm nha." },
+        { title: "Thành quả phía trước! 🏆", quote: "Những giọt mồ hôi và sự nỗ lực hôm nay sẽ đổi lấy thành công ngọt ngào vào cuối ngày." },
+        { title: "Hạnh phúc đơn sơ! 🌾", quote: "Hạnh phúc với chúng ta đôi khi chỉ là những tin nhắn hỏi han nhau mỗi khi chiều về." },
+        { title: "Yêu em không hối tiếc! 💌", quote: "Được yêu và chăm sóc Ái Nhuy là điều tuyệt vời nhất trong cuộc đời của anh." },
+        { title: "Gió chiều mát lành! 🌬️", quote: "Chúc buổi chiều của em thật dịu mát, mọi việc trôi chảy và không gặp trở ngại nào." },
+        { title: "Nhớ em từng giây! ⏳", quote: "Đồng hồ cứ quay mà nỗi nhớ em trong anh chỉ có tăng thêm thôi Ái Nhuy ơi." },
+        { title: "Xong việc sớm nhé! ✨", quote: "Chúc em giải quyết xong xuôi mọi đầu việc để chiều nay về nghỉ ngơi thật sớm." },
+        { title: "Luôn bên cạnh em! 🤍", quote: "Dù xa hay gần, anh vẫn luôn dõi theo và dành trọn sự quan tâm cho em." },
+        { title: "Chiều nay thật vui! 🎀", quote: "Mong rằng chiều nay em sẽ có vài niềm vui nho nhỏ khiến lòng mình thêm rạng rỡ." }
       ],
       evening: [
-        { title: "Buổi tối ấm áp nhé! 🍲", quote: "Chúc bữa tối của em thật ngon miệng và có khoảng thời gian thư giãn thật dễ chịu." },
-        { title: "Xả hơi thôi nào! 🛋️", quote: "Buổi tối đến rồi, hãy gác lại những lo toan ban ngày để tận hưởng phút giây bình yên nha." },
-        { title: "Xua tan căng thẳng! 🌠", quote: "Mong rằng buổi tối của em sẽ trôi qua thật nhẹ nhàng, xua tan mọi mệt mỏi trong ngày." },
-        { title: "Tối ngọt ngào gửi em! 💕", quote: "Tối nay nhớ giữ ấm cơ thể và dành thời gian nghỉ ngơi cho bản thân nhé tình yêu của anh." }
+        { title: "Kết thúc ngày rực rỡ! 🎉", quote: "Một ngày làm việc vất vả đã khép lại thật suôn sẻ. Giờ là lúc em tự thưởng cho mình sự thư giãn tuyệt đối nhé." },
+        { title: "Xả hơi thôi nào! 🛋️", quote: "Đã hoàn thành xuất sắc nhiệm vụ rồi, hãy gác lại mọi lo toan công việc để tận hưởng buổi tối bình yên nha." },
+        { title: "Tự hào về em! 🌟", quote: "Hôm nay em đã làm việc rất chăm chỉ và vất vả rồi. Nghỉ ngơi thật tốt nhé cô gái ngoan." },
+        { title: "Thành quả ngọt ngào! 🍇", quote: "Những nỗ lực trong ngày hôm nay của em hoàn toàn xứng đáng với kết quả tuyệt vời nhận được." },
+        { title: "Bình yên cuối ngày! 🌆", quote: "Hoàng hôn buông xuống, chúc em có những phút giây thư giãn nhẹ nhàng bên gia đình và người thân." },
+        { title: "Buổi tối ấm áp nhé! 🍲", quote: "Chúc bữa tối của em thật ngon miệng bên những người thân yêu và có khoảng thời gian thư thái." },
+        { title: "Thả lỏng cơ thể! 🌌", quote: "Sau một ngày dài bận rộn, giờ là lúc em thả lỏng cơ thể và tận hưởng sự yên bình của màn đêm." },
+        { title: "Xua tan căng thẳng! 🌠", quote: "Mong rằng buổi tối của em sẽ trôi qua thật nhẹ nhàng, xua tan đi mọi căng thẳng ngoài kia." },
+        { title: "Nạp lại năng lượng! ⚡", quote: "Tối nay nhớ ăn uống đầy đủ chất dinh dưỡng để nạp lại năng lượng cho ngày mai nhé em." },
+        { title: "Khoảnh khắc thư thái! 🎈", quote: "Khép lại một ngày dài, chúc em có buổi tối tràn ngập tiếng cười và những phút giây thoải mái." },
+        { title: "Dạo phố thư giãn! 🌆", quote: "Ánh đèn thành phố lên rồi, chúc em có những giờ phút dạo phố hoặc nghỉ ngơi thật thư thái." },
+        { title: "Yêu thương đong đầy! 💌", quote: "Gửi ngàn lời chúc tốt đẹp nhất đến em vào buổi tối yên bình này." },
+        { title: "Giấc ngủ chuẩn bị! 🌙", quote: "Chúc em có một buổi tối thật dịu ngọt, chuẩn bị tinh thần cho một giấc ngủ sâu trọn vẹn." },
+        { title: "Buổi tối an lành! 🕊️", quote: "Buổi tối an lành nhé cô gái nhỏ, mọi lo toan hãy để lại phía sau." },
+        { title: "Nghỉ ngơi sớm nha! 🛏️", quote: "Nghỉ ngơi thật sớm nha em, một buổi tối bình yên đang chờ đón em." }
       ],
-      lateNight: [
-        { title: "Ngủ ngon nhé tình yêu! 🌙", quote: "Khuya rồi, chúc tình yêu của anh ngủ thật ngon và có những giấc mơ thật đẹp nhé. 💕" },
+      night: [
+        { title: "Ngủ ngon nhé tình yêu! 🌙", quote: "Đã đến giờ đi ngủ rồi, chúc tình yêu của anh ngủ thật ngon và có những giấc mơ thật đẹp nhé. 💕" },
         { title: "Chúc mơ thấy anh! 💭", quote: "Đắp chăn ấm áp và ngủ thật sâu em nha, trong giấc mơ đêm nay nhớ ghé sang thăm anh đấy." },
-        { title: "Giấc ngủ bình yên! 🌌", quote: "Chúc em có một đêm ngon giấc, xua tan mọi mỏi mệt để thức dậy thật tươi tắn." },
-        { title: "Đắp chăn kỹ nhé! 🛌", quote: "Đêm khuya lạnh rồi, em nhớ đắp chăn thật kỹ và nghỉ ngơi trọn vẹn nha." }
+        { title: "Giấc ngủ bình yên! 🌌", quote: "Chúc em có một đêm ngon giấc, xua tan mọi mỏi mệt để sáng mai thức dậy thật tươi trẻ." },
+        { title: "Ôm em vào mộng! 🤗", quote: "Gửi ngàn cái ôm ngọt ngào qua màn hình, chúc Ái Nhuy ngủ ngon và có giấc mộng thật đẹp." },
+        { title: "Đêm nay thật êm đềm! 🌠", quote: "Ánh trăng ngoài kia đang dịu dàng ôm lấy giấc ngủ của em. Ngủ ngon nha công chúa của anh." },
+        { title: "Hơi ấm tình yêu! 💖", quote: "Chúc em chìm vào giấc ngủ trong sự bình yên và hơi ấm tình yêu của anh." },
+        { title: "Khởi đầu ngày mai! 🌅", quote: "Ngủ thật ngon giấc nhé em yêu, ngày mai lại là một khởi đầu tuyệt vời mới." },
+        { title: "Thế giới trong mơ! ✨", quote: "Chúc em mơ thấy những điều hạnh phúc nhất, thế giới trong mơ sẽ dịu dàng với em." },
+        { title: "Đắp chăn kỹ nhé! 🛌", quote: "Đêm nay lạnh rồi, em nhớ đắp chăn thật kỹ trước khi chìm vào giấc ngủ nha." },
+        { title: "Giấc ngủ sâu! 💤", quote: "Chúc em một giấc ngủ sâu không mộng mị, để sáng mai bừng sáng rạng ngời." },
+        { title: "Thả lỏng cơ thể! 🍃", quote: "Nhắm mắt lại và thả lỏng cơ thể thôi nào, cả ngày vất vả rồi, ngủ ngon em nhé." },
+        { title: "Người con gái trong tim! 💌", quote: "Gửi lời chúc ngủ ngon ngọt ngào nhất đến người con gái ngự trị trong tim anh." },
+        { title: "Tâm trạng phơi phới! 🌻", quote: "Chúc em ngủ ngon, mai thức dậy với một tâm trạng thật phơi phới và yêu đời." },
+        { title: "Hẹn gặp trong mơ! 💭", quote: "Hẹn gặp em trong những giấc mơ đẹp nhất đêm nay nhé, tình yêu của anh." },
+        { title: "Bình yên trọn vẹn! 🕊️", quote: "Chúc em có một đêm trọn vẹn bình yên, giấc ngủ ngon sẽ mang lại cho em nguồn năng lượng mới vào ngày mai." }
       ]
     };
 
-    function getTimeSlotKeyByHour(hour) {
-      if (hour >= 5 && hour < 9) return 'earlyMorning';
-      if (hour >= 9 && hour < 14) return 'midday';
-      if (hour >= 14 && hour < 18) return 'afternoon';
-      if (hour >= 18 && hour < 22) return 'evening';
-      return 'lateNight';
-    }
-
-    let currentMood = 'sweet';
     let currentActiveList = [];
     let currentGreetingIdx = 0;
-    let activeTimeSlotKey = null;
 
-    function buildGreetingList(now = new Date(), keepIndex = false) {
-      const slotKey = getTimeSlotKeyByHour(now.getHours());
-      const slotChanged = (activeTimeSlotKey !== null && activeTimeSlotKey !== slotKey);
-      activeTimeSlotKey = slotKey;
+    function initGreetingPool() {
+      const hour = new Date().getHours();
+      if (hour >= 4 && hour < 11) currentActiveList = wishesByTime.morning;
+      else if (hour >= 11 && hour < 18) currentActiveList = wishesByTime.afternoon;
+      else if (hour >= 18 && hour < 22) currentActiveList = wishesByTime.evening;
+      else currentActiveList = wishesByTime.night;
 
-      const timePool = wishesByTime[slotKey] || wishesByTime.evening;
-      const mPool = moodQuotes[currentMood] || moodQuotes.sweet;
-      currentActiveList = [...mPool, ...timePool];
-
-      if (!keepIndex || slotChanged) {
-        currentGreetingIdx = 0;
-      }
+      currentGreetingIdx = Math.floor(Math.random() * currentActiveList.length);
       displayCurrentGreeting();
-    }
-
-    function setMood(mood) {
-      currentMood = mood;
-      document.querySelectorAll('.mood-btn').forEach(btn => {
-        btn.classList.toggle('active', btn.dataset.mood === mood);
-      });
-      buildGreetingList(new Date(), false);
-      showToast('Đã đổi lời chúc theo tâm trạng!');
     }
 
     function displayCurrentGreeting() {
@@ -2053,52 +1748,19 @@
     }
 
     function cycleGreetingText() {
-      buildGreetingList(new Date(), true);
       if (currentActiveList.length > 0) {
         currentGreetingIdx = (currentGreetingIdx + 1) % currentActiveList.length;
         displayCurrentGreeting();
       }
     }
 
-    const loveQuests = [
-      "Nhiệm vụ nhỏ: Uống ngay 1 ly nước đầy và nhắn cho anh biết em đang làm gì nhé 💧💕",
-      "Quẻ hôm nay: Gặp toàn điều dễ thương! Nhớ chụp 1 tấm ảnh nhỏ gửi sang cho anh nha 📸✨",
-      "Nhiệm vụ dỗ dành: Tự thưởng cho mình 1 món ăn vặt hoặc 1 bản nhạc thật chill ngay lúc này 🎧🍓",
-      "Quẻ may mắn: Mọi việc hôm nay đều trôi chảy! Đừng quên cười thật tươi trước khi bắt đầu việc mới 😄🌸",
-      "Nhiệm vụ yêu thương: Nhắn 'Yêu anh' kèm 1 icon bất kỳ để nhận lại ngàn lần thương nhớ nha 💌💖"
-    ];
-    let latestQuestText = loveQuests[0];
-
-    function openLoveQuest() {
-      latestQuestText = loveQuests[Math.floor(Math.random() * loveQuests.length)];
-      const modal = document.getElementById('funModal');
-      const bodyEl = document.getElementById('funModalBody');
-      if (modal && bodyEl) {
-        bodyEl.innerText = latestQuestText;
-        modal.style.display = 'flex';
-      }
-    }
-
-    function closeFunModal() {
-      const modal = document.getElementById('funModal');
-      if (modal) modal.style.display = 'none';
-    }
-
-    function copyFunQuest() {
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(latestQuestText).then(() => showToast('Đã sao chép để gửi Zalo!'));
-      } else {
-        showToast('Hãy sao chép nội dung quẻ gửi Zalo nhé!');
-      }
-    }
-
     const weatherStates = [
-      { type: 'sunny', label: '☀️ Trời nắng rực rỡ' },
-      { type: 'fair', label: '☁️ Trời âm u, nhiều mây' },
-      { type: 'rainy', label: '🌧️ Ngoài trời có mưa' },
-      { type: 'night', label: '🌙 Trời đêm quang đãng' }
+      { type: 'sunny', label: 'Trời nắng rực rỡ, chan hòa' },
+      { type: 'fair', label: 'Bầu trời trong xanh dịu mát' },
+      { type: 'rainy', label: 'Trời có mưa, em nhớ mang ô nhé' },
+      { type: 'night', label: 'Đêm trong lành, trăng sao huyền bí' }
     ];
-    let currentWeatherIndex = 1;
+    let currentWeatherIndex = 0;
 
     function renderWeatherIcon(type, customLabel) {
       const widget = document.getElementById('weatherWidget');
@@ -2107,10 +1769,10 @@
 
       if (type === 'sunny') {
         widget.innerHTML = `<div class="sunny-animated-box"><div class="sun-core"></div><div class="sun-rays-wrap"><span class="sun-beam"></span><span class="sun-beam"></span><span class="sun-beam"></span><span class="sun-beam"></span></div></div>`;
-        if (label) label.innerText = customLabel || '☀️ Trời nắng rực rỡ';
+        if (label) label.innerText = customLabel || '☀️ Ngoài trời nắng rực rỡ';
       } else if (type === 'fair') {
-        widget.innerHTML = `<div class="fair-animated-box"><div class="floating-cloud-1"></div><div class="floating-cloud-2"></div></div>`;
-        if (label) label.innerText = customLabel || '☁️ Trời âm u, nhiều mây';
+        widget.innerHTML = `<div class="fair-animated-box"><div class="fair-sun"></div><div class="floating-cloud-1"></div><div class="floating-cloud-2"></div></div>`;
+        if (label) label.innerText = customLabel || '🌤️ Bầu trời trong xanh dịu mát';
       } else if (type === 'rainy') {
         widget.innerHTML = `<div class="rainy-animated-box"><div class="rain-main-cloud"></div><span class="anim-drop rd1"></span><span class="anim-drop rd2"></span><span class="anim-drop rd3"></span></div>`;
         if (label) label.innerText = customLabel || '🌧️ Ngoài trời có mưa';
@@ -2128,72 +1790,53 @@
       }
     }
 
-    function classifyGpsWeather(cur) {
-      const code = Number(cur.weather_code);
-      const temp = Math.round(cur.temperature_2m);
-      const isDay = cur.is_day === 1;
-      const cloudCover = typeof cur.cloud_cover === 'number' ? cur.cloud_cover : null;
-
-      if (code >= 51 && code <= 99) {
-        return { idx: 2, type: 'rainy', text: `🌧️ Trời có mưa (${temp}°C)` };
-      }
-      if (!isDay) {
-        if (cloudCover !== null && cloudCover >= 75) {
-          return { idx: 1, type: 'fair', text: `☁️ Đêm nhiều mây (${temp}°C)` };
-        }
-        return { idx: 3, type: 'night', text: `🌙 Đêm quang đãng (${temp}°C)` };
-      }
-      if (code <= 1 && (cloudCover === null || cloudCover < 50)) {
-        return { idx: 0, type: 'sunny', text: `☀️ Trời nắng (${temp}°C)` };
-      }
-      if (cloudCover !== null && cloudCover >= 75) {
-        return { idx: 1, type: 'fair', text: `☁️ Trời âm u, nhiều mây (${temp}°C)` };
-      }
-      return { idx: 1, type: 'fair', text: `🌥️ Trời nhiều mây, dịu mát (${temp}°C)` };
-    }
-
-    function fallbackWeatherByHour(now = new Date()) {
-      const hour = now.getHours();
-      if (hour >= 18 || hour < 5) {
-        currentWeatherIndex = 3;
-        renderWeatherIcon('night', '🌙 Khung giờ tối/khuya (chưa có GPS)');
-      } else if ((hour >= 5 && hour < 8) || (hour >= 16 && hour < 18)) {
-        currentWeatherIndex = 1;
-        renderWeatherIcon('fair', '🌥️ Khung giờ sáng sớm/chiều mát (chưa có GPS)');
-      } else {
-        currentWeatherIndex = 0;
-        renderWeatherIcon('sunny', '☀️ Khung giờ ban ngày (chưa có GPS)');
-      }
-    }
-
     async function initWeatherDetection() {
       const label = document.getElementById('weatherStatusLabel');
-      fallbackWeatherByHour(new Date());
+      const hour = new Date().getHours();
+      const isNightTime = (hour >= 18 || hour < 5);
+      if (isNightTime) currentWeatherIndex = 3;
+      else if (hour >= 9 && hour <= 15) currentWeatherIndex = 0;
+      else currentWeatherIndex = 1;
+      renderWeatherIcon(weatherStates[currentWeatherIndex].type);
 
       if ("geolocation" in navigator) {
-        if (label) label.innerText = 'Đang lấy GPS cập nhật thời tiết...';
+        if (label) label.innerText = 'Đang nhận diện vị trí GPS...';
         navigator.geolocation.getCurrentPosition(async (pos) => {
           try {
             const lat = pos.coords.latitude;
             const lon = pos.coords.longitude;
-            const res = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=weather_code,temperature_2m,is_day,cloud_cover&timezone=auto`);
+            const res = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=weather_code,temperature_2m,is_day&timezone=auto`);
             if (!res.ok) throw new Error();
             const data = await res.json();
             const cur = data.current;
-            if (!cur) throw new Error();
+            const code = cur.weather_code;
+            const temp = Math.round(cur.temperature_2m);
+            const isDay = cur.is_day === 1;
 
-            const mapped = classifyGpsWeather(cur);
-            currentWeatherIndex = mapped.idx;
-            renderWeatherIcon(mapped.type, mapped.text);
-          } catch (_) {
-            fallbackWeatherByHour(new Date());
-          }
-        }, () => fallbackWeatherByHour(new Date()), {
-          enableHighAccuracy: true,
-          timeout: 8000,
-          maximumAge: 0
-        });
-      }
+            if (code >= 51 && code <= 99) {
+              currentWeatherIndex = 2;
+              renderWeatherIcon('rainy', `🌧️ Ngoài trời có mưa (${temp}°C)`);
+            } else if (!isDay) {
+              currentWeatherIndex = 3;
+              renderWeatherIcon('night', `🌙 Đêm trong lành (${temp}°C)`);
+            } else if (code <= 1) {
+              currentWeatherIndex = 0;
+              renderWeatherIcon('sunny', `☀️ Ngoài trời nắng rực rỡ (${temp}°C)`);
+            } else {
+              currentWeatherIndex = 1;
+              renderWeatherIcon('fair', `🌤️ Bầu trời dịu mát (${temp}°C)`);
+            }
+          } catch (_) { fallbackWeatherByHour(); }
+        }, () => fallbackWeatherByHour(), { timeout: 7000 });
+      } else { fallbackWeatherByHour(); }
+    }
+
+    function fallbackWeatherByHour() {
+      const hour = new Date().getHours();
+      if (hour >= 18 || hour < 5) currentWeatherIndex = 3;
+      else if (hour >= 9 && hour <= 15) currentWeatherIndex = 0;
+      else currentWeatherIndex = 1;
+      renderWeatherIcon(weatherStates[currentWeatherIndex].type, weatherStates[currentWeatherIndex].label);
     }
 
     function cycleWeatherDemo() {
@@ -2219,7 +1862,7 @@
         content, category, journalDate, reminderTime, done: false,
         createdAt: now.toLocaleTimeString('vi-VN', { hour: '2-digit', minute: '2-digit' }) + ' ' + now.toLocaleDateString('vi-VN')
       });
-      safeStorageSet('ainhuy_journals_v1', JSON.stringify(journals));
+      localStorage.setItem('ainhuy_journals_v1', JSON.stringify(journals));
 
       document.getElementById('journalTitle').value = '';
       document.getElementById('journalContent').value = '';
@@ -2231,7 +1874,7 @@
     function filterJournals() {
       const keyword = (document.getElementById('searchKeyword').value || '').toLowerCase().trim();
       const dateVal = document.getElementById('filterJournalDate').value;
-      const filtered = journals.filter(j => {
+      let filtered = journals.filter(j => {
         let matchWord = true, matchDate = true;
         if (keyword) matchWord = (j.title || '').toLowerCase().includes(keyword) || (j.content || '').toLowerCase().includes(keyword);
         if (dateVal) matchDate = j.journalDate === dateVal;
@@ -2280,14 +1923,14 @@
 
     function toggleDoneJournal(id) {
       journals = journals.map(j => j.id === id ? { ...j, done: !j.done } : j);
-      safeStorageSet('ainhuy_journals_v1', JSON.stringify(journals));
+      localStorage.setItem('ainhuy_journals_v1', JSON.stringify(journals));
       filterJournals(); updateDashboard();
     }
 
     function deleteJournal(id) {
       if (confirm('Xóa trang nhật ký này?')) {
         journals = journals.filter(j => j.id !== id);
-        safeStorageSet('ainhuy_journals_v1', JSON.stringify(journals));
+        localStorage.setItem('ainhuy_journals_v1', JSON.stringify(journals));
         filterJournals(); updateDashboard();
       }
     }
@@ -2296,33 +1939,22 @@
       const j = journals.find(x => x.id === id);
       if (!j) return;
       const text = `💌 [NHẬT KÝ ÁI NHUY - ${j.journalDate || ''}]\n📌 ${j.title}\n------------------\n${j.content}`;
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(text).then(() => showToast('Đã sao chép sang Zalo!'));
-      } else {
-        showToast('Đã chuẩn bị nội dung nhật ký!');
-      }
+      navigator.clipboard.writeText(text).then(() => showToast('Đã sao chép sang Zalo!'));
     }
 
     function switchView(tab) {
-      ['shifts', 'journal', 'issues', 'puzzle'].forEach(t => {
+      ['shifts', 'journal', 'issues'].forEach(t => {
         const viewEl = document.getElementById(`view-${t}`);
         const btnEl = document.getElementById(`tabBtn-${t}`);
-        const isCurrent = (t === tab);
-        if (viewEl) {
-          viewEl.classList.toggle('is-active-tab', isCurrent);
-          viewEl.style.display = isCurrent ? 'block' : 'none';
-        }
+        if (viewEl) viewEl.style.display = (t === tab) ? 'block' : 'none';
         if (btnEl) {
           btnEl.classList.remove('active', 'active-journal');
-          if (isCurrent) {
+          if (t === tab) {
             if (t === 'journal') btnEl.classList.add('active-journal');
             else btnEl.classList.add('active');
           }
         }
       });
-      if (tab === 'puzzle') {
-        renderPuzzleBoard();
-      }
     }
 
     function updateGreetingHeader() {
@@ -2335,7 +1967,7 @@
 
       const labelEl = document.getElementById('greetingDateLabel');
       if (labelEl) labelEl.innerText = `Hôm nay ${dayName}, ngày ${d}/${m}/${y}`;
-      buildGreetingList(now, true);
+      initGreetingPool();
 
       const journalDateInput = document.getElementById('journalDate');
       if (journalDateInput && !journalDateInput.value) journalDateInput.value = `${y}-${m}-${d}`;
@@ -2358,7 +1990,7 @@
       shiftTimes.c2_in = document.getElementById('cfg_c2_in').value;
       shiftTimes.c2_out = document.getElementById('cfg_c2_out').value;
 
-      safeStorageSet('ainhuy_shift_times', JSON.stringify(shiftTimes));
+      localStorage.setItem('ainhuy_shift_times', JSON.stringify(shiftTimes));
       showToast('Đã lưu giờ báo ca!');
     }
 
@@ -2367,15 +1999,14 @@
       const year = now.getFullYear();
       const month = now.getMonth();
       const firstOfMonth = new Date(year, month, 1);
-      const lastOfMonth = new Date(year, month + 1, 0);
       const dayOfWeekFirst = firstOfMonth.getDay();
       const mondayOffset = (dayOfWeekFirst === 0) ? -6 : (1 - dayOfWeekFirst);
       let curMonday = new Date(year, month, 1 + mondayOffset);
 
       monthWeeksList = [];
       let weekNum = 1;
-      while (curMonday <= lastOfMonth) {
-        const curSunday = new Date(curMonday);
+      while (true) {
+        let curSunday = new Date(curMonday);
         curSunday.setDate(curMonday.getDate() + 6);
         monthWeeksList.push({
           index: weekNum - 1,
@@ -2383,6 +2014,7 @@
           monday: new Date(curMonday),
           sunday: new Date(curSunday)
         });
+        if (curSunday.getMonth() !== month && curSunday > firstOfMonth) break;
         curMonday.setDate(curMonday.getDate() + 7);
         weekNum++;
       }
@@ -2390,9 +2022,7 @@
       const todayTime = new Date(year, month, now.getDate()).getTime();
       let defaultIdx = 0;
       monthWeeksList.forEach((w, idx) => {
-        const wStart = new Date(w.monday.getFullYear(), w.monday.getMonth(), w.monday.getDate()).getTime();
-        const wEnd = new Date(w.sunday.getFullYear(), w.sunday.getMonth(), w.sunday.getDate()).getTime();
-        if (todayTime >= wStart && todayTime <= wEnd) defaultIdx = idx;
+        if (todayTime >= w.monday.getTime() && todayTime <= w.sunday.getTime()) defaultIdx = idx;
       });
       currentWeekIndex = defaultIdx;
       selectedSyncWeeks.clear();
@@ -2407,67 +2037,11 @@
 
     function getShiftsForWeekIndex(wIdx) {
       const key = getWeekStorageKey(wIdx);
-      const saved = safeStorageGet(key);
+      const saved = localStorage.getItem(key);
       if (saved) return JSON.parse(saved);
-      return JSON.parse(safeStorageGet('ainhuy_weekly_shifts', JSON.stringify({
+      return JSON.parse(localStorage.getItem('ainhuy_weekly_shifts') || JSON.stringify({
         2: "ca1", 3: "ca1", 4: "ca1", 5: "ca1", 6: "ca1", 7: "off", 8: "off"
-      })));
-    }
-
-    function updateMonthSummaryAndOffCountdown() {
-      const now = new Date();
-      const curMonth = now.getMonth();
-      const curYear = now.getFullYear();
-      const todayStart = new Date(curYear, curMonth, now.getDate()).getTime();
-
-      let countCa1 = 0, countCa2 = 0, countHch = 0, countOff = 0;
-      let nearestOffDiffDays = null;
-
-      for (let d = 1; d <= new Date(curYear, curMonth + 1, 0).getDate(); d++) {
-        const dateObj = new Date(curYear, curMonth, d);
-        const dayOfWeek = dateObj.getDay();
-        const dayKey = (dayOfWeek === 0) ? 8 : (dayOfWeek + 1);
-
-        let shift = 'off';
-        monthWeeksList.forEach((w, idx) => {
-          const wStart = new Date(w.monday.getFullYear(), w.monday.getMonth(), w.monday.getDate()).getTime();
-          const wEnd = new Date(w.sunday.getFullYear(), w.sunday.getMonth(), w.sunday.getDate()).getTime();
-          const t = dateObj.getTime();
-          if (t >= wStart && t <= wEnd) {
-            shift = getShiftsForWeekIndex(idx)[dayKey] || 'off';
-          }
-        });
-
-        if (shift === 'ca1') countCa1++;
-        else if (shift === 'ca2') countCa2++;
-        else if (shift === 'hch') countHch++;
-        else countOff++;
-
-        const diffDays = Math.round((dateObj.getTime() - todayStart) / (1000 * 60 * 60 * 24));
-        if (shift === 'off' && diffDays >= 0) {
-          if (nearestOffDiffDays === null || diffDays < nearestOffDiffDays) nearestOffDiffDays = diffDays;
-        }
-      }
-
-      const summaryEl = document.getElementById('monthShiftSummary');
-      if (summaryEl) {
-        summaryEl.innerText = `Tháng ${curMonth + 1}: Ca 1 (${countCa1}) • Ca 2 (${countCa2}) • H.Chính (${countHch}) • Off (${countOff})`;
-      }
-
-      const cdVal = document.getElementById('statOffCountdown');
-      const cdSub = document.getElementById('statOffSub');
-      if (cdVal && cdSub) {
-        if (nearestOffDiffDays === 0) {
-          cdVal.textContent = 'Hôm nay!';
-          cdSub.textContent = 'Đang là ngày Off 🔴';
-        } else if (nearestOffDiffDays !== null) {
-          cdVal.textContent = `${nearestOffDiffDays} ngày`;
-          cdSub.textContent = 'Tới ngày Off gần nhất';
-        } else {
-          cdVal.textContent = '--';
-          cdSub.textContent = 'Chưa có Off tháng này';
-        }
-      }
+      }));
     }
 
     function initMonthWeeksDropdown() {
@@ -2484,7 +2058,6 @@
         select.appendChild(opt);
       });
       renderSyncDropdownMenu();
-      updateMonthSummaryAndOffCountdown();
     }
 
     function onWeekDropdownChange(val) {
@@ -2546,8 +2119,8 @@
       const key = getWeekStorageKey(currentWeekIndex);
       const shiftsData = getShiftsForWeekIndex(currentWeekIndex);
       shiftsData[dayKey] = val;
-      safeStorageSet(key, JSON.stringify(shiftsData));
-      safeStorageSet('ainhuy_weekly_shifts', JSON.stringify(shiftsData));
+      localStorage.setItem(key, JSON.stringify(shiftsData));
+      localStorage.setItem('ainhuy_weekly_shifts', JSON.stringify(shiftsData));
 
       const col = document.getElementById(`col-day-${dayKey}`);
       if (col) {
@@ -2557,19 +2130,17 @@
         else if (val === 'hch') col.classList.add('is-hch');
         else col.classList.add('is-off');
       }
-      updateMonthSummaryAndOffCountdown();
       showToast('Đã lưu lịch ca!');
     }
 
     function copyCurrentWeekToAll() {
       const curData = getShiftsForWeekIndex(currentWeekIndex);
-      if (confirm('Áp dụng lịch tuần này cho cả tháng?')) {
+      if (confirm(`Áp dụng lịch tuần này cho cả tháng?`)) {
         monthWeeksList.forEach(w => {
-          safeStorageSet(getWeekStorageKey(w.index), JSON.stringify(curData));
+          localStorage.setItem(getWeekStorageKey(w.index), JSON.stringify(curData));
         });
-        safeStorageSet('ainhuy_weekly_shifts', JSON.stringify(curData));
+        localStorage.setItem('ainhuy_weekly_shifts', JSON.stringify(curData));
         renderWeekGrid();
-        updateMonthSummaryAndOffCountdown();
         showToast('Đã áp dụng cả tháng!');
       }
     }
@@ -2626,7 +2197,7 @@
     function escapeICS(str) {
       return String(str || '')
         .replace(/\\/g, '\\\\')
-        .replace(/\n/g, '\\n')
+        .replace(/\r\n|\r|\n/g, '\\n')
         .replace(/,/g, '\\,')
         .replace(/;/g, '\\;');
     }
@@ -2644,31 +2215,20 @@
         return `${dObj.getFullYear()}${pad2(dObj.getMonth() + 1)}${pad2(dObj.getDate())}T${pad2(dObj.getHours())}${pad2(dObj.getMinutes())}00`;
       }
 
-      function buildDeepSleepAlarms(labelText, uidPrefix) {
+      function buildDeepSleepAlarms(labelText) {
         const safeDesc = escapeICS('BÁO THỨC CA TRỰC: ' + labelText);
         return [
           'BEGIN:VALARM',
-          `UID:${uidPrefix}-alarm-0`,
           'TRIGGER:PT0M',
           'ACTION:DISPLAY',
           `DESCRIPTION:${safeDesc}`,
           'END:VALARM',
           'BEGIN:VALARM',
-          `UID:${uidPrefix}-audio-0`,
-          'TRIGGER:PT0M',
-          'ACTION:AUDIO',
-          'REPEAT:3',
-          'DURATION:PT15S',
-          `SUMMARY:${safeDesc}`,
-          'END:VALARM',
-          'BEGIN:VALARM',
-          `UID:${uidPrefix}-alarm-2`,
           'TRIGGER:PT2M',
           'ACTION:DISPLAY',
           `DESCRIPTION:${escapeICS('Nhắc lần 2 (+2 phút): ' + labelText)}`,
           'END:VALARM',
           'BEGIN:VALARM',
-          `UID:${uidPrefix}-alarm-5`,
           'TRIGGER:PT5M',
           'ACTION:DISPLAY',
           `DESCRIPTION:${escapeICS('Nhắc lần 3 (+5 phút): ' + labelText)}`,
@@ -2692,7 +2252,6 @@
           const y = dayDate.getFullYear();
           const m = dayDate.getMonth() + 1;
           const d = dayDate.getDate();
-
           const dateStr = `${y}${pad2(m)}${pad2(d)}`;
 
           if (shift === 'off') {
@@ -2738,11 +2297,10 @@
           const inSummary = `⏰ ${shiftLabel} (${rawIn})`;
           const outSummary = `🏁 Tan ${shiftLabel} (${rawOut})`;
 
-          const inUid = `shift-in-${shift}-${dateStr}-${dayKey}-${count + 1}`;
           count++;
           events.push([
             'BEGIN:VEVENT',
-            `UID:${inUid}@ainhuy.shift`,
+            `UID:shift-in-${shift}-${dateStr}-${dayKey}-${count}@ainhuy.shift`,
             `DTSTAMP:${dtStamp}`,
             `DTSTART;TZID=${tzName}:${inLocal}`,
             `DTEND;TZID=${tzName}:${outLocal}`,
@@ -2750,18 +2308,16 @@
             `DESCRIPTION:${escapeICS(inSummary)}`,
             'PRIORITY:1',
             'TRANSP:OPAQUE',
-            'X-MICROSOFT-CDO-IMPORTANCE:2',
             'X-APPLE-DEFAULT-ALARM:TRUE',
             'STATUS:CONFIRMED',
-            buildDeepSleepAlarms(inSummary, inUid),
+            buildDeepSleepAlarms(inSummary),
             'END:VEVENT'
           ].join('\r\n'));
 
-          const outUid = `shift-out-${shift}-${dateStr}-${dayKey}-${count + 1}`;
           count++;
           events.push([
             'BEGIN:VEVENT',
-            `UID:${outUid}@ainhuy.shift`,
+            `UID:shift-out-${shift}-${dateStr}-${dayKey}-${count}@ainhuy.shift`,
             `DTSTAMP:${dtStamp}`,
             `DTSTART;TZID=${tzName}:${outLocal}`,
             `DTEND;TZID=${tzName}:${outEndLocal}`,
@@ -2769,43 +2325,25 @@
             `DESCRIPTION:${escapeICS(outSummary)}`,
             'PRIORITY:1',
             'TRANSP:OPAQUE',
-            'X-MICROSOFT-CDO-IMPORTANCE:2',
             'X-APPLE-DEFAULT-ALARM:TRUE',
             'STATUS:CONFIRMED',
-            buildDeepSleepAlarms(outSummary, outUid),
+            buildDeepSleepAlarms(outSummary),
             'END:VEVENT'
           ].join('\r\n'));
         }
       });
 
-      issues.forEach(item => {
-        if (item.done || !item.reminderDateTime) return;
-        const dt = new Date(item.reminderDateTime);
-        if (isNaN(dt.getTime())) return;
-        const endDt = new Date(dt.getTime() + 15 * 60000);
-
-        const toLocalDt = dObj => `${dObj.getFullYear()}${pad2(dObj.getMonth() + 1)}${pad2(dObj.getDate())}T${pad2(dObj.getHours())}${pad2(dObj.getMinutes())}00`;
-        const titleTxt = `⚡ Việc cần làm: ${item.title}`;
-        const issueUid = `issue-${item.id}-${count + 1}`;
-
-        count++;
-        events.push([
-          'BEGIN:VEVENT',
-          `UID:${issueUid}@ainhuy.shift`,
-          `DTSTAMP:${dtStamp}`,
-          `DTSTART;TZID=${tzName}:${toLocalDt(dt)}`,
-          `DTEND;TZID=${tzName}:${toLocalDt(endDt)}`,
-          `SUMMARY:${escapeICS(titleTxt)}`,
-          `DESCRIPTION:${escapeICS(item.content || titleTxt)}`,
-          'PRIORITY:1',
-          'TRANSP:OPAQUE',
-          'X-MICROSOFT-CDO-IMPORTANCE:2',
-          'X-APPLE-DEFAULT-ALARM:TRUE',
-          'STATUS:CONFIRMED',
-          buildDeepSleepAlarms(titleTxt, issueUid),
-          'END:VEVENT'
-        ].join('\r\n'));
-      });
+      const vtimezoneBlock = tzName === 'Asia/Ho_Chi_Minh' ? [
+        'BEGIN:VTIMEZONE',
+        'TZID:Asia/Ho_Chi_Minh',
+        'BEGIN:STANDARD',
+        'DTSTART:19700101T000000',
+        'TZOFFSETFROM:+0700',
+        'TZOFFSETTO:+0700',
+        'TZNAME:ICT',
+        'END:STANDARD',
+        'END:VTIMEZONE'
+      ].join('\r\n') : '';
 
       const icsHeader = [
         'BEGIN:VCALENDAR',
@@ -2814,17 +2352,20 @@
         'CALSCALE:GREGORIAN',
         'METHOD:PUBLISH',
         `X-WR-TIMEZONE:${tzName}`,
-        'X-WR-CALNAME:Ái Nhuy'
+        'X-WR-CALNAME:Ái Nhuy',
+        ...(vtimezoneBlock ? [vtimezoneBlock] : [])
       ].join('\r\n');
 
       const icsContent = `${icsHeader}\r\n${events.join('\r\n')}\r\nEND:VCALENDAR\r\n`;
       const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
+      const url = window.URL.createObjectURL(blob);
       const link = document.createElement('a');
-      link.href = window.URL.createObjectURL(blob);
+      link.href = url;
       link.setAttribute('download', 'lich_ca_ai_nhuy.ics');
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
+      setTimeout(() => window.URL.revokeObjectURL(url), 1000);
       showToast(`Đã xuất ${count} mốc báo đúng giờ vào Lịch!`);
     }
 
@@ -2841,13 +2382,13 @@
         id: Date.now(), title, content, priority, reminderDateTime, done: false,
         createdAt: new Date().toLocaleTimeString('vi-VN', { hour: '2-digit', minute: '2-digit' }) + ' ' + new Date().toLocaleDateString('vi-VN')
       });
-      safeStorageSet('ainhuy_issues_v1', JSON.stringify(issues));
+      localStorage.setItem('ainhuy_issues_v1', JSON.stringify(issues));
 
       document.getElementById('issueTitle').value = '';
       document.getElementById('issueContent').value = '';
       document.getElementById('issueDateTime').value = '';
       renderIssues(); updateDashboard();
-      showToast('Đã thêm công việc & hẹn giờ nhắc!');
+      showToast('Đã thêm công việc!');
     }
 
     function renderIssues() {
@@ -2885,14 +2426,14 @@
 
     function toggleDoneIssue(id) {
       issues = issues.map(i => i.id === id ? { ...i, done: !i.done } : i);
-      safeStorageSet('ainhuy_issues_v1', JSON.stringify(issues));
+      localStorage.setItem('ainhuy_issues_v1', JSON.stringify(issues));
       renderIssues(); updateDashboard();
     }
 
     function deleteIssue(id) {
       if (confirm('Xóa công việc này?')) {
         issues = issues.filter(i => i.id !== id);
-        safeStorageSet('ainhuy_issues_v1', JSON.stringify(issues));
+        localStorage.setItem('ainhuy_issues_v1', JSON.stringify(issues));
         renderIssues(); updateDashboard();
       }
     }
@@ -2901,176 +2442,16 @@
       const i = issues.find(x => x.id === id);
       if (!i) return;
       const text = `⚡ [VIỆC CẦN LÀM - ${i.priority.toUpperCase()}]\n📌 ${i.title}\n⏰ ${i.createdAt}\n------------------\n${i.content}`;
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(text).then(() => showToast('Đã copy nội dung!'));
-      } else {
-        showToast('Đã chuẩn bị nội dung công việc!');
-      }
-    }
-
-    const PUZZLE_COLS = 4;
-    const PUZZLE_ROWS = 3;
-    const PUZZLE_TOTAL = PUZZLE_COLS * PUZZLE_ROWS;
-
-    let puzzleImageSrc = "n1.1.jpg";
-    let puzzleActiveRenderSrc = FALLBACK_PUZZLE_IMG;
-    let puzzleBoard = Array.from({ length: PUZZLE_TOTAL }, (_, i) => i);
-    let puzzleSelectedIndex = null;
-    let puzzleMoves = 0;
-
-    function resolvePuzzleSource(srcToCheck, callback) {
-      if (!srcToCheck) {
-        callback(FALLBACK_PUZZLE_IMG);
-        return;
-      }
-      if (srcToCheck.startsWith("data:")) {
-        callback(srcToCheck);
-        return;
-      }
-      const probe = new Image();
-      probe.onload = function () {
-        if (probe.naturalWidth > 0 && probe.naturalHeight > 0) {
-          callback(srcToCheck);
-        } else {
-          callback(FALLBACK_PUZZLE_IMG);
-        }
-      };
-      probe.onerror = function () {
-        callback(FALLBACK_PUZZLE_IMG);
-      };
-      probe.src = srcToCheck;
-    }
-
-    function triggerPuzzleImageUpload() {
-      const inp = document.getElementById('puzzleImageInput');
-      if (inp) inp.click();
-    }
-
-    function handlePuzzleImageUpload(e) {
-      const file = e.target.files && e.target.files[0];
-      if (!file) return;
-      const reader = new FileReader();
-      reader.onload = function () {
-        puzzleImageSrc = String(reader.result || FALLBACK_PUZZLE_IMG);
-        puzzleActiveRenderSrc = puzzleImageSrc;
-        const previewImg = document.getElementById('puzzlePreviewImg');
-        if (previewImg) {
-          previewImg.dataset.fallbackSrc = FALLBACK_PUZZLE_IMG;
-          previewImg.src = puzzleImageSrc;
-        }
-        shufflePuzzleTiles();
-        showToast('Đã nạp ảnh mới vào 12 khung ghép!');
-      };
-      reader.readAsDataURL(file);
-      e.target.value = '';
-    }
-
-    function shufflePuzzleTiles() {
-      const arr = Array.from({ length: PUZZLE_TOTAL }, (_, i) => i);
-      for (let i = arr.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [arr[i], arr[j]] = [arr[j], arr[i]];
-      }
-      if (arr.every((val, idx) => val === idx)) {
-        [arr[0], arr[1]] = [arr[1], arr[0]];
-      }
-      puzzleBoard = arr;
-      puzzleSelectedIndex = null;
-      puzzleMoves = 0;
-      renderPuzzleBoard();
-    }
-
-    function togglePuzzlePreview() {
-      const box = document.getElementById('puzzlePreviewBox');
-      const previewImg = document.getElementById('puzzlePreviewImg');
-      if (previewImg && !previewImg.src) {
-        previewImg.dataset.fallbackSrc = FALLBACK_PUZZLE_IMG;
-        previewImg.src = puzzleActiveRenderSrc;
-      }
-      if (!box) return;
-      box.style.display = (box.style.display === 'block') ? 'none' : 'block';
-    }
-
-    function paintPuzzleTiles() {
-      const grid = document.getElementById('puzzleGrid12');
-      if (!grid) return;
-      grid.innerHTML = '';
-
-      let correctCount = 0;
-      puzzleBoard.forEach((pieceId, slotIdx) => {
-        const row = Math.floor(pieceId / PUZZLE_COLS);
-        const col = pieceId % PUZZLE_COLS;
-        const isCorrect = (pieceId === slotIdx);
-        if (isCorrect) correctCount++;
-
-        const posX = (col / (PUZZLE_COLS - 1)) * 100;
-        const posY = (row / (PUZZLE_ROWS - 1)) * 100;
-
-        const tile = document.createElement('div');
-        tile.className = `puzzle-tile ${puzzleSelectedIndex === slotIdx ? 'selected' : ''} ${isCorrect ? 'correct-slot' : ''}`;
-        tile.style.backgroundImage = `url("${puzzleActiveRenderSrc}")`;
-        tile.style.backgroundSize = `${PUZZLE_COLS * 100}% ${PUZZLE_ROWS * 100}%`;
-        tile.style.backgroundPosition = `${posX}% ${posY}%`;
-        tile.onclick = () => onPuzzleTileClick(slotIdx);
-        grid.appendChild(tile);
-      });
-
-      const progEl = document.getElementById('puzzleProgressText');
-      const moveEl = document.getElementById('puzzleMovesText');
-      const completeBanner = document.getElementById('puzzleCompleteBanner');
-      if (progEl) progEl.textContent = `Đúng: ${correctCount}/${PUZZLE_TOTAL} ô`;
-      if (moveEl) moveEl.textContent = `Số lần đổi: ${puzzleMoves}`;
-
-      if (completeBanner) {
-        completeBanner.style.display = (correctCount === PUZZLE_TOTAL && puzzleMoves > 0) ? 'block' : 'none';
-      }
-
-      if (correctCount === PUZZLE_TOTAL && puzzleMoves > 0) {
-        showToast(`🎉 Xuất sắc! Ghép xong ${PUZZLE_TOTAL} ô sau ${puzzleMoves} lần đổi!`);
-      }
-    }
-
-    function renderPuzzleBoard() {
-      resolvePuzzleSource(puzzleImageSrc, function (resolvedSrc) {
-        puzzleActiveRenderSrc = resolvedSrc;
-        paintPuzzleTiles();
-      });
-    }
-
-    function onPuzzleTileClick(slotIdx) {
-      if (puzzleSelectedIndex === null) {
-        puzzleSelectedIndex = slotIdx;
-        paintPuzzleTiles();
-        return;
-      }
-      if (puzzleSelectedIndex === slotIdx) {
-        puzzleSelectedIndex = null;
-        paintPuzzleTiles();
-        return;
-      }
-      const temp = puzzleBoard[puzzleSelectedIndex];
-      puzzleBoard[puzzleSelectedIndex] = puzzleBoard[slotIdx];
-      puzzleBoard[slotIdx] = temp;
-      puzzleSelectedIndex = null;
-      puzzleMoves++;
-      paintPuzzleTiles();
-    }
-
-    function initSafeImages() {
-      attachSafeImageFallback(document.getElementById("headerAvatarImg"), FALLBACK_MAIN_IMG);
-      attachSafeImageFallback(document.getElementById("romanticModalImg"), FALLBACK_ROMANTIC_IMG);
-      attachSafeImageFallback(document.getElementById("stickerShowcaseImg"), FALLBACK_MAIN_IMG);
-      attachSafeImageFallback(document.getElementById("puzzlePreviewImg"), FALLBACK_PUZZLE_IMG);
+      navigator.clipboard.writeText(text).then(() => showToast('Đã copy nội dung!'));
     }
 
     function updateDashboard() {
       const jDone = journals.filter(x => x.done).length;
       const iDone = issues.filter(x => x.done).length;
       document.getElementById('statJournals').textContent = journals.length;
-      document.getElementById('statJournalsSub').textContent = `${jDone} xong`;
+      document.getElementById('statJournalsSub').textContent = `${jDone} hoàn thành`;
       document.getElementById('statIssues').textContent = issues.length;
-      document.getElementById('statIssuesSub').textContent = `${issues.length - iDone} mở`;
-      updateMonthSummaryAndOffCountdown();
+      document.getElementById('statIssuesSub').textContent = `${issues.length - iDone} đang mở`;
     }
 
     async function requestWakeLock() {
@@ -3179,7 +2560,7 @@
       if (!("Notification" in window) || Notification.permission !== "granted") return;
       const notiOptions = {
         body: body || 'Nhấn để mở ứng dụng Ái Nhuy',
-        icon: FALLBACK_MAIN_IMG,
+        icon: "n1.jpg",
         vibrate: [1000, 300, 1000, 300, 1500],
         requireInteraction: true,
         tag: 'shift-alarm'
@@ -3202,7 +2583,7 @@
       document.getElementById('alarmTitle').innerText = title;
       document.getElementById('alarmBanner').style.display = 'block';
 
-      triggerSystemNotification(title, 'Đã đến giờ nhắc trong ứng dụng Ái Nhuy!');
+      triggerSystemNotification(title, 'Đến giờ trực ca của bạn!');
 
       if (isAlarmPlaying) return;
       isAlarmPlaying = true;
@@ -3263,10 +2644,10 @@
 
     function escapeHtml(t) {
       if (!t) return '';
-      return String(t).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+      return t.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
     }
 
-    let localNotiMockState = safeStorageGet('ainhuy_noti_mock_state', 'default');
+    let localNotiMockState = localStorage.getItem('ainhuy_noti_mock_state') || 'default';
 
     function updateNotiButtonStatus() {
       const btn = document.getElementById('btnNotiStatus');
@@ -3301,11 +2682,11 @@
       if (!('Notification' in window)) {
         if (localNotiMockState === 'granted') {
           localNotiMockState = 'default';
-          safeStorageSet('ainhuy_noti_mock_state', 'default');
+          localStorage.setItem('ainhuy_noti_mock_state', 'default');
           showToast('Đã tắt báo!');
         } else {
           localNotiMockState = 'granted';
-          safeStorageSet('ainhuy_noti_mock_state', 'granted');
+          localStorage.setItem('ainhuy_noti_mock_state', 'granted');
           showToast('Đã bật báo!');
         }
         updateNotiButtonStatus();
@@ -3325,11 +2706,15 @@
       try {
         const requestPromise = Notification.requestPermission();
         if (requestPromise && typeof requestPromise.then === 'function') {
-          requestPromise.then(handlePermissionResult).catch(() => updateNotiButtonStatus());
+          requestPromise.then(permission => {
+            handlePermissionResult(permission);
+          }).catch(() => {
+            updateNotiButtonStatus();
+          });
         } else {
           Notification.requestPermission(handlePermissionResult);
         }
-      } catch (_) {
+      } catch (e) {
         showToast('Không thể yêu cầu quyền.');
       }
     }
@@ -3411,20 +2796,7 @@
           schedules.push({
             key: `${dateStr}_journal_${j.id}_${j.reminderTime}`,
             mins: parseHMToMinutes(j.reminderTime),
-            title: `⏰ NHẬT KÝ: ${String(j.title || '').toUpperCase()}`
-          });
-        }
-      });
-
-      issues.forEach(item => {
-        if (item.done || !item.reminderDateTime) return;
-        const dt = new Date(item.reminderDateTime);
-        if (isNaN(dt.getTime())) return;
-        if (dt.getFullYear() === now.getFullYear() && dt.getMonth() === now.getMonth() && dt.getDate() === now.getDate()) {
-          schedules.push({
-            key: `${dateStr}_issue_${item.id}_${item.reminderDateTime}`,
-            mins: dt.getHours() * 60 + dt.getMinutes(),
-            title: `⚡ VIỆC CẦN LÀM: ${String(item.title || '').toUpperCase()}`
+            title: `⏰ NHẬT KÝ: ${j.title.toUpperCase()}`
           });
         }
       });
@@ -3465,12 +2837,6 @@
     }
 
     function checkScheduler() {
-      const now = new Date();
-      const currentSlot = getTimeSlotKeyByHour(now.getHours());
-      if (activeTimeSlotKey !== null && currentSlot !== activeTimeSlotKey) {
-        updateGreetingHeader();
-      }
-
       if (isInitialBoot) {
         lastCheckTimestamp = Date.now();
         return;
@@ -3480,16 +2846,19 @@
     }
 
     function startBackgroundHeartbeatWorker() {
-      if (!window.Worker || !window.Blob) {
-        setInterval(checkScheduler, 1000);
-        return;
-      }
+      if (!window.Worker || !window.Blob) return;
       try {
-        const workerCode = `setInterval(() => postMessage('tick'), 1000);`;
+        const workerCode = `
+          setInterval(() => {
+            postMessage('tick');
+          }, 1000);
+        `;
         const blob = new Blob([workerCode], { type: 'application/javascript' });
         const workerUrl = URL.createObjectURL(blob);
         const worker = new Worker(workerUrl);
-        worker.onmessage = () => checkScheduler();
+        worker.onmessage = () => {
+          checkScheduler();
+        };
       } catch (_) {
         setInterval(checkScheduler, 1000);
       }
@@ -3507,30 +2876,33 @@
       } else {
         unlockAudioContext();
         updateNotiButtonStatus();
-        updateGreetingHeader();
-        initWeatherDetection();
-        if (!isInitialBoot) evaluateAlarms(true);
+        if (!isInitialBoot) {
+          evaluateAlarms(true);
+        }
         lastCheckTimestamp = Date.now();
       }
     });
 
     window.addEventListener('pagehide', handleAppBackgroundOrExit);
     window.addEventListener('freeze', handleAppBackgroundOrExit);
+    window.addEventListener('blur', () => {
+      if (document.hidden) {
+        handleAppBackgroundOrExit();
+      }
+    });
 
     window.addEventListener('focus', () => {
       unlockAudioContext();
       updateNotiButtonStatus();
-      updateGreetingHeader();
-      initWeatherDetection();
-      if (!isInitialBoot) evaluateAlarms(true);
+      if (!isInitialBoot) {
+        evaluateAlarms(true);
+      }
       lastCheckTimestamp = Date.now();
     });
 
     window.addEventListener('pageshow', (e) => {
       if (e.persisted) {
         lockAppScreen();
-        updateGreetingHeader();
-        initWeatherDetection();
         if (!isInitialBoot) evaluateAlarms(true);
       }
       unlockAudioContext();
@@ -3538,10 +2910,7 @@
     });
 
     document.addEventListener('DOMContentLoaded', () => {
-      applyTheme(currentTheme);
-      initSafeImages();
       lockAppScreen();
-      switchView('shifts');
       updateGreetingHeader();
       initWeatherDetection();
       initMonthWeeksDropdown();
@@ -3549,7 +2918,6 @@
       loadShiftTimeConfigUI();
       filterJournals();
       renderIssues();
-      shufflePuzzleTiles();
       updateDashboard();
       updateNotiButtonStatus();
 
